@@ -10,12 +10,16 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { PrincipalComponent } from './components/principal/principal.component';
+import { FichaCatastralComponent } from './components/ficha-catastral/ficha-catastral.component';
+import { MainNavbarComponent } from './components/main-navbar/main-navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    FichaCatastralComponent,
+    MainNavbarComponent
   ],
   imports: [
     BrowserModule,
