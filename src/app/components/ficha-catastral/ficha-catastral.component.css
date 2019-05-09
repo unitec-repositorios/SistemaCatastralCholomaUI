@@ -1,0 +1,15 @@
+.container {
+    text-align: center;
+}
+
+.example-form {
+    display: inline-block;
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    align-content: center;
+}
+  
+.example-full-width {
+    width: 100%;
+}
