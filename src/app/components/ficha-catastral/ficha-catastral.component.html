@@ -4,65 +4,61 @@
   <form class="example-form">
     <h3>Numero Catastral</h3>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Departamento">
+      <input matInput placeholder="Departamento" [(ngModel)]="ficha.depto">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Municipio">
+      <input matInput placeholder="Municipio" [(ngModel)]="ficha.municipio">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Aldea">
+      <input matInput placeholder="Aldea" [(ngModel)]="ficha.aldea">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Mapa">
+      <input matInput placeholder="Mapa" [(ngModel)]="ficha.mapa">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Bolque">
+      <input matInput placeholder="Bolque" [(ngModel)]="ficha.bolque">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Predio">
+      <input matInput placeholder="Predio" [(ngModel)]="ficha.predio">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Num">
+      <input matInput placeholder="Num" [(ngModel)]="ficha.num">
     </mat-form-field>
 
     <!--Segunda parte del formulario -->
     <h3>Datos Generales</h3>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="MAQ">
+      <input matInput placeholder="MAQ" [(ngModel)]="ficha.maq">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="S:T">
+      <input matInput placeholder="S:T" [(ngModel)]="ficha.st">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Codigo propiedad">
+      <input matInput placeholder="Codigo propiedad" [(ngModel)]="ficha.codProp">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Codigo HAB.">
+      <input matInput placeholder="Codigo HAB." [(ngModel)]="ficha.codHab">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="No. Linea">
+      <input matInput placeholder="No. Linea" [(ngModel)]="ficha.noLinea">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="No. Foto">
-    </mat-form-field>
-
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="No. Predio">
+      <input matInput placeholder="No. Foto" [(ngModel)]="ficha.noFoto">
     </mat-form-field>
     
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Poblacion o Sitio">
+      <input matInput placeholder="Poblacion o Sitio" [(ngModel)]="ficha.poblacion">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
@@ -70,7 +66,7 @@
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Tarjeta de Identidad">
+      <input matInput placeholder="Tarjeta de Identidad" [(ngModel)]="ficha.identidadPropietario">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
@@ -78,13 +74,13 @@
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Tomo">
+      <input matInput placeholder="Tomo" [(ngModel)]="ficha.tomo">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Asiento">
+      <input matInput placeholder="Asiento" [(ngModel)]="ficha.asiento">
     </mat-form-field>
 
-    <button mat-raised-button color="primary">Enviar</button>
+    <button mat-raised-button color="primary" (click)="submitForm()">Enviar</button>
   </form>
 </div>
