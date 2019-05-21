@@ -22,12 +22,12 @@ export class FichaUrbanaComponent implements OnInit {
 
   clickedButton1(){
     document.getElementById("prop-N").className = "selected-button";
-    document.getElementById("prop-C").className = "RadioButtons";
+    document.getElementById("prop-C").className = "toggle-buttons";
   }
 
   clickedButton2(){
     document.getElementById("prop-C").className = "selected-button";
-    document.getElementById("prop-N").className = "RadioButtons";
+    document.getElementById("prop-N").className = "toggle-buttons";
   }
 
   //constructor() { }

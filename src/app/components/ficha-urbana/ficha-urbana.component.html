@@ -13,8 +13,8 @@
 
           <mat-card class="card-style">
               <mat-button-toggle-group [(ngModel)]="tipoPropiedades"  name="tipoPropiedad" aria-label="Tipo Propiedad">
-                  <mat-button-toggle id="prop-N" class="RadioButtons" (click)="clickedButton1()" name="prop-normal" value="propiedad normal">Propiedad Normal</mat-button-toggle>
-                  <mat-button-toggle id="prop-C" class="RadioButtons" (click)="clickedButton2()" name="condominio" value="condominio">Condominio (P.H.)</mat-button-toggle>
+                  <mat-button-toggle id="prop-N" class="toggle-buttons" (click)="clickedButton1()" name="prop-normal" value="propiedad normal">Propiedad Normal</mat-button-toggle>
+                  <mat-button-toggle id="prop-C" class="toggle-buttons" (click)="clickedButton2()" name="condominio" value="condominio">Condominio (P.H.)</mat-button-toggle>
                 </mat-button-toggle-group>
             
                 <br/>
@@ -88,7 +88,13 @@
 
           <mat-card class="card-style">
 
-            <h5 class="special-titles">Información del Predio</h5>
+            <h5 class="special-titles">Información del Predio</h5> <br/>
+
+            <section class="">
+              <mat-checkbox class="RadioButtons" >En construcción</mat-checkbox>
+              <mat-checkbox class="RadioButtons" >No Legalizado</mat-checkbox>
+              <mat-checkbox class="RadioButtons" >Observación</mat-checkbox>
+            </section> <br/>
 
 
             <mat-form-field class="form-field">
@@ -105,16 +111,81 @@
               </mat-form-field>
             <mat-form-field class="form-field">
                 <input matInput placeholder="Sub Uso" name="sub-uso">
-              </mat-form-field>
+              </mat-form-field><br/>
             <mat-form-field [ngStyle]="{'width': '30em', 'margin-left': '20px'}">
                 <input matInput placeholder="Ubicación del Predio" name="ubicacion-predio">
               </mat-form-field> <br/>
+            <mat-form-field class="form-field">
+                <input matInput type="number" placeholder="Estatus Tributario" name="estatus-tributario">
+              </mat-form-field>
+            <mat-form-field [ngStyle]="{'width': '10em'}" class="form-field">
+                <input matInput type="number" placeholder="Código Propietario" name="codigo-propietario">
+              </mat-form-field>
+            <mat-form-field [ngStyle]="{'width': '10em'}" class="form-field">
+                <input matInput type="number" placeholder="Código Habitacional" name="codigo-habitacional">
+              </mat-form-field><br/>
+            <mat-form-field [ngStyle]="{'width': '10em'}" class="form-field">
+                <input [ngStyle]="{'color': 'red'}" matInput placeholder="Futuras Revisiones" name="futuras-revisiones">
+              </mat-form-field>
+            <mat-form-field class="form-field">
+                <input matInput type="number" placeholder="% Exención" name="exencion">
+              </mat-form-field>
+            <mat-form-field class="form-field">
+                <input [ngStyle]="{'color': 'red'}" matInput type="number" placeholder="Tasa Impositiva" name="tasa-impositiva">
+              </mat-form-field>
+            <mat-form-field class="form-field">
+                <input [ngStyle]="{'color': 'red'}" matInput type="number" placeholder="% Concertación" name="concertacion">
+              </mat-form-field> <br/><br/>
 
-            <section class="">
-              <mat-checkbox class="RadioButtons" >En construcción</mat-checkbox>
-              <mat-checkbox class="RadioButtons" >No Legalizado</mat-checkbox>
-              <mat-checkbox class="RadioButtons" >Observación</mat-checkbox>
-            </section>
+            <mat-divider class="mat-divider" ></mat-divider><br/><br/>
+
+            <button [ngStyle]="{'margin-left': '23%'}" class="button" color="primary" mat-raised-button>Información Legal del Predio</button>
+            <button class="button" color="primary" mat-raised-button>Características del Predio</button>
+            <button class="button" color="primary" mat-raised-button>Datos Complementarios</button> <br/><br/><br/>
+
+
+            <mat-form-field class="show-data-form">
+                <input type="number" matInput placeholder="Terreno" name="terreno">
+              </mat-form-field>
+
+            <mat-form-field class="long-form-field">
+                <input type="number" matInput placeholder="Edificaciones" name="edificaciones">
+              </mat-form-field><br/>
+
+            <mat-form-field class="show-data-form">
+                <input type="number" matInput placeholder="Detalles Adicionales" name="detalles-adicionales">
+              </mat-form-field>
+
+            <mat-form-field class="long-form-field">
+                <input type="number" matInput placeholder="Cultivos Permanentes" name="cultivos-permanentes">
+              </mat-form-field><br/><br/>
+
+            <mat-form-field class="center-long-data">
+                <input type="number" matInput placeholder="Valor Declarado" name="valor-declarado">
+              </mat-form-field><br/>
+
+            <mat-form-field class="center-long-data">
+                <input readonly type="number" matInput placeholder="Avalúo Total" name="avaluo-total">
+              </mat-form-field><br/>
+
+            <mat-form-field class="center-long-data">
+                <input readonly type="number" matInput placeholder="Exención" name="exencion-tot">
+              </mat-form-field><br/>
+
+            <mat-form-field class="center-long-data">
+                <input readonly type="number" matInput placeholder="Valor Grabable" name="valor-grabable">
+              </mat-form-field><br/>
+
+            <mat-form-field class="center-long-data">
+                <input readonly type="number" matInput placeholder="Impuesto" name="impuesto">
+              </mat-form-field><br/>
+
+
+            <mat-form-field class="center-long-data">
+                <input type="number" matInput placeholder="Estado del Predio" name="estado-predio">
+              </mat-form-field><br/>
+
+
             
           </mat-card>
             <br/>
