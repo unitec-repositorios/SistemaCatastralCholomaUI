@@ -1,0 +1,122 @@
+<app-main-navbar></app-main-navbar>
+
+<div class="background">
+  <h1 class="Title">Ficha Catastral Urbana</h1>
+    <form class="example-form">
+
+        <!-- <mat-radio-group
+            [(ngModel)]="tipoPropiedades"  name="radioGroup1">
+            <mat-radio-button name="radioButtons1" class="RadioButtons" *ngFor="let propiedad of Propiedades" [value]="propiedad">
+              {{propiedad}}
+            </mat-radio-button>
+          </mat-radio-group> -->
+
+          <mat-card class="card-style">
+              <mat-button-toggle-group [(ngModel)]="tipoPropiedades"  name="tipoPropiedad" aria-label="Tipo Propiedad">
+                  <mat-button-toggle id="prop-N" class="RadioButtons" (click)="clickedButton1()" name="prop-normal" value="propiedad normal">Propiedad Normal</mat-button-toggle>
+                  <mat-button-toggle id="prop-C" class="RadioButtons" (click)="clickedButton2()" name="condominio" value="condominio">Condominio (P.H.)</mat-button-toggle>
+                </mat-button-toggle-group>
+            
+                <br/>
+
+              <mat-form-field class="special-form-field">
+                  <input matInput placeholder="Mapa" name="mapa">
+                </mat-form-field>
+              <mat-form-field class="special-form-field">
+                  <input matInput placeholder="Bloque" name="bloque">
+                </mat-form-field>
+              <mat-form-field class="special-form-field">
+                  <input matInput placeholder="Predio" name="predio">
+                </mat-form-field>
+            </mat-card> <br/>
+
+
+            <mat-card class="card-style">
+
+              <h5 class="special-titles">Propietario o Razón Social</h5> <br/>
+
+              <mat-form-field class="form-field">
+                  <input matInput placeholder="Clave SURE" name="clave-sure">
+                </mat-form-field>
+              <mat-form-field class="form-field">
+                  <input matInput placeholder="Clave Anterior" name="clave-anterior">
+                </mat-form-field> <br/>
+
+              <mat-form-field class="form-field">
+                  <input matInput placeholder="Identidad" name="identidad">
+                </mat-form-field>
+              <mat-form-field class="form-field">
+                  <input matInput placeholder="Telefono" name="telefono">
+                </mat-form-field>
+
+              <mat-form-field class="long-form-field">
+                  <input matInput placeholder="Nombres" name="nombres">
+                </mat-form-field>
+              <mat-form-field class="long-form-field">
+                  <input matInput placeholder="Apellidos" name="apellidos">
+                </mat-form-field><br/>
+
+              <mat-form-field class="long-form-field">
+                  <input matInput placeholder="RTN" name="rtn">
+                </mat-form-field>
+              
+              <mat-form-field class="form-field">
+                <mat-select [(ngModel)]="sexo" placeholder="Sexo" name="sexo">
+                  <mat-option value="Masculino">Masculino</mat-option>
+                  <mat-option value="Femenino">Femenino</mat-option>
+                </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="long-form-field">
+                    <input matInput placeholder="Nacionalidad" name="nacionalidad">
+                  </mat-form-field>
+              
+          </mat-card><br/>
+
+          <mat-card class="card-style">
+
+            <h5 class="special-titles">Nombre de Negocios</h5><br/>
+            <mat-list [ngStyle]="{'margin-left': '25px'}">
+                <mat-list-item class="list-item" *ngFor="let Negocio of Negocios">
+                  <h3 [ngStyle]="{'font-size': '16pt'}" mat-line>{{Negocio.nombre}}</h3>
+                  <p [ngStyle]="{'font-style': 'italic'}" mat-line>{{Negocio.direccion}}</p>
+                </mat-list-item>
+              </mat-list> <br/>
+          
+          </mat-card> <br/>
+
+
+          <mat-card class="card-style">
+
+            <h5 class="special-titles">Información del Predio</h5>
+
+
+            <mat-form-field class="form-field">
+                <input matInput placeholder="Barrio" name="barrio">
+              </mat-form-field>
+            <mat-form-field class="form-field">
+                <input matInput placeholder="Caserío" name="caserio">
+              </mat-form-field>
+            <mat-form-field class="form-field">
+                <input matInput placeholder="Sitio" name="sitio">
+              </mat-form-field>
+            <mat-form-field class="form-field">
+                <input matInput placeholder="Uso" name="uso">
+              </mat-form-field>
+            <mat-form-field class="form-field">
+                <input matInput placeholder="Sub Uso" name="sub-uso">
+              </mat-form-field>
+            <mat-form-field [ngStyle]="{'width': '30em', 'margin-left': '20px'}">
+                <input matInput placeholder="Ubicación del Predio" name="ubicacion-predio">
+              </mat-form-field> <br/>
+
+            <section class="">
+              <mat-checkbox class="RadioButtons" >En construcción</mat-checkbox>
+              <mat-checkbox class="RadioButtons" >No Legalizado</mat-checkbox>
+              <mat-checkbox class="RadioButtons" >Observación</mat-checkbox>
+            </section>
+            
+          </mat-card>
+            <br/>
+    </form>
+</div>

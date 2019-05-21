@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
         res => {
           console.log(res);
           let user: any = res;
-          if(user.nombre == this.username && user.password == this.password) {
+          if( user.nombre == this.username && user.password == this.password ) {
             this.router.navigate(['modules']);
           }
           else {
@@ -36,14 +36,14 @@ export class LoginComponent implements OnInit {
           console.log(err);
         }
       )
-    /*  
-    if(this.username == 'Ad' && this.password == '1234') {
+     
+    /* if(this.username == 'Ad' && this.password == '1234') {
       this.router.navigate(['modules']);
     }
     else {
       alert('Usuario y/o contraseña incorrectos');
-    }
-    */
+    } */
+   
   }
 
 }
