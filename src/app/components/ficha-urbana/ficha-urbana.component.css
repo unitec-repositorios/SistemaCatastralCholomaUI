@@ -7,11 +7,12 @@
 .special-form-field {
     text-align: left;
     margin: 20px 20px 0px 20px;
-    width: 6em;
-    border-color: red;
+    width: 8em;
+    font-weight: bold;
+    /* border-color: red;
     border-style: solid;
     border-width: 0.25em;
-    border-radius: 30px;
+    border-radius: 30px; */
 }
 
 .card-style {
@@ -97,7 +98,8 @@
 }
 
 .button {
-    margin: 0 20px 0 0;
+    margin: 0 20px 0 95px;
+    transform: scale(1.5, 1.5);
 }
 
 .show-data-form {
