@@ -5,13 +5,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { FichaCatastralComponent } from './components/ficha-catastral/ficha-catastral.component';
+import { FichaUrbanaComponent } from './components/ficha-urbana/ficha-urbana.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'modules', component: PrincipalComponent },
   { path: 'fichaCatastral', component: FichaCatastralComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-
+  { path: 'fichaUrbana', component: FichaUrbanaComponent},
 ];
 
 @NgModule({
