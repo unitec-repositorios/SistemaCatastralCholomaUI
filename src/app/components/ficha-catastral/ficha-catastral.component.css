@@ -1,15 +1,30 @@
-.container {
-    text-align: center;
+.example-form {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.example-form {
-    display: inline-block;
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-    align-content: center;
+.mat-form-field {
+    text-align: left;
+    margin: 0px 20px 0px 20px;
+    width: 8em;
 }
-  
-.example-full-width {
-    width: 100%;
+
+.card-style {
+    margin: 0px 45px 0px 45px;
+    background-color: rgb(255, 233, 143);
+    box-shadow: -4px 4px 0.4em;
+    border-radius: 20px;
+    padding: 25px 35px 45px 35px;
+}
+
+.form-field {
+    text-align: left;
+    margin: 0px 20px 0px 20px;
+    width: 8em;
+}
+
+.Title {
+    text-align: center;
+    text-shadow: 2px 2px 12px yellow;
+    color: forestgreen;
 }
