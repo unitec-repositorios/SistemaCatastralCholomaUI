@@ -87,14 +87,24 @@
 
 
           <mat-card class="card-style">
-
             <h5 class="special-titles">Información del Predio</h5> <br/>
 
-            <section class="">
+            <!-- <section class="">
               <mat-checkbox class="RadioButtons" >En construcción</mat-checkbox>
               <mat-checkbox class="RadioButtons" >No Legalizado</mat-checkbox>
               <mat-checkbox class="RadioButtons" >Observación</mat-checkbox>
-            </section> <br/>
+            </section> <br/> -->
+
+            <mat-form-field class="long-form-field">
+              <input matInput placeholder="En construcción" name="enConsrucción">
+            </mat-form-field>
+            <mat-form-field class="long-form-field">
+              <input matInput placeholder="No legalizado" name="noLegalizado">
+            </mat-form-field>
+            <mat-form-field class="long-form-field">
+              <input matInput placeholder="Observación" name="observacion">
+            </mat-form-field><br/>
+
 
 
             <mat-form-field class="form-field">

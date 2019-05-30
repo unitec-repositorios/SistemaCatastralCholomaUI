@@ -21,6 +21,10 @@
     padding: 25px 35px 45px 35px;
 }
 
+.colorredinput::-webkit-input-placeholder {
+    color: red;
+}
+
 .list-item {
     background-color: inherit;
     box-shadow: -4px 4px 0.4em;
