@@ -17,9 +17,7 @@
 
 .card-style {
     margin: 0px 45px 0px 45px;
-    background-color: rgb(255, 233, 143);
-    box-shadow: -4px 4px 0.4em;
-    border-radius: 20px;
+    background-color: rgb(245, 245, 245);
     padding: 25px 35px 45px 35px;
 }
 
