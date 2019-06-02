@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import {
   MatButtonModule, MatCardModule, MatDialogModule, MatInputModule, MatTableModule,
   MatToolbarModule, MatMenuModule,MatIconModule, MatProgressSpinnerModule, MatFormFieldModule,
-  MatSelectModule, MatRadioModule, MatButtonToggleModule, MatDividerModule, MatListModule, MatCheckboxModule
+  MatSelectModule, MatRadioModule, MatButtonToggleModule, MatDividerModule, MatListModule, MatCheckboxModule, MatDatepickerModule, MatNativeDateModule, 
 } from '@angular/material';
 
 @NgModule({
@@ -23,7 +23,9 @@ import {
   MatButtonToggleModule,
   MatDividerModule,
   MatListModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
   ],
   exports: [
   CommonModule,
@@ -42,7 +44,9 @@ import {
    MatButtonToggleModule,
    MatDividerModule,
    MatListModule,
-   MatCheckboxModule
+   MatCheckboxModule,
+   MatDatepickerModule,
+   MatNativeDateModule,
    ],
 })
 export class CustomMaterialModule { }
