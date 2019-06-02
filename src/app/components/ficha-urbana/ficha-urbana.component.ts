@@ -1,7 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FichaUrbana } from '../../models/ficha-urbana';
 import { FichaUrbanaService } from 'src/app/services/ficha-urbana.service';
 
+
+export interface DialogData {
+  animal: string;
+  name: string;
+}
+
+export const MY_FORMATS = {
+  parse: {
+    dateInput: 'LL',
+  },
+  display: {
+    dateInput: 'YYYY-MM-DD',
+    monthYearLabel: 'YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'YYYY',
+  },
+};
 
 @Component({
   selector: 'app-ficha-urbana',
@@ -12,6 +30,9 @@ import { FichaUrbanaService } from 'src/app/services/ficha-urbana.service';
 export class FichaUrbanaComponent implements OnInit {
 
   ficha: FichaUrbana = new FichaUrbana();
+
+  animal: string;
+  name: string;
 
   tipoPropiedades: string;
   Propiedades: string[] = ['Propiedad Normal', 'Condominio (P.H.)'];
@@ -26,7 +47,6 @@ export class FichaUrbanaComponent implements OnInit {
   ];
 
   sexo: string;
-
   clickedButton1(){
     document.getElementById("prop-N").className = "selected-button";
     document.getElementById("prop-C").className = "toggle-buttons";
@@ -39,7 +59,7 @@ export class FichaUrbanaComponent implements OnInit {
 
   //constructor() { }
 
-  constructor(private fichasService: FichaUrbanaService) { }
+  constructor(private fichasService: FichaUrbanaService, public dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -59,6 +79,35 @@ export class FichaUrbanaComponent implements OnInit {
         alert('Error al agregar ficha');
       }
     )
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DatosLegalesPredioDialog, {
+      width: '80%',
+      data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+
+}
+
+@Component({
+  selector: 'app-ficha-urbana/DatosLegalesPredioDialog',
+  templateUrl: './popups/DatosLegalesPredio/DatosLegalesPredioDialog.html',
+  styleUrls: ['./ficha-urbana.component.css']
+})
+export class DatosLegalesPredioDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<DatosLegalesPredioDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }

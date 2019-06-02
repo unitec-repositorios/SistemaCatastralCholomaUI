@@ -4,6 +4,18 @@
     width: 8em;
 }
 
+.long-form-field {
+    text-align: left;
+    margin: 0px 20px 0px 20px;
+    width: 13em;
+}
+
+.short-form-field {
+    text-align: left;
+    margin: 0px 20px 0px 20px;
+    width: 5em;
+}
+
 .special-form-field {
     text-align: left;
     margin: 20px 20px 0px 20px;
@@ -32,11 +44,6 @@
     border-radius: 10px;
 }
 
-.long-form-field {
-    text-align: left;
-    margin: 0px 20px 0px 20px;
-    width: 13em;
-}
 
 .RadioButtons {
     margin: 0 15px 0 25px;
@@ -99,7 +106,7 @@
 }
 
 .button {
-    margin: 0 20px 0 95px;
+    margin: 0 20px 20px 95px;
     transform: scale(1.5, 1.5);
 }
 
