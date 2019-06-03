@@ -1,0 +1,89 @@
+<h1 mat-dialog-title>Datos Legales del Predio</h1>
+<div mat-dialog-content>
+  <mat-form-field class="long-form-field">
+  <mat-select placeholder="Registro / Propiedad">
+    <mat-option value="" >Valor 1</mat-option>
+  </mat-select>
+  </mat-form-field>
+  <mat-form-field class="short-form-field">
+    <input matInput placeholder="Tomo" name="tomo">
+  </mat-form-field>
+  <mat-form-field class="short-form-field">
+    <input matInput placeholder="Folio" name="folio">
+  </mat-form-field>
+  <mat-form-field class="short-form-field">
+    <input matInput placeholder="Asiento" name="asiento">
+  </mat-form-field><br/>
+
+  <mat-form-field class="long-form-field">
+    <input matInput [matDatepicker]="picker" placeholder="Fecha de Inscripción" disabled>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker disabled="false"></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field class="short-form-field">
+    <input matInput placeholder="Matrícula" name="matricula">
+  </mat-form-field>
+  <mat-form-field class="short-form-field">
+    <input matInput placeholder="Línea" name="linea">
+  </mat-form-field>
+  <mat-form-field class="short-form-field">
+    <input matInput placeholder="Foto" name="foto">
+  </mat-form-field><br/>
+
+  <mat-form-field class="long-form-field">
+    <mat-select placeholder="Naturaleza Jurídica">
+      <mat-option value="privado" >Privado</mat-option>
+      <mat-option value="ejidal" >Ejidal</mat-option>
+      <mat-option value="nacional" >Nacional</mat-option>
+      <mat-option value="municipalPrivado" >Municipal Privado</mat-option>
+      <mat-option value="fiscal" >Fiscal</mat-option>
+      <mat-option value="otra" >Otra</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="long-form-field">
+    <mat-select placeholder="Clase de Dominio">
+      <mat-option value="dominioPlano" >Dominio Plano</mat-option>
+      <mat-option value="dominioUtil" >Dominio Útil</mat-option>
+      <mat-option value="ocupacion" >Ocupación</mat-option>
+      <mat-option value="posesion" >Posesión</mat-option>
+      <mat-option value="beneficiario" >Beneficionario R,A</mat-option>
+      <mat-option value="otra" >Otra</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="long-form-field">
+    <mat-select placeholder="Tipo de Documento">
+      <mat-option value="privado" >Privado</mat-option>
+      <mat-option value="publico" >Público</mat-option>
+      <mat-option value="sinDocumento" >Sin Documento</mat-option>
+    </mat-select>
+  </mat-form-field><br/>
+
+  <mat-form-field class="short-form-field">
+    <input type="number" matInput placeholder="Área" name="area">
+  </mat-form-field>
+
+  <mat-form-field class="long-form-field">
+    <mat-select placeholder="Unidad de Área">
+      <mat-option value="varas" >VRS Cuadradas</mat-option>
+      <mat-option value="metros" >MTS Cuadrados</mat-option>
+      <mat-option value="manzanas" >Manzanas</mat-option>
+      <mat-option value="hectareas" >Hectáreas</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="long-form-field">
+    <mat-select placeholder="Tipo de Medida">
+      <mat-option value="topografía" >Topografía</mat-option>
+      <mat-option value="segunDocumento" >Según Documento</mat-option>
+      <mat-option value="registrada" >Registrada</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>
+
+<div mat-dialog-actions>
+  <button  mat-raised-button (click)="onNoClick()">Regresar</button>
+  <button mat-raised-button [mat-dialog-close]="data.animal" cdkFocusInitial>Confirmar</button>
+</div>

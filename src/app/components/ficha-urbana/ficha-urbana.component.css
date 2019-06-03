@@ -121,3 +121,7 @@
     width: 13em;
     text-align: left;
 }
+
+table {
+    width: 100%;
+}
