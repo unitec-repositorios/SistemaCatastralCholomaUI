@@ -26,3 +26,9 @@
     text-shadow: 2px 2px 12px yellow;
     color: forestgreen;
 }
+
+.special-titles {
+    color: red;
+    text-transform: uppercase;
+    margin: 25px 25px 10px 25px;
+}

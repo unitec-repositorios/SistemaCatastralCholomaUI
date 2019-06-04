@@ -27,51 +27,13 @@
                 </mat-form-field>
               <mat-form-field class="special-form-field">
                   <input matInput [(ngModel)]="predio" placeholder="Predio" name="predio">
-                </mat-form-field>
+                </mat-form-field><br/><br/>
+
+              <h5 class="special-titles">Propietario</h5>
+              <mat-form-field class="form-field">
+                <input matInput [(ngModel)]="ficha.id" placeholder="Identidad" name="identidad">
+              </mat-form-field>
             </mat-card> <br/>
-
-
-            <mat-card class="card-style">
-
-              <h5 class="special-titles">Propietario o Razón Social</h5> <br/>
-
-              <mat-form-field class="form-field">
-                  <input matInput [(ngModel)]="ficha.claveSure" placeholder="Clave SURE" name="clave-sure">
-                </mat-form-field>
-              <mat-form-field class="form-field">
-                  <input matInput [(ngModel)]="ficha.claveAnterior" placeholder="Clave Anterior" name="clave-anterior">
-                </mat-form-field> <br/>
-
-              <mat-form-field class="form-field">
-                  <input matInput [(ngModel)]="ficha.id" placeholder="Identidad" name="identidad">
-                </mat-form-field>
-              <mat-form-field class="form-field">
-                  <input matInput [(ngModel)]="ficha.telefono" placeholder="Telefono" name="telefono">
-                </mat-form-field>
-
-              <mat-form-field class="long-form-field">
-                  <input matInput [(ngModel)]="ficha.nombres" placeholder="Nombres" name="nombres">
-                </mat-form-field>
-              <mat-form-field class="long-form-field">
-                  <input matInput [(ngModel)]="ficha.apellidos" placeholder="Apellidos" name="apellidos">
-                </mat-form-field><br/>
-
-              <mat-form-field class="long-form-field">
-                  <input matInput [(ngModel)]="ficha.rtn" placeholder="RTN" name="rtn">
-                </mat-form-field>
-              
-              <mat-form-field class="form-field">
-                <mat-select [(ngModel)]="ficha.sexo" placeholder="Sexo" name="sexo">
-                  <mat-option value="M">Masculino</mat-option>
-                  <mat-option value="F">Femenino</mat-option>
-                </mat-select>
-                </mat-form-field>
-
-                <mat-form-field class="long-form-field">
-                    <input matInput [(ngModel)]="ficha.nacionalidad" placeholder="Nacionalidad" name="nacionalidad">
-                  </mat-form-field>
-              
-          </mat-card><br/>
 
           <mat-card class="card-style">
 
@@ -154,19 +116,21 @@
             <button class="button" color="primary" (click)="openDialog3()" mat-raised-button>Datos Complementarios</button> <br/><br/><br/>
 
 
-            <mat-form-field class="show-data-form">
+            <mat-form-field class="center-long-data">
                 <input type="number" matInput placeholder="Terreno" name="terreno">
-              </mat-form-field>
-
-            <mat-form-field class="long-form-field">
-                <input type="number" matInput placeholder="Edificaciones" name="edificaciones">
               </mat-form-field><br/>
 
-            <mat-form-field class="show-data-form">
-                <input type="number" matInput placeholder="Detalles Adicionales" name="detalles-adicionales">
+            <mat-form-field class="center-long-data">
+                <input type="number" matInput placeholder="Edificaciones" name="edificaciones">
               </mat-form-field>
+              <button class="button" color="primary" mat-raised-button>Avalúo de Edificaciones</button>
+              <br/>
 
-            <mat-form-field class="long-form-field">
+            <mat-form-field class="center-long-data">
+                <input type="number" matInput placeholder="Detalles Adicionales" name="detalles-adicionales">
+              </mat-form-field><br/>
+
+            <mat-form-field class="center-long-data">
                 <input type="number" matInput placeholder="Cultivos Permanentes" name="cultivos-permanentes">
               </mat-form-field><br/><br/>
 
