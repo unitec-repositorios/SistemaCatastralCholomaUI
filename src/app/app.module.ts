@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { FichaCatastralComponent } from './components/ficha-catastral/ficha-catastral.component';
+import { PropietarioComponent } from './components/propietario/propietario.component';
 import { MainNavbarComponent } from './components/main-navbar/main-navbar.component';
 import { FichaUrbanaComponent, DatosLegalesPredioDialog, DatosComplementariosDialog } from './components/ficha-urbana/ficha-urbana.component';
 
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     MainNavbarComponent,
     FichaUrbanaComponent,
     DatosLegalesPredioDialog,
-    DatosComplementariosDialog
+    DatosComplementariosDialog,
+    PropietarioComponent
   ],
   imports: [
     BrowserModule,

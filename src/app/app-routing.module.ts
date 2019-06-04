@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { FichaCatastralComponent } from './components/ficha-catastral/ficha-catastral.component';
 import { FichaUrbanaComponent } from './components/ficha-urbana/ficha-urbana.component';
+import { PropietarioComponent } from './components/propietario/propietario.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'fichaCatastral', component: FichaCatastralComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'fichaUrbana', component: FichaUrbanaComponent},
+  { path: 'propietario', component: PropietarioComponent},
 ];
 
 @NgModule({

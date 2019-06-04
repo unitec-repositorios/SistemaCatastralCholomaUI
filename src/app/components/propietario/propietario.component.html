@@ -1,0 +1,52 @@
+<title>Propietario</title>
+<app-main-navbar></app-main-navbar>
+
+<div>
+
+  <h1 class="Title">Propietario</h1>
+
+  <mat-card class="card-style">
+
+      <h5 class="special-titles">Propietario o Razón Social</h5> <br/>
+
+      <mat-form-field class="form-field">
+        <input matInput [(ngModel)]="propietario.claveSure" placeholder="Clave SURE" name="clave-sure">
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <input matInput [(ngModel)]="propietario.claveAnterior" placeholder="Clave Anterior" name="clave-anterior">
+      </mat-form-field> <br/>
+
+      <mat-form-field class="form-field">
+        <input type="number" matInput [(ngModel)]="propietario.id" placeholder="Identidad" name="identidad">
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <input type="number" matInput [(ngModel)]="propietario.telefono" placeholder="Telefono" name="telefono">
+      </mat-form-field>
+
+      <mat-form-field class="long-form-field">
+        <input matInput [(ngModel)]="propietario.nombres" placeholder="Nombres" name="nombres">
+      </mat-form-field>
+      <mat-form-field class="long-form-field">
+        <input matInput [(ngModel)]="propietario.apellidos" placeholder="Apellidos" name="apellidos">
+      </mat-form-field><br/>
+
+      <mat-form-field class="long-form-field">
+        <input type="number" matInput [(ngModel)]="propietario.rtn" placeholder="RTN" name="rtn">
+      </mat-form-field>
+      
+      <mat-form-field class="form-field">
+        <mat-select [(ngModel)]="propietario.sexo" placeholder="Sexo" name="sexo">
+          <mat-option value="M">Masculino</mat-option>
+          <mat-option value="F">Femenino</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+        <mat-form-field class="long-form-field">
+          <input matInput [(ngModel)]="propietario.nacionalidad" placeholder="Nacionalidad" name="nacionalidad">
+        </mat-form-field><br/>
+
+        <button [ngStyle]="{'margin-left': '45%'}" (click)="submitForm()" class="button" color="primary" mat-raised-button>Registrar</button>
+
+  </mat-card>
+
+</div>
