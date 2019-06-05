@@ -111,6 +111,18 @@ export class FichaUrbanaComponent implements OnInit {
     });
   }
 
+  openDialog4(): void {
+    const dialogRef = this.dialog.open(AvaluoTerrenoUrbanoDialog, {
+      width: '80%',
+      data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+
 }
 
 @Component({
@@ -168,6 +180,22 @@ export class DatosComplementariosDialog {
   dataSource = DATOS_COMPLEMENTARIOS_DATA;
   constructor(
     public dialogRef: MatDialogRef<DatosComplementariosDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+@Component({
+  selector: 'app-ficha-urbana/AvaluoTerrenoUrbano',
+  templateUrl: './popups/AvaluoTerrenoUrbano/AvaluoTerrenoUrbanoDialog.html',
+  styleUrls: ['./ficha-urbana.component.css']
+})
+export class AvaluoTerrenoUrbanoDialog {
+  constructor(
+    public dialogRef: MatDialogRef<AvaluoTerrenoUrbanoDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
 

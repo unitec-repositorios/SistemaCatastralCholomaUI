@@ -1,0 +1,61 @@
+<div mat-dialog-content>
+    <title>Avalúo de Terreno Urbano</title>
+
+    <h4 [ngStyle]="{'margin-left': '37%'}" class="special-titles">Datos Avalúo del Terreno</h4><br/>
+        <p [ngStyle]="{'font-weight': '700'}">Fracción 1</p>
+        <mat-form-field class="form-field">
+            <input matInput type="number" placeholder="Valor Básico Lps." name="valorBasico">
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+            <input matInput type="number" placeholder="Área (M2)" name="area">
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+            <input matInput type="number" placeholder="Parcela Típica" name="parcelaTipica">
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+            <input matInput type="number" placeholder="Factor Modifiicación" name="factorMod">
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+            <input matInput type="number" placeholder="Frente" name="frente">
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+            <input matInput type="number" placeholder="Esquina" name="esquina">
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+            <input readonly [ngStyle]="{'color': 'red'}" type="number" matInput placeholder="" name="">
+        </mat-form-field><br/>
+
+        <p [ngStyle]="{'font-weight': '700'}">Fracción 2</p>
+        <mat-form-field class="form-field">
+            <input matInput type="number" placeholder="Valor Básico Lps." name="valorBasico2">
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+            <input matInput type="number" placeholder="Área (M2)" name="area2">
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+            <input matInput type="number" placeholder="Parcela Típica" name="parcelaTipica2">
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+            <input matInput type="number" placeholder="Factor Modifiicación" name="factorMod2">
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+            <input matInput type="number" placeholder="Frente" name="frente2">
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+            <input matInput type="number" placeholder="Topografía" name="topografía">
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+            <input readonly [ngStyle]="{'color': 'red'}" type="number" matInput placeholder="" name="">
+        </mat-form-field><br/>
+
+        <span [ngStyle]="{'width': '60%'}"></span>
+        <body [ngStyle]="{'font-weight': '700'}">
+            Avaluo Terreno:
+            <mat-form-field class="form-field">
+                <input readonly [ngStyle]="{'color': 'red'}" type="number" matInput placeholder="" name="">
+            </mat-form-field><br/>
+        </body>
+
+
+
+</div>
