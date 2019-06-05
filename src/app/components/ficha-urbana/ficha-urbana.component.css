@@ -33,6 +33,12 @@
     padding: 25px 35px 45px 35px;
 }
 
+.dialog-card-style {
+    margin: 0px 45px 15px 15px;
+    background-color: rgb(245, 245, 245);
+    padding: 25px 35px 25px 35px;
+}
+
 .colorredinput::-webkit-input-placeholder {
     color: red;
 }
@@ -124,4 +130,9 @@
 
 table {
     width: 100%;
+}
+
+.info-label {
+    font-weight: 600;
+    font-style: italic;
 }
