@@ -123,6 +123,18 @@ export class FichaUrbanaComponent implements OnInit {
     });
   }
 
+  openDialog5(): void {
+    const dialogRef = this.dialog.open(AvaluoEdificacionesDialog, {
+      width: '80%',
+      data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+
 }
 
 @Component({
@@ -196,6 +208,22 @@ export class DatosComplementariosDialog {
 export class AvaluoTerrenoUrbanoDialog {
   constructor(
     public dialogRef: MatDialogRef<AvaluoTerrenoUrbanoDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+@Component({
+  selector: 'app-ficha-urbana/AvaluoEdificaciones',
+  templateUrl: './popups/AvaluoEdificaciones/AvaluoEdificacionesDialog.html',
+  styleUrls: ['./ficha-urbana.component.css']
+})
+export class AvaluoEdificacionesDialog {
+  constructor(
+    public dialogRef: MatDialogRef<AvaluoEdificacionesDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
 

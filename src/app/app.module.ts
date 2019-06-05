@@ -13,7 +13,8 @@ import { PrincipalComponent } from './components/principal/principal.component';
 import { FichaCatastralComponent } from './components/ficha-catastral/ficha-catastral.component';
 import { PropietarioComponent } from './components/propietario/propietario.component';
 import { MainNavbarComponent } from './components/main-navbar/main-navbar.component';
-import { FichaUrbanaComponent, DatosLegalesPredioDialog, DatosComplementariosDialog, AvaluoTerrenoUrbanoDialog } from './components/ficha-urbana/ficha-urbana.component';
+import { FichaUrbanaComponent, DatosLegalesPredioDialog, DatosComplementariosDialog, 
+  AvaluoTerrenoUrbanoDialog, AvaluoEdificacionesDialog } from './components/ficha-urbana/ficha-urbana.component';
 
 //importar el http module para poder usar HTTP Client
 import { HttpClientModule } from '@angular/common/http';
@@ -29,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     DatosLegalesPredioDialog,
     DatosComplementariosDialog,
     AvaluoTerrenoUrbanoDialog,
+    AvaluoEdificacionesDialog,
     PropietarioComponent,
   ],
   imports: [
@@ -43,6 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
     DatosLegalesPredioDialog,
     DatosComplementariosDialog,
     AvaluoTerrenoUrbanoDialog,
+    AvaluoEdificacionesDialog
   ],
   providers: [],
   bootstrap: [AppComponent]

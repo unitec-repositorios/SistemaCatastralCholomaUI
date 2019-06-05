@@ -114,6 +114,9 @@
             <button [ngStyle]="{'margin-left': '23%'}" (click)="openDialog()" class="button" color="primary" mat-raised-button>Información Legal del Predio</button>
             <button class="button" color="primary" mat-raised-button>Características del Predio</button>
             <button class="button" color="primary" (click)="openDialog3()" mat-raised-button>Datos Complementarios</button> <br/><br/><br/>
+            <button class="button" color="primary" (click)="openDialog4()" mat-raised-button>Avalúo de Terrenos</button>
+            <button class="button" color="primary" (click)="openDialog5()" mat-raised-button>Avalúo de Edificaciones</button>
+            <br/>
 
 
             <mat-form-field class="center-long-data">
@@ -123,9 +126,6 @@
             <mat-form-field class="center-long-data">
                 <input type="number" matInput placeholder="Edificaciones" name="edificaciones">
               </mat-form-field>
-
-              <button class="button" color="primary" (click)="openDialog4()" mat-raised-button>Avalúo de Edificaciones</button>
-              <br/>
 
             <mat-form-field class="center-long-data">
                 <input type="number" matInput placeholder="Detalles Adicionales" name="detalles-adicionales">
