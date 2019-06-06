@@ -1,0 +1,200 @@
+<h1 class="special-titles" mat-dialog-title>Características Rurales</h1>
+<div mat-dialog-content>
+    <h5 class="special-titles">Características de la Vecindad</h5>
+    <mat-form-field class="short-form-field">
+        <input matInput placeholder="Iglesia" name="iglesia">
+    </mat-form-field>
+    <mat-form-field class="short-form-field">
+        <input matInput placeholder="Escuela" name="escuela">
+    </mat-form-field>
+    <mat-form-field class="short-form-field">
+        <input matInput placeholder="Sitio de Embarque (Kms)" name="sitioEmbarque">
+    </mat-form-field>
+    <mat-form-field class="short-form-field">
+        <input matInput placeholder="Mercado más Cercano(Kms)" name="mercadoCercano">
+    </mat-form-field>
+
+    <mat-divider class="mat-divider"></mat-divider>
+
+    <h4>Características de la Propiedad</h4>
+    <mat-form-field class="short-form-field">
+        <input type="number" matInput placeholder="Área (Has)" name="area">
+    </mat-form-field>
+    <mat-form-field class="short-form-field">
+        <input matInput placeholder="Explotación" name="explotacion">
+    </mat-form-field>
+    <mat-form-field class="short-form-field">
+        <input matInput placeholder="Topografía" name="topografia">
+    </mat-form-field>
+    <mat-form-field class="short-form-field">
+        <input matInput placeholder="Caudal" name="caudal">
+    </mat-form-field>
+    <mat-form-field class="short-form-field">
+        <input matInput placeholder="Pozo" name="pozo">
+    </mat-form-field>
+    <mat-form-field class="short-form-field">
+        <input matInput placeholder="Vías de Comunicación" name="viasComunicacion">
+    </mat-form-field><br/><br/><br/>
+
+    <table style="width:100%">
+        <tr>
+          <th class="table-headers">Fuente</th>
+          <th class="table-headers">Riego</th> 
+          <th class="table-headers">Dist. Kms.</th>
+          <th class="table-headers">Sistema de Irrigación</th>
+          <th class="table-headers">Área (Has)</th>
+        </tr>
+        <tr>
+          <td [ngStyle]="{'font-weight': '600'}">Río</td>
+          <td>
+            <mat-form-field class="short-form-field">
+                <input matInput type="number" name="riegoRio">
+            </mat-form-field><br/>
+          </td> 
+          <td>
+            <mat-form-field class="short-form-field">
+                <input matInput type="number" name="distKmRio">
+            </mat-form-field><br/>
+          </td>
+          <td>
+            <mat-form-field class="short-form-field">
+                <input matInput name="sistemaIrrigRio">
+            </mat-form-field><br/>
+          </td>
+          <td>
+            <mat-form-field class="short-form-field">
+                <input matInput type="number" name="areaRio">
+            </mat-form-field><br/>
+          </td>
+        </tr>
+        <tr>
+            <td [ngStyle]="{'font-weight': '600'}">Lago</td>
+            <td>
+              <mat-form-field class="short-form-field">
+                  <input matInput type="number" name="riegoLago">
+              </mat-form-field><br/>
+            </td> 
+            <td>
+              <mat-form-field class="short-form-field">
+                  <input matInput type="number" name="distKmLago">
+              </mat-form-field><br/>
+            </td>
+            <td>
+              <mat-form-field class="short-form-field">
+                  <input matInput name="sistemaIrrigLago">
+              </mat-form-field><br/>
+            </td>
+            <td>
+              <mat-form-field class="short-form-field">
+                  <input matInput type="number" name="areaLago">
+              </mat-form-field><br/>
+            </td>
+        </tr>
+        <tr>
+            <td [ngStyle]="{'font-weight': '600'}">Pozo</td>
+            <td>
+              <mat-form-field class="short-form-field">
+                  <input matInput type="number" name="riegoPozo">
+              </mat-form-field><br/>
+            </td> 
+            <td>
+              <mat-form-field class="short-form-field">
+                  <input matInput type="number" name="distKmPozo">
+              </mat-form-field><br/>
+            </td>
+            <td>
+              <mat-form-field class="short-form-field">
+                  <input matInput name="sistemaIrrigPozo">
+              </mat-form-field><br/>
+            </td>
+            <td>
+              <mat-form-field class="short-form-field">
+                  <input matInput type="number" name="areaPozo">
+              </mat-form-field><br/>
+            </td>
+        </tr>
+        <tr>
+            <td [ngStyle]="{'font-weight': '600'}">MNTL.</td>
+            <td>
+              <mat-form-field class="short-form-field">
+                  <input matInput type="number" name="riegoMNTL">
+              </mat-form-field><br/>
+            </td> 
+            <td>
+              <mat-form-field class="short-form-field">
+                  <input matInput type="number" name="distKmMNTL">
+              </mat-form-field><br/>
+            </td>
+            <td>
+              <mat-form-field class="short-form-field">
+                  <input matInput name="sistemaIrrigMNTL">
+              </mat-form-field><br/>
+            </td>
+            <td>
+              <mat-form-field class="short-form-field">
+                  <input matInput type="number" name="areaMNTL">
+              </mat-form-field><br/>
+            </td>
+        </tr>
+        <tr>
+            <td [ngStyle]="{'font-weight': '600'}">Otra</td>
+            <td>
+              <mat-form-field class="short-form-field">
+                  <input matInput type="number" name="riegoOtra">
+              </mat-form-field><br/>
+            </td> 
+            <td>
+              <mat-form-field class="short-form-field">
+                  <input matInput type="number" name="distKmOtra">
+              </mat-form-field><br/>
+            </td>
+            <td>
+              <mat-form-field class="short-form-field">
+                  <input matInput name="sistemaIrrigOtra">
+              </mat-form-field><br/>
+            </td>
+            <td>
+              <mat-form-field class="short-form-field">
+                  <input matInput type="number" name="areaOtra">
+              </mat-form-field><br/>
+            </td>
+        </tr>
+        </table><br/>
+
+        <mat-divider class="mat-divider"></mat-divider><br/>
+
+        <h4 class="special-titles">Uso de la Tierra</h4>
+        <mat-form-field class="short-form-field">
+            <input matInput name="usoTierra1">
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+            <input matInput type="number" name="usoTierra11">
+        </mat-form-field><br/>
+
+        <mat-form-field class="short-form-field">
+            <input matInput name="usoTierra2">
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+            <input matInput type="number" name="usoTierra21">
+        </mat-form-field><br/>
+
+        <mat-form-field class="short-form-field">
+            <input matInput name="usoTierra3">
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+            <input matInput type="number" name="usoTierra31">
+        </mat-form-field><br/>
+
+        <mat-form-field class="short-form-field">
+            <input matInput name="usoTierra4">
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+            <input matInput type="number" name="usoTierra41">
+        </mat-form-field><br/>
+
+</div>
+
+<div mat-dialog-actions>
+  <button  mat-raised-button (click)="onNoClick()">Cancelar</button>
+  <button mat-raised-button [mat-dialog-close]="data.animal" cdkFocusInitial>Confirmar</button>
+</div>
