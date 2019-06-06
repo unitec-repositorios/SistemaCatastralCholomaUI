@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuariosService } from '../../services/usuarios.service';
+import { EmpleadosService } from '../../services/empleados.service';
 import { Router } from '@angular/router';
-import { Usuario } from 'src/app/models/usuario';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +9,7 @@ import { Usuario } from 'src/app/models/usuario';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router, private usersService: UsuariosService) { }
+  constructor(private router: Router, private empleadosService: EmpleadosService) { }
 
   username: string;
   password: string;
@@ -20,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   login() : void {
     
-    this.usersService.getUser(this.username)
+    this.empleadosService.getEmpleado(this.username)
       .subscribe(
         res => {
           console.log(res);
@@ -34,16 +33,9 @@ export class LoginComponent implements OnInit {
         },
         err => {
           console.log(err);
+          alert('Usuario y/o contraseña incorrectos');
         }
       )
-     
-    /* if(this.username == 'Ad' && this.password == '1234') {
-      this.router.navigate(['modules']);
-    }
-    else {
-      alert('Usuario y/o contraseña incorrectos');
-    } */
-   
   }
 
 }
