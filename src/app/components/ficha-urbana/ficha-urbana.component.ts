@@ -159,6 +159,18 @@ export class FichaUrbanaComponent implements OnInit {
     });
   }
 
+  openDialog7(): void {
+    const dialogRef = this.dialog.open(CaracteristicasRuralesDialog, {
+      width: '80%',
+      data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+
 }
 
 @Component({
@@ -265,6 +277,35 @@ export class DetallesNegocioDialog {
   constructor(
     public dialogRef: MatDialogRef<DetallesNegocioDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DetallesNegocioData
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+export interface DatosRecursosHidricos {
+  Fuente: string;
+  Riego: number;
+  DistKm: number;
+  SisIrrig: string;
+  Area: number;
+}
+
+let RECURSOS_HIDRICOS_DATA: DatosRecursosHidricos[] = [];
+
+@Component({
+  selector: 'app-ficha-urbana/CaracteristicasRurales',
+  templateUrl: './popups/CaracteristicasRurales/CaracteristicasRuralesDialog.html',
+  styleUrls: ['./ficha-urbana.component.css']
+})
+export class CaracteristicasRuralesDialog {
+  displayedColumns: string[] = ['Fuente', 'Riego', 'DistKm', 'SisIrrig', 
+  'Area'];
+  dataSource = RECURSOS_HIDRICOS_DATA;
+  constructor(
+    public dialogRef: MatDialogRef<CaracteristicasRuralesDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
 
   onNoClick(): void {

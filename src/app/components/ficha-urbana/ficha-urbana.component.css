@@ -136,3 +136,11 @@ table {
     font-weight: 600;
     font-style: italic;
 }
+
+.table-column-elem {
+    margin: 10px 5px;
+}
+
+.table-headers {
+    text-align: left;
+}
