@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmpleadosService } from '../../services/empleados.service';
+import { AuthService } from '../../auth/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +10,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router, private empleadosService: EmpleadosService) { }
+  constructor(private router: Router, private empleadosService: EmpleadosService,
+    private authService: AuthService) { }
 
   username: string;
   password: string;
@@ -25,7 +27,21 @@ export class LoginComponent implements OnInit {
           console.log(res);
           let user: any = res;
           if( user.nombre == this.username && user.password == this.password ) {
-            this.router.navigate(['modules']);
+            //this.authService.login();
+            //this.router.navigate(['modules']);
+            //this.message = 'Trying to log in ...';
+ 
+            this.authService.login().subscribe(() => {
+            //this.setMessage();
+              if (this.authService.isLoggedIn) {
+              // Get the redirect URL from our auth service
+              // If no redirect has been set, use the default
+              let redirect = this.authService.redirectUrl ? this.router.parseUrl(this.authService.redirectUrl) : '/modules';
+ 
+              // Redirect the user
+              this.router.navigateByUrl(redirect);
+              }
+            });
           }
           else {
             alert('Usuario y/o contraseña incorrectos');
@@ -37,5 +53,4 @@ export class LoginComponent implements OnInit {
         }
       )
   }
-
 }
