@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuariosService } from '../../services/usuarios.service';
+import { EmpleadosService } from '../../services/empleados.service';
+import { AuthService } from '../../auth/auth.service';
 import { Router } from '@angular/router';
-import { Usuario } from 'src/app/models/usuario';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +10,8 @@ import { Usuario } from 'src/app/models/usuario';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router, private usersService: UsuariosService) { }
+  constructor(private router: Router, private empleadosService: EmpleadosService,
+    private authService: AuthService) { }
 
   username: string;
   password: string;
@@ -20,13 +21,27 @@ export class LoginComponent implements OnInit {
 
   login() : void {
     
-    this.usersService.getUser(this.username)
+    this.empleadosService.getEmpleado(this.username)
       .subscribe(
         res => {
           console.log(res);
           let user: any = res;
           if( user.nombre == this.username && user.password == this.password ) {
-            this.router.navigate(['modules']);
+            //this.authService.login();
+            //this.router.navigate(['modules']);
+            //this.message = 'Trying to log in ...';
+ 
+            this.authService.login().subscribe(() => {
+            //this.setMessage();
+              if (this.authService.isLoggedIn) {
+              // Get the redirect URL from our auth service
+              // If no redirect has been set, use the default
+              let redirect = this.authService.redirectUrl ? this.router.parseUrl(this.authService.redirectUrl) : '/modules';
+ 
+              // Redirect the user
+              this.router.navigateByUrl(redirect);
+              }
+            });
           }
           else {
             alert('Usuario y/o contraseña incorrectos');
@@ -34,16 +49,8 @@ export class LoginComponent implements OnInit {
         },
         err => {
           console.log(err);
+          alert('Usuario y/o contraseña incorrectos');
         }
       )
-     
-    /* if(this.username == 'Ad' && this.password == '1234') {
-      this.router.navigate(['modules']);
-    }
-    else {
-      alert('Usuario y/o contraseña incorrectos');
-    } */
-   
   }
-
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './auth/auth.guard';
 
 //imports de todos los componentes que van a estar incluidos en el Angular Router
 import { LoginComponent } from './components/login/login.component';
@@ -10,11 +11,11 @@ import { PropietarioComponent } from './components/propietario/propietario.compo
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'modules', component: PrincipalComponent },
-  { path: 'fichaCatastral', component: FichaCatastralComponent},
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'fichaUrbana', component: FichaUrbanaComponent},
-  { path: 'propietario', component: PropietarioComponent},
+  { path: 'modules', component: PrincipalComponent, canActivate: [AuthGuard] },
+  { path: 'fichaCatastral', component: FichaCatastralComponent, canActivate: [AuthGuard]},
+  { path: '', redirectTo: '/login', pathMatch: 'full', canActivate: [AuthGuard] },
+  { path: 'fichaUrbana', component: FichaUrbanaComponent, canActivate: [AuthGuard]},
+  { path: 'propietario', component: PropietarioComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({
