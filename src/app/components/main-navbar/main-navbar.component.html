@@ -1,10 +1,11 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-  <span>Municipalidad de Choloma</span>
+  <span routerLink="/modules">Municipalidad de Choloma</span>
       <span class="example-fill-remaining-space"></span>
       <span class="align-center"></span>
       <span class="example-spacer"></span>
       <button mat-button routerLink="/propietario">Propietario</button>
       <button mat-button routerLink="/fichaCatastral">Ficha Catastral</button>
       <button mat-button routerLink="/fichaUrbana">Ficha Urbana</button>
+      <button mat-button (click)="logout()">Cerrar Sesión</button>
 </mat-toolbar-row>
