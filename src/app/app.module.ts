@@ -14,7 +14,7 @@ import { FichaCatastralComponent } from './components/ficha-catastral/ficha-cata
 import { PropietarioComponent } from './components/propietario/propietario.component';
 import { MainNavbarComponent } from './components/main-navbar/main-navbar.component';
 import { FichaUrbanaComponent, DatosLegalesPredioDialog, DatosComplementariosDialog, 
-  AvaluoTerrenoUrbanoDialog, AvaluoEdificacionesDialog, DetallesNegocioDialog } from './components/ficha-urbana/ficha-urbana.component';
+  AvaluoTerrenoUrbanoDialog, AvaluoEdificacionesDialog, DetallesNegocioDialog, CaracteristicasRuralesDialog } from './components/ficha-urbana/ficha-urbana.component';
 
 //importar el http module para poder usar HTTP Client
 import { HttpClientModule } from '@angular/common/http';
@@ -33,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     AvaluoEdificacionesDialog,
     PropietarioComponent,
     DetallesNegocioDialog,
+    CaracteristicasRuralesDialog,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +49,7 @@ import { HttpClientModule } from '@angular/common/http';
     AvaluoTerrenoUrbanoDialog,
     AvaluoEdificacionesDialog,
     DetallesNegocioDialog,
+    CaracteristicasRuralesDialog,
   ],
   providers: [],
   bootstrap: [AppComponent]
