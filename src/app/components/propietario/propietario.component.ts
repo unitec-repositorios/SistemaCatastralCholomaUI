@@ -9,7 +9,7 @@ import { PropietarioService }from '../../services/propietario.service';
 })
 export class PropietarioComponent implements OnInit {
 
-  propietario: Propietario = new Propietario;
+  propietario: Propietario = new Propietario();
 
 
   //constructor() { }

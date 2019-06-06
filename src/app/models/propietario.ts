@@ -1,10 +1,8 @@
 export class Propietario {
-    claveSure: string;
-    claveAnterior: string;
     id: number;
-    telefono: number;
     nombres: string;
     apellidos: string;
+    telefono: number;
     rtn: number;
     sexo: string;
     nacionalidad: string;
