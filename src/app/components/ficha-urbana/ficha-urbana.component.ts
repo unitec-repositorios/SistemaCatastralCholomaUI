@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import {MatTableModule} from '@angular/material/table';
 import { FichaUrbana } from '../../models/ficha-urbana';
 import { FichaUrbanaService } from 'src/app/services/ficha-urbana.service';
+import { TypeofExpr } from '@angular/compiler';
 
 //datos legales predio
 export interface DialogData {
@@ -13,6 +14,15 @@ export interface DialogData {
 //datos complementarios
 export interface DialogData3 {
   
+}
+
+export interface DetallesNegocioData {
+  name: string;
+  direccion: string;
+  tipo: string;
+  deuda: number;
+  cofundadores: string;
+  fecha: string;
 }
 
 export const MY_FORMATS = {
@@ -47,9 +57,9 @@ export class FichaUrbanaComponent implements OnInit {
   bloque: string;
   predio: string;
 
-  Negocios: {nombre: string, direccion: string}[] = [
-    {"nombre": "Carlos Moncada", "direccion": "5 calle, 14 avenida"},
-    {"nombre": "Ignacio Salazar", "direccion": "14 calle, 10 avenida"}
+  Negocios: {nombre: string, direccion: string, tipo: string, deuda: number, cofundadores: string, fechaFundacion: string}[] = [
+    {"nombre": "Yuba", "direccion": "5 calle, 14 avenida", "tipo": "S. de R.L.", "deuda": 1234, "cofundadores": "Mario Flores", "fechaFundacion": "23 Mar 2011"},
+    {"nombre": "Office Depot", "direccion": "14 calle, 10 avenida", "tipo": "S. de R.L.", "deuda": 1234, "cofundadores": "Mario Flores", "fechaFundacion": "23 Mar 2011"}
   ];
 
   sexo: string;
@@ -127,6 +137,20 @@ export class FichaUrbanaComponent implements OnInit {
     const dialogRef = this.dialog.open(AvaluoEdificacionesDialog, {
       width: '80%',
       data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+
+  ActiveNegocio;
+  openDialog6(Negocio): void {
+    this.ActiveNegocio = Negocio;
+    const dialogRef = this.dialog.open(DetallesNegocioDialog, {
+      width: '80%',
+      data: {name: this.ActiveNegocio.nombre, direccion: this.ActiveNegocio.direccion, tipo: this.ActiveNegocio.tipo, deuda: this.ActiveNegocio.deuda, cofundadores: this.ActiveNegocio.cofundadores, fecha: this.ActiveNegocio.fechaFundacion}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -225,6 +249,22 @@ export class AvaluoEdificacionesDialog {
   constructor(
     public dialogRef: MatDialogRef<AvaluoEdificacionesDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+@Component({
+  selector: 'app-ficha-urbana/DetallesNegocio',
+  templateUrl: './popups/DetallesNegocio/DetallesNegocioDialog.html',
+  styleUrls: ['./ficha-urbana.component.css']
+})
+export class DetallesNegocioDialog {
+  constructor(
+    public dialogRef: MatDialogRef<DetallesNegocioDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DetallesNegocioData
   ) {}
 
   onNoClick(): void {

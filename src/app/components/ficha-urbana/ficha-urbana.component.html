@@ -31,7 +31,7 @@
 
               <h5 class="special-titles">Propietario</h5>
               <mat-form-field class="form-field">
-                <input matInput [(ngModel)]="ficha.id" placeholder="Identidad" name="identidad">
+                <input  type="number" matInput [(ngModel)]="ficha.id" placeholder="Identidad" name="identidad">
               </mat-form-field>
             </mat-card> <br/>
 
@@ -42,6 +42,9 @@
                 <mat-list-item class="list-item" *ngFor="let Negocio of Negocios">
                   <h3 [ngStyle]="{'font-size': '16pt'}" mat-line>{{Negocio.nombre}}</h3>
                   <p [ngStyle]="{'font-style': 'italic'}" mat-line>{{Negocio.direccion}}</p>
+                  <button mat-raised-button (click)="openDialog6(Negocio)" [ngStyle]="{'background-color': 'deepskyblue', 'color': 'white'}">
+                    <mat-icon>assignment</mat-icon>
+                  </button>
                 </mat-list-item>
               </mat-list> <br/>
           
@@ -114,7 +117,7 @@
             <button [ngStyle]="{'margin-left': '23%'}" (click)="openDialog()" class="button" color="primary" mat-raised-button>Información Legal del Predio</button>
             <button class="button" color="primary" mat-raised-button>Características del Predio</button>
             <button class="button" color="primary" (click)="openDialog3()" mat-raised-button>Datos Complementarios</button> <br/><br/><br/>
-            <button class="button" color="primary" (click)="openDialog4()" mat-raised-button>Avalúo de Terrenos</button>
+            <button [ngStyle]="{'margin-left': '33%'}" class="button" color="primary" (click)="openDialog4()" mat-raised-button>Avalúo de Terrenos</button>
             <button class="button" color="primary" (click)="openDialog5()" mat-raised-button>Avalúo de Edificaciones</button>
             <br/>
 
