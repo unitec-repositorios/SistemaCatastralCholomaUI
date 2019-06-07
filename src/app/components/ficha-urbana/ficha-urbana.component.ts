@@ -171,6 +171,18 @@ export class FichaUrbanaComponent implements OnInit {
     });
   }
 
+  openDialog8(): void {
+    const dialogRef = this.dialog.open(AvaluoCultivoPermanenteDialog, {
+      width: '80%',
+      data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
+  }
+
 }
 
 @Component({
@@ -305,6 +317,22 @@ export class CaracteristicasRuralesDialog {
   dataSource = RECURSOS_HIDRICOS_DATA;
   constructor(
     public dialogRef: MatDialogRef<CaracteristicasRuralesDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
+@Component({
+  selector: 'app-ficha-urbana/AvaluoCultivoPermanente',
+  templateUrl: './popups/AvaluoCultivoPermanente/AvaluoCultivoPermanenteDialog.html',
+  styleUrls: ['./ficha-urbana.component.css']
+})
+export class AvaluoCultivoPermanenteDialog {
+  constructor(
+    public dialogRef: MatDialogRef<AvaluoCultivoPermanenteDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
 
