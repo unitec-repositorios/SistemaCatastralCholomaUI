@@ -325,16 +325,41 @@ export class CaracteristicasRuralesDialog {
   }
 }
 
+export interface AvaluoCultivoPermanenteDatos1 {
+  ClaseCultivoVariedad: string; 
+  Arboles: number;
+  EstadoSanitario: string;
+  Edad: number;
+  FactorModificacion: number;
+  ValorPorCultivo: number;
+}
+
+let DatosCultivosPermanentes: AvaluoCultivoPermanenteDatos1[] = [];
+
 @Component({
   selector: 'app-ficha-urbana/AvaluoCultivoPermanente',
   templateUrl: './popups/AvaluoCultivoPermanente/AvaluoCultivoPermanenteDialog.html',
   styleUrls: ['./ficha-urbana.component.css']
 })
 export class AvaluoCultivoPermanenteDialog {
+  DatosCultivos = DatosCultivosPermanentes;
   constructor(
     public dialogRef: MatDialogRef<AvaluoCultivoPermanenteDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData
-  ) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+  ) {
+    if (!this.DatosCultivos.length) this.addElement();
+  }
+
+  numElements: number;  
+  arrayElement: AvaluoCultivoPermanenteDatos1;
+  
+  addElement(): void {
+    this.numElements = this.DatosCultivos.push(this.arrayElement);
+  }
+
+  deleteElement(element: AvaluoCultivoPermanenteDatos1) {
+    this.DatosCultivos.splice(this.DatosCultivos.indexOf(element));
+  }
 
   onNoClick(): void {
     this.dialogRef.close();
