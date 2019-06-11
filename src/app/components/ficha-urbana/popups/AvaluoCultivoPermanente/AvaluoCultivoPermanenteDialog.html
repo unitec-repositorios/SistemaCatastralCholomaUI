@@ -30,12 +30,35 @@
             <input matInput type="number" placeholder="Valor por Cultivo" name="valorPorCultivo">
         </mat-form-field>
 
-        <button mat-raised-button (click)="deleteElement(element)" [ngStyle]="{'background-color': 'deepskyblue', 'color': 'red'}">
+        <!-- <button mat-raised-button (click)="deleteElement(element)" [ngStyle]="{'background-color': 'deepskyblue', 'color': 'red'}">
             <mat-icon>delete</mat-icon>
-          </button>
+          </button> -->
 
     </div>
+    <button mat-raised-button (click)="deleteElement()">Eliminar Cultivo</button>
     <button mat-raised-button (click)="addElement()">Agregar Cultivo</button>
+
+    <mat-divider class="mat-divider" ></mat-divider><br/><br/>
+
+    <mat-form-field class="form-field">
+        <mat-select placeholder="Clase Cultivo y Variedad" name="CCV2">
+          <mat-option value="">Insertar valores aquí</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="short-form-field">
+        <input matInput type="number" (input)="updateTotal()" [(ngModel)]="numManzanas" placeholder="No. Manzanas" name="numManzana">
+    </mat-form-field>
+
+    <mat-form-field class="short-form-field">
+        <input matInput type="number" (input)="updateTotal()" [(ngModel)]="valorXManzana" placeholder="Valor por Manzana" name="valorPorManzana">
+    </mat-form-field>
+    &nbsp; &nbsp; &nbsp;
+
+    <label [ngStyle]="{'font-weight': '600'}">Total: </label>
+    <mat-form-field class="short-form-field">
+        <input matInput type="number" readonly [(ngModel)]="totalManzanas" placeholder="" name="totalManzanas">
+    </mat-form-field>
 
 </div>
 

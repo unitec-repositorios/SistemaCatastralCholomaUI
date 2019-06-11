@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, SimpleChanges, Input, SimpleChange } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
 import { FichaUrbana } from '../../models/ficha-urbana';
@@ -336,12 +336,16 @@ export interface AvaluoCultivoPermanenteDatos1 {
 
 let DatosCultivosPermanentes: AvaluoCultivoPermanenteDatos1[] = [];
 
+interface OnChanges {
+  ngOnChanges(changes: SimpleChanges): void
+}
+
 @Component({
   selector: 'app-ficha-urbana/AvaluoCultivoPermanente',
   templateUrl: './popups/AvaluoCultivoPermanente/AvaluoCultivoPermanenteDialog.html',
   styleUrls: ['./ficha-urbana.component.css']
 })
-export class AvaluoCultivoPermanenteDialog {
+export class AvaluoCultivoPermanenteDialog{
   DatosCultivos = DatosCultivosPermanentes;
   constructor(
     public dialogRef: MatDialogRef<AvaluoCultivoPermanenteDialog>,
@@ -352,13 +356,25 @@ export class AvaluoCultivoPermanenteDialog {
 
   numElements: number;  
   arrayElement: AvaluoCultivoPermanenteDatos1;
+
+  numManzanas!: number;
+  valorXManzana!: number;
+  totalManzanas: number;
   
   addElement(): void {
     this.numElements = this.DatosCultivos.push(this.arrayElement);
   }
 
   deleteElement(element: AvaluoCultivoPermanenteDatos1) {
-    this.DatosCultivos.splice(this.DatosCultivos.indexOf(element));
+    if (this.numElements > 1) {
+      this.DatosCultivos.pop()
+      this.numElements--;
+    };
+    //this.DatosCultivos.splice(this.DatosCultivos.indexOf(element), 1);
+  }
+
+  updateTotal() {
+    this.totalManzanas = this.numManzanas * this.valorXManzana;
   }
 
   onNoClick(): void {
