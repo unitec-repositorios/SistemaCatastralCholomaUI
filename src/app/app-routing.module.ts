@@ -10,12 +10,37 @@ import { FichaUrbanaComponent } from './components/ficha-urbana/ficha-urbana.com
 import { PropietarioComponent } from './components/propietario/propietario.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'modules', component: PrincipalComponent, canActivate: [AuthGuard] },
-  { path: 'fichaCatastral', component: FichaCatastralComponent, canActivate: [AuthGuard]},
-  { path: '', redirectTo: '/login', pathMatch: 'full', canActivate: [AuthGuard] },
-  { path: 'fichaUrbana', component: FichaUrbanaComponent, canActivate: [AuthGuard]},
-  { path: 'propietario', component: PropietarioComponent, canActivate: [AuthGuard]},
+  { 
+    path: 'login', 
+    component: LoginComponent,
+    children: [
+      
+    ]
+  },
+  {
+    path: 'modules', 
+    component: PrincipalComponent, 
+    canActivate: [AuthGuard] 
+  },
+  { 
+    path: 'fichaCatastral', 
+    component: FichaCatastralComponent, 
+    canActivate: [AuthGuard]
+  },
+  { 
+    path: '', 
+    redirectTo: '/login', 
+    pathMatch: 'full', 
+    canActivate: [AuthGuard] },
+  { 
+    path: 'fichaUrbana', 
+    component: FichaUrbanaComponent, 
+    canActivate: [AuthGuard]
+  },
+  { 
+    path: 'propietario', 
+    component: PropietarioComponent, 
+    canActivate: [AuthGuard]},
 ];
 
 @NgModule({
