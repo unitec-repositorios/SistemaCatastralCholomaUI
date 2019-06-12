@@ -12,7 +12,7 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class PropietarioComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'nombres', 'apellidos', 'telefono', 'rtn', 'sexo', 'nacionalidad'];
+  displayedColumns: string[] = ['id', 'nombres', 'apellidos', 'telefono', 'rtn', 'sexo', 'nacionalidad', 'actions'];
   dataSource: MatTableDataSource<Propietario>;
 
   propietarios: any = [];
@@ -39,8 +39,16 @@ export class PropietarioComponent implements OnInit {
       err => {
         console.log(err);
       }
-    );
-    
+    ); 
+  }
+
+  onEdit(): void {
+
+  }
+
+  onDelete(id: number): void {
+    this.propietarios = this.propietarios.filter(x => x.id != id);
+    this.dataSource = new MatTableDataSource(this.propietarios);
   }
 
   submitForm(): void {
