@@ -4,6 +4,7 @@ import {MatTableModule} from '@angular/material/table';
 import { FichaUrbana } from '../../models/ficha-urbana';
 import { FichaUrbanaService } from 'src/app/services/ficha-urbana.service';
 import { TypeofExpr } from '@angular/compiler';
+import { forEach } from '@angular/router/src/utils/collection';
 
 //datos legales predio
 export interface DialogData {
@@ -334,7 +335,16 @@ export interface AvaluoCultivoPermanenteDatos1 {
   ValorPorCultivo: number;
 }
 
+export interface AvaluoCultivoPermanenteDatos2 {
+  id: number;
+  ClaseCultivoVariedad: string;
+  numDeManzanas: number;
+  valorPorManz: number;
+  numTotalDeManzanas: number;
+}
+
 let DatosCultivosPermanentes: AvaluoCultivoPermanenteDatos1[] = [];
+let DatosCultivosPermanentes2: AvaluoCultivoPermanenteDatos2[] = [];
 
 interface OnChanges {
   ngOnChanges(changes: SimpleChanges): void
@@ -347,25 +357,23 @@ interface OnChanges {
 })
 export class AvaluoCultivoPermanenteDialog{
   DatosCultivos = DatosCultivosPermanentes;
+  DatosCultivos2 = DatosCultivosPermanentes2;
   constructor(
     public dialogRef: MatDialogRef<AvaluoCultivoPermanenteDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
   ) {
     if (!this.DatosCultivos.length) this.addElement();
+    if (!this.DatosCultivos2.length) this.addCultivo();
   }
 
   numElements: number;  
   arrayElement: AvaluoCultivoPermanenteDatos1;
-
-  numManzanas!: number;
-  valorXManzana!: number;
-  totalManzanas: number;
   
   addElement(): void {
     this.numElements = this.DatosCultivos.push(this.arrayElement);
   }
 
-  deleteElement(element: AvaluoCultivoPermanenteDatos1) {
+  deleteElement() {
     if (this.numElements > 1) {
       this.DatosCultivos.pop()
       this.numElements--;
@@ -373,8 +381,46 @@ export class AvaluoCultivoPermanenteDialog{
     //this.DatosCultivos.splice(this.DatosCultivos.indexOf(element), 1);
   }
 
-  updateTotal() {
-    this.totalManzanas = this.numManzanas * this.valorXManzana;
+  numCultivos: number;
+  cultivoItem: AvaluoCultivoPermanenteDatos2;
+
+  numManzanas!: number;
+  valorXManzana!: number;
+  totalManzanas: number;
+
+  addCultivo(): void {
+    let newItem: AvaluoCultivoPermanenteDatos2 = {} as AvaluoCultivoPermanenteDatos2;
+    
+    (this.DatosCultivos2 && this.DatosCultivos2.length) ? newItem.id = (this.DatosCultivos2[this.DatosCultivos2.length - 1].id) + 1 : newItem.id = 0;
+    this.numCultivos = this.DatosCultivos2.push(newItem);
+  }
+
+  deleteCultivo () {
+    if (this.numCultivos > 1) {
+      this.DatosCultivos2.pop();
+      this.numCultivos--;
+    }
+  }
+
+  numCultivosTotal1: number;
+  numCultivosTotal2: number;
+  costoCultivosTotal1: number;
+  costoCultivosTotal2: number;
+  totalFinal: number;
+
+  updateTotal(item: AvaluoCultivoPermanenteDatos2) {
+    item.numTotalDeManzanas = item.numDeManzanas * item.valorPorManz;
+    this.costoCultivosTotal2 = 0;
+    /* this.DatosCultivos.forEach(element => {
+      this.costoCultivosTotal1 += element.ValorPorCultivo;
+    }); */
+    this.DatosCultivos2.forEach(element => {
+      this.costoCultivosTotal2 += element.numTotalDeManzanas;
+      /* console.log(element.numTotalDeManzanas);
+      console.log("costoCultivos2: " + this.costoCultivosTotal2); */
+    });
+    this.totalFinal = /* this.costoCultivosTotal1 +  */this.costoCultivosTotal2;
+    // console.log("Total: " + this.totalFinal);
   }
 
   onNoClick(): void {

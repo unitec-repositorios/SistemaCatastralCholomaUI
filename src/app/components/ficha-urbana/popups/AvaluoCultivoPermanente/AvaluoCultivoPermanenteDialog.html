@@ -40,6 +40,8 @@
 
     <mat-divider class="mat-divider" ></mat-divider><br/><br/>
 
+    <div *ngFor="let item of DatosCultivos2">
+
     <mat-form-field class="form-field">
         <mat-select placeholder="Clase Cultivo y Variedad" name="CCV2">
           <mat-option value="">Insertar valores aquí</mat-option>
@@ -47,18 +49,47 @@
     </mat-form-field>
 
     <mat-form-field class="short-form-field">
-        <input matInput type="number" (input)="updateTotal()" [(ngModel)]="numManzanas" placeholder="No. Manzanas" name="numManzana">
+        <input matInput type="number" min="0" (input)="updateTotal(item)" [(ngModel)]="item.numDeManzanas" placeholder="No. Manzanas" name="numManzana">
     </mat-form-field>
 
     <mat-form-field class="short-form-field">
-        <input matInput type="number" (input)="updateTotal()" [(ngModel)]="valorXManzana" placeholder="Valor por Manzana" name="valorPorManzana">
+        <input matInput type="number" min="0" (input)="updateTotal(item)" [(ngModel)]="item.valorPorManz" placeholder="Valor por Manzana" name="valorPorManzana">
     </mat-form-field>
     &nbsp; &nbsp; &nbsp;
 
     <label [ngStyle]="{'font-weight': '600'}">Total: </label>
     <mat-form-field class="short-form-field">
-        <input matInput type="number" readonly [(ngModel)]="totalManzanas" placeholder="" name="totalManzanas">
+        <input matInput type="number" readonly [(ngModel)]="item.numTotalDeManzanas" placeholder="" name="totalManzanas">
     </mat-form-field>
+
+    </div>
+
+    <button mat-raised-button (click)="deleteCultivo()">Eliminar Cultivo</button>
+    <button mat-raised-button  (click)="addCultivo()">Agregar Cultivo</button>
+
+    <mat-divider class="mat-divider" ></mat-divider><br/><br/>
+
+    <mat-form-field class="long-form-field">
+        <textarea matInput placeholder="Observación" name="observacion"></textarea>
+    </mat-form-field><br/>
+
+    <mat-form-field class="long-form-field">
+            <textarea matInput placeholder="Calculista" name="calculista"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="long-form-field">
+        <input matInput [matDatepicker]="picker" placeholder="Fecha de Cálculo" disabled>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker disabled="false"></mat-datepicker>
+    </mat-form-field>
+
+    <div>
+        <label [ngStyle]="{'font-weight': '600'}">Avalúo del Cultivo: </label>
+        <mat-form-field class="short-form-field">
+            <input matInput [ngStyle]="{'color': 'red', 'font-weight': '600'}" type="number" [(ngModel)]="totalFinal" readonly name="avaluoCultivo">
+        </mat-form-field>
+        <label>lps.</label>
+    </div>
 
 </div>
 
