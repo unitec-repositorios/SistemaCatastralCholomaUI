@@ -16,6 +16,7 @@ import { MainNavbarComponent } from './components/main-navbar/main-navbar.compon
 import { FichaUrbanaComponent, DatosLegalesPredioDialog, DatosComplementariosDialog, 
   AvaluoTerrenoUrbanoDialog, AvaluoEdificacionesDialog, DetallesNegocioDialog, CaracteristicasRuralesDialog,
   AgregarNegocioDialog } from './components/ficha-urbana/ficha-urbana.component';
+import { PropietariosListComponent } from './components/propietarios-list/propietarios-list.component';
 
 //importar el http module para poder usar HTTP Client
 import { HttpClientModule } from '@angular/common/http';
@@ -35,7 +36,8 @@ import { HttpClientModule } from '@angular/common/http';
     PropietarioComponent,
     DetallesNegocioDialog,
     CaracteristicasRuralesDialog,
-    AgregarNegocioDialog
+    AgregarNegocioDialog,
+    PropietariosListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,16 +1,16 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Propietario } from '../../models/propietario';
-import { PropietarioService }from '../../services/propietario.service';
+import { PropietarioService } from '../../services/propietario.service'; 
+import { Propietario } from '../../models/propietario'
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
-  selector: 'app-propietario',
-  templateUrl: './propietario.component.html',
-  styleUrls: ['./propietario.component.css']
+  selector: 'app-propietarios-list',
+  templateUrl: './propietarios-list.component.html',
+  styleUrls: ['./propietarios-list.component.css']
 })
-export class PropietarioComponent implements OnInit {
+export class PropietariosListComponent implements OnInit {
 
   displayedColumns: string[] = ['id', 'nombres', 'apellidos', 'telefono', 'rtn', 'sexo', 'nacionalidad'];
   dataSource: MatTableDataSource<Propietario>;
@@ -20,10 +20,7 @@ export class PropietarioComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  propietario: Propietario = new Propietario();
-
-
-  constructor(private propietariosService: PropietarioService) { }
+  constructor(private propietariosService: PropietarioService) {}
 
   ngOnInit() {
     this.propietariosService.getPropietarios()
@@ -43,23 +40,6 @@ export class PropietarioComponent implements OnInit {
     
   }
 
-  submitForm(): void {
-    
-    this.propietariosService.savePropietario(this.propietario)
-      .subscribe(res => {
-        console.log(this.propietario);
-        console.log(res);
-        alert('Propietario agregado con exito');
-        this.propietarios.push(this.propietario);
-        this.propietario = new Propietario();
-      },
-      err => {
-        console.log(err);
-        alert('Error al agregar propietario');
-      }
-    )
-  }
-
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
@@ -67,5 +47,5 @@ export class PropietarioComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
 }
+
