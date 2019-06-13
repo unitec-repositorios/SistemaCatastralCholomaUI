@@ -19,28 +19,25 @@ const routes: Routes = [
   },
   {
     path: 'modules', 
-    component: PrincipalComponent, 
-    canActivate: [AuthGuard] 
+    component: PrincipalComponent
   },
   { 
     path: 'fichaCatastral', 
-    component: FichaCatastralComponent, 
-    canActivate: [AuthGuard]
+    component: FichaCatastralComponent 
   },
   { 
     path: '', 
     redirectTo: '/login', 
-    pathMatch: 'full', 
-    canActivate: [AuthGuard] },
+    pathMatch: 'full'
+  },
   { 
     path: 'fichaUrbana', 
-    component: FichaUrbanaComponent, 
-    canActivate: [AuthGuard]
+    component: FichaUrbanaComponent
   },
   { 
     path: 'propietario', 
-    component: PropietarioComponent, 
-    canActivate: [AuthGuard]},
+    component: PropietarioComponent
+  }
 ];
 
 @NgModule({

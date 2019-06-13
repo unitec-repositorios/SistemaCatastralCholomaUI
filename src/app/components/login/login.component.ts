@@ -28,9 +28,10 @@ export class LoginComponent implements OnInit {
           let user: any = res;
           if( user.nombre == this.username && user.password == this.password ) {
             //this.authService.login();
-            //this.router.navigate(['modules']);
+            this.router.navigate(['modules']);
             //this.message = 'Trying to log in ...';
- 
+
+            /*
             this.authService.login().subscribe(() => {
             //this.setMessage();
               if (this.authService.isLoggedIn) {
@@ -45,6 +46,7 @@ export class LoginComponent implements OnInit {
                 alert('Error haciendo el routing');
               }
             });
+            */
           }
           else {
             alert('Usuario y/o contraseña incorrectos');
@@ -52,7 +54,7 @@ export class LoginComponent implements OnInit {
         },
         err => {
           console.log(err);
-          alert('Usuario y/o contraseña incorrectos');
+          alert('Error ');
         }
       )
   }
