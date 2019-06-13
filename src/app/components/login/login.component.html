@@ -5,23 +5,24 @@
     </mat-card-header>
     <mat-card-content>
       <form class="example-form">
+        <img src="../../../assets/img/muni-choloma-logo.png" alt="Logo municipalidad Choloma">
         <table class="example-full-width" cellspacing="0">
           <tr>
             <td>
               <mat-form-field class="example-full-width">
-              <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+              <input matInput placeholder="Usuario" [(ngModel)]="username" name="username" required>
               </mat-form-field>
             </td>
           </tr>
           <tr>
           <td><mat-form-field class="example-full-width">
-            <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
+            <input matInput placeholder="Contraseña" [(ngModel)]="password"type="password" name="password" required>
           </mat-form-field></td>
         </tr></table>
       </form>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button (click)="login()" color="primary">Login</button>
+      <button mat-raised-button (click)="login()" color="primary">Iniciar Sesion</button>
     </mat-card-actions>
   </mat-card>
 </div>
