@@ -47,7 +47,7 @@ export class AgregarNegocioDialog {
 
   constructor(
     public dialogRef: MatDialogRef<AgregarNegocioDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+    @Inject(MAT_DIALOG_DATA) public data: DetallesNegocioData) {}
 
   onNoClick(): void {
     this.dialogRef.close();
