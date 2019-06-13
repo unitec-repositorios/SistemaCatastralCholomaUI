@@ -35,8 +35,10 @@
               </mat-form-field>
             </mat-card> <br/>
 
-          <mat-card class="card-style">
 
+            <button class="button" (click)="openDialogCrearNegocio()" color="primary" mat-raised-button>Agregar un negocio</button>
+
+          <mat-card class="card-style">
             <h5 class="special-titles">Nombre de Negocios</h5><br/>
             <mat-list [ngStyle]="{'margin-left': '25px'}">
                 <mat-list-item class="list-item" *ngFor="let Negocio of Negocios">

@@ -11,7 +11,23 @@ export class PropietarioService {
 
   constructor(private http: HttpClient) { }
 
-  savePropietario(ficha: Propietario) {
-    return this.http.post(`${this.API_URL}/Propietario`, ficha);
+  getPropietarios() {
+    return this.http.get(`${this.API_URL}/Propietario`);
+  }
+
+  savePropietario(propietario: Propietario) {
+    return this.http.post(`${this.API_URL}/Propietario`, propietario);
+  }
+
+  getPropietario(id: number) {
+    return this.http.get(`${this.API_URL}/Propietario/${id}`)
+  }
+
+  modifyPropietario(propietario: Propietario) {
+    return this.http.put(`${this.API_URL}/Propietario/${propietario.id}`, propietario);
+  }
+
+  deletePropietario(id: number) {
+    return this.http.delete(`${this.API_URL}/Propietario/${id}`);
   }
 }

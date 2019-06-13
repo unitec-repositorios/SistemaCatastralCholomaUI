@@ -16,13 +16,13 @@ export interface DialogData3 {
   
 }
 
-export interface DetallesNegocioData {
-  name: string;
+export class DetallesNegocioData {
+  nombre: string;
   direccion: string;
   tipo: string;
   deuda: number;
   cofundadores: string;
-  fecha: string;
+  fechaFundacion: string;
 }
 
 export const MY_FORMATS = {
@@ -36,6 +36,24 @@ export const MY_FORMATS = {
     monthYearA11yLabel: 'YYYY',
   },
 };
+
+//declaracion del dialog para agregar negocios
+@Component({
+  selector: 'app-ficha-urbana/AgregarNegocioDialog',
+  templateUrl: './popups/AgregarNegocio/AgregarNegocioDialog.html',
+  styleUrls: ['./ficha-urbana.component.css']
+})
+export class AgregarNegocioDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<AgregarNegocioDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+}
+
 
 @Component({
   selector: 'app-ficha-urbana',
@@ -57,10 +75,27 @@ export class FichaUrbanaComponent implements OnInit {
   bloque: string;
   predio: string;
 
-  Negocios: {nombre: string, direccion: string, tipo: string, deuda: number, cofundadores: string, fechaFundacion: string}[] = [
-    {"nombre": "Yuba", "direccion": "5 calle, 14 avenida", "tipo": "S. de R.L.", "deuda": 1234, "cofundadores": "Mario Flores", "fechaFundacion": "23 Mar 2011"},
-    {"nombre": "Office Depot", "direccion": "14 calle, 10 avenida", "tipo": "S. de R.L.", "deuda": 1234, "cofundadores": "Mario Flores", "fechaFundacion": "23 Mar 2011"}
+  Negocios: DetallesNegocioData [] = [
+    {nombre: "Yuba", direccion: "5 calle, 14 avenida", tipo: "S. de R.L.", deuda: 1234, cofundadores: "Mario Flores", fechaFundacion: "23 Mar 2011"},
+    {nombre: "Office Depot", direccion: "14 calle, 10 avenida", tipo: "S. de R.L.", deuda: 1234, cofundadores: "Mario Flores", fechaFundacion: "23 Mar 2011"}
   ];
+
+  negocio: DetallesNegocioData = new DetallesNegocioData();
+
+  //esta funcion abre el dialogo para crear un negocio
+  openDialogCrearNegocio(): void {
+    const dialogRef = this.dialog.open(AgregarNegocioDialog, {
+      width: '80%',
+      data: this.negocio
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      //this.animal = result;
+      this.Negocios.push(result);
+      this.negocio = new DetallesNegocioData();
+    });
+  }
 
   sexo: string;
   clickedButton1(){

@@ -32,3 +32,16 @@
     margin: 0 20px 20px 95px;
     transform: scale(1.5, 1.5);
 }
+
+table {
+    width: 100%;
+}
+  
+  
+td, th {
+    width: 10%;
+}
+
+.crud {
+    margin-top: 60px;
+}
