@@ -17,7 +17,7 @@ export interface DialogData3 {
 }
 
 export class DetallesNegocioData {
-  nombre: string;
+  name: string;
   direccion: string;
   tipo: string;
   deuda: number;
@@ -76,8 +76,8 @@ export class FichaUrbanaComponent implements OnInit {
   predio: string;
 
   Negocios: DetallesNegocioData [] = [
-    {nombre: "Yuba", direccion: "5 calle, 14 avenida", tipo: "S. de R.L.", deuda: 1234, cofundadores: "Mario Flores", fechaFundacion: "23 Mar 2011"},
-    {nombre: "Office Depot", direccion: "14 calle, 10 avenida", tipo: "S. de R.L.", deuda: 1234, cofundadores: "Mario Flores", fechaFundacion: "23 Mar 2011"}
+    {name: "Yuba", direccion: "5 calle, 14 avenida", tipo: "S. de R.L.", deuda: 1234, cofundadores: "Mario Flores", fechaFundacion: "23 Mar 2011"},
+    {name: "Office Depot", direccion: "14 calle, 10 avenida", tipo: "S. de R.L.", deuda: 1234, cofundadores: "Mario Flores", fechaFundacion: "23 Mar 2011"}
   ];
 
   negocio: DetallesNegocioData = new DetallesNegocioData();
@@ -185,7 +185,7 @@ export class FichaUrbanaComponent implements OnInit {
     this.ActiveNegocio = Negocio;
     const dialogRef = this.dialog.open(DetallesNegocioDialog, {
       width: '80%',
-      data: {name: this.ActiveNegocio.nombre, direccion: this.ActiveNegocio.direccion, tipo: this.ActiveNegocio.tipo, deuda: this.ActiveNegocio.deuda, cofundadores: this.ActiveNegocio.cofundadores, fecha: this.ActiveNegocio.fechaFundacion}
+      data: {name: this.ActiveNegocio.name, direccion: this.ActiveNegocio.direccion, tipo: this.ActiveNegocio.tipo, deuda: this.ActiveNegocio.deuda, cofundadores: this.ActiveNegocio.cofundadores, fecha: this.ActiveNegocio.fechaFundacion}
     });
 
     dialogRef.afterClosed().subscribe(result => {

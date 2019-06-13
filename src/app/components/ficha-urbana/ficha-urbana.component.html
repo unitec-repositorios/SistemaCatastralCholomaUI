@@ -42,7 +42,7 @@
             <h5 class="special-titles">Nombre de Negocios</h5><br/>
             <mat-list [ngStyle]="{'margin-left': '25px'}">
                 <mat-list-item class="list-item" *ngFor="let Negocio of Negocios">
-                  <h3 [ngStyle]="{'font-size': '16pt'}" mat-line>{{Negocio.nombre}}</h3>
+                  <h3 [ngStyle]="{'font-size': '16pt'}" mat-line>{{Negocio.name}}</h3>
                   <p [ngStyle]="{'font-style': 'italic'}" mat-line>{{Negocio.direccion}}</p>
                   <button mat-raised-button (click)="openDialog6(Negocio)" [ngStyle]="{'background-color': 'deepskyblue', 'color': 'white'}">
                     <mat-icon>assignment</mat-icon>
