@@ -185,7 +185,7 @@ export class FichaUrbanaComponent implements OnInit {
     this.ActiveNegocio = Negocio;
     const dialogRef = this.dialog.open(DetallesNegocioDialog, {
       width: '80%',
-      data: {name: this.ActiveNegocio.name, direccion: this.ActiveNegocio.direccion, tipo: this.ActiveNegocio.tipo, deuda: this.ActiveNegocio.deuda, cofundadores: this.ActiveNegocio.cofundadores, fecha: this.ActiveNegocio.fechaFundacion}
+      data: {name: this.ActiveNegocio.name, direccion: this.ActiveNegocio.direccion, tipo: this.ActiveNegocio.tipo, deuda: this.ActiveNegocio.deuda, cofundadores: this.ActiveNegocio.cofundadores, fechaFundacion: this.ActiveNegocio.fechaFundacion}
     });
 
     dialogRef.afterClosed().subscribe(result => {
