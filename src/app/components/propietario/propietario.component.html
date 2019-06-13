@@ -39,15 +39,18 @@
         </mat-form-field><br/>
 
         <button [ngStyle]="{'margin-left': '45%'}" (click)="submitForm()" class="button" color="primary" mat-raised-button>Registrar</button>
-
+        <br/>
+        <br/>
+        <br/>
+        <button [ngStyle]="{'margin-left': '45%'}" *ngIf="isEditable === true" (click)="editClick()" class="button" color="primary" mat-raised-button>Editar</button>
   </mat-card>
 
 </div>
 
-<h3>Propietarios existentes</h3>
 <div class="crud">
+  <h3 class="special-titles">Propietarios existentes</h3>
   <mat-form-field class="long-form-field">
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar">
   </mat-form-field>
     
   <div class="mat-elevation-z8">
@@ -98,7 +101,7 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
         <td mat-cell *matCellDef="let row">
-          <button mat-icon-button (click)="onEdit()"><mat-icon>launch</mat-icon></button>
+          <button mat-icon-button (click)="onEdit(row)"><mat-icon>launch</mat-icon></button>
           <button mat-icon-button color="warn" (click)="onDelete(row.id)"><mat-icon>delete_outline</mat-icon></button>
         </td>
       </ng-container>

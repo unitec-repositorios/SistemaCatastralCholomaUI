@@ -24,7 +24,7 @@ export class PropietarioService {
   }
 
   modifyPropietario(propietario: Propietario) {
-    return this.http.put(`${this.API_URL}/Propietario`, propietario);
+    return this.http.put(`${this.API_URL}/Propietario/${propietario.id}`, propietario);
   }
 
   deletePropietario(id: number) {
