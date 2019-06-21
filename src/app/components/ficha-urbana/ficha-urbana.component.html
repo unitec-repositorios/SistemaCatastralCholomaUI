@@ -3,22 +3,26 @@
 <div class="background">
   <h1 class="Title">Ficha Catastral Urbana</h1>
     <form class="example-form">
-
-        <!-- <mat-radio-group
-            [(ngModel)]="tipoPropiedades"  name="radioGroup1">
-            <mat-radio-button name="radioButtons1" class="RadioButtons" *ngFor="let propiedad of Propiedades" [value]="propiedad">
-              {{propiedad}}
-            </mat-radio-button>
-          </mat-radio-group> -->
-
+          
           <mat-card class="card-style">
+            <mat-radio-group [(ngModel)]="ficha.tipoPropiedad"  name="radioGroup1">
+              <mat-radio-button name="radioButtons1" value="N">
+                Propiedad Normal
+              </mat-radio-button>
+              <br/>
+              <br/>
+              <mat-radio-button name="radioButtons2" value="C">
+                Condominio (P.H.)
+              </mat-radio-button>
+            </mat-radio-group> 
+            <!--
               <mat-button-toggle-group [(ngModel)]="ficha.tipoPropiedad"  name="tipoPropiedad" aria-label="Tipo Propiedad">
                   <mat-button-toggle id="prop-N" class="toggle-buttons" (click)="clickedButton1()" name="prop-normal" value="N">Propiedad Normal</mat-button-toggle>
                   <mat-button-toggle id="prop-C" class="toggle-buttons" (click)="clickedButton2()" name="condominio" value="C">Condominio (P.H.)</mat-button-toggle>
                 </mat-button-toggle-group>
-            
-                <br/>
-
+            -->
+              <br/>
+              
               <mat-form-field class="special-form-field">
                   <input matInput [(ngModel)]="mapa" placeholder="Mapa" name="mapa">
                 </mat-form-field>
