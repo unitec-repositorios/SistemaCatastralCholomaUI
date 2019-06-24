@@ -2,7 +2,7 @@
     text-align: center;
     height: 100%;
     /* The image used */
-    background-image: url("../../../assets/img/muni-choloma-background.png");
+    /* background-image: url("../../../assets/img/muni-choloma-background.png"); */
 
     /* Full height */
     height: 100%; 
@@ -12,6 +12,18 @@
     background-repeat: no-repeat;
     background-size: cover;
     padding-top: 5%;
+}
+
+.card-style {
+    margin: 0px 45px 0px 45px;
+    background-color: rgb(245, 245, 245);
+    padding: 25px 35px 45px 35px;
+}
+
+.special-titles {
+    color: red;
+    text-transform: uppercase;
+    margin: 25px 25px 10px 25px;
 }
 
 .example-card {
