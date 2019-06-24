@@ -2,8 +2,9 @@ export class Propietario {
     id: number;
     nombres: string;
     apellidos: string;
-    telefono: number;
-    rtn: number;
+    identidad: string;
+    telefono: string;
+    rtn: string;
     sexo: string;
     nacionalidad: string;
 }

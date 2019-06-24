@@ -1,9 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 import { Propietario } from '../../models/propietario';
-import { PropietarioService }from '../../services/propietario.service';
+import { PropietarioService } from '../../services/propietario.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-propietario',
@@ -12,20 +13,17 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class PropietarioComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'nombres', 'apellidos', 'telefono', 'rtn', 'sexo', 'nacionalidad', 'actions'];
+  displayedColumns: string[] = ['id', 'nombres', 'apellidos', 'identidad', 'telefono', 'rtn', 'sexo', 'nacionalidad', 'actions'];
   dataSource: MatTableDataSource<Propietario>;
 
   propietarios: any = [];
-
-  //esta variable controla si el boton de editar aparecerá en pantalla o no
-  isEditable: boolean = false;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   propietario: Propietario = new Propietario();
 
-  constructor(private propietariosService: PropietarioService) { }
+  constructor(private propietariosService: PropietarioService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.propietariosService.getPropietarios()
@@ -44,32 +42,23 @@ export class PropietarioComponent implements OnInit {
     ); 
   }
 
-  //envia todos los datos del propietario seleccionado a los inputs y hace que el boton de editar aparezca
-  //en el formulario
-  onEdit(selectedPropietario: Propietario): void {
-    this.propietario = selectedPropietario;
-    this.isEditable = true;
-  }
-
   //hace una peticion put con los datos del formulario y luego oculta el boton de editar
-  editClick(): void {
-    this.propietariosService.modifyPropietario(this.propietario)
+  onEdit(selectedPropietario: Propietario): void {
+    this.propietariosService.modifyPropietario(selectedPropietario)
     .subscribe(
       res => {
         console.log(res);
         this.propietarios.forEach((element, index) => {
           if(element.id === this.propietarios.id) {
-              this.propietarios[index] = this.propietario;
+              this.propietarios[index] = selectedPropietario;
           }
         });
         this.dataSource = new MatTableDataSource(this.propietarios); //reiniciamos la tabla
-        this.propietario = new Propietario();
-        this.isEditable = false;
         alert('Propietario editado con exito');
       },
       err => {
         console.log(err);
-        alert('Error agregando propietario');
+        alert('Error editando propietario');
       }
     )    
   }
@@ -100,8 +89,9 @@ export class PropietarioComponent implements OnInit {
         console.log(this.propietario);
         console.log(res);
         alert('Propietario agregado con exito');
-        this.propietarios.push(this.propietario);
-        this.dataSource = new MatTableDataSource(this.propietarios); //reiniciamos la tabla
+        //this.propietarios.push(this.propietario);
+        //this.dataSource = new MatTableDataSource(this.propietarios); //reiniciamos la tabla
+        this.ngOnInit(); //reiniciamos la tabla
         this.propietario = new Propietario();
       },
       err => {
@@ -119,4 +109,72 @@ export class PropietarioComponent implements OnInit {
     }
   }
 
+  //esta funcion abre el dialogo para crear un propietario
+  openDialogAddPropietario(): void {
+    this.propietario.id = 0;
+    this.propietarios.nombres = "";
+    this.propietarios.apellidos = "";
+    this.propietario.identidad = "";
+    this.propietario.telefono = "";
+    this.propietario.rtn = "";
+    this.propietario.sexo = "";
+    this.propietario.nacionalidad = "";
+    console.log(this.propietario);
+    const dialogRef = this.dialog.open(AddPropietarioDialog, {
+      width: '80%',
+      data: this.propietario
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      /*
+      Este if de aca tiene un proposito, es el siguiente:
+      Cuando se abre el dialogo para agregar un propietario y el usuario hace click en cancelar,
+      se hace el request de todas formas, entonces para evitar que eso pase esto es lo unico 
+      que se me ocurrio hacer - Julio Gomez
+      */
+      //con un campo que este vacio, no mandamos nada
+      if(result.nombres == "" || result.apellidos == "" || result.identidad == "" || 
+      result.telefono == "" || result.rtn == "" || result.sexo == "" ||
+      result.nacionalidad == "") {
+        console.log(result);
+      }
+      //de lo contrario, vamos a mandar un request
+      else {
+        //asigno uno por uno para que no se pierda el orden al crearse el JSON
+        this.propietario.id = 0;
+        this.propietarios.nombres = result.nombres;
+        this.propietarios.apellidos = result.apellidos;
+        this.propietario.identidad = result.identidad;
+        this.propietario.telefono = result.telefono;
+        this.propietario.rtn = result.rtn;
+        this.propietario.sexo = result.sexo;
+        this.propietario.nacionalidad = result.nacionalidad;
+        console.log(this.propietario);
+        this.submitForm();
+        this.propietario = new Propietario();
+      }
+      
+      //this.animal = result;
+      //this.Negocios.push(result);
+      //this.negocio = new DetallesNegocioData();
+    });
+  }
+
+}
+
+@Component({
+  selector: 'app-propietario/AddPropietario',
+  templateUrl: './popups/AddPropietario/AddPropietarioDialog.html',
+  styleUrls: ['./propietario.component.css']
+})
+export class AddPropietarioDialog {
+  constructor(
+    public dialogRef: MatDialogRef<AddPropietarioDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: Propietario
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }

@@ -1,0 +1,32 @@
+<mat-form-field class="long-form-field">
+    <input matInput [(ngModel)]="data.nombres" placeholder="Nombres" name="nombres">
+</mat-form-field>
+  
+<mat-form-field class="long-form-field">
+    <input matInput [(ngModel)]="data.apellidos" placeholder="Apellidos" name="apellidos">
+</mat-form-field><br/>
+
+<mat-form-field class="form-field">
+    <input matInput [(ngModel)]="data.identidad" placeholder="Identidad" name="identidad">
+</mat-form-field>
+<mat-form-field class="form-field">
+    <input  matInput [(ngModel)]="data.telefono" placeholder="Telefono" name="telefono">
+</mat-form-field>
+
+<mat-form-field class="long-form-field">
+    <input matInput [(ngModel)]="data.rtn" placeholder="RTN" name="rtn">
+</mat-form-field>
+  
+<mat-form-field class="form-field">
+    <mat-select [(ngModel)]="data.sexo" placeholder="Sexo" name="sexo">
+      <mat-option value="M">Masculino</mat-option>
+      <mat-option value="F">Femenino</mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field class="long-form-field">
+    <input matInput [(ngModel)]="data.nacionalidad" placeholder="Nacionalidad" name="nacionalidad">
+</mat-form-field><br/>
+
+<button mat-raised-button [mat-dialog-close]="data" cdkFocusInitial>Enviar</button>
+<button  mat-raised-button (click)="onNoClick()">Cancelar</button>

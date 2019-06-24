@@ -11,7 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { FichaCatastralComponent } from './components/ficha-catastral/ficha-catastral.component';
-import { PropietarioComponent } from './components/propietario/propietario.component';
+import { PropietarioComponent, AddPropietarioDialog } from './components/propietario/propietario.component';
 import { MainNavbarComponent } from './components/main-navbar/main-navbar.component';
 import { FichaUrbanaComponent, DatosLegalesPredioDialog, DatosComplementariosDialog, 
   AvaluoTerrenoUrbanoDialog, AvaluoEdificacionesDialog, DetallesNegocioDialog, CaracteristicasRuralesDialog,
@@ -35,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     PropietarioComponent,
     DetallesNegocioDialog,
     CaracteristicasRuralesDialog,
-    AgregarNegocioDialog
+    AgregarNegocioDialog,
+    AddPropietarioDialog
   ],
   imports: [
     BrowserModule,
@@ -52,7 +53,8 @@ import { HttpClientModule } from '@angular/common/http';
     AvaluoEdificacionesDialog,
     DetallesNegocioDialog,
     CaracteristicasRuralesDialog,
-    AgregarNegocioDialog
+    AgregarNegocioDialog,
+    AddPropietarioDialog
   ],
   providers: [],
   bootstrap: [AppComponent]
