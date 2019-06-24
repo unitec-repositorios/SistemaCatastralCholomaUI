@@ -1,6 +1,6 @@
 <title>Propietario</title>
 <app-main-navbar></app-main-navbar>
-
+<!--
 <div>
 
   <h1 class="Title">Propietario</h1>
@@ -46,7 +46,7 @@
   </mat-card>
 
 </div>
-
+*-->
 <div class="crud">
   <h3 class="special-titles">Propietarios existentes</h3>
   <mat-form-field class="long-form-field">
@@ -59,43 +59,43 @@
       <!-- ID Column -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
-        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+        <td mat-cell *matCellDef="let row">{{row.id}}</td>
       </ng-container>
     
       <!-- Nombres Column -->
       <ng-container matColumnDef="nombres">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombres </th>
-        <td mat-cell *matCellDef="let row"> {{row.nombres}} </td>
+        <td mat-cell *matCellDef="let row"><input matInput [(ngModel)]="row.nombres"></td>
       </ng-container>
     
       <!-- Apellidos Column -->
       <ng-container matColumnDef="apellidos">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </th>
-        <td mat-cell *matCellDef="let row"> {{row.apellidos}} </td>
+        <td mat-cell *matCellDef="let row"> <input matInput [(ngModel)]="row.apellidos"></td>
       </ng-container>
     
       <!-- telefono Column -->
       <ng-container matColumnDef="telefono">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Telefono </th>
-        <td mat-cell *matCellDef="let row"> {{row.telefono}} </td>
+        <td mat-cell *matCellDef="let row"> <input matInput [(ngModel)]="row.telefono"></td>
       </ng-container>
 
       <!-- rtn Column -->
       <ng-container matColumnDef="rtn">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> RTN </th>
-        <td mat-cell *matCellDef="let row"> {{row.rtn}} </td>
+        <td mat-cell *matCellDef="let row"><input matInput [(ngModel)]="row.rtn"></td>
       </ng-container>
 
       <!-- sexo Column -->
       <ng-container matColumnDef="sexo">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Sexo </th>
-        <td mat-cell *matCellDef="let row"> {{row.sexo}} </td>
+        <td mat-cell *matCellDef="let row"><input matInput [(ngModel)]="row.sexo"></td>
       </ng-container>
 
       <!-- nacionalidad Column -->
       <ng-container matColumnDef="nacionalidad">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Nacionalidad </th>
-        <td mat-cell *matCellDef="let row"> {{row.nacionalidad}} </td>
+        <td mat-cell *matCellDef="let row"><input matInput [(ngModel)]="row.nacionalidad"></td>
       </ng-container>
 
       <ng-container matColumnDef="actions">
