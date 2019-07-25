@@ -60,7 +60,7 @@ export class PropietarioComponent implements OnInit {
         console.log(err);
         alert('Error editando propietario');
       }
-    )    
+    );
   }
 
   onDelete(id: number): void {
@@ -98,7 +98,7 @@ export class PropietarioComponent implements OnInit {
         console.log(err);
         alert('Error al agregar propietario');
       }
-    )
+    );
   }
 
   applyFilter(filterValue: string) {
@@ -107,6 +107,18 @@ export class PropietarioComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  openDialogEditPropietario(selectedPropietario: Propietario): void {
+    const dialogRef = this.dialog.open(AddPropietarioDialog, {
+      width: '80%',
+      data: selectedPropietario
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.onEdit(result);
+    });
   }
 
   //esta funcion abre el dialogo para crear un propietario

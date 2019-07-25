@@ -1,52 +1,6 @@
 <title>Propietario</title>
 <app-main-navbar></app-main-navbar>
-<!--
-<div>
 
-  <h1 class="Title">Propietario</h1>
-
-  <mat-card class="card-style">
-
-      <h5 class="special-titles">Propietario o Razón Social</h5> <br/>
-
-      <mat-form-field class="form-field">
-        <input type="number" matInput [(ngModel)]="propietario.id" placeholder="Identidad" name="identidad">
-      </mat-form-field>
-      <mat-form-field class="form-field">
-        <input type="number" matInput [(ngModel)]="propietario.telefono" placeholder="Telefono" name="telefono">
-      </mat-form-field>
-
-      <mat-form-field class="long-form-field">
-        <input matInput [(ngModel)]="propietario.nombres" placeholder="Nombres" name="nombres">
-      </mat-form-field>
-      <mat-form-field class="long-form-field">
-        <input matInput [(ngModel)]="propietario.apellidos" placeholder="Apellidos" name="apellidos">
-      </mat-form-field><br/>
-
-      <mat-form-field class="long-form-field">
-        <input type="number" matInput [(ngModel)]="propietario.rtn" placeholder="RTN" name="rtn">
-      </mat-form-field>
-      
-      <mat-form-field class="form-field">
-        <mat-select [(ngModel)]="propietario.sexo" placeholder="Sexo" name="sexo">
-          <mat-option value="M">Masculino</mat-option>
-          <mat-option value="F">Femenino</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-        <mat-form-field class="long-form-field">
-          <input matInput [(ngModel)]="propietario.nacionalidad" placeholder="Nacionalidad" name="nacionalidad">
-        </mat-form-field><br/>
-
-        <button [ngStyle]="{'margin-left': '45%'}" (click)="submitForm()" class="button" color="primary" mat-raised-button>Enviar</button>
-        <br/>
-        <br/>
-        <br/>
-        <button [ngStyle]="{'margin-left': '45%'}" *ngIf="isEditable === true" (click)="editClick()" class="button" color="primary" mat-raised-button>Editar</button>
-  </mat-card>
-
-</div>
-*-->
 <div class="crud">
   <h3 class="special-titles">Propietarios existentes</h3><br/>
 
@@ -71,49 +25,49 @@
       <!-- Nombres Column -->
       <ng-container matColumnDef="nombres">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombres </th>
-        <td mat-cell *matCellDef="let row"><input matInput [(ngModel)]="row.nombres"></td>
+        <td mat-cell *matCellDef="let row">{{row.nombres}}</td>
       </ng-container>
     
       <!-- Apellidos Column -->
       <ng-container matColumnDef="apellidos">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </th>
-        <td mat-cell *matCellDef="let row"> <input matInput [(ngModel)]="row.apellidos"></td>
+        <td mat-cell *matCellDef="let row">{{row.apellidos}}</td>
       </ng-container>
 
       <!-- Identidad Column -->
       <ng-container matColumnDef="identidad">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Identidad </th>
-        <td mat-cell *matCellDef="let row"> <input matInput [(ngModel)]="row.identidad"></td>
+        <td mat-cell *matCellDef="let row">{{row.identidad}}</td>
       </ng-container>
     
       <!-- telefono Column -->
       <ng-container matColumnDef="telefono">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Telefono </th>
-        <td mat-cell *matCellDef="let row"> <input matInput [(ngModel)]="row.telefono"></td>
+        <td mat-cell *matCellDef="let row"> {{row.telefono}}</td>
       </ng-container>
 
       <!-- rtn Column -->
       <ng-container matColumnDef="rtn">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> RTN </th>
-        <td mat-cell *matCellDef="let row"><input matInput [(ngModel)]="row.rtn"></td>
+        <td mat-cell *matCellDef="let row">{{row.rtn}}</td>
       </ng-container>
 
       <!-- sexo Column -->
       <ng-container matColumnDef="sexo">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Sexo </th>
-        <td mat-cell *matCellDef="let row"><input matInput [(ngModel)]="row.sexo"></td>
+        <td mat-cell *matCellDef="let row">{{row.sexo}}</td>
       </ng-container>
 
       <!-- nacionalidad Column -->
       <ng-container matColumnDef="nacionalidad">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Nacionalidad </th>
-        <td mat-cell *matCellDef="let row"><input matInput [(ngModel)]="row.nacionalidad"></td>
+        <td mat-cell *matCellDef="let row">{{row.nacionalidad}}</td>
       </ng-container>
 
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
         <td mat-cell *matCellDef="let row">
-          <button mat-icon-button (click)="onEdit(row)"><mat-icon>launch</mat-icon></button>
+          <button mat-icon-button (click)="openDialogEditPropietario(row)"><mat-icon>launch</mat-icon></button>
           <button mat-icon-button color="warn" (click)="onDelete(row.id)"><mat-icon>delete_outline</mat-icon></button>
         </td>
       </ng-container>
