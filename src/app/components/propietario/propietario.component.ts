@@ -53,7 +53,7 @@ export class PropietarioComponent implements OnInit {
               this.propietarios[index] = selectedPropietario;
           }
         });
-        this.dataSource = new MatTableDataSource(this.propietarios); //reiniciamos la tabla
+        this.ngOnInit();
         alert('Propietario editado con exito');
       },
       err => {
