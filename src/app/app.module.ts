@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { CustomMaterialModule } from './material.module';
 
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,9 +14,7 @@ import { PrincipalComponent } from './components/principal/principal.component';
 import { FichaCatastralComponent } from './components/ficha-catastral/ficha-catastral.component';
 import { PropietarioComponent, AddPropietarioDialog } from './components/propietario/propietario.component';
 import { MainNavbarComponent } from './components/main-navbar/main-navbar.component';
-import { FichaUrbanaComponent, DatosLegalesPredioDialog, DatosComplementariosDialog, 
-  AvaluoTerrenoUrbanoDialog, AvaluoEdificacionesDialog, DetallesNegocioDialog, CaracteristicasRuralesDialog,
-  AgregarNegocioDialog } from './components/ficha-urbana/ficha-urbana.component';
+import { FichaUrbanaComponent } from './components/ficha-urbana/ficha-urbana.component';
 
 //importar el http module para poder usar HTTP Client
 import { HttpClientModule } from '@angular/common/http';
@@ -28,14 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     FichaCatastralComponent,
     MainNavbarComponent,
     FichaUrbanaComponent,
-    DatosLegalesPredioDialog,
-    DatosComplementariosDialog,
-    AvaluoTerrenoUrbanoDialog,
-    AvaluoEdificacionesDialog,
     PropietarioComponent,
-    DetallesNegocioDialog,
-    CaracteristicasRuralesDialog,
-    AgregarNegocioDialog,
     AddPropietarioDialog
   ],
   imports: [
@@ -44,16 +36,10 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     CustomMaterialModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   entryComponents: [
-    DatosLegalesPredioDialog,
-    DatosComplementariosDialog,
-    AvaluoTerrenoUrbanoDialog,
-    AvaluoEdificacionesDialog,
-    DetallesNegocioDialog,
-    CaracteristicasRuralesDialog,
-    AgregarNegocioDialog,
     AddPropietarioDialog
   ],
   providers: [],
