@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EmpleadosService {
 
-  API_URL = 'http://catastrocholomaapi.azurewebsites.net/api';
+  API_URL = '//catastrocholomaapi.azurewebsites.net/api';
 
   constructor(private http: HttpClient) { }
 

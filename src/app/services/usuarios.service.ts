@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class UsuariosService {
 
-  API_URL = 'http://catastrocholomaapi.azurewebsites.net/api';
+  API_URL = '//catastrocholomaapi.azurewebsites.net/api';
 
   constructor(private http: HttpClient) { }
 
