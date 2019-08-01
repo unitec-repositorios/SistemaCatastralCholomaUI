@@ -5,7 +5,7 @@
     </mat-card-header>
     <mat-card-content class="card-style">
       <form class="example-form">
-        <img src="../../../assets/img/muni-choloma-logo.png" alt="Logo municipalidad Choloma">
+        <img class="logo-image" src="../../../assets/img/muni-choloma-logo.png" alt="Logo municipalidad Choloma">
         <table class="example-full-width" cellspacing="0">
           <tr>
             <td>
@@ -20,9 +20,9 @@
           </mat-form-field></td>
         </tr></table>
       </form>
+      <mat-card-actions>
+        <button class="button" mat-raised-button (click)="login()" color="primary">Iniciar Sesion</button>
+      </mat-card-actions>
     </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button (click)="login()" color="primary">Iniciar Sesion</button>
-    </mat-card-actions>
   </mat-card>
 </div>

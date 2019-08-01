@@ -44,7 +44,7 @@ export class FichaUrbanaComponent implements OnInit {
   avaluoEdificacionesFormGroup: FormGroup;
   ultimosDatosFormGroup: FormGroup;
 
-  //estos dos atributos de aqui abajo pertenecen a la tabla que aparece en el step "detalls adicionales"
+  //estos dos atributos de aqui abajo pertenecen a la tabla que aparece en el step "detalles adicionales"
   displayedColumns: string[] = ['codigo', 'area', 'detalleAdicional', 'porcentaje', 
   'precioUnitario', 'total', 'codEdif'];
   dataSource = DATOS_COMPLEMENTARIOS_DATA;

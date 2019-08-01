@@ -7,35 +7,39 @@
     <mat-step [stepControl]="propiedadFormGroup">
       <form [formGroup]="propiedadFormGroup">
         <ng-template matStepLabel>Datos de propiedad</ng-template>
-        <h5 class="special-titles">Datos de propiedad</h5>
-        <br/>
-        <mat-radio-group name="radioGroup1">
-          <mat-radio-button name="radioButtons1" value="N">
-            Propiedad Normal
-          </mat-radio-button>
+        <div>
+          <h5 class="special-titles">Datos de propiedad</h5>
+          <br/>
+          <mat-radio-group name="radioGroup1">
+            <mat-radio-button name="radioButtons1" value="N">
+              Propiedad Normal
+            </mat-radio-button>
+            <br/>
+            <br/>
+            <mat-radio-button name="radioButtons2" value="C">
+              Condominio (P.H.)
+            </mat-radio-button>
+          </mat-radio-group> 
           <br/>
           <br/>
-          <mat-radio-button name="radioButtons2" value="C">
-            Condominio (P.H.)
-          </mat-radio-button>
-        </mat-radio-group> 
-        <br/>
-        <br/>
-        <mat-form-field class="special-form-field">
-          <input matInput placeholder="Mapa" name="mapa">
-        </mat-form-field>
-        <mat-form-field class="special-form-field">
-          <input matInput placeholder="Bloque" name="bloque">
-        </mat-form-field>
-        <mat-form-field class="special-form-field">
-          <input matInput placeholder="Predio" name="predio">
-        </mat-form-field><br/><br/>
+          <mat-form-field class="special-form-field">
+            <input matInput placeholder="Mapa" name="mapa">
+          </mat-form-field>
+          <mat-form-field class="special-form-field">
+            <input matInput placeholder="Bloque" name="bloque">
+          </mat-form-field>
+          <mat-form-field class="special-form-field">
+            <input matInput placeholder="Predio" name="predio">
+          </mat-form-field><br/><br/>
+      </div>
+      <div>
         <h5 class="special-titles">Propietario</h5>
         <mat-form-field class="form-field">
           <input  type="number" matInput placeholder="Identidad" name="identidad">
         </mat-form-field>
-        <div>
-          <button mat-button matStepperNext>Siguiente</button>
+      </div>
+        <div class="buttons">
+          <button class="positive-button" mat-raised-button matStepperNext>Siguiente</button>
         </div>
       </form>
     </mat-step>
@@ -67,9 +71,9 @@
             <input matInput placeholder="Fecha de fundacion" name="fechaFundacion">
           </mat-form-field>
         </div>
-        <div>
-          <button mat-button matStepperPrevious>Anterior</button>
-          <button mat-button matStepperNext>Siguiente</button>
+        <div class="buttons">
+          <button class="negative-button" mat-raised-button matStepperPrevious>Anterior</button>
+          <button class="positive-button" mat-raised-button matStepperNext>Siguiente</button>
         </div>
       </form>
     </mat-step>
@@ -131,9 +135,9 @@
           <input [ngStyle]="{'color': 'red'}" matInput type="number" placeholder="% Concertación" name="concertacion">
         </mat-form-field> <br/><br/>
         <!--Fin del formulario de informacion del predio-->
-        <div>
-          <button mat-button matStepperPrevious>Anterior</button>
-          <button mat-button matStepperNext>Siguiente</button>
+        <div class="buttons">
+          <button class="negative-button" mat-button matStepperPrevious>Anterior</button>
+          <button class="positive-button" mat-button matStepperNext>Siguiente</button>
         </div>
       </form>
     </mat-step>
@@ -226,9 +230,9 @@
             </mat-select>
           </mat-form-field>
         </div>
-        <div>
-          <button mat-button matStepperPrevious>Anterior</button>
-          <button mat-button matStepperNext>Siguiente</button>
+        <div class="buttons">
+          <button class="negative-button"mat-button matStepperPrevious>Anterior</button>
+          <button class="positive-button"mat-button matStepperNext>Siguiente</button>
         </div>
       </form>
     </mat-step>
@@ -279,7 +283,7 @@
         
           <table style="width:100%">
             <tr>
-              <th class="table-headers">Fuente</th>
+              <th [ngStyle]="{'margin-left': '40px'}" class="table-headers">Fuente</th>
               <th class="table-headers">Riego</th> 
               <th class="table-headers">Dist. Kms.</th>
               <th class="table-headers">Sistema de Irrigación</th>
@@ -433,10 +437,10 @@
                 <input matInput type="number" name="usoTierra41">
               </mat-form-field><br/>       
             </div>
-        <div>
-          <button mat-button matStepperPrevious>Anterior</button>
-          <button mat-button matStepperNext>Siguiente</button>
-        </div>
+            <div class="buttons">
+              <button class="negative-button"mat-button matStepperPrevious>Anterior</button>
+              <button class="positive-button"mat-button matStepperNext>Siguiente</button>
+            </div>
       </form>
     </mat-step>
 
@@ -542,10 +546,10 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
-        <div>
-          <button mat-button matStepperPrevious>Anterior</button>
-          <button mat-button matStepperNext>Siguiente</button>
-        </div>
+          <div class="buttons">
+            <button class="negative-button"mat-button matStepperPrevious>Anterior</button>
+            <button class="positive-button"mat-button matStepperNext>Siguiente</button>
+          </div>
       </form>
     </mat-step>
 
@@ -610,9 +614,9 @@
                     </mat-form-field><br/>
                 </body>
         </div>
-        <div>
-          <button mat-button matStepperPrevious>Anterior</button>
-          <button mat-button matStepperNext>Siguiente</button>
+        <div class="buttons">
+          <button class="negative-button"mat-button matStepperPrevious>Anterior</button>
+          <button class="positive-button"mat-button matStepperNext>Siguiente</button>
         </div>
       </form>
     </mat-step>
@@ -771,10 +775,10 @@
           <mat-form-field class="long-form-field">
               <input matInput placeholder="Total" name="total">
           </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Anterior</button>
-          <button mat-button matStepperNext>Siguiente</button>
-        </div>
+          <div class="buttons">
+            <button class="negative-button"mat-button matStepperPrevious>Anterior</button>
+            <button class="positive-button"mat-button matStepperNext>Siguiente</button>
+          </div>
       </form>
     </mat-step>
 
@@ -824,20 +828,20 @@
         <mat-form-field class="center-long-data">
             <input type="number" matInput placeholder="Estado del Predio" name="estado-predio">
           </mat-form-field><br/> <br/>
-        <div>
-          <button mat-button matStepperPrevious>Anterior</button>
-          <button mat-button matStepperNext>Siguiente</button>
-        </div>
+          <div class="buttons">
+            <button class="negative-button"mat-button matStepperPrevious>Anterior</button>
+            <button class="positive-button"mat-button matStepperNext>Siguiente</button>
+          </div>
       </form>
     </mat-step>
 
     <!--Last part of stepper-->
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>
-      You are now done.
+      Ha terminado de llenar el formulario.
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button class="negative-button" mat-raised-button matStepperPrevious>Anterior</button>
+        <button class="negative-button" mat-raised-button (click)="stepper.reset()">Reiniciar</button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>

@@ -1,6 +1,5 @@
 .container {
     text-align: center;
-    height: 100%;
     /* The image used */
     /* background-image: url("../../../assets/img/muni-choloma-background.png"); */
 
@@ -11,7 +10,14 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: 5%;
+    padding-top: 7%;
+    /* padding-left: 37%; */
+    justify-content: center;
+}
+
+div {
+    width: 100%;
+    display: flex;
 }
 
 .card-style {
@@ -27,20 +33,29 @@
 }
 
 .example-card {
-    display: inline-block;
-    min-width: 150px;
-    max-width: 320px;
+    display: block;
+    min-width: 20%;
+    max-width: 30%;
     width: 100%;
+    max-height: max-content;
 }
 
 .example-form {
     min-width: 150px;
     max-width: 500px;
     width: 100%;
+    padding-bottom: 10px;
   }
   
 .example-full-width {
     width: 100%;
+}
+
+.logo-image {
+    margin-right: 10px;
+}
+.button {
+    margin: 10px 0 0 0;
 }
 
 img {
