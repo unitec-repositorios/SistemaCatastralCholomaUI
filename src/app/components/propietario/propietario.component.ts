@@ -48,11 +48,6 @@ export class PropietarioComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res);
-        this.propietarios.forEach((element, index) => {
-          if(element.id === this.propietarios.id) {
-              this.propietarios[index] = selectedPropietario;
-          }
-        });
         this.ngOnInit();
         alert('Propietario editado con exito');
       },
@@ -71,8 +66,7 @@ export class PropietarioComponent implements OnInit {
         .subscribe(
           res => {
             console.log(res);
-            this.propietarios = this.propietarios.filter(x => x.id != id);
-            this.dataSource = new MatTableDataSource(this.propietarios); //reiniciamos la tabla
+            this.ngOnInit();
             alert('Propietario eliminado con exito');
           },
           err => {
