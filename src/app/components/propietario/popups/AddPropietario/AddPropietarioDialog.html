@@ -25,7 +25,14 @@
 </mat-form-field>
 
 <mat-form-field class="long-form-field">
-    <input matInput [(ngModel)]="data.nacionalidad" placeholder="Nacionalidad" name="nacionalidad">
+    <mat-select [(ngModel)]="data.nacionalidad" placeholder="Nacionalidad" name="nacionalidad">
+        <mat-option value="BLZ">Belice</mat-option>
+        <mat-option value="HND">Honduras</mat-option>
+        <mat-option value="CRI">Costa Rica</mat-option>
+        <mat-option value="GTM">Guatemala</mat-option>
+        <mat-option value="NIC">Nicaragua</mat-option>
+        <mat-option value="PAN">Panamá</mat-option>        
+    </mat-select>
 </mat-form-field><br/>
 
 <button mat-raised-button [mat-dialog-close]="data" cdkFocusInitial>Enviar</button>

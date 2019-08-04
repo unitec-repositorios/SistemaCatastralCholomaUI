@@ -1,7 +1,7 @@
 <app-main-navbar></app-main-navbar>
 <h1 class="Title">Ficha Catastral Urbana</h1>
 <mat-card class="card-style">
-  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-horizontal-stepper [linear]="isLinear" #stepper >
 
     <!--First part of stepper-->
     <mat-step [stepControl]="propiedadFormGroup">
@@ -58,8 +58,15 @@
             <input matInput placeholder="Direccion" name="direccion">
           </mat-form-field>
           <br/>
-          <mat-form-field class="long-form-field">
-            <input matInput placeholder="Tipo de empresa" name="tipo">
+          <mat-form-field class="longest-form-field">
+            <mat-select  placeholder="Tipo de empresa" name="tipo">
+                <mat-option value="Comerciante Individual">Comerciante Individual</mat-option>
+                <mat-option value="Sociedad Colectiva">Sociedad Colectiva</mat-option>
+                <mat-option value="Sociedad en Comandita Simple">Sociedad en Comandita Simple</mat-option>
+                <mat-option value="Sociedad de Responsabilidad Limitada">Sociedad de Responsabilidad Limitada</mat-option>
+                <mat-option value="Sociedad Anónima">Sociedad Anónima</mat-option>
+                <mat-option value="Sociedad en Comandita por Acciones">Sociedad en Comandita por Acciones</mat-option>   
+            </mat-select>
           </mat-form-field>
           <mat-form-field class="long-form-field">
             <input matInput placeholder="Deuda" name="deuda">

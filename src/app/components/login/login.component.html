@@ -1,27 +1,31 @@
 <div class="container"> 
   <mat-card class="example-card">
+      <div> 
+          <img class="logo-image" src="../../../assets/img/choloma.png" alt="Logo municipalidad Choloma">
+        </div>
     <mat-card-header>
-      <mat-card-title class="special-titles">Login</mat-card-title>
     </mat-card-header>
     <mat-card-content class="card-style">
-      <form class="example-form">
-        <img class="logo-image" src="../../../assets/img/muni-choloma-logo.png" alt="Logo municipalidad Choloma">
-        <table class="example-full-width" cellspacing="0">
+      <form >
+          <h1 class="Title">Iniciar sesión al sistema de Catastro</h1>
+          <h2 class="subTitle">Ingrese sus detalles de inicio de sesión a continuación</h2>
+        <table class="example-full-width"  cellspacing="0">
+          <tr><td></td></tr>
           <tr>
             <td>
-              <mat-form-field class="example-full-width">
+              <mat-form-field class="user_style">
               <input matInput placeholder="Usuario" [(ngModel)]="username" name="username" required>
               </mat-form-field>
             </td>
           </tr>
           <tr>
-          <td><mat-form-field class="example-full-width">
-            <input matInput placeholder="Contraseña" [(ngModel)]="password"type="password" name="password" required>
+          <td><mat-form-field class="pass_style">
+            <input  matInput placeholder="Contraseña" [(ngModel)]="password"type="password" name="password" required>
           </mat-form-field></td>
         </tr></table>
       </form>
       <mat-card-actions>
-        <button class="button" mat-raised-button (click)="login()" color="primary">Iniciar Sesion</button>
+        <button class="button" mat-raised-button (click)="login()" color="primary">Iniciar sesión</button>
       </mat-card-actions>
     </mat-card-content>
   </mat-card>
