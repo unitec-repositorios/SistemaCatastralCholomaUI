@@ -1,54 +1,46 @@
-.container {
-    text-align: center;
-    /* The image used */
-   /* background: #1D976C;  fallback for old browsers */
-    background: linear-gradient(to right, #56ab2f, #a8e063); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-    /* Full height */
-    height: 86.4%; 
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
+body {
+    background: linear-gradient(to right, #56ab2f, #a8e063);
     background-size: cover;
-    padding-top: 7%;
-    /* padding-left: 37%; */
-    justify-content: center;
+    background-repeat: no-repeat;
+   
 }
 
-div {
-    width: 100%;
-    display: flex;
+.wrapper {
+    max-width: 700px;
+    max-height: 500px;
+    padding:150px 50px ;
+    margin:auto;
+    
 }
 
 .card-style {
-    margin: 45px 45px 45px 45px;
-
-    padding: 25px 35px 45px 35px;
+    padding: 25px;
+    display: block;
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3);
+    max-width: 100%;
+    max-height: 100%;
+    /* background-image: url("../../../assets/img/new_black.png"); */
+    /* background-size: 850px 700px; */
+ 
+    background-repeat: no-repeat;
 }
 
-.special-titles {
-    color: red;
-    text-transform: uppercase;
-    margin: 25px 25px 10px 25px;
+.login-container{
+    padding: 10px 0px 10px 48px; 
+    /* flex-direction: column;
+    justify-content: center;
+    justify-items: center; */
+    width: 50%;
 }
-.Title {
-    position: absolute;
-    left:45%;
-    top:20%;
-    /*text-shadow: 2px 2px 12px yellow;
-    color: #228b22;*/
-}
-.subTitle {
-    position: absolute;
-    left:45%;
-    top:27%;
-    font-style: normal;
-    font-size: 13px;
+
+.card-style h2{
+    font-size: 15px;
     color: #7d817d;
     /*text-shadow: 2px 2px 12px yellow;
     */
 }
+
+
 
 .example-card {
     display: block;
@@ -63,52 +55,31 @@ div {
     background-repeat: no-repeat;
 }
 
-.mat-form-field {
+
+.field-input{
+    padding-bottom: 5px;
+    width: 80%;
     font-size: 18px;
-  }
-
-.example-form {
-    width: 100%;
-    height: 100%;
+    
 }
 
-
-.example-full-width {
-    width: 100%;
-}
-
-.user_style {
-    position: absolute;
-    left: 45%;
-    top:33%;
-    bottom: 30%;
-    width: 40%;
-}
-.pass_style {
-    position: absolute;
-    top:43%;
-    left: 45%;
-    width: 40%;
-}
 
 .logo-image {
     position: absolute;
-    top:20%;
-    right: 70%;   
-}
-.button {
-    display: inline-block;
-    position: absolute;
-    padding: 10px;
-    background: linear-gradient(180deg, rgba(84,179,63,1) 0%, rgba(107,195,58,1) 100%);
-    font-size:17px;
-    bottom: 35%;
-    left: 45%;
-    width: 150px;
-}
-
-img {
-    width: 200px;
+    left:63%;
+    top:9%;  
+    width: 190px;
     height: 190px;
 }
+
+.button {
+    display: inline-block;
+    padding: 10px;
+    position: relative;
+    background: linear-gradient(180deg, rgba(84,179,63,1) 0%, rgba(107,195,58,1) 100%);
+    font-size:17px;
+    width: 150px;
+    left:2%;
+}
+
 

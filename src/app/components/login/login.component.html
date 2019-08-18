@@ -1,32 +1,31 @@
-<div class="container"> 
-  <mat-card class="example-card">
-      <div> 
-          <img class="logo-image" src="../../../assets/img/choloma.png" alt="Logo municipalidad Choloma">
-        </div>
-    <mat-card-header>
-    </mat-card-header>
-    <mat-card-content class="card-style">
-      <form >
-          <h1 class="Title">Iniciar sesión al sistema de Catastro</h1>
-          <h2 class="subTitle">Ingrese sus detalles de inicio de sesión a continuación</h2>
-        <table class="example-full-width"  cellspacing="0">
-          <tr><td></td></tr>
-          <tr>
-            <td>
-              <mat-form-field class="user_style">
-              <input matInput placeholder="Usuario" [(ngModel)]="username" name="username" required>
-              </mat-form-field>
-            </td>
-          </tr>
-          <tr>
-          <td><mat-form-field class="pass_style">
-            <input  matInput placeholder="Contraseña" [(ngModel)]="password"type="password" name="password" required>
-          </mat-form-field></td>
-        </tr></table>
-      </form>
-      <mat-card-actions>
-        <button class="button" mat-raised-button (click)="login()" color="primary">Iniciar sesión</button>
-      </mat-card-actions>
-    </mat-card-content>
-  </mat-card>
-</div>
+<body>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <div class="wrapper">
+    <mat-card class="card-style">
+        <img class="logo-image" src="../../../assets/img/choloma.png" alt="Logo municipalidad Choloma">
+      <mat-card-content>
+          
+        <form class="login-container">
+          <h1>Iniciar sesión al sistema Catastro</h1>
+          <h2>Ingrese sus detalles de inicio de sesión a continuación</h2>
+          <mat-form-field class="field-input" >
+            <input matInput placeholder="Usuario" [(ngModel)]="username" name="username" required>
+          </mat-form-field>
+          <td></td>
+          <mat-form-field class="field-input" >
+            <input matInput placeholder="Contraseña" [(ngModel)]="password" type="password" name="password" required>
+          </mat-form-field>
+          <mat-card-actions>
+            <button class="button" mat-raised-button (click)="login()" color="primary">Iniciar sesión</button>
+          </mat-card-actions>
+        </form>
+
+      </mat-card-content>
+
+    </mat-card>
+
+  </div>
+
+
+
+</body>
