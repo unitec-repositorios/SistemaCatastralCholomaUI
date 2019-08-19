@@ -458,7 +458,328 @@
         <ng-template matStepLabel>Datos complementarios</ng-template>
         <h5 class="special-titles">Datos complementarios</h5>
         <br/>
+
+        <mat-form-field class="long-form-field">
+          <input matInput [matDatepicker]="picker3" placeholder="Fecha de Adquisicion" disabled>
+          <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+          <mat-datepicker #picker3 disabled="false"></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Monto de la transaccion" name="monto">
+        </mat-form-field>
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Clase transaccion" name="clase">
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+          <input matInput placeholder="Maquinaria" name="maquinaria">
+        </mat-form-field>
+        <br/>
         
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Delineador" name="delineador">
+        </mat-form-field>
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Observaciones" name="observaciones">
+        </mat-form-field>
+        <br/>
+
+        <mat-form-field class="long-form-field">
+          <input matInput [matDatepicker]="picker4" placeholder="Fecha" disabled>
+          <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+          <mat-datepicker #picker4 disabled="false"></mat-datepicker>
+        </mat-form-field>
+        <br/>
+
+        <h4>Colindantes</h4>
+        Norte
+        <br/>
+        <mat-form-field class="short-form-field">
+          <mat-select name="norte1">
+            <mat-option value="a">a</mat-option> 
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+          <mat-select name="norte2">
+          <mat-option value="a">a</mat-option> 
+        </mat-select>
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+          <mat-select name="norte3">
+            <mat-option value="a">a</mat-option> 
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+          <mat-select name="norte4">
+            <mat-option value="a">a</mat-option> 
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+          <mat-select name="norte5">
+            <mat-option value="a">a</mat-option> 
+          </mat-select>
+        </mat-form-field>
+        <br/>
+
+        Sur
+        <br/>
+        <mat-form-field class="short-form-field">
+          <mat-select name="sur1">
+          <mat-option value="a">a</mat-option> 
+        </mat-select>
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+          <mat-select name="sur2">
+          <mat-option value="a">a</mat-option> 
+        </mat-select>
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+          <mat-select name="sur3">
+            <mat-option value="a">a</mat-option> 
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+          <mat-select name="sur4">
+            <mat-option value="a">a</mat-option> 
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+          <mat-select name="sur5">
+            <mat-option value="a">a</mat-option> 
+          </mat-select>
+        </mat-form-field>
+        <br/>
+
+        Este
+        <br/>
+        <mat-form-field class="short-form-field">
+          <mat-select name="este1">
+          <mat-option value="a">a</mat-option> 
+        </mat-select>
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+          <mat-select name="este2">
+          <mat-option value="a">a</mat-option> 
+        </mat-select>
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+          <mat-select name="este3">
+            <mat-option value="a">a</mat-option> 
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+          <mat-select name="este4">
+            <mat-option value="a">a</mat-option> 
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+          <mat-select name="este5">
+            <mat-option value="a">a</mat-option> 
+          </mat-select>
+        </mat-form-field>
+        <br/>
+
+        Oeste
+        <br/>
+        <mat-form-field class="short-form-field">
+          <mat-select name="oeste1">
+          <mat-option value="a">a</mat-option> 
+        </mat-select>
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+          <mat-select name="oeste2">
+          <mat-option value="a">a</mat-option> 
+        </mat-select>
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+          <mat-select name="oeste3">
+            <mat-option value="a">a</mat-option> 
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+          <mat-select name="oeste4">
+            <mat-option value="a">a</mat-option> 
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+          <mat-select name="oeste5">
+            <mat-option value="a">a</mat-option> 
+          </mat-select>
+        </mat-form-field>
+        <br/>
+
+        <h4>Servicios publicos</h4>
+        <mat-form-field class="long-form-field">
+          <mat-select placeholder="Agua potable" name="agua">
+            <mat-option value="1040">Sin Agua</mat-option> 
+            <mat-option value="1041">Acueducto</mat-option> 
+            <mat-option value="1042">Pozo</mat-option> 
+            <mat-option value="1043">Acueducto y Pozo</mat-option> 
+          </mat-select>
+        </mat-form-field>      
+
+        <mat-form-field class="long-form-field">
+          <mat-select placeholder="Telefono" name="telefono">
+            <mat-option value="1050">Sin Telefono</mat-option> 
+            <mat-option value="1051">Telefono</mat-option> 
+          </mat-select>
+        </mat-form-field> 
+
+        <mat-form-field class="long-form-field">
+          <mat-select placeholder="Drenaje" name="drenaje">
+            <mat-option value="1060">Sin Alcantarillado</mat-option> 
+            <mat-option value="1061">Alcantarillado Sanitario</mat-option> 
+            <mat-option value="1062">Alcantarillado Pluvial</mat-option> 
+            <mat-option value="1063">Alcantarillado Sanit. y Pluvial</mat-option> 
+            <mat-option value="1064">Fosa Septica</mat-option>
+            <mat-option value="1065">Alcant. Sanit. y FosaS.</mat-option>  
+          </mat-select>
+        </mat-form-field> 
+
+        <mat-form-field class="long-form-field">
+          <mat-select placeholder="Calle" name="calle">
+            <mat-option value="1070">Sin Calle</mat-option> 
+            <mat-option value="1071">Concreto</mat-option> 
+            <mat-option value="1072">Asfalto</mat-option> 
+            <mat-option value="1073">Adoquin</mat-option> 
+            <mat-option value="1074">Tierra</mat-option>
+            <mat-option value="1075">Concreto y Asfalto</mat-option>  
+            <mat-option value="1076">Concreto y Adoquin</mat-option>  
+          </mat-select>
+        </mat-form-field> 
+
+        <mat-form-field class="long-form-field">
+          <mat-select placeholder="Electricidad" name="electricidad">
+            <mat-option value="1080">Sin Electricidad</mat-option> 
+            <mat-option value="1081">ENEE</mat-option> 
+            <mat-option value="1082">Municipal</mat-option> 
+            <mat-option value="1083">Planta propia</mat-option> 
+            <mat-option value="1084">ENEE y Planta propia</mat-option>
+            <mat-option value="1085">Municipal y Planta propia</mat-option>  
+          </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field class="long-form-field">
+          <mat-select placeholder="Acera" name="acera">
+            <mat-option value="1090">Sin Acera</mat-option> 
+            <mat-option value="1091">Concreto</mat-option> 
+            <mat-option value="1092">Adoquin</mat-option> 
+            <mat-option value="1093">Ladrillo</mat-option> 
+            <mat-option value="1094">Concreto y Adoquin</mat-option>
+            <mat-option value="1095">Concreto y Ladrillo</mat-option>  
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="long-form-field">
+          <mat-select placeholder="Alumbrado publico" name="alumbrado">
+            <mat-option value="1110">Alumbrado Publico</mat-option> 
+            <mat-option value="1111">Sin Alumbrado Publico</mat-option> 
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="long-form-field">
+          <mat-select placeholder="Tren de Aseo" name="tren">
+            <mat-option value="1100">Sin Tren de Aseo</mat-option> 
+            <mat-option value="1101">Tren de Aseo</mat-option> 
+          </mat-select>
+        </mat-form-field>
+
+        <h4>Edificaciones Especiales</h4>
+        <p>Primera planta</p>
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Area" name="areap1">
+        </mat-form-field>
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Costo unitario" name="costop1">
+        </mat-form-field>
+
+        <p>Segunda planta</p>
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Area" name="areap2">
+        </mat-form-field>
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Costo unitario" name="costop2">
+        </mat-form-field>
+
+        <p>Tercera planta</p>
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Area" name="areap3">
+        </mat-form-field>
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Costo unitario" name="costop3">
+        </mat-form-field>
+
+        <p>Cuarta planta</p>
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Area" name="areap4">
+        </mat-form-field>
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Costo unitario" name="costop4">
+        </mat-form-field>
+
+        <p>Quinta planta</p>
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Area" name="areap5">
+        </mat-form-field>
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Costo unitario" name="costop5">
+        </mat-form-field>
+      
+
+        <p>Planta Adicional</p>
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Area" name="areapa">
+        </mat-form-field>
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Costo unitario" name="costopa">
+        </mat-form-field>
+
+        <p>Sotano</p>
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Area" name="areas">
+        </mat-form-field>
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Costo unitario" name="costos">
+        </mat-form-field>
+        <br/>
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Total Detalles Adicionales" name="total">
+        </mat-form-field>
+        <br/>
+        <br/>
+        <br/>
+
+        <h4>Ultimos datos</h4>
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Ocupante" name="ocupante">
+        </mat-form-field>
+
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Renta mensual" name="renta">
+        </mat-form-field>
+        <br/>
+
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Observacion" name="observacion">
+        </mat-form-field>
+        <br/>
+
+        <mat-form-field class="short-form-field">
+          <input matInput placeholder="Uso" name="uso">
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+          <input matInput placeholder="Clave" name="clave">
+        </mat-form-field>
+        <mat-form-field class="short-form-field">
+          <input matInput placeholder="% bueno" name="bueno">
+        </mat-form-field>
+        <mat-form-field class="long-form-field">
+          <input matInput placeholder="Total detalles" name="total-detalles">
+        </mat-form-field>
+        <br/>
+        <div class="buttons">
+          <button class="negative-button" mat-raised-button matStepperPrevious>Anterior</button>
+          <button class="positive-button" mat-raised-button matStepperNext>Siguiente</button>
+        </div>
       </form>
     </mat-step>
 
@@ -684,6 +1005,7 @@
           <mat-form-field class="long-form-field">
               <input matInput placeholder="Total" name="total">
           </mat-form-field>
+          <br/>
           <div class="buttons">
             <button class="negative-button"mat-button matStepperPrevious>Anterior</button>
             <button class="positive-button"mat-button matStepperNext>Siguiente</button>
@@ -708,33 +1030,33 @@
           <br/>
           
           <mat-form-field class="short-form-field">
-            <input matInput [(ngModel)]="datosComp.codigo" [ngModelOptions]="{standalone: true}" placeholder="Codigo" name="codigo">
+            <input matInput [(ngModel)]="detallesAdicionales.codigo" [ngModelOptions]="{standalone: true}" placeholder="Codigo" name="codigo">
           </mat-form-field>
           <mat-form-field class="long-form-field">
-            <input matInput [(ngModel)]="datosComp.detalleAdicional" [ngModelOptions]="{standalone: true}" placeholder="Detalle" name="detalle">
+            <input matInput [(ngModel)]="detallesAdicionales.detalleAdicional" [ngModelOptions]="{standalone: true}" placeholder="Detalle" name="detalle">
           </mat-form-field>
           <mat-form-field class="short-form-field">
-            <input matInput [(ngModel)]="datosComp.codEdif" [ngModelOptions]="{standalone: true}" placeholder="Cod Edif." name="cod-edif">
+            <input matInput [(ngModel)]="detallesAdicionales.codEdif" [ngModelOptions]="{standalone: true}" placeholder="Cod Edif." name="cod-edif">
           </mat-form-field>
           
           <br/>
           
           <mat-form-field class="short-form-field">
-            <input matInput [(ngModel)]="datosComp.area" [ngModelOptions]="{standalone: true}" placeholder="Área" name="area">
+            <input matInput [(ngModel)]="detallesAdicionales.area" [ngModelOptions]="{standalone: true}" placeholder="Área" name="area">
           </mat-form-field>
           
           <mat-form-field class="short-form-field">
-            <input matInput [(ngModel)]="datosComp.porcentaje" [ngModelOptions]="{standalone: true}" placeholder="Porcentaje" name="porcentaje">
+            <input matInput [(ngModel)]="detallesAdicionales.porcentaje" [ngModelOptions]="{standalone: true}" placeholder="Porcentaje" name="porcentaje">
           </mat-form-field>
           
           <mat-form-field class="long-form-field">
-            <input matInput [(ngModel)]="datosComp.precioUnitario" [ngModelOptions]="{standalone: true}" placeholder="Costo unitario" name="costo-unitario">
+            <input matInput [(ngModel)]="detallesAdicionales.precioUnitario" [ngModelOptions]="{standalone: true}" placeholder="Costo unitario" name="costo-unitario">
           </mat-form-field>
           
           <br/>
           
           <mat-form-field class="long-form-field">
-            <input matInput [(ngModel)]="datosComp.total" [ngModelOptions]="{standalone: true}" placeholder="Total" name="total">
+            <input matInput [(ngModel)]="detallesAdicionales.total" [ngModelOptions]="{standalone: true}" placeholder="Total" name="total">
           </mat-form-field>
           
           <div mat-dialog-actions>
@@ -806,8 +1128,11 @@
         <ng-template matStepLabel>Cultivos Permanentes</ng-template>
         <h5 class="special-titles">Cultivos Permanentes</h5>
         <br/>
-
-        </form>
+        <div class="buttons">
+          <button class="negative-button" mat-raised-button matStepperPrevious>Anterior</button>
+          <button class="positive-button" mat-raised-button matStepperNext>Siguiente</button>
+        </div>
+      </form>
     </mat-step>
 
     <!--11th part of stepper-->

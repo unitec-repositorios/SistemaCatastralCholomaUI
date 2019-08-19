@@ -15,7 +15,7 @@ export const MY_FORMATS = {
 };
 
 //datos que van en la tabla que aparece en el dialogo de datos complementarios, PASAR ESTO A UN MODEL DESPUES
-export class DatosComplementarios {
+export class DetallesAdicionales {
   codigo: number;
   area: number;
   detalleAdicional: string;
@@ -24,7 +24,7 @@ export class DatosComplementarios {
   total: number;
   codEdif: number;
 
-  DatosComplementarios() {}
+  DetallesAdicionales() {}
 }
 
 @Component({
@@ -47,17 +47,17 @@ export class FichaUrbanaComponent implements OnInit {
   cultivosPermanentesFormGroup: FormGroup; //no hay nada
   ultimosDatosFormGroup: FormGroup;
   
-  //Objeto que pertenece al formulario de datos complementarios
-  datosComp: DatosComplementarios = new DatosComplementarios();
-  datosComplementariosDataTable: any = []; //Datos que estaran en la tabla de datos complementarios
+  //Objeto que pertenece al formulario de detalles adicionales
+  detallesAdicionales: DetallesAdicionales = new DetallesAdicionales();
+  detallesAdicionalesDataTable: any = []; //Datos que estaran en la tabla de detalles adicionales
 
   //estos dos atributos de aqui abajo pertenecen a la tabla que aparece en el step "detalles adicionales"
   displayedColumns: string[] = ['codigo', 'area', 'detalleAdicional', 'porcentaje', 
   'precioUnitario', 'total', 'codEdif'];
-  dataSource: MatTableDataSource<DatosComplementarios>;
+  dataSource: MatTableDataSource<DetallesAdicionales>;
 
   constructor(private _formBuilder: FormBuilder) {
-    this.dataSource = new MatTableDataSource(this.datosComplementariosDataTable);
+    this.dataSource = new MatTableDataSource(this.detallesAdicionalesDataTable);
   }
 
   ngOnInit() {
@@ -98,10 +98,10 @@ export class FichaUrbanaComponent implements OnInit {
 
   addDetalleAdicional() {
     //Agregamos el dato del formulario al array
-    this.datosComplementariosDataTable.push(this.datosComp);
+    this.detallesAdicionalesDataTable.push(this.detallesAdicionales);
     //Reiniciamos la tabla
-    this.dataSource = new MatTableDataSource(this.datosComplementariosDataTable);
+    this.dataSource = new MatTableDataSource(this.detallesAdicionalesDataTable);
     //reiniciamos el objeto que pertenece al formulario
-    this.datosComp = new DatosComplementarios();
+    this.detallesAdicionales = new DetallesAdicionales();
   }
 }
