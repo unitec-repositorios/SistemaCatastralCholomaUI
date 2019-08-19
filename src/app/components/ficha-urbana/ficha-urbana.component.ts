@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {MatTableDataSource} from '@angular/material/table';
 
 export const MY_FORMATS = {
   parse: {
@@ -13,8 +14,8 @@ export const MY_FORMATS = {
   },
 };
 
-//datos que van en la tabla que aparece en el dialogo de datos complementarios
-export interface DatosComplementarios {
+//datos que van en la tabla que aparece en el dialogo de datos complementarios, PASAR ESTO A UN MODEL DESPUES
+export class DetallesAdicionales {
   codigo: number;
   area: number;
   detalleAdicional: string;
@@ -22,10 +23,9 @@ export interface DatosComplementarios {
   precioUnitario: number;
   total: number;
   codEdif: number;
-}
 
-//array de datos que se va a mostrar en la tabla que se encuentra en el step de datos complementarios
-let DATOS_COMPLEMENTARIOS_DATA: DatosComplementarios[] = [];
+  DetallesAdicionales() {}
+}
 
 @Component({
   selector: 'app-ficha-urbana',
@@ -33,23 +33,32 @@ let DATOS_COMPLEMENTARIOS_DATA: DatosComplementarios[] = [];
   styleUrls: ['./ficha-urbana.component.css']
 })
 export class FichaUrbanaComponent implements OnInit {
+  //datos que pertenecen al stepper
   isLinear = false;
   propiedadFormGroup: FormGroup;
   negociosFormGroup: FormGroup;
   infoPredioFormGroup: FormGroup;
   infoLegalPredioFormGroup: FormGroup;
   caracteristicasPredioFormGroup: FormGroup;
-  datosComplementariosFormGroup: FormGroup;
+  datosComplementariosFormGroup: FormGroup; //No hay nada
   avaluoTerrenosFormGroup: FormGroup;
-  avaluoEdificacionesFormGroup: FormGroup;
+  avaluoEdificacionesFormGroup: FormGroup; //Hace falta hacer la tabla
+  detallesAdicionalesFormGroup: FormGroup;
+  cultivosPermanentesFormGroup: FormGroup; //no hay nada
   ultimosDatosFormGroup: FormGroup;
+  
+  //Objeto que pertenece al formulario de detalles adicionales
+  detallesAdicionales: DetallesAdicionales = new DetallesAdicionales();
+  detallesAdicionalesDataTable: any = []; //Datos que estaran en la tabla de detalles adicionales
 
   //estos dos atributos de aqui abajo pertenecen a la tabla que aparece en el step "detalles adicionales"
   displayedColumns: string[] = ['codigo', 'area', 'detalleAdicional', 'porcentaje', 
   'precioUnitario', 'total', 'codEdif'];
-  dataSource = DATOS_COMPLEMENTARIOS_DATA;
+  dataSource: MatTableDataSource<DetallesAdicionales>;
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder) {
+    this.dataSource = new MatTableDataSource(this.detallesAdicionalesDataTable);
+  }
 
   ngOnInit() {
     this.propiedadFormGroup = this._formBuilder.group({
@@ -76,8 +85,23 @@ export class FichaUrbanaComponent implements OnInit {
     this.avaluoEdificacionesFormGroup = this._formBuilder.group({
       avaluoEdificacionesCtrl: ['', Validators.required]
     });
+    this.detallesAdicionalesFormGroup = this._formBuilder.group({
+      detallesAdicionalesCtrl: ['', Validators.required]
+    });
+    this.cultivosPermanentesFormGroup = this._formBuilder.group({
+      cultivosPermanentesCtrl: ['', Validators.required]
+    });
     this.ultimosDatosFormGroup = this._formBuilder.group({
       ultimosDatosCtrl: ['', Validators.required]
     });
+  }
+
+  addDetalleAdicional() {
+    //Agregamos el dato del formulario al array
+    this.detallesAdicionalesDataTable.push(this.detallesAdicionales);
+    //Reiniciamos la tabla
+    this.dataSource = new MatTableDataSource(this.detallesAdicionalesDataTable);
+    //reiniciamos el objeto que pertenece al formulario
+    this.detallesAdicionales = new DetallesAdicionales();
   }
 }
