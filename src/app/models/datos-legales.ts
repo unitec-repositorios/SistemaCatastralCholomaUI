@@ -1,5 +1,5 @@
 export class DatosLegales {
-    idcalveCatastral: string;
+    idclaveCatastral: string;
     propiedad: string;
     tomo: string;
     folio: string;

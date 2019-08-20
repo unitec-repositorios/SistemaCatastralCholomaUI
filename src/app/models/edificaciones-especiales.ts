@@ -1,5 +1,5 @@
 export class EdificacionesEspeciales {
-    idedificiacionesespeciales: string;
+    idedificacionesespeciales: string;
     Nivel: string;
     Area: number;
     Costo: number;

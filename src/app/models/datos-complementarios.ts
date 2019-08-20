@@ -1,6 +1,6 @@
 export class DatosComplementarios {
-    idCLaveCatastral: string;
-    adquicion: Date;
+    idClaveCatastral: string;
+    adquisicion: Date;
     montoTransaccion: number;
     claseTransaccion: string;
     maquinaria: string;

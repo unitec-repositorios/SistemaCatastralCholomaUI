@@ -1,5 +1,3 @@
-import { StringifyOptions } from 'querystring';
-
 export class CaracterisiticasPropiedad {
     idcaracRural: string;
     area: number;

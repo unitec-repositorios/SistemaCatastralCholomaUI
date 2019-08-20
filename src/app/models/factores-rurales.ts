@@ -4,5 +4,5 @@ export class FactoresRurales {
     ubicacion: number;
     servicios: number;
     acceso: number;
-    agaua: number;
+    agua: number;
 }

@@ -3,7 +3,7 @@ export class Propiedad {
     mapa: string;
     bloque: string;
     predio: string;
-    propietarioPrincipa: string;
+    propietarioPrincipal: string;
     propietarios: string;
     tipo: string;
     estadoPredio: string;
