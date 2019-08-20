@@ -6,35 +6,38 @@
     <!--First part of stepper-->
     <mat-step [stepControl]="propiedadFormGroup">
       <form [formGroup]="propiedadFormGroup">
-        <ng-template matStepLabel>Datos de propiedad</ng-template>
+        <ng-template matStepLabel></ng-template>
         <div>
           <h5 class="special-titles">Datos de propiedad</h5>
           <br/>
-          <mat-radio-group name="radioGroup1">
-            <mat-radio-button name="radioButtons1" value="N">
-              Propiedad Normal
-            </mat-radio-button>
+          <div [ngStyle]="{'padding-left': '35px'}">
+            <mat-radio-group name="radioGroup1">
+              <mat-radio-button name="radioButtons1" value="N">
+                Propiedad Normal
+              </mat-radio-button>
+              <br/>
+              <br/>
+              <mat-radio-button name="radioButtons2" value="C">
+                Condominio (P.H.)
+              </mat-radio-button>
+            </mat-radio-group> 
             <br/>
             <br/>
-            <mat-radio-button name="radioButtons2" value="C">
-              Condominio (P.H.)
-            </mat-radio-button>
-          </mat-radio-group> 
-          <br/>
-          <br/>
-          <mat-form-field class="special-form-field">
-            <input matInput placeholder="Mapa" name="mapa">
-          </mat-form-field>
-          <mat-form-field class="special-form-field">
-            <input matInput placeholder="Bloque" name="bloque">
-          </mat-form-field>
-          <mat-form-field class="special-form-field">
-            <input matInput placeholder="Predio" name="predio">
-          </mat-form-field><br/><br/>
+            <mat-form-field class="special-form-field">
+              <input matInput placeholder="Mapa" name="mapa">
+            </mat-form-field>
+            <mat-form-field class="special-form-field">
+              <input matInput placeholder="Bloque" name="bloque">
+            </mat-form-field>
+            <mat-form-field class="special-form-field">
+              <input matInput placeholder="Predio" name="predio">
+            </mat-form-field>
+          </div>
+          <br/><br/>
       </div>
       <div>
         <h5 class="special-titles">Propietario</h5>
-        <mat-form-field class="form-field">
+        <mat-form-field [ngStyle]="{'padding-left': '35px'}" class="form-field">
           <input  type="number" matInput placeholder="Identidad" name="identidad">
         </mat-form-field>
       </div>
@@ -47,10 +50,10 @@
     <!--Second part of stepper-->
     <mat-step [stepControl]="negociosFormGroup">
       <form [formGroup]="negociosFormGroup">
-        <ng-template matStepLabel>Negocios</ng-template>
+        <ng-template matStepLabel></ng-template>
         <h5 class="special-titles">Negocios</h5>
         <br/>
-        <div mat-dialog-content>
+        <div [ngStyle]="{'padding-left': '30px'}" mat-dialog-content>
           <mat-form-field class="long-form-field">
             <input matInput placeholder="Nombre del negocio" name="nombre">
           </mat-form-field>
@@ -75,7 +78,9 @@
             <input matInput placeholder="Cofundadores" name="cofundadores">
           </mat-form-field>
           <mat-form-field class="long-form-field">
-            <input matInput placeholder="Fecha de fundacion" name="fechaFundacion">
+            <input matInput [matDatepicker]="picker1" placeholder="Fecha de Fundación" disabled>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1 disabled="false"></mat-datepicker>
           </mat-form-field>
         </div>
         <div class="buttons">
@@ -88,10 +93,11 @@
     <!--Third part of stepper-->
     <mat-step [stepControl]="infoPredioFormGroup">
         <form [formGroup]="infoPredioFormGroup">
-        <ng-template matStepLabel>Informacion del predio</ng-template>
+        <ng-template matStepLabel></ng-template>
         <h5 class="special-titles">Informacion del predio</h5>
         <br/>
         <!--Informacion del predio-->
+        <div [ngStyle]="{'padding-left': '30px'}">
         <section class="example-section">
           <mat-checkbox class="example-margin">En construccion</mat-checkbox>
           <mat-checkbox class="example-margin">No legalizado</mat-checkbox>
@@ -139,6 +145,7 @@
         <mat-form-field class="form-field">
           <input [ngStyle]="{'color': 'red'}" matInput type="number" placeholder="% Concertación" name="concertacion">
         </mat-form-field> <br/><br/>
+      </div>
         <!--Fin del formulario de informacion del predio-->
         <div class="buttons">
           <button class="negative-button" mat-button matStepperPrevious>Anterior</button>
@@ -150,7 +157,7 @@
     <!--Fourth part of stepper-->
     <mat-step [stepControl]="infoLegalPredioFormGroup">
       <form [formGroup]="infoLegalPredioFormGroup">
-        <ng-template matStepLabel>Informacion legal del predio</ng-template>
+        <ng-template matStepLabel></ng-template>
         <h5 class="special-titles">Informacion legal del predio</h5>
         <br/>
         <div>
@@ -245,7 +252,7 @@
     <!--Fifth part of stepper-->
     <mat-step [stepControl]="caracteristicasPredioFormGroup">
       <form [formGroup]="caracteristicasPredioFormGroup">
-        <ng-template matStepLabel>Caracteristicas del predio</ng-template>
+        <ng-template matStepLabel></ng-template>
         <h5 class="special-titles">Caracteristicas del predio</h5>
         <br/>
         <div mat-dialog-content>
@@ -455,7 +462,7 @@
     <!--Sixth part of stepper-->
     <mat-step [stepControl]="datosComplementariosFormGroup">
       <form [formGroup]="datosComplementariosFormGroup">
-        <ng-template matStepLabel>Datos complementarios</ng-template>
+        <ng-template matStepLabel></ng-template>
         <h5 class="special-titles">Datos complementarios</h5>
         <br/>
 
@@ -786,7 +793,7 @@
     <!--Seventh part of stepper-->
     <mat-step [stepControl]="avaluoTerrenosFormGroup">
       <form [formGroup]="avaluoTerrenosFormGroup">
-        <ng-template matStepLabel>Avaluo de terrenos</ng-template>
+        <ng-template matStepLabel></ng-template>
         <h5 class="special-titles">Avaluo de terreno urbano</h5>
         <br/>
         <div>
@@ -854,7 +861,7 @@
     <!--Eight part of stepper-->
     <mat-step [stepControl]="avaluoEdificacionesFormGroup">
       <form [formGroup]="avaluoEdificacionesFormGroup">
-        <ng-template matStepLabel>Avaluo de edificaciones</ng-template>
+        <ng-template matStepLabel></ng-template>
         <h5 class="special-titles">Avaluo de edificaciones</h5>
         <br/>
         <div mat-dialog-content>
@@ -1016,7 +1023,7 @@
     <!--Ninth part of stepper-->
     <mat-step [stepControl]="detallesAdicionalesFormGroup">
       <form [formGroup]="ultimosDatosFormGroup">
-        <ng-template matStepLabel>Detalles Adicionales</ng-template>
+        <ng-template matStepLabel></ng-template>
         <h5 class="special-titles">Detalles Adicionales</h5>
         <br/>
         <div>
@@ -1125,7 +1132,7 @@
     <!--Tenth part of stepper-->
     <mat-step [stepControl]="cultivosPermanentesFormGroup">
       <form [formGroup]="ultimosDatosFormGroup">
-        <ng-template matStepLabel>Cultivos Permanentes</ng-template>
+        <ng-template matStepLabel></ng-template>
         <h5 class="special-titles">Cultivos Permanentes</h5>
         <br/>
         <div class="buttons">
@@ -1138,7 +1145,7 @@
     <!--11th part of stepper-->
     <mat-step [stepControl]="ultimosDatosFormGroup">
       <form [formGroup]="ultimosDatosFormGroup">
-        <ng-template matStepLabel>Ultimos datos</ng-template>
+        <ng-template matStepLabel></ng-template>
         <h5 class="special-titles">Ultimos datos</h5>
         <br/>
         <mat-form-field class="center-long-data">
@@ -1190,11 +1197,12 @@
 
     <!--Last part of stepper-->
     <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
+      <ng-template matStepLabel></ng-template>
       Ha terminado de llenar el formulario.
       <div>
         <button class="negative-button" mat-raised-button matStepperPrevious>Anterior</button>
-        <button class="negative-button" mat-raised-button (click)="stepper.reset()">Reiniciar</button>
+        <button class="negative-button" mat-raised-button (click)="stepper.reset()">Reiniciar &nbsp;<mat-icon>delete</mat-icon></button>
+        <button class="positive-button" mat-raised-button>Guardar Ficha &nbsp;<mat-icon>arrow_forward</mat-icon></button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>
