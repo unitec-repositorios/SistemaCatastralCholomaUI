@@ -16,6 +16,12 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
 
+  loginOnEnter(event) {
+    if (event.keyCode == 13) {
+      this.login();
+    }
+  }
+
   ngOnInit() {
   }
 

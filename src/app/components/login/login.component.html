@@ -12,7 +12,7 @@
             <input matInput placeholder="Usuario" [(ngModel)]="username" name="username" required>
           </mat-form-field>
           <td></td>
-          <mat-form-field class="field-input" >
+          <mat-form-field (keydown)="loginOnEnter()" class="field-input" >
             <input matInput placeholder="Contraseña" [(ngModel)]="password" type="password" name="password" required>
           </mat-form-field>
           <mat-card-actions>

@@ -1,16 +1,14 @@
 body {
     background: linear-gradient(to right, #56ab2f, #a8e063);
     background-size: cover;
-    background-repeat: no-repeat;
-   
+    background-repeat: no-repeat;    
 }
 
 .wrapper {
     max-width: 700px;
     max-height: 500px;
-    padding:150px 50px ;
+    padding: 75px 50px 0px 50px ;
     margin:auto;
-    
 }
 
 .card-style {
