@@ -94,6 +94,9 @@ export class FichaUrbanaComponent implements OnInit {
     this.ultimosDatosFormGroup = this._formBuilder.group({
       ultimosDatosCtrl: ['', Validators.required]
     });
+
+    if (!this.DatosCultivos.length) this.addElement();
+    if (!this.DatosCultivos2.length) this.addCultivo();
   }
 
   addDetalleAdicional() {
@@ -104,4 +107,88 @@ export class FichaUrbanaComponent implements OnInit {
     //reiniciamos el objeto que pertenece al formulario
     this.detallesAdicionales = new DetallesAdicionales();
   }
+
+  // Avaluo de Cultivo Permanente
+
+    DatosCultivos = DatosCultivosPermanentes;
+    DatosCultivos2 = DatosCultivosPermanentes2;
+
+    numElements: number;  
+    arrayElement: AvaluoCultivoPermanenteDatos1;
+    
+    addElement(): void {
+      this.numElements = this.DatosCultivos.push(this.arrayElement);
+    };
+
+    deleteElement() {
+    if (this.numElements > 1) {
+      this.DatosCultivos.pop()
+      this.numElements--;
+    };
+    //this.DatosCultivos.splice(this.DatosCultivos.indexOf(element), 1);
+    };
+
+    numCultivos: number;
+    cultivoItem: AvaluoCultivoPermanenteDatos2;
+  
+    numManzanas!: number;
+    valorXManzana!: number;
+    totalManzanas: number;
+  
+    addCultivo(): void {
+      let newItem: AvaluoCultivoPermanenteDatos2 = {} as AvaluoCultivoPermanenteDatos2;
+      
+      (this.DatosCultivos2 && this.DatosCultivos2.length) ? newItem.id = (this.DatosCultivos2[this.DatosCultivos2.length - 1].id) + 1 : newItem.id = 0;
+      this.numCultivos = this.DatosCultivos2.push(newItem);
+    };
+  
+    deleteCultivo () {
+      if (this.numCultivos > 1) {
+        this.DatosCultivos2.pop();
+        this.numCultivos--;
+      }
+    };
+
+    numCultivosTotal1: number;
+    numCultivosTotal2: number;
+    costoCultivosTotal1: number;
+    costoCultivosTotal2: number;
+    totalFinal: number;
+
+    updateTotal(item: AvaluoCultivoPermanenteDatos2) {
+      item.numTotalDeManzanas = item.numDeManzanas * item.valorPorManz;
+      this.costoCultivosTotal2 = 0;
+      /* this.DatosCultivos.forEach(element => {
+        this.costoCultivosTotal1 += element.ValorPorCultivo;
+      }); */
+      this.DatosCultivos2.forEach(element => {
+        this.costoCultivosTotal2 += element.numTotalDeManzanas;
+        /* console.log(element.numTotalDeManzanas);
+        console.log("costoCultivos2: " + this.costoCultivosTotal2); */
+      });
+      this.totalFinal = /* this.costoCultivosTotal1 +  */this.costoCultivosTotal2;
+      // console.log("Total: " + this.totalFinal);
+    }
+
+}
+
+let DatosCultivosPermanentes: AvaluoCultivoPermanenteDatos1[] = [];
+let DatosCultivosPermanentes2: AvaluoCultivoPermanenteDatos2[] = [];
+
+
+export interface AvaluoCultivoPermanenteDatos1 {
+  ClaseCultivoVariedad: string; 
+  Arboles: number;
+  EstadoSanitario: string;
+  Edad: number;
+  FactorModificacion: number;
+  ValorPorCultivo: number;
+}
+
+export interface AvaluoCultivoPermanenteDatos2 {
+  id: number;
+  ClaseCultivoVariedad: string;
+  numDeManzanas: number;
+  valorPorManz: number;
+  numTotalDeManzanas: number;
 }
