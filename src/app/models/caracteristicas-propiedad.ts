@@ -1,4 +1,4 @@
-export class CaracterisiticasPropiedad {
+export class CaracteristicasPropiedad {
     idcaracRural: string;
     area: number;
     explotacion: string;
