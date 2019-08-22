@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-principal',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrincipalComponent implements OnInit {
 
-  constructor() { }
+  username: string;
+  type: number; //1 if it is an admin user, otherwise 0
+
+  constructor(private cookieService: CookieService) { }
 
   ngOnInit() {
+    this.username = this.cookieService.get('username');
+    this.type = +this.cookieService.get('type');
+    const allCookies: {} = this.cookieService.getAll();
+    console.log(allCookies);
   }
 
 }
