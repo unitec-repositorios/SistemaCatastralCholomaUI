@@ -16,8 +16,6 @@ export class PrincipalComponent implements OnInit {
   ngOnInit() {
     this.username = this.cookieService.get('username');
     this.type = +this.cookieService.get('type');
-    const allCookies: {} = this.cookieService.getAll();
-    console.log(allCookies);
   }
 
 }
