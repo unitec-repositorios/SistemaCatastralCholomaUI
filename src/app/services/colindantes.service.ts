@@ -11,7 +11,7 @@ export class ColindantesService {
 
   constructor(private http: HttpClient) { }
 
-  getColindanteses() {
+  getColindantes() {
     return this.http.get(`${this.API_URL}/Colindantes`);
   }
 

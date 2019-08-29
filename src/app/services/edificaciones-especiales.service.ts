@@ -11,7 +11,7 @@ export class EdificacionesEspecialesService {
 
   constructor(private http: HttpClient) { }
 
-  getEdificacionesEspecialeses() {
+  getEdificacionesEspeciales() {
     return this.http.get(`${this.API_URL}/EdificacionesEspeciales`);
   }
 
@@ -19,7 +19,7 @@ export class EdificacionesEspecialesService {
     return this.http.post(`${this.API_URL}/EdificacionesEspeciales`, EdificacionesEspeciales);
   }
 
-  getEdificacionesEspeciales(id: string) {
+  getEdificacionesEspecial(id: string) {
     return this.http.get(`${this.API_URL}/EdificacionesEspeciales/${id}`)
   }
 
