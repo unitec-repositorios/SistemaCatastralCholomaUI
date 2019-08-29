@@ -8,6 +8,7 @@ import { PrincipalComponent } from './components/principal/principal.component';
 import { FichaCatastralComponent } from './components/ficha-catastral/ficha-catastral.component';
 import { FichaUrbanaComponent } from './components/ficha-urbana/ficha-urbana.component';
 import { PropietarioComponent } from './components/propietario/propietario.component';
+import { EmpleadosComponent } from './components/empleados/empleados.component';
 
 const routes: Routes = [
   { 
@@ -37,6 +38,10 @@ const routes: Routes = [
   { 
     path: 'propietario', 
     component: PropietarioComponent
+  },
+  {
+    path: 'usuarios',
+    component: EmpleadosComponent
   }
 ];
 

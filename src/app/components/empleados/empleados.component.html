@@ -1,0 +1,22 @@
+<title>Usuarios</title>
+<app-main-navbar></app-main-navbar>
+
+<div class="form">
+  <h3 class="special-titles">Crear usuario</h3><br/>
+  <mat-card class="card-style">
+    <mat-form-field class="long-form-field">
+      <input matInput [(ngModel)]="newUser.nombre" placeholder="Usuario" name="nombre">
+    </mat-form-field>
+    <mat-form-field class="long-form-field">
+      <input matInput [(ngModel)]="newUser.password" type="password" placeholder="Contraseña" name="password">
+    </mat-form-field>
+    <mat-form-field class="long-form-field">
+      <mat-select [(ngModel)]="newUser.tipo" placeholder="Tipo de usuario" name="tipo">
+        <mat-option value="1">Administrador</mat-option>
+        <mat-option value="0">Empleado normal</mat-option>    
+      </mat-select>
+    </mat-form-field>
+    <br/>
+    <button class="positive-button" mat-button (click)="sendUser()">Enviar</button>
+  </mat-card>
+</div>

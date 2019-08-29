@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmpleadosService } from '../../services/empleados.service';
 import { AuthService } from '../../auth/auth.service';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private empleadosService: EmpleadosService,
-    private authService: AuthService) { }
+    private authService: AuthService, private cookieService: CookieService) { }
 
   username: string;
   password: string;
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.cookieService.deleteAll();
   }
 
   login() : void {
@@ -34,6 +36,8 @@ export class LoginComponent implements OnInit {
           let user: any = res;
           if( user.nombre == this.username && user.password == this.password ) {
             //this.authService.login();
+            this.cookieService.set('username', user.nombre);
+            this.cookieService.set('type', user.tipo);
             this.router.navigate(['modules']);
             //this.message = 'Trying to log in ...';
 
