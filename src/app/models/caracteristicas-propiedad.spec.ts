@@ -1,6 +1,6 @@
 import { CaracteristicasPropiedad } from './caracteristicas-propiedad';
 
-describe('CaracterisiticasPropiedad', () => {
+describe('CaracteristicasPropiedad', () => {
   it('should create an instance', () => {
     expect(new CaracteristicasPropiedad()).toBeTruthy();
   });
