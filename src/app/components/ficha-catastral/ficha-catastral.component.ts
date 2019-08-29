@@ -21,7 +21,7 @@ export class FichaCatastralComponent implements OnInit {
   
   submitForm(): void {
     
-    this.fichasService.saveFicha(this.ficha)
+    this.fichasService.saveFichaCatastral(this.ficha)
       .subscribe(res => {
         console.log(this.ficha);
         console.log(res);
