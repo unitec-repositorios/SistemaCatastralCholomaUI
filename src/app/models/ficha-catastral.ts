@@ -1,4 +1,5 @@
 export class FichaCatastral {
+    cocata: string;
     depto: string;
     municipio: string;
     aldea: string;

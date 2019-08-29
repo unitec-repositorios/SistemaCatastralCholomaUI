@@ -1,4 +1,4 @@
-export class CaracterisiticasVecindad {
+export class CaracteristicasVecindad {
     idcaracteristicasvecindad: string;
     Iglesia: string;
     Escuela: string;

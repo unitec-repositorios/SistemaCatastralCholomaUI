@@ -30,4 +30,17 @@ export class EmpleadosService {
   deleteEmpleado(username: string) {
     return this.http.delete(`${this.API_URL}/Empleado/${username}`);
   }
+
+  saveEmpleados(Empleado: Empleado){
+    return this.http.post(`${this.API_URL}/Empleados`, Empleado);
+  }
+
+  modifyEmpleados(Empleado: Empleado) {
+    return this.http.put(`${this.API_URL}/Empleados/${Empleado.nombre}`, Empleado);
+  }
+
+  deleteEmpleados(id: string) {
+    return this.http.delete(`${this.API_URL}/Empleados/${id}`);
+  }
+
 }
