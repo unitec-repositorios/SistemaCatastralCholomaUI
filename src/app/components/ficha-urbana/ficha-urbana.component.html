@@ -42,7 +42,7 @@
         </mat-form-field>
       </div>
         <div class="buttons">
-          <button class="positive-button" mat-raised-button matStepperNext>Siguiente</button>
+          <button class="positive-button" mat-raised-button matStepperNext>Siguiente &nbsp;<mat-icon>arrow_forward</mat-icon></button>
         </div>
       </form>
     </mat-step>
@@ -84,8 +84,8 @@
           </mat-form-field>
         </div>
         <div class="buttons">
-          <button class="negative-button" mat-raised-button matStepperPrevious>Anterior</button>
-          <button class="positive-button" mat-raised-button matStepperNext>Siguiente</button>
+          <button class="negative-button" mat-raised-button matStepperPrevious>Anterior &nbsp;<mat-icon>arrow_back</mat-icon></button>
+          <button class="positive-button" mat-raised-button matStepperNext>Siguiente &nbsp;<mat-icon>arrow_forward</mat-icon></button>
         </div>
       </form>
     </mat-step>
@@ -148,8 +148,8 @@
       </div>
         <!--Fin del formulario de informacion del predio-->
         <div class="buttons">
-          <button class="negative-button" mat-button matStepperPrevious>Anterior</button>
-          <button class="positive-button" mat-button matStepperNext>Siguiente</button>
+          <button class="negative-button" mat-button matStepperPrevious>Anterior &nbsp;<mat-icon>arrow_back</mat-icon></button>
+          <button class="positive-button" mat-button matStepperNext>Siguiente &nbsp;<mat-icon>arrow_forward</mat-icon></button>
         </div>
       </form>
     </mat-step>
@@ -243,8 +243,8 @@
           </mat-form-field>
         </div>
         <div class="buttons">
-          <button class="negative-button"mat-button matStepperPrevious>Anterior</button>
-          <button class="positive-button"mat-button matStepperNext>Siguiente</button>
+          <button class="negative-button"mat-button matStepperPrevious>Anterior &nbsp;<mat-icon>arrow_back</mat-icon></button>
+          <button class="positive-button"mat-button matStepperNext>Siguiente &nbsp;<mat-icon>arrow_forward</mat-icon></button>
         </div>
       </form>
     </mat-step>
@@ -453,8 +453,8 @@
               </mat-form-field><br/>       
             </div>
             <div class="buttons">
-              <button class="negative-button"mat-button matStepperPrevious>Anterior</button>
-              <button class="positive-button"mat-button matStepperNext>Siguiente</button>
+              <button class="negative-button"mat-button matStepperPrevious>Anterior &nbsp;<mat-icon>arrow_back</mat-icon></button>
+              <button class="positive-button"mat-button matStepperNext>Siguiente &nbsp;<mat-icon>arrow_forward</mat-icon></button>
             </div>
       </form>
     </mat-step>
@@ -784,8 +784,8 @@
         </mat-form-field>
         <br/>
         <div class="buttons">
-          <button class="negative-button" mat-raised-button matStepperPrevious>Anterior</button>
-          <button class="positive-button" mat-raised-button matStepperNext>Siguiente</button>
+          <button class="negative-button" mat-raised-button matStepperPrevious>Anterior &nbsp;<mat-icon>arrow_back</mat-icon></button>
+          <button class="positive-button" mat-raised-button matStepperNext>Siguiente &nbsp;<mat-icon>arrow_forward</mat-icon></button>
         </div>
       </form>
     </mat-step>
@@ -852,8 +852,8 @@
                 </body>
         </div>
         <div class="buttons">
-          <button class="negative-button"mat-button matStepperPrevious>Anterior</button>
-          <button class="positive-button"mat-button matStepperNext>Siguiente</button>
+          <button class="negative-button"mat-button matStepperPrevious>Anterior &nbsp;<mat-icon>arrow_back</mat-icon></button>
+          <button class="positive-button"mat-button matStepperNext>Siguiente &nbsp;<mat-icon>arrow_forward</mat-icon></button>
         </div>
       </form>
     </mat-step>
@@ -1014,8 +1014,8 @@
           </mat-form-field>
           <br/>
           <div class="buttons">
-            <button class="negative-button"mat-button matStepperPrevious>Anterior</button>
-            <button class="positive-button"mat-button matStepperNext>Siguiente</button>
+            <button class="negative-button"mat-button matStepperPrevious>Anterior &nbsp;<mat-icon>arrow_back</mat-icon></button>
+            <button class="positive-button"mat-button matStepperNext>Siguiente &nbsp;<mat-icon>arrow_forward</mat-icon></button>
           </div>
       </form>
     </mat-step>
@@ -1123,13 +1123,14 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
           <div class="buttons">
-            <button class="negative-button"mat-button matStepperPrevious>Anterior</button>
-            <button class="positive-button"mat-button matStepperNext>Siguiente</button>
+            <button class="negative-button"mat-button matStepperPrevious>Anterior &nbsp;<mat-icon>arrow_back</mat-icon></button>
+            <button class="positive-button"mat-button matStepperNext>Siguiente&nbsp;<mat-icon>arrow_forward</mat-icon></button>
           </div>
       </form>
     </mat-step>
 
     <!--Tenth part of stepper-->
+<<<<<<< Updated upstream
     <mat-step [stepControl]="cultivosPermanentesFormGroup">
       <form [formGroup]="ultimosDatosFormGroup">
         <ng-template matStepLabel></ng-template>
@@ -1234,6 +1235,8 @@
     </mat-step>
 
     <!--11th part of stepper-->
+=======
+>>>>>>> Stashed changes
     <mat-step [stepControl]="ultimosDatosFormGroup">
       <form [formGroup]="ultimosDatosFormGroup">
         <ng-template matStepLabel></ng-template>
@@ -1241,7 +1244,7 @@
         <br/>
         <mat-form-field class="center-long-data">
             <input type="number" matInput placeholder="Terreno" name="terreno">
-          </mat-form-field><br/>
+          </mat-form-field>
 
         <mat-form-field class="center-long-data">
             <input type="number" matInput placeholder="Edificaciones" name="edificaciones">
@@ -1249,11 +1252,11 @@
 
         <mat-form-field class="center-long-data">
             <input type="number" matInput placeholder="Detalles Adicionales" name="detalles-adicionales">
-          </mat-form-field><br/>
+          </mat-form-field>
 
         <mat-form-field class="center-long-data">
             <input type="number" matInput placeholder="Cultivos Permanentes" name="cultivos-permanentes">
-          </mat-form-field><br/><br/>
+          </mat-form-field>
 
         <mat-form-field class="center-long-data">
             <input type="number" matInput placeholder="Valor Declarado" name="valor-declarado">
@@ -1261,27 +1264,27 @@
 
         <mat-form-field class="center-long-data">
             <input readonly type="number" matInput placeholder="Avalúo Total" name="avaluo-total">
-          </mat-form-field><br/>
+          </mat-form-field>
 
         <mat-form-field class="center-long-data">
             <input readonly type="number" matInput placeholder="Exención" name="exencion-tot">
-          </mat-form-field><br/>
+          </mat-form-field>
 
         <mat-form-field class="center-long-data">
             <input readonly type="number" matInput placeholder="Valor Grabable" name="valor-grabable">
-          </mat-form-field><br/>
+          </mat-form-field>
 
         <mat-form-field class="center-long-data">
             <input readonly type="number" matInput placeholder="Impuesto" name="impuesto">
-          </mat-form-field><br/>
+          </mat-form-field>
 
 
         <mat-form-field class="center-long-data">
             <input type="number" matInput placeholder="Estado del Predio" name="estado-predio">
           </mat-form-field><br/> <br/>
           <div class="buttons">
-            <button class="negative-button"mat-button matStepperPrevious>Anterior</button>
-            <button class="positive-button"mat-button matStepperNext>Siguiente</button>
+            <button class="negative-button"mat-button matStepperPrevious>Anterior &nbsp;<mat-icon>arrow_back</mat-icon></button>
+            <button class="positive-button"mat-button matStepperNext>Siguiente &nbsp;<mat-icon>arrow_forward</mat-icon></button>
           </div>
       </form>
     </mat-step>
@@ -1291,9 +1294,9 @@
       <ng-template matStepLabel></ng-template>
       Ha terminado de llenar el formulario.
       <div>
-        <button class="negative-button" mat-raised-button matStepperPrevious>Anterior</button>
-        <button class="negative-button" mat-raised-button (click)="stepper.reset()">Reiniciar &nbsp;<mat-icon>delete</mat-icon></button>
-        <button class="positive-button" mat-raised-button>Guardar Ficha &nbsp;<mat-icon>arrow_forward</mat-icon></button>
+        <button class="negative-button" mat-raised-button matStepperPrevious>Anterior&nbsp;<mat-icon>arrow_back</mat-icon></button>
+        <button class="positive-button" mat-raised-button>Guardar Ficha &nbsp;<mat-icon>save</mat-icon></button>
+        <button [ngStyle]="{'float': 'right'}" class="negative-button" mat-raised-button (click)="stepper.reset()">Reiniciar &nbsp;<mat-icon>delete</mat-icon></button>
       </div>
     </mat-step>
   </mat-horizontal-stepper>
