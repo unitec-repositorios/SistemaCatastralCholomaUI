@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatTableDataSource} from '@angular/material/table';
+import { Negocios } from '../../models/negocios';
 
 export const MY_FORMATS = {
   parse: {
@@ -46,6 +47,8 @@ export class FichaUrbanaComponent implements OnInit {
   detallesAdicionalesFormGroup: FormGroup;
   cultivosPermanentesFormGroup: FormGroup; //no hay nada
   ultimosDatosFormGroup: FormGroup;
+
+  negocios: Negocios = new Negocios(); // ID fields yet to be assigned
   
   //Objeto que pertenece al formulario de detalles adicionales
   detallesAdicionales: DetallesAdicionales = new DetallesAdicionales();
