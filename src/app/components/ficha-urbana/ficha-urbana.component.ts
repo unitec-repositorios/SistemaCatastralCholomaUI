@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatTableDataSource} from '@angular/material/table';
 import { Negocios } from '../../models/negocios';
+import { DatosComplementarios } from '../../models/datos-complementarios';
+import { ServiciosPublicos } from '../../models/servicios-publicos';  
+import { EdificacionesEspeciales } from '../../models/edificaciones-especiales';
+import { Colindantes } from '../../models/colindantes';    
 
 export const MY_FORMATS = {
   parse: {
@@ -41,7 +45,7 @@ export class FichaUrbanaComponent implements OnInit {
   infoPredioFormGroup: FormGroup;
   infoLegalPredioFormGroup: FormGroup;
   caracteristicasPredioFormGroup: FormGroup;
-  datosComplementariosFormGroup: FormGroup; //No hay nada
+  datosComplementariosFormGroup: FormGroup; 
   avaluoTerrenosFormGroup: FormGroup;
   avaluoEdificacionesFormGroup: FormGroup; //Hace falta hacer la tabla
   detallesAdicionalesFormGroup: FormGroup;
@@ -49,6 +53,29 @@ export class FichaUrbanaComponent implements OnInit {
 
   negocios: Negocios = new Negocios(); 
   
+  //Objeto de datos complementarios
+  datosComp: DatosComplementarios = new DatosComplementarios();
+  
+  //Objeto de servicios públicos
+  serviciosPub: ServiciosPublicos = new ServiciosPublicos();
+
+  //Objetos de EdificacionesEspeciales
+  ediEsp1: EdificacionesEspeciales= new EdificacionesEspeciales();
+  ediEsp2: EdificacionesEspeciales= new EdificacionesEspeciales();
+  ediEsp3: EdificacionesEspeciales= new EdificacionesEspeciales();
+  ediEsp4: EdificacionesEspeciales= new EdificacionesEspeciales();
+  ediEsp5: EdificacionesEspeciales= new EdificacionesEspeciales();
+  ediEsp6: EdificacionesEspeciales= new EdificacionesEspeciales();
+  ediEsp7: EdificacionesEspeciales= new EdificacionesEspeciales();
+  
+  //Objetos colindantes
+  cold1: Colindantes= new Colindantes();
+  cold2: Colindantes= new Colindantes();
+  cold3: Colindantes= new Colindantes();
+  cold4: Colindantes= new Colindantes();
+  cold5: Colindantes= new Colindantes();
+
+
   //Objeto que pertenece al formulario de detalles adicionales
   detallesAdicionales: DetallesAdicionales = new DetallesAdicionales();
   detallesAdicionalesDataTable: any = []; //Datos que estaran en la tabla de detalles adicionales
@@ -60,6 +87,16 @@ export class FichaUrbanaComponent implements OnInit {
 
   constructor(private _formBuilder: FormBuilder) {
     this.dataSource = new MatTableDataSource(this.detallesAdicionalesDataTable);
+    
+    //asignaciones plantas (Edificaciones Especiales)
+    this.ediEsp1.Nivel= 'Primera planta';
+    this.ediEsp2.Nivel= 'Segunda planta';
+    this.ediEsp3.Nivel= 'Tercera planta';
+    this.ediEsp4.Nivel= 'Cuarta planta';
+    this.ediEsp5.Nivel= 'Quinta planta';
+    this.ediEsp6.Nivel= 'Planta Adicional';
+    this.ediEsp7.Nivel= 'Sotano';
+
   }
 
   ngOnInit() {

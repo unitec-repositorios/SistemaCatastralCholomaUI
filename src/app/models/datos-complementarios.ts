@@ -1,5 +1,5 @@
 export class DatosComplementarios {
-    idClaveCatastral: string;
+    idClaveCatastral: string; //manejo de esto
     adquisicion: Date;
     montoTransaccion: number;
     claseTransaccion: string;
@@ -7,13 +7,13 @@ export class DatosComplementarios {
     delineador: string;
     fecha: Date;
     observaciones: string;
-    ocupante: string;
+    ocupante: string; 
     uso: string;
-    clase: string;
+    clave: string; //Es clave estaba como clase
     bueno: string;
     observacion: string;
     rentaMensual: number;
-    idServiciosPublicos: number;
-    valorDatosComplementarios: number;
+    idServiciosPublicos: number; //manejo de esto
+    valorDatosComplementarios: number; //falta esto, cálculos?
 }
 
