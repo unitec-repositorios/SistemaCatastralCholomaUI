@@ -55,14 +55,14 @@
         <br/>
         <div [ngStyle]="{'padding-left': '30px'}" mat-dialog-content>
           <mat-form-field class="long-form-field">
-            <input matInput placeholder="Nombre del negocio" name="nombre">
+            <input matInput [(ngModel)]="negocios.nombre" [ngModelOptions]="{standalone: true}" placeholder="Nombre del negocio" name="nombre">
           </mat-form-field>
           <mat-form-field class="long-form-field">
-            <input matInput placeholder="Direccion" name="direccion">
+            <input matInput [(ngModel)]="negocios.direccion" [ngModelOptions]="{standalone: true}" placeholder="Direccion" name="direccion">
           </mat-form-field>
           <br/>
           <mat-form-field class="longest-form-field">
-            <mat-select  placeholder="Tipo de empresa" name="tipo">
+            <mat-select [(ngModel)]="negocios.tipo" [ngModelOptions]="{standalone: true}" placeholder="Tipo de empresa" name="tipo">
                 <mat-option value="Comerciante Individual">Comerciante Individual</mat-option>
                 <mat-option value="Sociedad Colectiva">Sociedad Colectiva</mat-option>
                 <mat-option value="Sociedad en Comandita Simple">Sociedad en Comandita Simple</mat-option>
@@ -72,13 +72,13 @@
             </mat-select>
           </mat-form-field>
           <mat-form-field class="long-form-field">
-            <input matInput placeholder="Deuda" name="deuda">
+            <input matInput [(ngModel)]="negocios.deuda" [ngModelOptions]="{standalone: true}" placeholder="Deuda" name="deuda">
           </mat-form-field>
           <mat-form-field class="long-form-field">
-            <input matInput placeholder="Cofundadores" name="cofundadores">
+            <input matInput [(ngModel)]="negocios.cofundadores" [ngModelOptions]="{standalone: true}" placeholder="Cofundadores" name="cofundadores">
           </mat-form-field>
           <mat-form-field class="long-form-field">
-            <input matInput [matDatepicker]="picker1" placeholder="Fecha de Fundación" disabled>
+            <input matInput [(ngModel)]="negocios.fechaFundacion" [ngModelOptions]="{standalone: true}" [matDatepicker]="picker1" placeholder="Fecha de Fundación" disabled>
             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
             <mat-datepicker #picker1 disabled="false"></mat-datepicker>
           </mat-form-field>
