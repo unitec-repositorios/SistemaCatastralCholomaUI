@@ -45,7 +45,6 @@ export class FichaUrbanaComponent implements OnInit {
   avaluoTerrenosFormGroup: FormGroup;
   avaluoEdificacionesFormGroup: FormGroup; //Hace falta hacer la tabla
   detallesAdicionalesFormGroup: FormGroup;
-  cultivosPermanentesFormGroup: FormGroup; //no hay nada
   ultimosDatosFormGroup: FormGroup;
 
   negocios: Negocios = new Negocios(); 
@@ -90,9 +89,6 @@ export class FichaUrbanaComponent implements OnInit {
     });
     this.detallesAdicionalesFormGroup = this._formBuilder.group({
       detallesAdicionalesCtrl: ['', Validators.required]
-    });
-    this.cultivosPermanentesFormGroup = this._formBuilder.group({
-      cultivosPermanentesCtrl: ['', Validators.required]
     });
     this.ultimosDatosFormGroup = this._formBuilder.group({
       ultimosDatosCtrl: ['', Validators.required]
