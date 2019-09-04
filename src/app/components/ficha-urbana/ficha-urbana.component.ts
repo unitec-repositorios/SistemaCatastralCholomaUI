@@ -5,7 +5,8 @@ import { Negocios } from '../../models/negocios';
 import { DatosComplementarios } from '../../models/datos-complementarios';
 import { ServiciosPublicos } from '../../models/servicios-publicos';  
 import { EdificacionesEspeciales } from '../../models/edificaciones-especiales';
-import { Colindantes } from '../../models/colindantes';    
+import { Colindantes } from '../../models/colindantes';
+import { DatosLegales } from '../../models/datos-legales';    
 
 export const MY_FORMATS = {
   parse: {
@@ -75,6 +76,8 @@ export class FichaUrbanaComponent implements OnInit {
   cold4: Colindantes= new Colindantes();
   cold5: Colindantes= new Colindantes();
 
+   //Objeto del stepper 4 -Datos legales
+   datosLegales: DatosLegales=new DatosLegales();
 
   //Objeto que pertenece al formulario de detalles adicionales
   detallesAdicionales: DetallesAdicionales = new DetallesAdicionales();
