@@ -177,7 +177,7 @@
           </mat-form-field><br/>
           
           <mat-form-field class="long-form-field">
-            <input matInput [matDatepicker]="picker" placeholder="Fecha de Inscripción" [(ngModel)]="datosLegales.inscripcion" [ngModelOptions]="{standalone: true}" >
+            <input matInput disabled [matDatepicker]="picker" placeholder="Fecha de Inscripción" [(ngModel)]="datosLegales.inscripcion" [ngModelOptions]="{standalone: true}" >
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker disabled="false"></mat-datepicker>
           </mat-form-field>
