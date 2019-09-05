@@ -258,39 +258,39 @@
         <div mat-dialog-content>
           <h4>Características de la Vecindad</h4>
           <mat-form-field class="short-form-field">
-            <input matInput placeholder="Iglesia" name="iglesia">
+            <input matInput type="text" placeholder="Iglesia" name="iglesia" [(ngModel)] = "cVecindad.Iglesia" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <mat-form-field class="short-form-field">
-            <input matInput placeholder="Escuela" name="escuela">
+            <input matInput type="text" placeholder="Escuela" name="escuela" [(ngModel)] = "cVecindad.Escuela" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <mat-form-field class="long-form-field">
-            <input matInput placeholder="Sitio de Embarque (Kms)" name="sitioEmbarque">
+            <input matInput type="number" placeholder="Sitio de Embarque (Kms)" name="sitioEmbarque" [(ngModel)] = "cVecindad.sitioEmbarque" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <br/>
           <mat-form-field class="long-form-field">
-            <input matInput placeholder="Mercado más Cercano(Kms)" name="mercadoCercano">
+            <input matInput type="number" placeholder="Mercado más Cercano(Kms)" name="mercadoCercano" [(ngModel)] = "cVecindad.mercadoCercano" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
         
           <mat-divider class="mat-divider"></mat-divider>
         
           <h4>Características de la Propiedad</h4>
           <mat-form-field class="short-form-field">
-            <input type="number" matInput placeholder="Área (Has)" name="area">
+            <input type="number" matInput placeholder="Área (Has)" name="area" [(ngModel)] = "cPropiedad.area" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <mat-form-field class="short-form-field">
-            <input matInput placeholder="Explotación" name="explotacion">
+            <input matInput placeholder="Explotación" name="explotacion" [(ngModel)] = "cPropiedad.explotacion" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <mat-form-field class="short-form-field">
-            <input matInput placeholder="Topografía" name="topografia">
+            <input matInput placeholder="Topografía" name="topografia" [(ngModel)] = "cPropiedad.topografia" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <mat-form-field class="short-form-field">
-            <input matInput placeholder="Caudal" name="caudal">
+            <input matInput placeholder="Caudal" name="caudal" [(ngModel)] = "cPropiedad.caudal" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <mat-form-field class="short-form-field">
-            <input matInput placeholder="Pozo" name="pozo">
+            <input matInput placeholder="Pozo" name="pozo" [(ngModel)] = "cPropiedad.pozo" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <mat-form-field class="long-form-field">
-            <input matInput placeholder="Vías de Comunicación" name="viasComunicacion">
+            <input matInput placeholder="Vías de Comunicación" name="viasComunicacion" [(ngModel)] = "cPropiedad.viasComunicacion" [ngModelOptions]="{standalone: true}">
           </mat-form-field><br/><br/><br/>
           
           <mat-divider class="mat-divider"></mat-divider>
@@ -308,17 +308,17 @@
               <td [ngStyle]="{'font-weight': '600'}">Río</td>
               <td>
                 <mat-form-field class="short-form-field">
-                  <input matInput type="number" name="riegoRio">
+                  <input matInput name="riegoRio" [(ngModel)] = "rHidricos.riego" [ngModelOptions]="{standalone: true}">
                 </mat-form-field><br/>
               </td> 
               <td>
                 <mat-form-field class="short-form-field">
-                  <input matInput type="number" name="distKmRio">
+                  <input matInput type="number" name="distKmRio" [(ngModel)] = "rHidricos.distancia" [ngModelOptions]="{standalone: true}">
                 </mat-form-field><br/>
               </td>
               <td>
                 <mat-form-field class="short-form-field">
-                  <input matInput name="sistemaIrrigRio">
+                  <input matInput name="sistemaIrrigRio" [(ngModel)] = "rHidricos.sistemaIrrigacion" [ngModelOptions]="{standalone: true}">
                 </mat-form-field><br/>
               </td>
               <td>
@@ -331,22 +331,22 @@
               <td [ngStyle]="{'font-weight': '600'}">Lago</td>
               <td>
                 <mat-form-field class="short-form-field">
-                  <input matInput type="number" name="riegoLago">
+                  <input matInput type="number" name="riegoLago" [(ngModel)] = "rHidricos.riego" [ngModelOptions]="{standalone: true}">
                 </mat-form-field><br/>
               </td> 
               <td>
                 <mat-form-field class="short-form-field">
-                  <input matInput type="number" name="distKmLago">
+                  <input matInput type="number" name="distKmLago" [(ngModel)] = "rHidricos.distancia" [ngModelOptions]="{standalone: true}">
                 </mat-form-field><br/>
               </td>
               <td>
                 <mat-form-field class="short-form-field">
-                  <input matInput name="sistemaIrrigLago">
+                  <input matInput name="sistemaIrrigLago" [(ngModel)] = "rHidricos.sistemaIrrigacion" [ngModelOptions]="{standalone: true}">
                 </mat-form-field><br/>
               </td>
               <td>
                 <mat-form-field class="short-form-field">
-                  <input matInput type="number" name="areaLago">
+                  <input matInput type="number" name="areaRio" [(ngModel)] = "rHidricos.area" [ngModelOptions]="{standalone: true}">
                 </mat-form-field><br/>
               </td>
               </tr>
@@ -354,22 +354,22 @@
                 <td [ngStyle]="{'font-weight': '600'}">Pozo</td>
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput type="number" name="riegoPozo">
+                    <input matInput type="number" name="riegoPozo" [(ngModel)] = "rHidricos.riego" [ngModelOptions]="{standalone: true}">
                   </mat-form-field><br/>
                 </td> 
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput type="number" name="distKmPozo">
+                    <input matInput type="number" name="distKmPozo" [(ngModel)] = "rHidricos.distancia" [ngModelOptions]="{standalone: true}">
                   </mat-form-field><br/>
                 </td>
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput name="sistemaIrrigPozo">
+                    <input matInput name="sistemaIrrigPozo" [(ngModel)] = "rHidricos.sistemaIrrigacion" [ngModelOptions]="{standalone: true}">
                   </mat-form-field><br/>
                 </td>
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput type="number" name="areaPozo">
+                    <input matInput type="number" name="areaPozo" [(ngModel)] = "rHidricos.area" [ngModelOptions]="{standalone: true}">
                   </mat-form-field><br/>
                 </td>
               </tr>
@@ -377,22 +377,22 @@
                 <td [ngStyle]="{'font-weight': '600'}">MNTL.</td>
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput type="number" name="riegoMNTL">
+                    <input matInput type="number" name="riegoMNTL" [(ngModel)] = "rHidricos.riego" [ngModelOptions]="{standalone: true}">
                   </mat-form-field><br/>
                 </td> 
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput type="number" name="distKmMNTL">
+                    <input matInput type="number" name="distKmMNTL" [(ngModel)] = "rHidricos.distancia" [ngModelOptions]="{standalone: true}">
                   </mat-form-field><br/>
                 </td>
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput name="sistemaIrrigMNTL">
+                    <input matInput name="sistemaIrrigMNTL" [(ngModel)] = "rHidricos.sistemaIrrigacion" [ngModelOptions]="{standalone: true}">
                   </mat-form-field><br/>
                 </td>
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput type="number" name="areaMNTL">
+                    <input matInput type="number" name="areaMNTL" [(ngModel)] = "rHidricos.area" [ngModelOptions]="{standalone: true}">
                   </mat-form-field><br/>
                 </td>
               </tr>
@@ -400,22 +400,22 @@
                 <td [ngStyle]="{'font-weight': '600'}">Otra</td>
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput type="number" name="riegoOtra">
+                    <input matInput type="number" name="riegoOtra" [(ngModel)] = "rHidricos.riego" [ngModelOptions]="{standalone: true}"> 
                   </mat-form-field><br/>
                 </td> 
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput type="number" name="distKmOtra">
+                    <input matInput type="number" name="distKmOtra" [(ngModel)] = "rHidricos.distancia" [ngModelOptions]="{standalone: true}">
                   </mat-form-field><br/>
                 </td>
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput name="sistemaIrrigOtra">
+                    <input matInput name="sistemaIrrigOtra" [(ngModel)] = "rHidricos.sistemaIrrigacion" [ngModelOptions]="{standalone: true}">
                   </mat-form-field><br/>
                 </td>
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput type="number" name="areaOtra">
+                    <input matInput type="number" name="areaOtra" [(ngModel)] = "rHidricos.area" [ngModelOptions]="{standalone: true}">
                   </mat-form-field><br/>
                 </td>
               </tr>
@@ -425,31 +425,31 @@
         
               <h4 class="special-titles">Uso de la Tierra</h4>
               <mat-form-field class="short-form-field">
-                <input matInput name="usoTierra1">
+                <input matInput name="usoTierra1" [(ngModel)] = "usoTierra.uso" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput type="number" name="usoTierra11">
+                <input matInput type="number" name="usoTierra11" [(ngModel)] = "usoTierra.codigo" [ngModelOptions]="{standalone: true}">
               </mat-form-field><br/>
         
               <mat-form-field class="short-form-field">
-                <input matInput name="usoTierra2">
+                <input matInput name="usoTierra2" [(ngModel)] = "usoTierra.uso" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput type="number" name="usoTierra21">
+                <input matInput type="number" name="usoTierra21" [(ngModel)] = "usoTierra.codigo" [ngModelOptions]="{standalone: true}">
               </mat-form-field><br/>
         
               <mat-form-field class="short-form-field">
-                <input matInput name="usoTierra3">
+                <input matInput name="usoTierra3" [(ngModel)] = "usoTierra.uso" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput type="number" name="usoTierra31">
+                <input matInput type="number" name="usoTierra31" [(ngModel)] = "usoTierra.codigo" [ngModelOptions]="{standalone: true}">
               </mat-form-field><br/>
         
               <mat-form-field class="short-form-field">
-                <input matInput name="usoTierra4">
+                <input matInput name="usoTierra4" [(ngModel)] = "usoTierra.uso" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput type="number" name="usoTierra41">
+                <input matInput type="number" name="usoTierra41" [(ngModel)] = "usoTierra.codigo" [ngModelOptions]="{standalone: true}">
               </mat-form-field><br/>       
             </div>
             <div class="buttons">
