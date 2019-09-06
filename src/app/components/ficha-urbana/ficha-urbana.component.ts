@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatTableDataSource} from '@angular/material/table';
+import {Predio} from '../../models/predio';
 
 export const MY_FORMATS = {
   parse: {
@@ -49,6 +50,7 @@ export class FichaUrbanaComponent implements OnInit {
   
   //Objeto que pertenece al formulario de detalles adicionales
   detallesAdicionales: DetallesAdicionales = new DetallesAdicionales();
+  infoPredio: Predio = new Predio();
   detallesAdicionalesDataTable: any = []; //Datos que estaran en la tabla de detalles adicionales
 
   //estos dos atributos de aqui abajo pertenecen a la tabla que aparece en el step "detalles adicionales"

@@ -99,51 +99,52 @@
         <!--Informacion del predio-->
         <div [ngStyle]="{'padding-left': '30px'}">
         <section class="example-section">
-          <mat-checkbox class="example-margin">En construccion</mat-checkbox>
-          <mat-checkbox class="example-margin">No legalizado</mat-checkbox>
+          <mat-checkbox [(ngModel)]="infoPredio.construccion" [ngModelOptions]="{standalone:true}" class="example-margin">En construcción</mat-checkbox>
+          <mat-checkbox [(ngModel)]="infoPredio.construccion" [ngModelOptions]="{standalone:true}" class="example-margin">No legalizado</mat-checkbox>
+          <mat-checkbox [(ngModel)]="infoPredio.construccion" [ngModelOptions]="{standalone:true}" class="example-margin">En observación</mat-checkbox>
         </section>
         <mat-form-field class="long-form-field">
-          <input matInput placeholder="Observación" name="observacion">
+          <input [(ngModel)]="infoPredio.observacion" [ngModelOptions]="{standalone:true}"  matInput placeholder="Observación" name="observacion">
         </mat-form-field><br/>
 
         <mat-form-field class="form-field">
-          <input matInput placeholder="Barrio" name="barrio">
+          <input [(ngModel)]= "infoPredio.barrio" [ngModelOptions]="{standalone:true}" matInput placeholder="Barrio" name="barrio">
         </mat-form-field>
         <mat-form-field class="form-field">
-          <input matInput placeholder="Caserío" name="caserio">
+          <input [(ngModel)]= "infoPredio.caserio" [ngModelOptions]="{standalone:true}" matInput placeholder="Caserío" name="caserio">
         </mat-form-field>
         <mat-form-field class="form-field">
-          <input matInput placeholder="Sitio" name="sitio">
+          <input [(ngModel)]= "infoPredio.sitio" [ngModelOptions]="{standalone:true}" matInput placeholder="Sitio" name="sitio">
         </mat-form-field>
         <mat-form-field class="form-field">
-          <input matInput  placeholder="Uso" name="uso">
+          <input [(ngModel)]= "infoPredio.uso" [ngModelOptions]="{standalone:true}" type="number" matInput  placeholder="Uso" name="uso">
         </mat-form-field>
         <mat-form-field class="form-field">
-          <input matInput placeholder="Sub Uso" name="sub-uso">
+          <input [(ngModel)]= "infoPredio.subUso" [ngModelOptions]="{standalone:true}" type="number"  matInput placeholder="Sub Uso" name="sub-uso">
         </mat-form-field><br/>
         <mat-form-field [ngStyle]="{'width': '30em', 'margin-left': '20px'}">
-          <input matInput placeholder="Ubicación del Predio" name="ubicacion-predio">
+          <input [(ngModel)]= "infoPredio.ubicacion" [ngModelOptions]="{standalone:true}"  matInput placeholder="Ubicación del Predio" name="ubicacion-predio">
         </mat-form-field> <br/>
         <mat-form-field class="form-field">
-          <input matInput type="number" placeholder="Estatus Tributario" name="estatus-tributario">
+          <input [(ngModel)]= "infoPredio.estatusTributario" [ngModelOptions]="{standalone:true}"  matInput type="number" placeholder="Estatus Tributario" name="estatus-tributario">
         </mat-form-field>
         <mat-form-field [ngStyle]="{'width': '10em'}" class="form-field">
-          <input matInput type="number" placeholder="Código Propietario" name="codigo-propietario">
+          <input [(ngModel)]= "infoPredio.codigoPropietario" [ngModelOptions]="{standalone:true}"  matInput  placeholder="Código Propietario" name="codigo-propietario">
         </mat-form-field>
         <mat-form-field [ngStyle]="{'width': '10em'}" class="form-field">
-          <input matInput type="number" placeholder="Código Habitacional" name="codigo-habitacional">
+          <input [(ngModel)]= "infoPredio.codigoHabitacional" [ngModelOptions]="{standalone:true}"   matInput  placeholder="Código Habitacional" name="codigo-habitacional">
         </mat-form-field><br/>
         <mat-form-field [ngStyle]="{'width': '10em'}" class="form-field">
-          <input [ngStyle]="{'color': 'red'}" matInput placeholder="Futuras Revisiones" name="futuras-revisiones">
+          <input [(ngModel)]= "infoPredio.futurasRevisiones" [ngModelOptions]="{standalone:true}"  [ngStyle]="{'color': 'red'}" matInput placeholder="Futuras Revisiones" name="futuras-revisiones">
         </mat-form-field>
         <mat-form-field class="form-field">
-          <input matInput type="number" placeholder="% Exención" name="exencion">
+          <input [(ngModel)]= "infoPredio.porcentajeExencion" [ngModelOptions]="{standalone:true}"  matInput type="number" placeholder="% Exención" name="exencion">
         </mat-form-field>
         <mat-form-field class="form-field">
-          <input [ngStyle]="{'color': 'red'}" matInput type="number" placeholder="Tasa Impositiva" name="tasa-impositiva">
+          <input [(ngModel)]= "infoPredio.tasaImpositiva" [ngModelOptions]="{standalone:true}"  [ngStyle]="{'color': 'red'}" matInput type="number" placeholder="Tasa Impositiva" name="tasa-impositiva">
         </mat-form-field>
         <mat-form-field class="form-field">
-          <input [ngStyle]="{'color': 'red'}" matInput type="number" placeholder="% Concertación" name="concertacion">
+          <input [(ngModel)]= "infoPredio.porcentajeConcertacion" [ngModelOptions]="{standalone:true}" [ngStyle]="{'color': 'red'}" matInput type="number" placeholder="% Concertación" name="concertacion">
         </mat-form-field> <br/><br/>
       </div>
         <!--Fin del formulario de informacion del predio-->
