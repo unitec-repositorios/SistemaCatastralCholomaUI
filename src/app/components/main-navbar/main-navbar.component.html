@@ -4,7 +4,7 @@
       <span class="example-fill-remaining-space"></span>
       <span class="align-center"></span>
       <span class="example-spacer"></span>
-      <button *ngIf="role === 1" mat-button routerLink="/usuarios">Crear Usuario</button>
+      <button *ngIf="allPrivileges" mat-button routerLink="/usuarios">Crear Usuario</button>
       <button mat-button routerLink="/propietario">Propietario</button>
       <button mat-button routerLink="/fichaUrbana">Ficha Urbana</button>
       <button mat-button (click)="logout()">Cerrar Sesión</button>
