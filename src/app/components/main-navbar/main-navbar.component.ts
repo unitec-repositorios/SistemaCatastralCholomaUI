@@ -19,7 +19,8 @@ export class MainNavbarComponent implements OnInit {
     private cookieService: CookieService) { }
 
   ngOnInit() {
-    this.role = +this.cookieService.get('type');
+    this.role = +this.cookieService.get('type'); //get role from cookie
+    //set all privileges on true or false
     if(this.role === Roles.Jefatura || this.role === Roles.SupervisorMantenimiento
     || this.role === Roles.SupervisorDigitacion) 
       this.allPrivileges = true;
