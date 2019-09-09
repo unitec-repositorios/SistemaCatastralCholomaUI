@@ -10,6 +10,7 @@ import { CaracteristicasVecindad } from '../../models/caracteristicas-vecindad';
 import { CaracteristicasPropiedad } from '../../models/caracteristicas-propiedad';
 import { RecursosHidricos } from '../../models/recursos-hidricos';
 import { UsoTierra } from '../../models/uso-tierra';
+import { DatosLegales } from '../../models/datos-legales';
 
 
 export const MY_FORMATS = {
@@ -68,7 +69,7 @@ export class FichaUrbanaComponent implements OnInit {
   
   //Objeto de servicios públicos
   serviciosPub: ServiciosPublicos = new ServiciosPublicos();
-
+  
   //Objetos de EdificacionesEspeciales
   ediEsp1: EdificacionesEspeciales= new EdificacionesEspeciales();
   ediEsp2: EdificacionesEspeciales= new EdificacionesEspeciales();
@@ -87,6 +88,7 @@ export class FichaUrbanaComponent implements OnInit {
 
    //Objeto del stepper 4 -Datos legales
    datosLegales: DatosLegales=new DatosLegales();
+  
 
   //Objeto que pertenece al formulario de detalles adicionales
   detallesAdicionales: DetallesAdicionales = new DetallesAdicionales();
