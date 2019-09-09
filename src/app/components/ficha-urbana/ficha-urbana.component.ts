@@ -5,8 +5,12 @@ import { Negocios } from '../../models/negocios';
 import { DatosComplementarios } from '../../models/datos-complementarios';
 import { ServiciosPublicos } from '../../models/servicios-publicos';  
 import { EdificacionesEspeciales } from '../../models/edificaciones-especiales';
-import { Colindantes } from '../../models/colindantes';
-import { DatosLegales } from '../../models/datos-legales';    
+import { Colindantes } from '../../models/colindantes';    
+import { CaracteristicasVecindad } from '../../models/caracteristicas-vecindad';
+import { CaracteristicasPropiedad } from '../../models/caracteristicas-propiedad';
+import { RecursosHidricos } from '../../models/recursos-hidricos';
+import { UsoTierra } from '../../models/uso-tierra';
+
 
 export const MY_FORMATS = {
   parse: {
@@ -51,6 +55,11 @@ export class FichaUrbanaComponent implements OnInit {
   avaluoEdificacionesFormGroup: FormGroup; //Hace falta hacer la tabla
   detallesAdicionalesFormGroup: FormGroup;
   ultimosDatosFormGroup: FormGroup;
+
+  cVecindad: CaracteristicasVecindad = new CaracteristicasVecindad();
+  cPropiedad: CaracteristicasPropiedad = new CaracteristicasPropiedad();
+  rHidricos: RecursosHidricos = new RecursosHidricos();
+  usoTierra: UsoTierra = new UsoTierra();
 
   negocios: Negocios = new Negocios(); 
   
