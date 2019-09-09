@@ -206,7 +206,7 @@
           </mat-form-field>
           
           <mat-form-field class="long-form-field">
-            <mat-select placeholder="Clase de Dominio">
+            <mat-select placeholder="Clase de Dominio" [(ngModel)]="datosLegales.claseDominio" [ngModelOptions]="{standalone: true}" type="string">
               <mat-option value="dominioPlano" >Dominio Plano</mat-option>
               <mat-option value="dominioUtil" >Dominio Útil</mat-option>
               <mat-option value="ocupacion" >Ocupación</mat-option>

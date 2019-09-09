@@ -12,6 +12,7 @@ export class DatosLegales {
     naturalezaJuridica: string;
     tipoDocumento: string;
     area: number;
+    claseDominio:string;
     unidadArea: string;
     tipoMedida: string;
 }
