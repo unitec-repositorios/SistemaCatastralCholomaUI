@@ -10,7 +10,7 @@
   </mat-form-field><br/>
 
   <button mat-raised-button [ngStyle]="{'color': 'green'}" (click)="openDialogAddPropietario()" 
-  [disabled]="!allPrivileges">
+  *ngIf="allPrivileges">
     <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar Propietario
   </button><br/><br/>
 
@@ -68,8 +68,8 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
         <td mat-cell *matCellDef="let row">
-          <button mat-icon-button [disabled]="!allPrivileges" (click)="openDialogEditPropietario(row)"><mat-icon>launch</mat-icon></button>
-          <button mat-icon-button [disabled]="!allPrivileges" color="warn" (click)="onDelete(row.id)"><mat-icon>delete_outline</mat-icon></button>
+          <button mat-icon-button *ngIf="allPrivileges" (click)="openDialogEditPropietario(row)"><mat-icon>launch</mat-icon></button>
+          <button mat-icon-button *ngIf="allPrivileges" color="warn" (click)="onDelete(row.id)"><mat-icon>delete_outline</mat-icon></button>
         </td>
       </ng-container>
 
