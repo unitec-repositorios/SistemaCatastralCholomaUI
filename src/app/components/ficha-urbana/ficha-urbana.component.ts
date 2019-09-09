@@ -88,7 +88,7 @@ export class FichaUrbanaComponent implements OnInit {
 
    //Objeto del stepper 4 -Datos legales
    datosLegales: DatosLegales=new DatosLegales();
-   Date = new Date((new Date().getTime() - 3888000000));
+  
 
   //Objeto que pertenece al formulario de detalles adicionales
   detallesAdicionales: DetallesAdicionales = new DetallesAdicionales();
