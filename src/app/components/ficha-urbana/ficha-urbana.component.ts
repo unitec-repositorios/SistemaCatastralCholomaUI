@@ -11,6 +11,7 @@ import { CaracteristicasPropiedad } from '../../models/caracteristicas-propiedad
 import { RecursosHidricos } from '../../models/recursos-hidricos';
 import { UsoTierra } from '../../models/uso-tierra';
 
+
 export const MY_FORMATS = {
   parse: {
     dateInput: 'LL',
@@ -84,6 +85,8 @@ export class FichaUrbanaComponent implements OnInit {
   cold4: Colindantes= new Colindantes();
   cold5: Colindantes= new Colindantes();
 
+   //Objeto del stepper 4 -Datos legales
+   datosLegales: DatosLegales=new DatosLegales();
 
   //Objeto que pertenece al formulario de detalles adicionales
   detallesAdicionales: DetallesAdicionales = new DetallesAdicionales();

@@ -10,12 +10,20 @@
     <mat-form-field class="long-form-field">
       <input matInput [(ngModel)]="newUser.password" type="password" placeholder="Contraseña" name="password">
     </mat-form-field>
-    <mat-form-field class="long-form-field">
+    <br/>
+    
+    <mat-form-field class="users-combobox">
       <mat-select [(ngModel)]="newUser.tipo" placeholder="Tipo de usuario" name="tipo">
-        <mat-option value="1">Administrador</mat-option>
-        <mat-option value="0">Empleado normal</mat-option>    
+        <mat-option value="0">Jefatura</mat-option>
+        <mat-option value="1">Secretaria</mat-option>
+        <mat-option value="2">Supervisor de Atencion al Contribuyente</mat-option>
+        <mat-option value="3">Supervisor de Archivo</mat-option>
+        <mat-option value="4">Supervisor de Mantenimiento</mat-option>
+        <mat-option value="5">Supervisor de Digitacion</mat-option>
+        <mat-option value="6">Supervisor de Control de Calidad</mat-option>
       </mat-select>
     </mat-form-field>
+    
     <br/>
     <button class="positive-button" mat-button (click)="sendUser()">Enviar</button>
   </mat-card>
