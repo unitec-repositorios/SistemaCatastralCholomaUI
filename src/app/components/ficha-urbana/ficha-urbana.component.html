@@ -11,7 +11,7 @@
           <h5 class="special-titles">Datos de propiedad</h5>
           <br/>
           <div [ngStyle]="{'padding-left': '35px'}">
-            <mat-radio-group name="radioGroup1" [(ngModel)] = "propiedad.tipo">
+            <mat-radio-group name="radioGroup1" [(ngModel)] = "propiedad.tipo" [ngModelOptions]="{standalone: true}">
               <mat-radio-button name="radioButtons1" value="N">
                 Propiedad Normal
               </mat-radio-button>
@@ -24,13 +24,13 @@
             <br/>
             <br/>
             <mat-form-field class="special-form-field">
-              <input matInput placeholder="Mapa" name="mapa" [(ngModel)] = "propiedad.mapa">
+              <input matInput placeholder="Mapa" name="mapa" [(ngModel)] = "propiedad.mapa" [ngModelOptions]="{standalone: true}">
             </mat-form-field>
             <mat-form-field class="special-form-field">
-              <input matInput placeholder="Bloque" name="bloque" [(ngModel)] = "propiedad.bloque">
+              <input matInput placeholder="Bloque" name="bloque" [(ngModel)] = "propiedad.bloque" [ngModelOptions]="{standalone: true}">
             </mat-form-field>
             <mat-form-field class="special-form-field">
-              <input matInput placeholder="Predio" name="predio" [(ngModel)] = "propiedad.predio">
+              <input matInput placeholder="Predio" name="predio" [(ngModel)] = "propiedad.predio" [ngModelOptions]="{standalone: true}">
             </mat-form-field>
           </div>
           <br/><br/>
@@ -38,7 +38,7 @@
       <div>
         <h5 class="special-titles">Propietario</h5>
         <mat-form-field [ngStyle]="{'padding-left': '35px'}" class="form-field">
-          <input  type="number" matInput placeholder="Identidad" name="identidad" [(ngModel)] = "propiedad.propietarioPrincipal">
+          <input  type="number" matInput placeholder="Identidad" name="identidad" [ngModelOptions]="{standalone: true}" [(ngModel)] = "propiedad.propietarioPrincipal">
         </mat-form-field>
       </div>
         <div class="buttons">
