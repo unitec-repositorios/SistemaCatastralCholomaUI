@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatTableDataSource} from '@angular/material/table';
+import { Propiedad } from '../../models/propiedad';
 import { Negocios } from '../../models/negocios';
 import { DatosComplementarios } from '../../models/datos-complementarios';
+import { DatosLegales } from '../../models/datos-legales';
 import { ServiciosPublicos } from '../../models/servicios-publicos';  
 import { EdificacionesEspeciales } from '../../models/edificaciones-especiales';
 import { Colindantes } from '../../models/colindantes';    
@@ -61,6 +63,9 @@ export class FichaUrbanaComponent implements OnInit {
   cPropiedad: CaracteristicasPropiedad = new CaracteristicasPropiedad();
   rHidricos: RecursosHidricos = new RecursosHidricos();
   usoTierra: UsoTierra = new UsoTierra();
+
+  //Objeto propiedad
+  propiedad: Propiedad = new Propiedad();
 
   negocios: Negocios = new Negocios(); 
   
