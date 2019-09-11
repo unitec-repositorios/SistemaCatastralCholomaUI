@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {MatTableDataSource} from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import { Negocios } from '../../models/negocios';
 import { DatosComplementarios } from '../../models/datos-complementarios';
 import { ServiciosPublicos } from '../../models/servicios-publicos';  
@@ -11,6 +11,8 @@ import { CaracteristicasPropiedad } from '../../models/caracteristicas-propiedad
 import { RecursosHidricos } from '../../models/recursos-hidricos';
 import { UsoTierra } from '../../models/uso-tierra';
 import { DatosLegales } from '../../models/datos-legales';
+import { DetallesAdicionales } from '../../models/detalles-adicionales';
+import { isEmpty } from 'rxjs/operators';
 
 
 export const MY_FORMATS = {
@@ -26,7 +28,7 @@ export const MY_FORMATS = {
 };
 
 //datos que van en la tabla que aparece en el dialogo de datos complementarios, PASAR ESTO A UN MODEL DESPUES
-export class DetallesAdicionales {
+/* export class DetallesAdicionales {
   codigo: number;
   area: number;
   detalleAdicional: string;
@@ -36,7 +38,7 @@ export class DetallesAdicionales {
   codEdif: number;
 
   DetallesAdicionales() {}
-}
+} */
 
 @Component({
   selector: 'app-ficha-urbana',
