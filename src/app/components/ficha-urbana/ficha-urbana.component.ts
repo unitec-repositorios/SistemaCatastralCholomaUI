@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatTableDataSource} from '@angular/material/table';
 import {Predio} from '../../models/predio';
+import { stringify } from '@angular/core/src/render3/util';
 
 export const MY_FORMATS = {
   parse: {
@@ -61,7 +62,7 @@ export class FichaUrbanaComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder) {
     this.dataSource = new MatTableDataSource(this.detallesAdicionalesDataTable);
   }
-
+  
   ngOnInit() {
     this.propiedadFormGroup = this._formBuilder.group({
       propiedadCtrl: ['', Validators.required]

@@ -10,6 +10,8 @@ export class Predio {
     ubicacion: string;
     sitio: string;
     construccion: string;
+    obs:string;
+    nolegalizado:string;
     observacion: string;
     estatusTributario: number;
     codigoPropietario: string;
