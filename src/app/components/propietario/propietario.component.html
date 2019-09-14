@@ -6,10 +6,10 @@
 
   
   <mat-form-field class="long-form-field">
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar">
+    <input matInput name="searchPropietario" (keyup)="applyFilter($event.target.value)" placeholder="Buscar">
   </mat-form-field><br/>
 
-  <button mat-raised-button [ngStyle]="{'color': 'green'}" (click)="openDialogAddPropietario()" 
+  <button mat-raised-button name="addPropietario" [ngStyle]="{'color': 'green'}" (click)="openDialogAddPropietario()" 
   *ngIf="allPrivileges">
     <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar Propietario
   </button><br/><br/>
@@ -68,8 +68,8 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
         <td mat-cell *matCellDef="let row">
-          <button mat-icon-button *ngIf="allPrivileges" (click)="openDialogEditPropietario(row)"><mat-icon>launch</mat-icon></button>
-          <button mat-icon-button *ngIf="allPrivileges" color="warn" (click)="onDelete(row.id)"><mat-icon>delete_outline</mat-icon></button>
+          <button mat-icon-button name="editPropietario" *ngIf="allPrivileges" (click)="openDialogEditPropietario(row)"><mat-icon>launch</mat-icon></button>
+          <button mat-icon-button name="deletePropietario" *ngIf="allPrivileges" color="warn" (click)="onDelete(row.id)"><mat-icon>delete_outline</mat-icon></button>
         </td>
       </ng-container>
 
