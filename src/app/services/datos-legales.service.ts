@@ -7,7 +7,7 @@ import {DatosLegales} from '../models/datos-legales';
 })
 export class DatosLegalesService {
 
-  API_URL = '//catastrocholomaapi.azurewebsites.net/api';
+  API_URL = '//catastrocholoma.azurewebsites.net/api';
 
   constructor(private http: HttpClient) { }
 

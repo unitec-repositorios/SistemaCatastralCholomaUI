@@ -12,7 +12,6 @@ import { CaracteristicasVecindad } from '../../models/caracteristicas-vecindad';
 import { CaracteristicasPropiedad } from '../../models/caracteristicas-propiedad';
 import { RecursosHidricos } from '../../models/recursos-hidricos';
 import { UsoTierra } from '../../models/uso-tierra';
-import { DatosLegales } from '../../models/datos-legales';
 
 
 export const MY_FORMATS = {

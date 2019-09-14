@@ -7,7 +7,7 @@ import {AvaluoEdificaciones} from "../models/avaluo-edificaciones";
 })
 export class AvaluoEdificacionesService {
 
-  API_URL = '//catastrocholomaapi.azurewebsites.net/api';
+  API_URL = '//catastrocholoma.azurewebsites.net/api';
 
   constructor(private http: HttpClient) { }
 

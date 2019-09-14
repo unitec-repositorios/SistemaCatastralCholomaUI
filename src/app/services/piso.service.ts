@@ -7,7 +7,7 @@ import {Piso} from '../models/piso';
 })
 export class PisoService {
 
-  API_URL = '//catastrocholomaapi.azurewebsites.net/api';
+  API_URL = '//catastrocholoma.azurewebsites.net/api';
 
   constructor(private http: HttpClient) { }
 

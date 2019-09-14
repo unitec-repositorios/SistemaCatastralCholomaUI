@@ -7,7 +7,7 @@ import {CaracteristicasPropiedad} from '../models/caracteristicas-propiedad';
 })
 export class CaracteristicasPropiedadService {
 
-  API_URL = '//catastrocholomaapi.azurewebsites.net/api';
+  API_URL = '//catastrocholoma.azurewebsites.net/api';
 
   constructor(private http: HttpClient) { }
 
