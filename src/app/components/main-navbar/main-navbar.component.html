@@ -1,12 +1,12 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-  <span routerLink="/modules">Municipalidad de Choloma</span>
+  <button mat-button class="btn-ttl" routerLink="/modules">Municipalidad de Choloma</button>
       <span class="example-fill-remaining-space"></span>
       <span class="align-center"></span>
       <span class="example-spacer"></span>
-      <button *ngIf="allPrivileges" mat-button routerLink="/usuarios">Crear Usuario</button>
-      <button mat-button routerLink="/propietario">Propietario</button>
-      <button mat-button routerLink="/fichaUrbana">Ficha Urbana</button>
-      <button *ngIf="allPrivileges" mat-button routerLink="/mantenimientos">Mantenimientos</button>
-      <button mat-button (click)="logout()">Cerrar Sesión</button>
+      <button *ngIf="allPrivileges" mat-button class="btn-font" routerLink="/usuarios">Crear Usuario</button>
+      <button mat-button class="btn-font" routerLink="/propietario">Propietario</button>
+      <button mat-button class="btn-font" routerLink="/fichaUrbana">Ficha Urbana</button>
+      <button *ngIf="allPrivileges" mat-button  class="btn-font"routerLink="/mantenimientos">Mantenimientos</button>
+      <button mat-button  class="btn-font"(click)="logout()">Cerrar Sesión</button>
 </mat-toolbar-row>

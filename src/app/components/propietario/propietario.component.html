@@ -5,11 +5,11 @@
   <h3 class="special-titles">Propietarios existentes</h3><br/>
 
   
-  <mat-form-field class="long-form-field">
+  <mat-form-field class="search-bar">
     <input matInput name="searchPropietario" (keyup)="applyFilter($event.target.value)" placeholder="Buscar">
   </mat-form-field><br/>
 
-  <button mat-raised-button name="addPropietario" [ngStyle]="{'color': 'green'}" (click)="openDialogAddPropietario()" 
+  <button class="marg" mat-raised-button name="addPropietario" [ngStyle]="{'color': 'green'}" (click)="openDialogAddPropietario()" 
   *ngIf="allPrivileges">
     <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar Propietario
   </button><br/><br/>
