@@ -92,8 +92,7 @@ export class FichaUrbanaComponent implements OnInit {
 
    //Objeto del stepper 4 -Datos legales
    datosLegales: DatosLegales=new DatosLegales();
-  
-
+   
   //Objeto que pertenece al formulario de detalles adicionales
   detallesAdicionales: DetallesAdicionales = new DetallesAdicionales();
   detallesAdicionalesDataTable: any = []; //Datos que estaran en la tabla de detalles adicionales

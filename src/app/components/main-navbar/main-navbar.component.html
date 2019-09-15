@@ -7,5 +7,6 @@
       <button *ngIf="allPrivileges" mat-button routerLink="/usuarios">Crear Usuario</button>
       <button mat-button routerLink="/propietario">Propietario</button>
       <button mat-button routerLink="/fichaUrbana">Ficha Urbana</button>
+      <button *ngIf="allPrivileges" mat-button routerLink="/mantenimientos">Mantenimientos</button>
       <button mat-button (click)="logout()">Cerrar Sesión</button>
 </mat-toolbar-row>
