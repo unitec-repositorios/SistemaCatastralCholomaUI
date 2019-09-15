@@ -23,6 +23,8 @@ import { EmpleadosComponent } from './components/empleados/empleados.component';
 //importar el http module para poder usar HTTP Client
 import { HttpClientModule } from '@angular/common/http';
 
+import { MantenimientosComponent } from './components/mantenimientos/mantenimientos.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     FichaUrbanaComponent,
     PropietarioComponent,
     EmpleadosComponent,
-    AddPropietarioDialog
+    AddPropietarioDialog,
+    MantenimientosComponent
   ],
   imports: [
     BrowserModule,
