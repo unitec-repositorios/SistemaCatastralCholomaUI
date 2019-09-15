@@ -16,6 +16,16 @@
     width: 8em;
 }
 
+.marg{
+    margin: 10px 30px 10px;
+    width: 15em;
+}
+
+.search-bar{
+    margin: 10px 30px 10px;
+    text-align: left;
+    width: 13em;
+}
 .long-form-field {
     text-align: left;
     margin: 0px 20px 30px 20px;

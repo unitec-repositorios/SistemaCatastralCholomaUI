@@ -6,7 +6,7 @@
 
 .card-style {
     margin: 0px 45px 25px 45px;
-    background-color: rgb(245, 245, 245);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     padding: 25px 35px 45px 35px;
 }
 
