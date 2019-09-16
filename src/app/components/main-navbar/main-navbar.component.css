@@ -1,6 +1,12 @@
 .example-icon {
     padding: 0 14px;
 }
+
+.long-form-field {
+    text-align: left;
+    margin: 0px 20px 30px 20px;
+    width: 13em;
+}
   
 .example-spacer {
     flex: 1 1 auto;
