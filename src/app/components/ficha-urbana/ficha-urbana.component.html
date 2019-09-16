@@ -99,9 +99,9 @@
         <!--Informacion del predio-->
         <div [ngStyle]="{'padding-left': '30px'}">
         <section class="example-section">
-          <mat-checkbox  [(ngModel)]="nolegalizado" [ngModelOptions]="{standalone:true}" class="example-margin">No legalizado</mat-checkbox>
-          <mat-checkbox  [(ngModel)]="obs" [ngModelOptions]="{standalone:true}" class="example-margin">En observación</mat-checkbox>
-          <mat-checkbox  [(ngModel)]="construccion" [ngModelOptions]="{standalone:true}" class="example-margin">En construcción</mat-checkbox>
+          <mat-checkbox  [(ngModel)]="infoPredio.nolegalizado" [ngModelOptions]="{standalone:true}" class="example-margin">No legalizado</mat-checkbox>
+          <mat-checkbox  [(ngModel)]="infoPredio.obs" [ngModelOptions]="{standalone:true}" class="example-margin">En observación</mat-checkbox>
+          <mat-checkbox  [(ngModel)]="infoPredio.construccion" [ngModelOptions]="{standalone:true}" class="example-margin">En construcción</mat-checkbox>
         </section>
         <mat-form-field class="long-form-field">
           <input [(ngModel)]="infoPredio.observacion" [ngModelOptions]="{standalone:true}"  matInput placeholder="Observación" name="observacion">
