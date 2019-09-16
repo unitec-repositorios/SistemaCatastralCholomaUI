@@ -5,6 +5,8 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Roles } from '../../models/empleado';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-propietario',
@@ -16,6 +18,11 @@ export class PropietarioComponent implements OnInit {
   displayedColumns: string[] = ['id', 'nombres', 'apellidos', 'identidad', 'telefono', 'rtn', 'sexo', 'nacionalidad', 'actions'];
   dataSource: MatTableDataSource<Propietario>;
 
+  //for permissions
+  role: number;
+  allPrivileges: boolean;
+  roleEnum: Roles
+
   propietarios: any = [];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -23,9 +30,18 @@ export class PropietarioComponent implements OnInit {
 
   propietario: Propietario = new Propietario();
 
-  constructor(private propietariosService: PropietarioService, public dialog: MatDialog) { }
+  constructor(private propietariosService: PropietarioService, public dialog: MatDialog,
+    private cookieService: CookieService) { }
 
   ngOnInit() {
+    //get role from cookie
+    this.role = +this.cookieService.get('type');
+    //verify role and assign all privileges to true or false
+    if(this.role === Roles.Jefatura || this.role === Roles.SupervisorMantenimiento
+    || this.role === Roles.SupervisorDigitacion) 
+      this.allPrivileges = true;
+    else
+      this.allPrivileges = false;
     this.propietariosService.getPropietarios()
     .subscribe(
       res => {

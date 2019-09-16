@@ -7,7 +7,7 @@ import { FichaCatastral } from '../models/ficha-catastral';
 })
 export class FichasCatastralesService {
 
-  API_URL = '//catastrocholomaapi.azurewebsites.net/api';
+  API_URL = '//catastrocholoma.azurewebsites.net/api';
 
   constructor(private http: HttpClient) { }
 

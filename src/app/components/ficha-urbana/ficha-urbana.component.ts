@@ -1,8 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {MatTableDataSource} from '@angular/material/table';
-import {Predio} from '../../models/predio';
+import { MatTableDataSource } from '@angular/material/table';
+import { Predio } from '../../models/predio';
 import { stringify } from '@angular/core/src/render3/util';
+import { Propiedad } from '../../models/propiedad';
+import { Negocios } from '../../models/negocios';
+import { DatosComplementarios } from '../../models/datos-complementarios';
+import { DatosLegales } from '../../models/datos-legales';
+import { ServiciosPublicos } from '../../models/servicios-publicos';  
+import { EdificacionesEspeciales } from '../../models/edificaciones-especiales';
+import { Colindantes } from '../../models/colindantes';    
+import { CaracteristicasVecindad } from '../../models/caracteristicas-vecindad';
+import { CaracteristicasPropiedad } from '../../models/caracteristicas-propiedad';
+import { RecursosHidricos } from '../../models/recursos-hidricos';
+import { UsoTierra } from '../../models/uso-tierra';
 
 export const MY_FORMATS = {
   parse: {
@@ -42,13 +53,47 @@ export class FichaUrbanaComponent implements OnInit {
   infoPredioFormGroup: FormGroup;
   infoLegalPredioFormGroup: FormGroup;
   caracteristicasPredioFormGroup: FormGroup;
-  datosComplementariosFormGroup: FormGroup; //No hay nada
+  datosComplementariosFormGroup: FormGroup; 
   avaluoTerrenosFormGroup: FormGroup;
   avaluoEdificacionesFormGroup: FormGroup; //Hace falta hacer la tabla
   detallesAdicionalesFormGroup: FormGroup;
-  cultivosPermanentesFormGroup: FormGroup; //no hay nada
   ultimosDatosFormGroup: FormGroup;
+
+  cVecindad: CaracteristicasVecindad = new CaracteristicasVecindad();
+  cPropiedad: CaracteristicasPropiedad = new CaracteristicasPropiedad();
+  rHidricos: RecursosHidricos = new RecursosHidricos();
+  usoTierra: UsoTierra = new UsoTierra();
+
+  //Objeto propiedad
+  propiedad: Propiedad = new Propiedad();
+
+  negocios: Negocios = new Negocios(); 
   
+  //Objeto de datos complementarios
+  datosComp: DatosComplementarios = new DatosComplementarios();
+  
+  //Objeto de servicios públicos
+  serviciosPub: ServiciosPublicos = new ServiciosPublicos();
+  
+  //Objetos de EdificacionesEspeciales
+  ediEsp1: EdificacionesEspeciales= new EdificacionesEspeciales();
+  ediEsp2: EdificacionesEspeciales= new EdificacionesEspeciales();
+  ediEsp3: EdificacionesEspeciales= new EdificacionesEspeciales();
+  ediEsp4: EdificacionesEspeciales= new EdificacionesEspeciales();
+  ediEsp5: EdificacionesEspeciales= new EdificacionesEspeciales();
+  ediEsp6: EdificacionesEspeciales= new EdificacionesEspeciales();
+  ediEsp7: EdificacionesEspeciales= new EdificacionesEspeciales();
+  
+  //Objetos colindantes
+  cold1: Colindantes= new Colindantes();
+  cold2: Colindantes= new Colindantes();
+  cold3: Colindantes= new Colindantes();
+  cold4: Colindantes= new Colindantes();
+  cold5: Colindantes= new Colindantes();
+
+   //Objeto del stepper 4 -Datos legales
+   datosLegales: DatosLegales=new DatosLegales();
+   
   //Objeto que pertenece al formulario de detalles adicionales
   detallesAdicionales: DetallesAdicionales = new DetallesAdicionales();
   infoPredio: Predio = new Predio();
@@ -61,6 +106,16 @@ export class FichaUrbanaComponent implements OnInit {
 
   constructor(private _formBuilder: FormBuilder) {
     this.dataSource = new MatTableDataSource(this.detallesAdicionalesDataTable);
+    
+    //asignaciones plantas (Edificaciones Especiales)
+    this.ediEsp1.Nivel= 'Primera planta';
+    this.ediEsp2.Nivel= 'Segunda planta';
+    this.ediEsp3.Nivel= 'Tercera planta';
+    this.ediEsp4.Nivel= 'Cuarta planta';
+    this.ediEsp5.Nivel= 'Quinta planta';
+    this.ediEsp6.Nivel= 'Planta Adicional';
+    this.ediEsp7.Nivel= 'Sotano';
+
   }
   
   ngOnInit() {
@@ -91,15 +146,9 @@ export class FichaUrbanaComponent implements OnInit {
     this.detallesAdicionalesFormGroup = this._formBuilder.group({
       detallesAdicionalesCtrl: ['', Validators.required]
     });
-    this.cultivosPermanentesFormGroup = this._formBuilder.group({
-      cultivosPermanentesCtrl: ['', Validators.required]
-    });
     this.ultimosDatosFormGroup = this._formBuilder.group({
       ultimosDatosCtrl: ['', Validators.required]
     });
-
-    if (!this.DatosCultivos.length) this.addElement();
-    if (!this.DatosCultivos2.length) this.addCultivo();
   }
 
   addDetalleAdicional() {
@@ -110,88 +159,4 @@ export class FichaUrbanaComponent implements OnInit {
     //reiniciamos el objeto que pertenece al formulario
     this.detallesAdicionales = new DetallesAdicionales();
   }
-
-  // Avaluo de Cultivo Permanente
-
-    DatosCultivos = DatosCultivosPermanentes;
-    DatosCultivos2 = DatosCultivosPermanentes2;
-
-    numElements: number;  
-    arrayElement: AvaluoCultivoPermanenteDatos1;
-    
-    addElement(): void {
-      this.numElements = this.DatosCultivos.push(this.arrayElement);
-    };
-
-    deleteElement() {
-    if (this.numElements > 1) {
-      this.DatosCultivos.pop()
-      this.numElements--;
-    };
-    //this.DatosCultivos.splice(this.DatosCultivos.indexOf(element), 1);
-    };
-
-    numCultivos: number;
-    cultivoItem: AvaluoCultivoPermanenteDatos2;
-  
-    numManzanas!: number;
-    valorXManzana!: number;
-    totalManzanas: number;
-  
-    addCultivo(): void {
-      let newItem: AvaluoCultivoPermanenteDatos2 = {} as AvaluoCultivoPermanenteDatos2;
-      
-      (this.DatosCultivos2 && this.DatosCultivos2.length) ? newItem.id = (this.DatosCultivos2[this.DatosCultivos2.length - 1].id) + 1 : newItem.id = 0;
-      this.numCultivos = this.DatosCultivos2.push(newItem);
-    };
-  
-    deleteCultivo () {
-      if (this.numCultivos > 1) {
-        this.DatosCultivos2.pop();
-        this.numCultivos--;
-      }
-    };
-
-    numCultivosTotal1: number;
-    numCultivosTotal2: number;
-    costoCultivosTotal1: number;
-    costoCultivosTotal2: number;
-    totalFinal: number;
-
-    updateTotal(item: AvaluoCultivoPermanenteDatos2) {
-      item.numTotalDeManzanas = item.numDeManzanas * item.valorPorManz;
-      this.costoCultivosTotal2 = 0;
-      /* this.DatosCultivos.forEach(element => {
-        this.costoCultivosTotal1 += element.ValorPorCultivo;
-      }); */
-      this.DatosCultivos2.forEach(element => {
-        this.costoCultivosTotal2 += element.numTotalDeManzanas;
-        /* console.log(element.numTotalDeManzanas);
-        console.log("costoCultivos2: " + this.costoCultivosTotal2); */
-      });
-      this.totalFinal = /* this.costoCultivosTotal1 +  */this.costoCultivosTotal2;
-      // console.log("Total: " + this.totalFinal);
-    }
-
-}
-
-let DatosCultivosPermanentes: AvaluoCultivoPermanenteDatos1[] = [];
-let DatosCultivosPermanentes2: AvaluoCultivoPermanenteDatos2[] = [];
-
-
-export interface AvaluoCultivoPermanenteDatos1 {
-  ClaseCultivoVariedad: string; 
-  Arboles: number;
-  EstadoSanitario: string;
-  Edad: number;
-  FactorModificacion: number;
-  ValorPorCultivo: number;
-}
-
-export interface AvaluoCultivoPermanenteDatos2 {
-  id: number;
-  ClaseCultivoVariedad: string;
-  numDeManzanas: number;
-  valorPorManz: number;
-  numTotalDeManzanas: number;
 }

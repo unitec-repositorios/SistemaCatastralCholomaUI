@@ -7,7 +7,7 @@ import { FichaUrbana } from '../models/ficha-urbana';
 })
 export class FichaUrbanaService {
 
-  API_URL = '//catastrocholomaapi.azurewebsites.net/api';
+  API_URL = '//catastrocholoma.azurewebsites.net/api';
 
   constructor(private http: HttpClient) { }
 

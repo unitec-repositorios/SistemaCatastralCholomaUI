@@ -7,5 +7,6 @@ export class ServiciosPublicos {
     Electricidad: string;
     Acera: string;
     Alumbrado: string;
+    //agregar campo tren de aseo
 }
 

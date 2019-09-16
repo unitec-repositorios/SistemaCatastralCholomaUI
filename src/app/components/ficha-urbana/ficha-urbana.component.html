@@ -11,7 +11,7 @@
           <h5 class="special-titles">Datos de propiedad</h5>
           <br/>
           <div [ngStyle]="{'padding-left': '35px'}">
-            <mat-radio-group name="radioGroup1">
+            <mat-radio-group name="radioGroup1" [(ngModel)] = "propiedad.tipo" [ngModelOptions]="{standalone: true}">
               <mat-radio-button name="radioButtons1" value="N">
                 Propiedad Normal
               </mat-radio-button>
@@ -24,13 +24,13 @@
             <br/>
             <br/>
             <mat-form-field class="special-form-field">
-              <input matInput placeholder="Mapa" name="mapa">
+              <input matInput placeholder="Mapa" name="mapa" [(ngModel)] = "propiedad.mapa" [ngModelOptions]="{standalone: true}">
             </mat-form-field>
             <mat-form-field class="special-form-field">
-              <input matInput placeholder="Bloque" name="bloque">
+              <input matInput placeholder="Bloque" name="bloque" [(ngModel)] = "propiedad.bloque" [ngModelOptions]="{standalone: true}">
             </mat-form-field>
             <mat-form-field class="special-form-field">
-              <input matInput placeholder="Predio" name="predio">
+              <input matInput placeholder="Predio" name="predio" [(ngModel)] = "propiedad.predio" [ngModelOptions]="{standalone: true}">
             </mat-form-field>
           </div>
           <br/><br/>
@@ -38,7 +38,7 @@
       <div>
         <h5 class="special-titles">Propietario</h5>
         <mat-form-field [ngStyle]="{'padding-left': '35px'}" class="form-field">
-          <input  type="number" matInput placeholder="Identidad" name="identidad">
+          <input  type="number" matInput placeholder="Identidad" name="identidad" [ngModelOptions]="{standalone: true}" [(ngModel)] = "propiedad.propietarioPrincipal">
         </mat-form-field>
       </div>
         <div class="buttons">
@@ -55,14 +55,14 @@
         <br/>
         <div [ngStyle]="{'padding-left': '30px'}" mat-dialog-content>
           <mat-form-field class="long-form-field">
-            <input matInput placeholder="Nombre del negocio" name="nombre">
+            <input matInput [(ngModel)]="negocios.nombre" [ngModelOptions]="{standalone: true}" placeholder="Nombre del negocio" name="nombre">
           </mat-form-field>
           <mat-form-field class="long-form-field">
-            <input matInput placeholder="Direccion" name="direccion">
+            <input matInput [(ngModel)]="negocios.direccion" [ngModelOptions]="{standalone: true}" placeholder="Direccion" name="direccion">
           </mat-form-field>
           <br/>
           <mat-form-field class="longest-form-field">
-            <mat-select  placeholder="Tipo de empresa" name="tipo">
+            <mat-select [(ngModel)]="negocios.tipo" [ngModelOptions]="{standalone: true}" placeholder="Tipo de empresa" name="tipo">
                 <mat-option value="Comerciante Individual">Comerciante Individual</mat-option>
                 <mat-option value="Sociedad Colectiva">Sociedad Colectiva</mat-option>
                 <mat-option value="Sociedad en Comandita Simple">Sociedad en Comandita Simple</mat-option>
@@ -72,13 +72,13 @@
             </mat-select>
           </mat-form-field>
           <mat-form-field class="long-form-field">
-            <input matInput placeholder="Deuda" name="deuda">
+            <input matInput [(ngModel)]="negocios.deuda" [ngModelOptions]="{standalone: true}" placeholder="Deuda" name="deuda">
           </mat-form-field>
           <mat-form-field class="long-form-field">
-            <input matInput placeholder="Cofundadores" name="cofundadores">
+            <input matInput [(ngModel)]="negocios.cofundadores" [ngModelOptions]="{standalone: true}" placeholder="Cofundadores" name="cofundadores">
           </mat-form-field>
           <mat-form-field class="long-form-field">
-            <input matInput [matDatepicker]="picker1" placeholder="Fecha de Fundación" disabled>
+            <input matInput [(ngModel)]="negocios.fechaFundacion" [ngModelOptions]="{standalone: true}" [matDatepicker]="picker1" placeholder="Fecha de Fundación" disabled>
             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
             <mat-datepicker #picker1 disabled="false"></mat-datepicker>
           </mat-form-field>
@@ -163,37 +163,40 @@
         <br/>
         <div>
           <mat-form-field class="long-form-field">
-            <mat-select placeholder="Registro / Propiedad">
+            <mat-select placeholder="Registro / Propiedad" [(ngModel)]="datosLegales.propiedad" [ngModelOptions]="{standalone: true}" type="string">
               <mat-option value="" >Valor 1</mat-option>
             </mat-select>
           </mat-form-field>
           <mat-form-field class="short-form-field">
-            <input matInput placeholder="Tomo" name="tomo">
+            <input matInput placeholder="Tomo" name="tomo" [(ngModel)]="datosLegales.tomo" [ngModelOptions]="{standalone: true}" type="string">
           </mat-form-field>
           <mat-form-field class="short-form-field">
-            <input matInput placeholder="Folio" name="folio">
+            <input matInput placeholder="Folio" name="folio" [(ngModel)]="datosLegales.folio" [ngModelOptions]="{standalone: true}" type="string" >
           </mat-form-field>
           <mat-form-field class="short-form-field">
-            <input matInput placeholder="Asiento" name="asiento">
+            <input matInput placeholder="Asiento" name="asiento" [(ngModel)]="datosLegales.asiento" [ngModelOptions]="{standalone: true}" type="string" >
           </mat-form-field><br/>
           
           <mat-form-field class="long-form-field">
-            <input matInput [matDatepicker]="picker" placeholder="Fecha de Inscripción" disabled>
+            <input matInput disabled [matDatepicker]="picker" placeholder="Fecha de Inscripción" [(ngModel)]="datosLegales.inscripcion" [ngModelOptions]="{standalone: true}" >
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker disabled="false"></mat-datepicker>
           </mat-form-field>
           <mat-form-field class="short-form-field">
-            <input matInput placeholder="Matrícula" name="matricula">
+            <input matInput placeholder="Predio" name="predio" disabled>
           </mat-form-field>
           <mat-form-field class="short-form-field">
-            <input matInput placeholder="Línea" name="linea">
+            <input matInput placeholder="Matrícula" name="matricula" [(ngModel)]="datosLegales.matricula" [ngModelOptions]="{standalone: true}" type="string">
           </mat-form-field>
           <mat-form-field class="short-form-field">
-            <input matInput placeholder="Foto" name="foto">
+            <input matInput placeholder="Línea" name="linea" [(ngModel)]="datosLegales.linea" [ngModelOptions]="{standalone: true}" type="string">
+          </mat-form-field>
+          <mat-form-field class="short-form-field">
+            <input matInput placeholder="Foto" name="foto" [(ngModel)]="datosLegales.foto" [ngModelOptions]="{standalone: true}" type="string">
           </mat-form-field><br/>
           
           <mat-form-field class="long-form-field">
-            <mat-select placeholder="Naturaleza Jurídica">
+            <mat-select placeholder="Naturaleza Jurídica" [(ngModel)]="datosLegales.naturalezaJuridica" [ngModelOptions]="{standalone: true}" type="string">
               <mat-option value="privado" >Privado</mat-option>
               <mat-option value="ejidal" >Ejidal</mat-option>
               <mat-option value="nacional" >Nacional</mat-option>
@@ -204,7 +207,7 @@
           </mat-form-field>
           
           <mat-form-field class="long-form-field">
-            <mat-select placeholder="Clase de Dominio">
+            <mat-select placeholder="Clase de Dominio" [(ngModel)]="datosLegales.claseDominio" [ngModelOptions]="{standalone: true}" type="string">
               <mat-option value="dominioPlano" >Dominio Plano</mat-option>
               <mat-option value="dominioUtil" >Dominio Útil</mat-option>
               <mat-option value="ocupacion" >Ocupación</mat-option>
@@ -215,7 +218,7 @@
           </mat-form-field>
           
           <mat-form-field class="long-form-field">
-            <mat-select placeholder="Tipo de Documento">
+            <mat-select placeholder="Tipo de Documento" [(ngModel)]="datosLegales.tipoDocumento" [ngModelOptions]="{standalone: true}" type="string">
               <mat-option value="privado" >Privado</mat-option>
               <mat-option value="publico" >Público</mat-option>
               <mat-option value="sinDocumento" >Sin Documento</mat-option>
@@ -223,11 +226,11 @@
           </mat-form-field><br/>
           
           <mat-form-field class="short-form-field">
-            <input type="number" matInput placeholder="Área" name="area">
+            <input type="number" matInput placeholder="Área" name="area" [(ngModel)]="datosLegales.area" [ngModelOptions]="{standalone: true}" type="number" >
           </mat-form-field>
           
           <mat-form-field class="long-form-field">
-            <mat-select placeholder="Unidad de Área">
+            <mat-select placeholder="Unidad de Área" [(ngModel)]="datosLegales.unidadArea" [ngModelOptions]="{standalone: true}" type="string">
               <mat-option value="varas" >VRS Cuadradas</mat-option>
               <mat-option value="metros" >MTS Cuadrados</mat-option>
               <mat-option value="manzanas" >Manzanas</mat-option>
@@ -236,7 +239,7 @@
           </mat-form-field>
           
           <mat-form-field class="long-form-field">
-            <mat-select placeholder="Tipo de Medida">
+            <mat-select placeholder="Tipo de Medida" [(ngModel)]="datosLegales.tipoMedida" [ngModelOptions]="{standalone: true}" type="string">
               <mat-option value="topografía" >Topografía</mat-option>
               <mat-option value="segunDocumento" >Según Documento</mat-option>
               <mat-option value="registrada" >Registrada</mat-option>
@@ -259,39 +262,39 @@
         <div mat-dialog-content>
           <h4>Características de la Vecindad</h4>
           <mat-form-field class="short-form-field">
-            <input matInput placeholder="Iglesia" name="iglesia">
+            <input matInput type="text" placeholder="Iglesia" name="iglesia" [(ngModel)] = "cVecindad.Iglesia" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <mat-form-field class="short-form-field">
-            <input matInput placeholder="Escuela" name="escuela">
+            <input matInput type="text" placeholder="Escuela" name="escuela" [(ngModel)] = "cVecindad.Escuela" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <mat-form-field class="long-form-field">
-            <input matInput placeholder="Sitio de Embarque (Kms)" name="sitioEmbarque">
+            <input matInput type="number" placeholder="Sitio de Embarque (Kms)" name="sitioEmbarque" [(ngModel)] = "cVecindad.sitioEmbarque" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <br/>
           <mat-form-field class="long-form-field">
-            <input matInput placeholder="Mercado más Cercano(Kms)" name="mercadoCercano">
+            <input matInput type="number" placeholder="Mercado más Cercano(Kms)" name="mercadoCercano" [(ngModel)] = "cVecindad.mercadoCercano" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
         
           <mat-divider class="mat-divider"></mat-divider>
         
           <h4>Características de la Propiedad</h4>
           <mat-form-field class="short-form-field">
-            <input type="number" matInput placeholder="Área (Has)" name="area">
+            <input type="number" matInput placeholder="Área (Has)" name="area" [(ngModel)] = "cPropiedad.area" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <mat-form-field class="short-form-field">
-            <input matInput placeholder="Explotación" name="explotacion">
+            <input matInput placeholder="Explotación" name="explotacion" [(ngModel)] = "cPropiedad.explotacion" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <mat-form-field class="short-form-field">
-            <input matInput placeholder="Topografía" name="topografia">
+            <input matInput placeholder="Topografía" name="topografia" [(ngModel)] = "cPropiedad.topografia" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <mat-form-field class="short-form-field">
-            <input matInput placeholder="Caudal" name="caudal">
+            <input matInput placeholder="Caudal" name="caudal" [(ngModel)] = "cPropiedad.caudal" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <mat-form-field class="short-form-field">
-            <input matInput placeholder="Pozo" name="pozo">
+            <input matInput placeholder="Pozo" name="pozo" [(ngModel)] = "cPropiedad.pozo" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <mat-form-field class="long-form-field">
-            <input matInput placeholder="Vías de Comunicación" name="viasComunicacion">
+            <input matInput placeholder="Vías de Comunicación" name="viasComunicacion" [(ngModel)] = "cPropiedad.viasComunicacion" [ngModelOptions]="{standalone: true}">
           </mat-form-field><br/><br/><br/>
           
           <mat-divider class="mat-divider"></mat-divider>
@@ -309,17 +312,17 @@
               <td [ngStyle]="{'font-weight': '600'}">Río</td>
               <td>
                 <mat-form-field class="short-form-field">
-                  <input matInput type="number" name="riegoRio">
+                  <input matInput type="number" name="riegoRio" [(ngModel)] = "rHidricos.riego" [ngModelOptions]="{standalone: true}">
                 </mat-form-field><br/>
               </td> 
               <td>
                 <mat-form-field class="short-form-field">
-                  <input matInput type="number" name="distKmRio">
+                  <input matInput type="number" name="distKmRio" [(ngModel)] = "rHidricos.distancia" [ngModelOptions]="{standalone: true}">
                 </mat-form-field><br/>
               </td>
               <td>
                 <mat-form-field class="short-form-field">
-                  <input matInput name="sistemaIrrigRio">
+                  <input matInput name="sistemaIrrigRio" [(ngModel)] = "rHidricos.sistemaIrrigacion" [ngModelOptions]="{standalone: true}">
                 </mat-form-field><br/>
               </td>
               <td>
@@ -332,22 +335,22 @@
               <td [ngStyle]="{'font-weight': '600'}">Lago</td>
               <td>
                 <mat-form-field class="short-form-field">
-                  <input matInput type="number" name="riegoLago">
+                  <input matInput type="number" name="riegoLago" [(ngModel)] = "rHidricos.riego" [ngModelOptions]="{standalone: true}">
                 </mat-form-field><br/>
               </td> 
               <td>
                 <mat-form-field class="short-form-field">
-                  <input matInput type="number" name="distKmLago">
+                  <input matInput type="number" name="distKmLago" [(ngModel)] = "rHidricos.distancia" [ngModelOptions]="{standalone: true}">
                 </mat-form-field><br/>
               </td>
               <td>
                 <mat-form-field class="short-form-field">
-                  <input matInput name="sistemaIrrigLago">
+                  <input matInput name="sistemaIrrigLago" [(ngModel)] = "rHidricos.sistemaIrrigacion" [ngModelOptions]="{standalone: true}">
                 </mat-form-field><br/>
               </td>
               <td>
                 <mat-form-field class="short-form-field">
-                  <input matInput type="number" name="areaLago">
+                  <input matInput type="number" name="areaRio" [(ngModel)] = "rHidricos.area" [ngModelOptions]="{standalone: true}">
                 </mat-form-field><br/>
               </td>
               </tr>
@@ -355,22 +358,22 @@
                 <td [ngStyle]="{'font-weight': '600'}">Pozo</td>
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput type="number" name="riegoPozo">
+                    <input matInput type="number" name="riegoPozo" [(ngModel)] = "rHidricos.riego" [ngModelOptions]="{standalone: true}">
                   </mat-form-field><br/>
                 </td> 
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput type="number" name="distKmPozo">
+                    <input matInput type="number" name="distKmPozo" [(ngModel)] = "rHidricos.distancia" [ngModelOptions]="{standalone: true}">
                   </mat-form-field><br/>
                 </td>
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput name="sistemaIrrigPozo">
+                    <input matInput name="sistemaIrrigPozo" [(ngModel)] = "rHidricos.sistemaIrrigacion" [ngModelOptions]="{standalone: true}">
                   </mat-form-field><br/>
                 </td>
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput type="number" name="areaPozo">
+                    <input matInput type="number" name="areaPozo" [(ngModel)] = "rHidricos.area" [ngModelOptions]="{standalone: true}">
                   </mat-form-field><br/>
                 </td>
               </tr>
@@ -378,22 +381,22 @@
                 <td [ngStyle]="{'font-weight': '600'}">MNTL.</td>
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput type="number" name="riegoMNTL">
+                    <input matInput type="number" name="riegoMNTL" [(ngModel)] = "rHidricos.riego" [ngModelOptions]="{standalone: true}">
                   </mat-form-field><br/>
                 </td> 
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput type="number" name="distKmMNTL">
+                    <input matInput type="number" name="distKmMNTL" [(ngModel)] = "rHidricos.distancia" [ngModelOptions]="{standalone: true}">
                   </mat-form-field><br/>
                 </td>
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput name="sistemaIrrigMNTL">
+                    <input matInput name="sistemaIrrigMNTL" [(ngModel)] = "rHidricos.sistemaIrrigacion" [ngModelOptions]="{standalone: true}">
                   </mat-form-field><br/>
                 </td>
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput type="number" name="areaMNTL">
+                    <input matInput type="number" name="areaMNTL" [(ngModel)] = "rHidricos.area" [ngModelOptions]="{standalone: true}">
                   </mat-form-field><br/>
                 </td>
               </tr>
@@ -401,22 +404,22 @@
                 <td [ngStyle]="{'font-weight': '600'}">Otra</td>
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput type="number" name="riegoOtra">
+                    <input matInput type="number" name="riegoOtra" [(ngModel)] = "rHidricos.riego" [ngModelOptions]="{standalone: true}"> 
                   </mat-form-field><br/>
                 </td> 
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput type="number" name="distKmOtra">
+                    <input matInput type="number" name="distKmOtra" [(ngModel)] = "rHidricos.distancia" [ngModelOptions]="{standalone: true}">
                   </mat-form-field><br/>
                 </td>
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput name="sistemaIrrigOtra">
+                    <input matInput name="sistemaIrrigOtra" [(ngModel)] = "rHidricos.sistemaIrrigacion" [ngModelOptions]="{standalone: true}">
                   </mat-form-field><br/>
                 </td>
                 <td>
                   <mat-form-field class="short-form-field">
-                    <input matInput type="number" name="areaOtra">
+                    <input matInput type="number" name="areaOtra" [(ngModel)] = "rHidricos.area" [ngModelOptions]="{standalone: true}">
                   </mat-form-field><br/>
                 </td>
               </tr>
@@ -426,31 +429,31 @@
         
               <h4 class="special-titles">Uso de la Tierra</h4>
               <mat-form-field class="short-form-field">
-                <input matInput name="usoTierra1">
+                <input matInput name="usoTierra1" [(ngModel)] = "usoTierra.uso" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput type="number" name="usoTierra11">
+                <input matInput type="number" name="usoTierra11" [(ngModel)] = "usoTierra.codigo" [ngModelOptions]="{standalone: true}">
               </mat-form-field><br/>
         
               <mat-form-field class="short-form-field">
-                <input matInput name="usoTierra2">
+                <input matInput name="usoTierra2" [(ngModel)] = "usoTierra.uso" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput type="number" name="usoTierra21">
+                <input matInput type="number" name="usoTierra21" [(ngModel)] = "usoTierra.codigo" [ngModelOptions]="{standalone: true}">
               </mat-form-field><br/>
         
               <mat-form-field class="short-form-field">
-                <input matInput name="usoTierra3">
+                <input matInput name="usoTierra3" [(ngModel)] = "usoTierra.uso" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput type="number" name="usoTierra31">
+                <input matInput type="number" name="usoTierra31" [(ngModel)] = "usoTierra.codigo" [ngModelOptions]="{standalone: true}">
               </mat-form-field><br/>
         
               <mat-form-field class="short-form-field">
-                <input matInput name="usoTierra4">
+                <input matInput name="usoTierra4" [(ngModel)] = "usoTierra.uso" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput type="number" name="usoTierra41">
+                <input matInput type="number" name="usoTierra41" [(ngModel)] = "usoTierra.codigo" [ngModelOptions]="{standalone: true}">
               </mat-form-field><br/>       
             </div>
             <div class="buttons">
@@ -466,33 +469,33 @@
         <ng-template matStepLabel></ng-template>
         <h5 class="special-titles">Datos complementarios</h5>
         <br/>
-
+        
         <mat-form-field class="long-form-field">
-          <input matInput [matDatepicker]="picker3" placeholder="Fecha de Adquisicion" disabled>
+          <input matInput [(ngModel)]="datosComp.adquisicion" [ngModelOptions]= "{standalone:true}" placeholder="Fecha de Adquisicion" name= "adquisicion" >
           <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
           <mat-datepicker #picker3 disabled="false"></mat-datepicker>
         </mat-form-field>
         <mat-form-field class="long-form-field">
-          <input matInput placeholder="Monto de la transaccion" name="monto">
+          <input matInput [(ngModel)]="datosComp.montoTransaccion" [ngModelOptions]= "{standalone:true}" placeholder="Monto de la transaccion" name="montoTransaccion">
         </mat-form-field>
         <mat-form-field class="long-form-field">
-          <input matInput placeholder="Clase transaccion" name="clase">
+          <input matInput [(ngModel)]="datosComp.claseTransaccion" [ngModelOptions]= "{standalone:true}" placeholder="Clase transaccion" name="claseTransaccion">
         </mat-form-field>
         <mat-form-field class="short-form-field">
-          <input matInput placeholder="Maquinaria" name="maquinaria">
+          <input matInput [(ngModel)]="datosComp.maquinaria" [ngModelOptions]= "{standalone:true}" placeholder="Maquinaria" name="maquinaria">
         </mat-form-field>
         <br/>
         
         <mat-form-field class="long-form-field">
-          <input matInput placeholder="Delineador" name="delineador">
+          <input matInput [(ngModel)]="datosComp.delineador" [ngModelOptions]="{standalone:true}" placeholder="Delineador" name="delineador">
         </mat-form-field>
         <mat-form-field class="long-form-field">
-          <input matInput placeholder="Observaciones" name="observaciones">
+          <input matInput [(ngModel)]="datosComp.observaciones" [ngModelOptions]="{standalone:true}" placeholder="Observaciones" name="observaciones">
         </mat-form-field>
         <br/>
 
         <mat-form-field class="long-form-field">
-          <input matInput [matDatepicker]="picker4" placeholder="Fecha" disabled>
+          <input matInput [(ngModel)]="datosComp.fecha" [ngModelOptions]="{standalone:true}" placeholder="Fecha" name="fecha">
           <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
           <mat-datepicker #picker4 disabled="false"></mat-datepicker>
         </mat-form-field>
@@ -502,27 +505,27 @@
         Norte
         <br/>
         <mat-form-field class="short-form-field">
-          <mat-select name="norte1">
+          <mat-select [(ngModel)]="cold1.Norte" [ngModelOptions]="{standalone:true}" name="norte1">
             <mat-option value="a">a</mat-option> 
           </mat-select>
         </mat-form-field>
         <mat-form-field class="short-form-field">
-          <mat-select name="norte2">
+          <mat-select [(ngModel)]="cold2.Norte" [ngModelOptions]="{standalone:true}" name="norte2">
           <mat-option value="a">a</mat-option> 
         </mat-select>
         </mat-form-field>
         <mat-form-field class="short-form-field">
-          <mat-select name="norte3">
+          <mat-select [(ngModel)]="cold3.Norte" [ngModelOptions]="{standalone:true}" name="norte3">
             <mat-option value="a">a</mat-option> 
           </mat-select>
         </mat-form-field>
         <mat-form-field class="short-form-field">
-          <mat-select name="norte4">
+          <mat-select [(ngModel)]="cold4.Norte" [ngModelOptions]="{standalone:true}" name="norte4">
             <mat-option value="a">a</mat-option> 
           </mat-select>
         </mat-form-field>
         <mat-form-field class="short-form-field">
-          <mat-select name="norte5">
+          <mat-select [(ngModel)]="cold5.Norte" [ngModelOptions]="{standalone:true}" name="norte5">
             <mat-option value="a">a</mat-option> 
           </mat-select>
         </mat-form-field>
@@ -531,27 +534,27 @@
         Sur
         <br/>
         <mat-form-field class="short-form-field">
-          <mat-select name="sur1">
+          <mat-select [(ngModel)]="cold1.Sur" [ngModelOptions]="{standalone:true}" name="sur1">
           <mat-option value="a">a</mat-option> 
         </mat-select>
         </mat-form-field>
         <mat-form-field class="short-form-field">
-          <mat-select name="sur2">
+          <mat-select [(ngModel)]="cold2.Sur" [ngModelOptions]="{standalone:true}" name="sur2">
           <mat-option value="a">a</mat-option> 
         </mat-select>
         </mat-form-field>
         <mat-form-field class="short-form-field">
-          <mat-select name="sur3">
+          <mat-select [(ngModel)]="cold3.Sur" [ngModelOptions]="{standalone:true}" name="sur3">
             <mat-option value="a">a</mat-option> 
           </mat-select>
         </mat-form-field>
         <mat-form-field class="short-form-field">
-          <mat-select name="sur4">
+          <mat-select [(ngModel)]="cold4.Sur" [ngModelOptions]="{standalone:true}" name="sur4">
             <mat-option value="a">a</mat-option> 
           </mat-select>
         </mat-form-field>
         <mat-form-field class="short-form-field">
-          <mat-select name="sur5">
+          <mat-select [(ngModel)]="cold5.Sur" [ngModelOptions]="{standalone:true}" name="sur5">
             <mat-option value="a">a</mat-option> 
           </mat-select>
         </mat-form-field>
@@ -560,27 +563,27 @@
         Este
         <br/>
         <mat-form-field class="short-form-field">
-          <mat-select name="este1">
+          <mat-select [(ngModel)]="cold1.Este" [ngModelOptions]="{standalone:true}" name="este1">
           <mat-option value="a">a</mat-option> 
         </mat-select>
         </mat-form-field>
         <mat-form-field class="short-form-field">
-          <mat-select name="este2">
+          <mat-select [(ngModel)]="cold2.Este" [ngModelOptions]="{standalone:true}" name="este2">
           <mat-option value="a">a</mat-option> 
         </mat-select>
         </mat-form-field>
         <mat-form-field class="short-form-field">
-          <mat-select name="este3">
+          <mat-select [(ngModel)]="cold3.Este" [ngModelOptions]="{standalone:true}" name="este3">
             <mat-option value="a">a</mat-option> 
           </mat-select>
         </mat-form-field>
         <mat-form-field class="short-form-field">
-          <mat-select name="este4">
+          <mat-select [(ngModel)]="cold4.Este" [ngModelOptions]="{standalone:true}" name="este4">
             <mat-option value="a">a</mat-option> 
           </mat-select>
         </mat-form-field>
         <mat-form-field class="short-form-field">
-          <mat-select name="este5">
+          <mat-select [(ngModel)]="cold5.Este" [ngModelOptions]="{standalone:true}" name="este5">
             <mat-option value="a">a</mat-option> 
           </mat-select>
         </mat-form-field>
@@ -589,27 +592,27 @@
         Oeste
         <br/>
         <mat-form-field class="short-form-field">
-          <mat-select name="oeste1">
+          <mat-select [(ngModel)]="cold1.Oeste" [ngModelOptions]="{standalone:true}" name="oeste1">
           <mat-option value="a">a</mat-option> 
         </mat-select>
         </mat-form-field>
         <mat-form-field class="short-form-field">
-          <mat-select name="oeste2">
+          <mat-select [(ngModel)]="cold2.Oeste" [ngModelOptions]="{standalone:true}" name="oeste2">
           <mat-option value="a">a</mat-option> 
         </mat-select>
         </mat-form-field>
         <mat-form-field class="short-form-field">
-          <mat-select name="oeste3">
+          <mat-select [(ngModel)]="cold3.Oeste" [ngModelOptions]="{standalone:true}" name="oeste3">
             <mat-option value="a">a</mat-option> 
           </mat-select>
         </mat-form-field>
         <mat-form-field class="short-form-field">
-          <mat-select name="oeste4">
+          <mat-select [(ngModel)]="cold4.Oeste" [ngModelOptions]="{standalone:true}" name="oeste4">
             <mat-option value="a">a</mat-option> 
           </mat-select>
         </mat-form-field>
         <mat-form-field class="short-form-field">
-          <mat-select name="oeste5">
+          <mat-select [(ngModel)]="cold5.Oeste" [ngModelOptions]="{standalone:true}" name="oeste5">
             <mat-option value="a">a</mat-option> 
           </mat-select>
         </mat-form-field>
@@ -617,7 +620,7 @@
 
         <h4>Servicios publicos</h4>
         <mat-form-field class="long-form-field">
-          <mat-select placeholder="Agua potable" name="agua">
+          <mat-select [(ngModel)]="serviciosPub.Agua" [ngModelOptions]="{standalone: true}" placeholder="Agua potable" name="agua">
             <mat-option value="1040">Sin Agua</mat-option> 
             <mat-option value="1041">Acueducto</mat-option> 
             <mat-option value="1042">Pozo</mat-option> 
@@ -626,14 +629,14 @@
         </mat-form-field>      
 
         <mat-form-field class="long-form-field">
-          <mat-select placeholder="Telefono" name="telefono">
+          <mat-select [(ngModel)]="serviciosPub.Telefono" [ngModelOptions]="{standalone: true}" placeholder="Telefono" name="telefono">
             <mat-option value="1050">Sin Telefono</mat-option> 
             <mat-option value="1051">Telefono</mat-option> 
           </mat-select>
         </mat-form-field> 
 
         <mat-form-field class="long-form-field">
-          <mat-select placeholder="Drenaje" name="drenaje">
+          <mat-select [(ngModel)]="serviciosPub.Drenaje" [ngModelOptions]="{standalone: true}" placeholder="Drenaje" name="drenaje">
             <mat-option value="1060">Sin Alcantarillado</mat-option> 
             <mat-option value="1061">Alcantarillado Sanitario</mat-option> 
             <mat-option value="1062">Alcantarillado Pluvial</mat-option> 
@@ -644,7 +647,7 @@
         </mat-form-field> 
 
         <mat-form-field class="long-form-field">
-          <mat-select placeholder="Calle" name="calle">
+          <mat-select [(ngModel)]="serviciosPub.Calle" [ngModelOptions]="{standalone: true}" placeholder="Calle" name="calle">
             <mat-option value="1070">Sin Calle</mat-option> 
             <mat-option value="1071">Concreto</mat-option> 
             <mat-option value="1072">Asfalto</mat-option> 
@@ -656,7 +659,7 @@
         </mat-form-field> 
 
         <mat-form-field class="long-form-field">
-          <mat-select placeholder="Electricidad" name="electricidad">
+          <mat-select [(ngModel)]="serviciosPub.Electricidad" [ngModelOptions]="{standalone: true}" placeholder="Electricidad" name="electricidad">
             <mat-option value="1080">Sin Electricidad</mat-option> 
             <mat-option value="1081">ENEE</mat-option> 
             <mat-option value="1082">Municipal</mat-option> 
@@ -667,7 +670,7 @@
         </mat-form-field>
         
         <mat-form-field class="long-form-field">
-          <mat-select placeholder="Acera" name="acera">
+          <mat-select [(ngModel)]="serviciosPub.Acera" [ngModelOptions]="{standalone: true}" placeholder="Acera" name="acera">
             <mat-option value="1090">Sin Acera</mat-option> 
             <mat-option value="1091">Concreto</mat-option> 
             <mat-option value="1092">Adoquin</mat-option> 
@@ -678,7 +681,7 @@
         </mat-form-field>
 
         <mat-form-field class="long-form-field">
-          <mat-select placeholder="Alumbrado publico" name="alumbrado">
+          <mat-select [(ngModel)]="serviciosPub.Alumbrado" [ngModelOptions]="{standalone: true}" placeholder="Alumbrado publico" name="alumbrado">
             <mat-option value="1110">Alumbrado Publico</mat-option> 
             <mat-option value="1111">Sin Alumbrado Publico</mat-option> 
           </mat-select>
@@ -694,59 +697,58 @@
         <h4>Edificaciones Especiales</h4>
         <p>Primera planta</p>
         <mat-form-field class="long-form-field">
-          <input matInput placeholder="Area" name="areap1">
+          <input matInput [(ngModel)]="ediEsp1.Area" [ngModelOptions]="{standalone:true}" placeholder="Area" name="areap1">
         </mat-form-field>
         <mat-form-field class="long-form-field">
-          <input matInput placeholder="Costo unitario" name="costop1">
+          <input matInput [(ngModel)]="ediEsp1.Costo" [ngModelOptions]="{standalone:true}" placeholder="Costo unitario" name="costop1">
         </mat-form-field>
 
         <p>Segunda planta</p>
         <mat-form-field class="long-form-field">
-          <input matInput placeholder="Area" name="areap2">
+          <input matInput [(ngModel)]= "ediEsp2.Area" [ngModelOptions]="{standalone:true}" placeholder="Area" name="areap2">
         </mat-form-field>
         <mat-form-field class="long-form-field">
-          <input matInput placeholder="Costo unitario" name="costop2">
+          <input matInput [(ngModel)]="ediEsp2.Costo" [ngModelOptions]="{standalone:true}" placeholder="Costo unitario" name="costop2">
         </mat-form-field>
 
         <p>Tercera planta</p>
         <mat-form-field class="long-form-field">
-          <input matInput placeholder="Area" name="areap3">
+          <input matInput [(ngModel)]= "ediEsp3.Area" [ngModelOptions]="{standalone:true}" placeholder="Area" name="areap3">
         </mat-form-field>
         <mat-form-field class="long-form-field">
-          <input matInput placeholder="Costo unitario" name="costop3">
+          <input matInput [(ngModel)]="ediEsp3.Costo" [ngModelOptions]="{standalone:true}" placeholder="Costo unitario" name="costop3">
         </mat-form-field>
 
         <p>Cuarta planta</p>
         <mat-form-field class="long-form-field">
-          <input matInput placeholder="Area" name="areap4">
+          <input matInput [(ngModel)]= "ediEsp4.Area" [ngModelOptions]="{standalone:true}" placeholder="Area" name="areap4">
         </mat-form-field>
         <mat-form-field class="long-form-field">
-          <input matInput placeholder="Costo unitario" name="costop4">
+          <input matInput [(ngModel)]= "ediEsp4.Costo" [ngModelOptions]="{standalone:true}" placeholder="Costo unitario" name="costop4">
         </mat-form-field>
 
         <p>Quinta planta</p>
         <mat-form-field class="long-form-field">
-          <input matInput placeholder="Area" name="areap5">
+          <input matInput [(ngModel)]= "ediEsp5.Area" [ngModelOptions]="{standalone:true}" placeholder="Area" name="areap5">
         </mat-form-field>
         <mat-form-field class="long-form-field">
-          <input matInput placeholder="Costo unitario" name="costop5">
+          <input matInput [(ngModel)]= "ediEsp5.Costo" [ngModelOptions]="{standalone:true}" placeholder="Costo unitario" name="costop5">
         </mat-form-field>
       
-
         <p>Planta Adicional</p>
         <mat-form-field class="long-form-field">
-          <input matInput placeholder="Area" name="areapa">
+          <input matInput [(ngModel)]= "ediEsp6.Area" [ngModelOptions]="{standalone:true}" placeholder="Area" name="areaplantaadi">
         </mat-form-field>
         <mat-form-field class="long-form-field">
-          <input matInput placeholder="Costo unitario" name="costopa">
+          <input matInput [(ngModel)]= "ediEsp6.Costo" [ngModelOptions]="{standalone:true}" placeholder="Costo unitario" name="costoplantadi">
         </mat-form-field>
 
         <p>Sotano</p>
         <mat-form-field class="long-form-field">
-          <input matInput placeholder="Area" name="areas">
+          <input matInput [(ngModel)]= "ediEsp7.Area" [ngModelOptions]="{standalone:true}" placeholder="Area" name="areas">
         </mat-form-field>
         <mat-form-field class="long-form-field">
-          <input matInput placeholder="Costo unitario" name="costos">
+          <input matInput [(ngModel)]= "ediEsp7.Costo" [ngModelOptions]="{standalone:true}" placeholder="Costo unitario" name="costosotano">
         </mat-form-field>
         <br/>
         <mat-form-field class="long-form-field">
@@ -758,31 +760,34 @@
 
         <h4>Ultimos datos</h4>
         <mat-form-field class="long-form-field">
-          <input matInput placeholder="Ocupante" name="ocupante">
+          <input matInput [(ngModel)]="datosComp.ocupante" [ngModelOptions]="{standalone:true}" placeholder="Ocupante" name="ocupante">
         </mat-form-field>
 
         <mat-form-field class="long-form-field">
-          <input matInput placeholder="Renta mensual" name="renta">
+          <input matInput [(ngModel)]="datosComp.rentaMensual" [ngModelOptions]="{standalone:true}" placeholder="Renta mensual" name="rentaMensual">
         </mat-form-field>
         <br/>
 
         <mat-form-field class="long-form-field">
-          <input matInput placeholder="Observacion" name="observacion">
+          <input matInput [(ngModel)]="datosComp.observacion" [ngModelOptions]="{standalone:true}" placeholder="Observacion" name="observacion">
         </mat-form-field>
         <br/>
 
         <mat-form-field class="short-form-field">
-          <input matInput placeholder="Uso" name="uso">
+          <input matInput [(ngModel)]="datosComp.uso" [ngModelOptions]="{standalone:true}" placeholder="Uso" name="uso">
         </mat-form-field>
         <mat-form-field class="short-form-field">
-          <input matInput placeholder="Clave" name="clave">
+          <input matInput [(ngModel)]="datosComp.clave" [ngModelOptions]="{standalone:true}" placeholder="Clave" name="clave">
         </mat-form-field>
         <mat-form-field class="short-form-field">
-          <input matInput placeholder="% bueno" name="bueno">
+          <input matInput [(ngModel)]="datosComp.bueno" [ngModelOptions]="{standalone:true}" placeholder="% bueno" name="bueno">
         </mat-form-field>
+        
+        <!--Este campo total detalles no está en la base de datos-->
         <mat-form-field class="long-form-field">
           <input matInput placeholder="Total detalles" name="total-detalles">
         </mat-form-field>
+
         <br/>
         <div class="buttons">
           <button class="negative-button" mat-raised-button matStepperPrevious>Anterior &nbsp;<mat-icon>arrow_back</mat-icon></button>
