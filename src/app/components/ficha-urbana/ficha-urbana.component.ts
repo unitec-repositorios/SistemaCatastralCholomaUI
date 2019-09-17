@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
+import { Predio } from '../../models/predio';
+import { stringify } from '@angular/core/src/render3/util';
+import { Propiedad } from '../../models/propiedad';
 import { Negocios } from '../../models/negocios';
 import { DatosComplementarios } from '../../models/datos-complementarios';
+import { DatosLegales } from '../../models/datos-legales';
 import { ServiciosPublicos } from '../../models/servicios-publicos';  
 import { EdificacionesEspeciales } from '../../models/edificaciones-especiales';
 import { Colindantes } from '../../models/colindantes';    
@@ -10,7 +14,6 @@ import { CaracteristicasVecindad } from '../../models/caracteristicas-vecindad';
 import { CaracteristicasPropiedad } from '../../models/caracteristicas-propiedad';
 import { RecursosHidricos } from '../../models/recursos-hidricos';
 import { UsoTierra } from '../../models/uso-tierra';
-import { DatosLegales } from '../../models/datos-legales';
 import { DetallesAdicionales } from '../../models/detalles-adicionales';
 import { isEmpty } from 'rxjs/operators';
 
@@ -64,6 +67,9 @@ export class FichaUrbanaComponent implements OnInit {
   rHidricos: RecursosHidricos = new RecursosHidricos();
   usoTierra: UsoTierra = new UsoTierra();
 
+  //Objeto propiedad
+  propiedad: Propiedad = new Propiedad();
+
   negocios: Negocios = new Negocios(); 
   
   //Objeto de datos complementarios
@@ -90,10 +96,10 @@ export class FichaUrbanaComponent implements OnInit {
 
    //Objeto del stepper 4 -Datos legales
    datosLegales: DatosLegales=new DatosLegales();
-  
-
+   
   //Objeto que pertenece al formulario de detalles adicionales
   detallesAdicionales: DetallesAdicionales = new DetallesAdicionales();
+  infoPredio: Predio = new Predio();
   detallesAdicionalesDataTable: any = []; //Datos que estaran en la tabla de detalles adicionales
 
   //estos dos atributos de aqui abajo pertenecen a la tabla que aparece en el step "detalles adicionales"
@@ -114,7 +120,7 @@ export class FichaUrbanaComponent implements OnInit {
     this.ediEsp7.Nivel= 'Sotano';
 
   }
-
+  
   ngOnInit() {
     this.propiedadFormGroup = this._formBuilder.group({
       propiedadCtrl: ['', Validators.required]

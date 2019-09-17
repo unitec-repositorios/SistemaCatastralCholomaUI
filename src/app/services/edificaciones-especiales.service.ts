@@ -7,7 +7,7 @@ import {EdificacionesEspeciales} from '../models/edificaciones-especiales';
 })
 export class EdificacionesEspecialesService {
 
-  API_URL = '//catastrocholomaapi.azurewebsites.net/api';
+  API_URL = '//catastrocholoma.azurewebsites.net/api';
 
   constructor(private http: HttpClient) { }
 

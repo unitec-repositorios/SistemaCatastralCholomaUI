@@ -7,7 +7,7 @@ import {Predio} from '../models/predio';
 })
 export class PredioService {
 
-  API_URL = '//catastrocholomaapi.azurewebsites.net/api';
+  API_URL = '//catastrocholoma.azurewebsites.net/api';
 
   constructor(private http: HttpClient) { }
 
