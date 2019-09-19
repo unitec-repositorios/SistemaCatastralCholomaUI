@@ -20,14 +20,14 @@ export class SexoService {
   }
 
   getSexo(tipo: string) {
-    return this.http.get(`${this.API_URL}/sexo/${tipo}`)
+    return this.http.get(`${this.API_URL}/sexo?old=${tipo}`)
   }
 
   modifySexo(sexo: Sexo) {
-    return this.http.put(`${this.API_URL}/sexo/${sexo.tipo}`, sexo);
+    return this.http.put(`${this.API_URL}/sexo?old=${sexo.tipo}`, sexo);
   }
 
   deleteSexo(tipo: string) {
-    return this.http.delete(`${this.API_URL}/sexo/${tipo}`);
+    return this.http.delete(`${this.API_URL}/sexo?old=${tipo}`);
   }
 }

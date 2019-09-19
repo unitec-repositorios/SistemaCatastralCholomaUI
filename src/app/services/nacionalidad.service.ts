@@ -28,7 +28,7 @@ export class NacionalidadService {
   }
 
   deleteNacionalidad(pais: string) {
-    return this.http.delete(`${this.API_URL}/nacionalidad/${[pais]}`);
+    return this.http.delete(`${this.API_URL}/nacionalidad?old=${pais}`);
   }
 
 }

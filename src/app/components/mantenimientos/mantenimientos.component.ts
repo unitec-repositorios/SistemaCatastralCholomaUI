@@ -53,7 +53,7 @@ export class MantenimientosComponent implements OnInit {
         console.log(res);
         this.nacionalidades = res;
         // Assign the data to the data source for the table to render
-        this.dataSourceSexo = new MatTableDataSource(this.nacionalidades);
+        this.dataSourceNacionalidad = new MatTableDataSource(this.nacionalidades);
       },
       err => {
         console.log(err);
@@ -69,7 +69,7 @@ export class MantenimientosComponent implements OnInit {
         res=>{
           console.log(this.sexo);
           console.log(res);
-          alert('Sexo agregado con exito');
+          alert('Tipo de Sexo agregado con exito');
           this.ngOnInit(); 
           this.sexo = new Sexo();
         },
@@ -83,9 +83,37 @@ export class MantenimientosComponent implements OnInit {
       //poner alert
     }
   }
+  modifySexo(tipo: Sexo): void {
+    this.sexoService.modifySexo(tipo)
+    .subscribe(
+      res => {
+        console.log(tipo);
+        console.log(res);
+        this.ngOnInit();
+        alert('Tipo de sexo editado con exito');
+      },
+      err => {
+        console.log(err);
+        alert('Error editando tipo de sexo');
+      }
+    );
+  }
 
-  deleteSexo(): void {
- 
+  deleteSexo(tipo: string): void {
+    if(confirm('Estas seguro de que quieres eliminar este elemento?')) {
+      this.sexoService.deleteSexo(tipo)
+        .subscribe(
+          res => {
+            console.log(res);
+            this.ngOnInit();
+            alert('Tipo de sexo eliminado con exito');
+          },
+          err => {
+            console.log(err);
+            alert('Error al eliminar sexo');
+          }
+        );
+    }
     }
 
 
@@ -111,6 +139,37 @@ export class MantenimientosComponent implements OnInit {
         //poner alert
       }
     }
+    modifyNacionalidad(pais: Nacionalidad): void {
+      this.nacionalidadService.modifyNacionalidad(pais)
+      .subscribe(
+        res => {
+          console.log(res);
+          this.ngOnInit();
+          alert('Tipo de sexo editado con exito');
+        },
+        err => {
+          console.log(err);
+          alert('Error editando tipo de sexo');
+        }
+      );
+    }
+  
+    deleteNacionalidad(pais: string): void {
+      if(confirm('Estas seguro de que quieres eliminar este elemento?')) {
+        this.nacionalidadService.deleteNacionalidad(pais)
+          .subscribe(
+            res => {
+              console.log(res);
+              this.ngOnInit();
+              alert('Pais de nacionalidad eliminado con exito');
+            },
+            err => {
+              console.log(err);
+              alert('Error al eliminar sexo');
+            }
+          );
+      }
+      }
 
 
     }

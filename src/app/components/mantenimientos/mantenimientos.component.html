@@ -9,7 +9,7 @@
     <div class="mat-elevation-z8">
 
       <mat-form-field class="long-form-field">
-        <input matInput name="sexo" placeholder="Sexo" [(ngModel)]="sexo.tipo">
+        <input matInput name="sexo" placeholder="Tipo" [(ngModel)]="sexo.tipo">
       </mat-form-field>
 
       <button class="marg" mat-raised-button name="addSexo" [ngStyle]="{'color': 'green'}" (click)="addSexo()" >
@@ -27,7 +27,7 @@
         <ng-container matColumnDef="actions">
           <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
           <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
-            <button mat-icon-button name="editSexo" ><mat-icon>launch</mat-icon></button>
+            <button mat-icon-button name="modifySexo" (click)="modifySexo(row.tipo)"><mat-icon>launch</mat-icon></button>
             <button mat-icon-button name="deleteSexo" (click)="deleteSexo(row.tipo)" color="warn"><mat-icon>delete_outline</mat-icon></button>
           </td>
         </ng-container>
