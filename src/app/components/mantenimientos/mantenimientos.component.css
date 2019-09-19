@@ -16,6 +16,10 @@
     width: 25em;
    
 }
+.paddingBetweenCols {
+    padding:0 70px 0 70px;
+}
+
 .form-field {
     text-align: left;
     margin: 0px 20px 30px 20px;
@@ -44,6 +48,7 @@
 }
 .special-titles2 {
     color: grey;
+ 
     text-transform: uppercase;
     margin: 25px 25px 10px 25px;
 }
