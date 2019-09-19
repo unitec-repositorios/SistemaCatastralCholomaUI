@@ -73,6 +73,41 @@
         </table>
       </div>
     </mat-card>
+    <!--Tipo de Empresa-->
+    <mat-card class="card-style">
+      <h3 class="special-titles2">Tipo de Empresa</h3>
+      <div class="mat-elevation-z8">
+  
+        <mat-form-field class="long-form-field">
+          <input matInput name="empresa" placeholder="Empresa" [(ngModel)]="empresa.empresa">
+        </mat-form-field>
+  
+        <button class="marg" mat-raised-button name="addTipoEmpresa" [ngStyle]="{'color': 'green'}" (click)="addTipoEmpresa()" >
+          <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar Tipo
+        </button><br/><br/>
+  
+        <table mat-table [dataSource]="dataSourceEmpresa">
+        
+          <!-- Nacionalidad Column -->
+          <ng-container matColumnDef="empresa">
+            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Empresa </th>
+            <td class="paddingBetweenCols"mat-cell *matCellDef="let row">{{row.empresa}}</td>
+          </ng-container>
+  
+          <ng-container matColumnDef="actions">
+            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
+              <button mat-icon-button name="editTipoEmpresa" ><mat-icon>launch</mat-icon></button>
+              <button mat-icon-button name="deleteTipoEmpresa" (click)="deleteTipoEmpresa(row.empresa)" color="warn"><mat-icon>delete_outline</mat-icon></button>
+            </td>
+          </ng-container>
+    
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsEmpresa"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsEmpresa;">
+          </tr>
+        </table>
+      </div>
+    </mat-card>
     <!--Step 2 Negocios-->
   <mat-card class="card-style">
     <h3 class="special-titles2">Negocios</h3>
