@@ -14,19 +14,19 @@ import{SexoService}from '../../services/sexo.service'
   styleUrls: ['./mantenimientos.component.css']
 })
 export class MantenimientosComponent implements OnInit {
-//Step 2-Crear un arreglo de las columnas de la tabla
-displayedColumnsSexo: string[] = ['sexo', 'actions'];
-//Step 3-Crear datasource para la tabla del tipo del modelo
-dataSourceSexo:MatTableDataSource<Sexo>
-//Step 4-Crear arreglo de tipo any para luego llenarlo y darselo al datasource
-sexos: any=[];
-//Step5-Crear objeto del dtipo del modelo, este se llenara para meterlo a la DB
-sexo: Sexo=new Sexo();
+  //Step 2-Crear un arreglo de las columnas de la tabla
+  displayedColumnsSexo: string[] = ['sexo', 'actions'];
+  //Step 3-Crear datasource para la tabla del tipo del modelo
+  dataSourceSexo:MatTableDataSource<Sexo>
+  //Step 4-Crear arreglo de tipo any para luego llenarlo y darselo al datasource
+  sexos: any=[];
+  //Step5-Crear objeto del dtipo del modelo, este se llenara para meterlo a la DB
+  sexo: Sexo=new Sexo();
 
-@ViewChild(MatPaginator) paginator: MatPaginator;
-@ViewChild(MatSort) sort: MatSort;
+  //@ViewChild(MatPaginator) paginator: MatPaginator;
+  //@ViewChild(MatSort) sort: MatSort;
 
-//Step 6- ingresar el service ne el constructor
+  //Step 6- ingresar el service ne el constructor
   constructor(private sexoService:SexoService) { }
 
   ngOnInit() {   
@@ -34,42 +34,41 @@ sexo: Sexo=new Sexo();
     el arreglo */
     this.sexoService.getSexo()
     .subscribe(
-        res => {
-            console.log(res);
-            this.sexos = res;
-            // Assign the data to the data source for the table to render
-            this.dataSourceSexo = new MatTableDataSource(this.sexos);
-            this.dataSourceSexo.paginator = this.paginator;
-            this.dataSourceSexo.sort = this.sort;
-          },
-          err => {
-            console.log(err);
-          }
-    );
-  }
-//Step 8 crear las funciones add y delete
-  addSexo(): void {
-      //si no esta vacio el objeto
-      if(this.sexo.tipo!=""){
-    this.sexoService.saveSexo(this.sexo)
-    .subscribe(
-      res=>{
-        console.log(this.sexo);
+      res => {
         console.log(res);
-        alert('Sexo agregado con exito');
-        this.ngOnInit(); 
-        this.sexo = new Sexo();
+        this.sexos = res;
+        // Assign the data to the data source for the table to render
+        this.dataSourceSexo = new MatTableDataSource(this.sexos);
+        //this.dataSourceSexo.paginator = this.paginator;
+        //this.dataSourceSexo.sort = this.sort;
       },
       err => {
         console.log(err);
-        alert('Error al agregar sexo');
       }
     );
-
-      }
-      else{
-          //poner alert
-      }
+  }
+  //Step 8 crear las funciones add y delete
+  addSexo(): void {
+    //si no esta vacio el objeto
+    if(this.sexo.tipo!=""){
+      this.sexoService.saveSexo(this.sexo)
+      .subscribe(
+        res=>{
+          console.log(this.sexo);
+          console.log(res);
+          alert('Sexo agregado con exito');
+          this.ngOnInit(); 
+          this.sexo = new Sexo();
+        },
+        err => {
+          console.log(err);
+          alert('Error al agregar sexo');
+        }
+      );
+    }
+    else{
+      //poner alert
+    }
   }
 
   deleteSexo(): void {
