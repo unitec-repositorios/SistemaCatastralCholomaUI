@@ -32,8 +32,7 @@ sexo: Sexo=new Sexo();
   ngOnInit() {   
     /* Step 7-Tomar el objeto de service del constructor y llamar al get para llenar
     el arreglo */
-    this.sexoService.getSexo()
-    .subscribe(
+    this.sexoService.getSexo().subscribe(
         res => {
             console.log(res);
             this.sexos = res;
@@ -49,15 +48,16 @@ sexo: Sexo=new Sexo();
   }
 //Step 8 crear las funciones add y delete
   addSexo(): void {
-      //si no esta vacio el objeto
-      if(this.sexo.tipo!=""){
+      //si esta vacio el objeto
+      if(this.sexo.tipo!=" "){
+       
+      
     this.sexoService.saveSexo(this.sexo)
-    .subscribe(
-      res=>{
+    .subscribe(res=>{
         console.log(this.sexo);
         console.log(res);
         alert('Sexo agregado con exito');
-        this.ngOnInit(); 
+        this.ngOnInit(); //reiniciamos la tabla
         this.sexo = new Sexo();
       },
       err => {
@@ -68,12 +68,13 @@ sexo: Sexo=new Sexo();
 
       }
       else{
-          //poner alert
+          //hacer algo
       }
   }
 
-  deleteSexo(): void {
- 
+  deleteSexo(nombreSexo: string): void {
+    this.sexos = this.sexos.filter(obj => obj.nombre !== nombreSexo);
+    this.dataSourceSexo = new MatTableDataSource(this.sexos);
   }
 
 
