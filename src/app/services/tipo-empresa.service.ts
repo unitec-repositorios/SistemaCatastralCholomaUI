@@ -23,10 +23,10 @@ export class TipoEmpresaService {
   }
 
   modifyTipoEmpresa(tipoEmpresa: TipoEmpresa) {
-    return this.http.put(`${this.API_URL}/tipoEmpresa?old={tipoEmpresa.empresa}`, tipoEmpresa);
+    return this.http.put(`${this.API_URL}/tipoEmpresa?old=${tipoEmpresa.empresa}`, tipoEmpresa);
   }
 
   deleteTipoEmpresa(empresa: string) {
-    return this.http.delete(`${this.API_URL}/tipoEmpresa?old={empresa}`);
+    return this.http.delete(`${this.API_URL}/tipoEmpresa?old=${empresa}`);
   }
 }

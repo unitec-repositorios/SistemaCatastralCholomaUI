@@ -186,7 +186,7 @@ export class MantenimientosComponent implements OnInit {
             },
             err => {
               console.log(err);
-              alert('Error al eliminar sexo');
+              alert('Error al eliminar pais');
             }
           );
       }
