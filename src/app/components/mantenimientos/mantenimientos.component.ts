@@ -4,10 +4,11 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 
 //Step 1) Importar los modelos y servicios
-import {Sexo} from '../../models/sexo'
-import{SexoService}from '../../services/sexo.service'
-import {Nacionalidad}from '../../models/nacionalidad'
-import {NacionalidadService}from '../../services/nacionalidad.service'
+import { Sexo } from '../../models/sexo'
+import{ SexoService } from '../../services/sexo.service'
+import { Nacionalidad } from '../../models/nacionalidad'
+import { NacionalidadService } from '../../services/nacionalidad.service'
+import { Registro } from '../../models/registro'
 
 @Component({
   selector: 'app-mantenimientos',
@@ -18,6 +19,7 @@ export class MantenimientosComponent implements OnInit {
   //Step 2-Crear un arreglo de las columnas de la tabla
   displayedColumnsSexo: string[] = ['tipo', 'actions'];
   displayedColumnsNacionalidad: string[]=['pais','actions'];
+  displayedColumnsRegistro: string[]=['registro','actions'];
   //Step 3-Crear datasource para la tabla del tipo del modelo
   dataSourceSexo:MatTableDataSource<Sexo>
   dataSourceNacionalidad:MatTableDataSource<Nacionalidad>
@@ -27,6 +29,12 @@ export class MantenimientosComponent implements OnInit {
   //Step5-Crear objeto del dtipo del modelo, este se llenara para meterlo a la DB
   sexo: Sexo=new Sexo();
   nacionalidad: Nacionalidad=new Nacionalidad();
+
+  // Variable que decide que se muestra en el mantenimiento de negocios
+  negocioCampo: string /* = "0" */;
+
+  reg: Registro = new Registro();
+  
 
   //Step 6- ingresar el service ne el constructor
   constructor(private sexoService:SexoService,private nacionalidadService:NacionalidadService) { }
@@ -83,8 +91,10 @@ export class MantenimientosComponent implements OnInit {
       //poner alert
     }
   }
-  modifySexo(tipo: Sexo): void {
-    this.sexoService.modifySexo(tipo)
+  modifySexo(tipo: string): void {
+    let sexoTemp: Sexo = new Sexo;
+    sexoTemp.tipo = tipo;
+    this.sexoService.modifySexo(sexoTemp)
     .subscribe(
       res => {
         console.log(tipo);
