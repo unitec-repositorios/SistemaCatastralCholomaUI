@@ -20,7 +20,7 @@ export class SexoService {
   }
 
   getSexo(tipo: string) {
-    return this.http.get(`${this.API_URL}/sexo?old=${tipo}`)
+    return this.http.get(`${this.API_URL}/sexo?tipo=${tipo}`)
   }
 
   modifySexo(sexo: Sexo) {
