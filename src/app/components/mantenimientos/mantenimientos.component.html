@@ -2,7 +2,7 @@
 <app-main-navbar></app-main-navbar>
 
 <div class="form">
-  <h2 class="special-titles">Mantenimientos</h2>
+  <h2 class="special-titles">Configuracion</h2>
     <!--Sexos-->
   <mat-card class="card-style">
     <h3 class="special-titles2">Sexos</h3>
@@ -19,16 +19,16 @@
       <table mat-table [dataSource]="dataSourceSexo">
       
         <!-- Sexo Column -->
-        <ng-container matColumnDef="sexo">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
-          <td mat-cell *matCellDef="let row">{{row.tipo}}</td>
+        <ng-container matColumnDef="tipo">
+          <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
+          <td class="paddingBetweenCols"mat-cell *matCellDef="let row">{{row.tipo}}</td>
         </ng-container>
-  
+
         <ng-container matColumnDef="actions">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
-          <td mat-cell *matCellDef="let row">
+          <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+          <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
             <button mat-icon-button name="editSexo" ><mat-icon>launch</mat-icon></button>
-            <button mat-icon-button name="deleteSexo" (click)="deleteSexo(row.nombre)" color="warn"><mat-icon>delete_outline</mat-icon></button>
+            <button mat-icon-button name="deleteSexo" (click)="deleteSexo(row.tipo)" color="warn"><mat-icon>delete_outline</mat-icon></button>
           </td>
         </ng-container>
   
@@ -38,6 +38,41 @@
       </table>
     </div>
   </mat-card>
+    <!--Nacionalidad-->
+    <mat-card class="card-style">
+      <h3 class="special-titles2">Nacionalidad</h3>
+      <div class="mat-elevation-z8">
+  
+        <mat-form-field class="long-form-field">
+          <input matInput name="nacionalidad" placeholder="Pais" [(ngModel)]="nacionalidad.pais">
+        </mat-form-field>
+  
+        <button class="marg" mat-raised-button name="addNacionalidad" [ngStyle]="{'color': 'green'}" (click)="addNacionalidad()" >
+          <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar Pais
+        </button><br/><br/>
+  
+        <table mat-table [dataSource]="dataSourceNacionalidad">
+        
+          <!-- Nacionalidad Column -->
+          <ng-container matColumnDef="pais">
+            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Pais </th>
+            <td class="paddingBetweenCols"mat-cell *matCellDef="let row">{{row.pais}}</td>
+          </ng-container>
+  
+          <ng-container matColumnDef="actions">
+            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
+              <button mat-icon-button name="editNacionalidad" ><mat-icon>launch</mat-icon></button>
+              <button mat-icon-button name="deleteNacionalidad" (click)="deleteNacionalidad(row.pais)" color="warn"><mat-icon>delete_outline</mat-icon></button>
+            </td>
+          </ng-container>
+    
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsNacionalidad"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsNacionalidad;">
+          </tr>
+        </table>
+      </div>
+    </mat-card>
     <!--Step 2 Negocios-->
   <mat-card class="card-style">
     <h3 class="special-titles2">Negocios</h3>

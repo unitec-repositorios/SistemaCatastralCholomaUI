@@ -16,6 +16,10 @@
     width: 25em;
    
 }
+.paddingBetweenCols {
+    padding:0 105px 0 105px;
+}
+
 .form-field {
     text-align: left;
     margin: 0px 20px 30px 20px;

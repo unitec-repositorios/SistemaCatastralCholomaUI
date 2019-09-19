@@ -11,7 +11,7 @@ export class SexoService {
 
   constructor(private http: HttpClient) { }
 
-  getSexo() {
+  getSexos() {
     return this.http.get(`${this.API_URL}/sexo`);
   }
 
@@ -19,7 +19,7 @@ export class SexoService {
     return this.http.post(`${this.API_URL}/sexo`, sexo);
   }
 
-  getSexos(tipo: string) {
+  getSexo(tipo: string) {
     return this.http.get(`${this.API_URL}/sexo/${tipo}`)
   }
 
