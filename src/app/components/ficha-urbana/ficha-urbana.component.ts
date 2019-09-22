@@ -21,6 +21,8 @@ import { Registro } from '../../models/registro';
 import { TipoDocumento } from '../../models/tipo-documento';
 import { UnidadArea } from '../../models/unidad-area';
 import { TipoMedida } from '../../models/tipo-medida';
+import { NaturalezaJuridica } from '../../models/naturaleza-juridica';
+import { ClaseDominio } from '../../models/clase-dominio';
 
 //servicios para los comboboxes
 import { TipoEmpresaService } from '../../services/tipo-empresa.service';
@@ -28,6 +30,8 @@ import { RegistroService } from '../../services/registro.service';
 import { TipoDocumentoService } from '../../services/tipo-documento.service';
 import { UnidadAreaService } from '../../services/unidad-area.service';
 import { TipoMedidaService } from '../../services/tipo-medida.service';
+import { NaturalezaJuridicaService } from '../../services/naturaleza-juridica.service';
+import { ClaseDominioService } from '../../services/clase-dominio.service';
 
 export const MY_FORMATS = {
   parse: {
@@ -124,6 +128,8 @@ export class FichaUrbanaComponent implements OnInit {
   datasourceTipoDocumento: MatTableDataSource<TipoDocumento>;
   datasourceUnidadArea: MatTableDataSource<UnidadArea>;
   datasourceTipoMedida: MatTableDataSource<TipoMedida>;
+  datasourceNaturaleza: MatTableDataSource<NaturalezaJuridica>;
+  datasourceClaseDominio: MatTableDataSource<ClaseDominio>;
 
   //arreglos usados para los comboboxes 
   empresasCbox: any=[];
@@ -131,14 +137,17 @@ export class FichaUrbanaComponent implements OnInit {
   documentCbox: any=[];
   unidadAreaCbox: any=[];
   medidaCbox: any=[];
-
+  naturalezaCbox: any=[];
+  claseCbox: any=[];
 
   constructor(private _formBuilder: FormBuilder, 
     private empresaService: TipoEmpresaService,
     private registro: RegistroService,
     private tipoDocumento: TipoDocumentoService,
     private unidadArea: UnidadAreaService,
-    private tipoMedida: TipoMedidaService) {
+    private tipoMedida: TipoMedidaService,
+    private naturaleza: NaturalezaJuridicaService,
+    private claseDominio: ClaseDominioService) {
     this.dataSource = new MatTableDataSource(this.detallesAdicionalesDataTable);
     
     //asignaciones plantas (Edificaciones Especiales)
@@ -217,6 +226,34 @@ export class FichaUrbanaComponent implements OnInit {
         this.medidaCbox = res;
         // Assign the data to the data source for the table to render
         this.datasourceTipoMedida = new MatTableDataSource(this.medidaCbox);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+    //lista de naturaleza juridica
+    this.naturaleza.getNaturalezasJuridicas()
+    .subscribe(
+      res => {
+        //console.log(res);
+        this.naturalezaCbox = res;
+        // Assign the data to the data source for the table to render
+        this.datasourceNaturaleza = new MatTableDataSource(this.naturalezaCbox);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+    //lista de clase dominio
+    this.claseDominio.getClasesDominios()
+    .subscribe(
+      res => {
+        //console.log(res);
+        this.claseCbox = res;
+        // Assign the data to the data source for the table to render
+        this.datasourceClaseDominio = new MatTableDataSource(this.claseCbox);
       },
       err => {
         console.log(err);
