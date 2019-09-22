@@ -159,7 +159,7 @@
         <div>
           <mat-form-field class="long-form-field">
             <mat-select placeholder="Registro / Propiedad" [(ngModel)]="datosLegales.propiedad" [ngModelOptions]="{standalone: true}" type="string">
-              <mat-option value="" >Valor 1</mat-option>
+              <mat-option *ngFor="let registro of registroCbox" [value]="registro.tipo">{{registro.tipo}}</mat-option>
             </mat-select>
           </mat-form-field>
           <mat-form-field class="short-form-field">
@@ -192,23 +192,13 @@
           
           <mat-form-field class="long-form-field">
             <mat-select placeholder="Naturaleza Jurídica" [(ngModel)]="datosLegales.naturalezaJuridica" [ngModelOptions]="{standalone: true}" type="string">
-              <mat-option value="privado" >Privado</mat-option>
-              <mat-option value="ejidal" >Ejidal</mat-option>
-              <mat-option value="nacional" >Nacional</mat-option>
-              <mat-option value="municipalPrivado" >Municipal Privado</mat-option>
-              <mat-option value="fiscal" >Fiscal</mat-option>
-              <mat-option value="otra" >Otra</mat-option>
+              <mat-option *ngFor="let nat of naturalezaCbox" [value]="nat.tipoNaturaleza">{{nat.tipoNaturaleza}}</mat-option>
             </mat-select>
           </mat-form-field>
           
           <mat-form-field class="long-form-field">
             <mat-select placeholder="Clase de Dominio" [(ngModel)]="datosLegales.claseDominio" [ngModelOptions]="{standalone: true}" type="string">
-              <mat-option value="dominioPlano" >Dominio Plano</mat-option>
-              <mat-option value="dominioUtil" >Dominio Útil</mat-option>
-              <mat-option value="ocupacion" >Ocupación</mat-option>
-              <mat-option value="posesion" >Posesión</mat-option>
-              <mat-option value="beneficiario" >Beneficionario R,A</mat-option>
-              <mat-option value="otra" >Otra</mat-option>
+              <mat-option *ngFor="let clase of claseCbox" [value]="clase.tipoDominio">{{clase.tipoDominio}}</mat-option>
             </mat-select>
           </mat-form-field>
           
