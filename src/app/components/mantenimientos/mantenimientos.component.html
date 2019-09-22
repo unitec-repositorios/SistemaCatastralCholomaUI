@@ -137,17 +137,17 @@
   
         <table mat-table [dataSource]="dataSourceRegistro">
         
-          <!-- Registro Column -->
-          <ng-container matColumnDef="registro">
-            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Registro / Propiedad </th>
-            <td class="paddingBetweenCols"mat-cell *matCellDef="let row">{{row.registro}}</td>
-          </ng-container>
+        <!-- Registro Column -->
+        <ng-container matColumnDef="registro">
+          <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Registro / Propiedad </th>
+          <td class="paddingBetweenCols"mat-cell *matCellDef="let row">{{row.tipo}}</td>
+        </ng-container>
   
           <ng-container matColumnDef="actions">
             <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
             <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
               <button mat-icon-button name="editRegistro" ><mat-icon>launch</mat-icon></button>
-              <button mat-icon-button name="deleteRegistro" (click)="deleteRegistro(row.registro)" color="warn"><mat-icon>delete_outline</mat-icon></button>
+              <button mat-icon-button name="deleteRegistro" (click)="deleteRegistro(row.tipo)" color="warn"><mat-icon>delete_outline</mat-icon></button>
             </td>
           </ng-container>
     
@@ -163,7 +163,7 @@
       <div class="mat-elevation-z8">
   
         <mat-form-field class="long-form-field">
-          <input matInput name="naturalezaJurídica" placeholder="Naturaleza jurídica" [(ngModel)]="naturaleza.tipo">
+          <input matInput name="naturalezaJurídica" placeholder="Naturaleza jurídica" [(ngModel)]="naturaleza.tipoNaturaleza">
         </mat-form-field>
   
         <button class="marg" mat-raised-button name="addNaturaleza" [ngStyle]="{'color': 'green'}" (click)="addNaturaleza()" >
@@ -175,19 +175,20 @@
           <!-- Naturaleza Column -->
           <ng-container matColumnDef="tipo">
             <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Naturaleza Jurídica </th>
-            <td class="paddingBetweenCols"mat-cell *matCellDef="let row">{{row.tipo}}</td>
+            <td class="paddingBetweenCols"mat-cell *matCellDef="let row">{{row.tipoNaturaleza}}</td>
           </ng-container>
   
           <ng-container matColumnDef="actions">
             <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
             <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
               <button mat-icon-button name="editNaturaleza" ><mat-icon>launch</mat-icon></button>
-              <button mat-icon-button name="deleteNaturaleza" (click)="deleteNaturaleza(row.tipo)" color="warn"><mat-icon>delete_outline</mat-icon></button>
+              <button mat-icon-button name="deleteNaturaleza" (click)="deleteNaturaleza(row.tipoNaturaleza)" color="warn"><mat-icon>delete_outline</mat-icon></button>
             </td>
           </ng-container>
     
           <tr mat-header-row *matHeaderRowDef="displayedColumnsNaturalezaJuridica"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumnsNaturalezaJuridica">
+            
           </tr>
         </table>
       </div>
@@ -198,7 +199,7 @@
       <div class="mat-elevation-z8">
   
         <mat-form-field class="long-form-field">
-          <input matInput name="claseDominio" placeholder="Clase de Dominio"  [(ngModel)]="dominio.tipo">
+          <input matInput name="claseDominio" placeholder="Clase de Dominio"  [(ngModel)]="dominio.tipoDominio">
         </mat-form-field>
   
         <button class="marg" mat-raised-button name="addClaseDom" [ngStyle]="{'color': 'green'}" (click)="addDominio()" >
@@ -210,14 +211,14 @@
           <!-- Clase de Dominio Column -->
           <ng-container matColumnDef="tipo">
             <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Clase de Dominio </th>
-            <td class="paddingBetweenCols"mat-cell *matCellDef="let row">{{row.tipo}}</td>
+            <td class="paddingBetweenCols"mat-cell *matCellDef="let row">{{row.tipoDominio}}</td>
           </ng-container>
   
           <ng-container matColumnDef="actions">
             <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
             <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
               <button mat-icon-button name="editClaseDom" ><mat-icon>launch</mat-icon></button>
-              <button mat-icon-button name="deleteClaseDom" (click)="deleteDominio(row.tipo)" color="warn"><mat-icon>delete_outline</mat-icon></button>
+              <button mat-icon-button name="deleteClaseDom" (click)="deleteDominio(row.tipoDominio)" color="warn"><mat-icon>delete_outline</mat-icon></button>
             </td>
           </ng-container>
     

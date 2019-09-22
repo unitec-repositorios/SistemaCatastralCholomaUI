@@ -1,3 +1,3 @@
 export class NaturalezaJuridica {
-    tipo:string;
+    tipoNaturaleza:string;
 }

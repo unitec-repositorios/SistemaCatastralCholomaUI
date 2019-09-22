@@ -25,7 +25,7 @@ export class NaturalezaJuridicaService {
   }
 
   modifyNaturalezaJuridica(naturaleza: NaturalezaJuridica) {
-    return this.http.put(`${this.API_URL}/naturalezaJuridica?old=${naturaleza.tipo}`, naturaleza);
+    return this.http.put(`${this.API_URL}/naturalezaJuridica?old=${naturaleza.tipoNaturaleza}`, naturaleza);
   }
 
   deleteNaturalezaJuridica(tipo: string) {
