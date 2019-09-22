@@ -1,3 +1,3 @@
 export class ClaseDominio {
-    tipo: string;
+    tipoDominio: string;  //cuidadoMike
 }

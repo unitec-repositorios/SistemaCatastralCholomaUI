@@ -24,7 +24,7 @@ export class ClaseDominioService {
   }
 
   modifyClaseDominio(clasedominio: ClaseDominio) {
-    return this.http.put(`${this.API_URL}/claseDominio?old=${clasedominio.tipo}`, clasedominio);
+    return this.http.put(`${this.API_URL}/claseDominio?old=${clasedominio.tipoDominio}`, clasedominio);
   }
 
   deleteClaseDominio(tipo: string) {

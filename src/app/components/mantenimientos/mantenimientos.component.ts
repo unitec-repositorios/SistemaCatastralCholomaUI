@@ -443,7 +443,7 @@ deleteRegistro(tipo: string): void {
   //Naturaleza Juridica
   addNaturaleza(): void {
     //si no esta vacio el objeto
-    if(this.naturaleza.tipo!=""){
+    if(this.naturaleza.tipoNaturaleza!=""){
       this.naturalezaService.saveNaturalezaJuridica(this.naturaleza)
       .subscribe(
         res=>{
@@ -499,7 +499,7 @@ deleteNaturaleza(tipo: string): void {
 //Dominio
   addDominio(): void {
     //si no esta vacio el objeto
-    if(this.dominio.tipo!=""){
+    if(this.dominio.tipoDominio!=""){
       this.dominioService.saveClaseDominio(this.dominio)
       .subscribe(
         res=>{
