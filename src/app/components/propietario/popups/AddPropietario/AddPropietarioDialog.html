@@ -19,19 +19,13 @@
   
 <mat-form-field class="form-field">
     <mat-select [(ngModel)]="data.sexo" placeholder="Sexo" name="sexo">
-      <mat-option value="M">Masculino</mat-option>
-      <mat-option value="F">Femenino</mat-option>
+      <mat-option *ngFor="let sexo of sexoCbox" [value]="sexo.tipo">{{sexo.tipo}} </mat-option>
     </mat-select>
 </mat-form-field>
 
 <mat-form-field class="long-form-field">
     <mat-select [(ngModel)]="data.nacionalidad" placeholder="Nacionalidad" name="nacionalidad">
-        <mat-option value="BLZ">Belice</mat-option>
-        <mat-option value="HND">Honduras</mat-option>
-        <mat-option value="CRI">Costa Rica</mat-option>
-        <mat-option value="GTM">Guatemala</mat-option>
-        <mat-option value="NIC">Nicaragua</mat-option>
-        <mat-option value="PAN">Panamá</mat-option>        
+        <mat-option *ngFor="let nacionalidad of nacionalidadCbox" [value]="nacionalidad.pais">{{nacionalidad.pais}}</mat-option>      
     </mat-select>
 </mat-form-field><br/>
 

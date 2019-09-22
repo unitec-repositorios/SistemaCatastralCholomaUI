@@ -15,6 +15,24 @@ import { CaracteristicasPropiedad } from '../../models/caracteristicas-propiedad
 import { RecursosHidricos } from '../../models/recursos-hidricos';
 import { UsoTierra } from '../../models/uso-tierra';
 
+//modelos para los comboboxes
+import { TipoEmpresa } from 'src/app/models/tipo-empresa';
+import { Registro } from '../../models/registro';
+import { TipoDocumento } from '../../models/tipo-documento';
+import { UnidadArea } from '../../models/unidad-area';
+import { TipoMedida } from '../../models/tipo-medida';
+import { NaturalezaJuridica } from '../../models/naturaleza-juridica';
+import { ClaseDominio } from '../../models/clase-dominio';
+
+//servicios para los comboboxes
+import { TipoEmpresaService } from '../../services/tipo-empresa.service';
+import { RegistroService } from '../../services/registro.service';
+import { TipoDocumentoService } from '../../services/tipo-documento.service';
+import { UnidadAreaService } from '../../services/unidad-area.service';
+import { TipoMedidaService } from '../../services/tipo-medida.service';
+import { NaturalezaJuridicaService } from '../../services/naturaleza-juridica.service';
+import { ClaseDominioService } from '../../services/clase-dominio.service';
+
 export const MY_FORMATS = {
   parse: {
     dateInput: 'LL',
@@ -104,7 +122,32 @@ export class FichaUrbanaComponent implements OnInit {
   'precioUnitario', 'total', 'codEdif'];
   dataSource: MatTableDataSource<DetallesAdicionales>;
 
-  constructor(private _formBuilder: FormBuilder) {
+  //datasources para las lista de los comboboxes
+  datasourceTipoEmpresas: MatTableDataSource<TipoEmpresa>;
+  datasourceRegistroPropiedad: MatTableDataSource<Registro>;
+  datasourceTipoDocumento: MatTableDataSource<TipoDocumento>;
+  datasourceUnidadArea: MatTableDataSource<UnidadArea>;
+  datasourceTipoMedida: MatTableDataSource<TipoMedida>;
+  datasourceNaturaleza: MatTableDataSource<NaturalezaJuridica>;
+  datasourceClaseDominio: MatTableDataSource<ClaseDominio>;
+
+  //arreglos usados para los comboboxes 
+  empresasCbox: any=[];
+  registroCbox: any=[];
+  documentCbox: any=[];
+  unidadAreaCbox: any=[];
+  medidaCbox: any=[];
+  naturalezaCbox: any=[];
+  claseCbox: any=[];
+
+  constructor(private _formBuilder: FormBuilder, 
+    private empresaService: TipoEmpresaService,
+    private registro: RegistroService,
+    private tipoDocumento: TipoDocumentoService,
+    private unidadArea: UnidadAreaService,
+    private tipoMedida: TipoMedidaService,
+    private naturaleza: NaturalezaJuridicaService,
+    private claseDominio: ClaseDominioService) {
     this.dataSource = new MatTableDataSource(this.detallesAdicionalesDataTable);
     
     //asignaciones plantas (Edificaciones Especiales)
@@ -119,6 +162,104 @@ export class FichaUrbanaComponent implements OnInit {
   }
   
   ngOnInit() {
+    //lista de tipo empresas
+    this.empresaService.getTipoEmpresas()
+    .subscribe(
+      res => {
+        //console.log(res);
+        this.empresasCbox = res;
+        // Assign the data to the data source for the table to render
+        this.datasourceTipoEmpresas = new MatTableDataSource(this.empresasCbox);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+    //lista de registro/propiedad
+    this.registro.getRegistros()
+    .subscribe(
+      res => {
+        //console.log(res);
+        this.registroCbox = res;
+        // Assign the data to the data source for the table to render
+        this.datasourceRegistroPropiedad = new MatTableDataSource(this.registroCbox);
+      },
+      err => {
+        console.log(err); 
+      }
+    );
+
+    //lista de tipo documento
+    this.tipoDocumento.getDocumentos()
+    .subscribe(
+      res => {
+        //console.log(res);
+        this.documentCbox = res;
+        // Assign the data to the data source for the table to render
+        this.datasourceTipoDocumento = new MatTableDataSource(this.documentCbox);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+    //lista de unidad area
+    this.unidadArea.getAreas()
+    .subscribe(
+      res => {
+        //console.log(res);
+        this.unidadAreaCbox = res;
+        // Assign the data to the data source for the table to render
+        this.datasourceUnidadArea = new MatTableDataSource(this.unidadAreaCbox);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+    //lista de tipo medida
+    this.tipoMedida.getMedidas()
+    .subscribe(
+      res => {
+        //console.log(res);
+        this.medidaCbox = res;
+        // Assign the data to the data source for the table to render
+        this.datasourceTipoMedida = new MatTableDataSource(this.medidaCbox);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+    //lista de naturaleza juridica
+    this.naturaleza.getNaturalezasJuridicas()
+    .subscribe(
+      res => {
+        //console.log(res);
+        this.naturalezaCbox = res;
+        // Assign the data to the data source for the table to render
+        this.datasourceNaturaleza = new MatTableDataSource(this.naturalezaCbox);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+    //lista de clase dominio
+    this.claseDominio.getClasesDominios()
+    .subscribe(
+      res => {
+        //console.log(res);
+        this.claseCbox = res;
+        // Assign the data to the data source for the table to render
+        this.datasourceClaseDominio = new MatTableDataSource(this.claseCbox);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
     this.propiedadFormGroup = this._formBuilder.group({
       propiedadCtrl: ['', Validators.required]
     });
