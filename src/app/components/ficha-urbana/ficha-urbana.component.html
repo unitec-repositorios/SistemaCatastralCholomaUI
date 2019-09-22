@@ -63,12 +63,7 @@
           <br/>
           <mat-form-field class="longest-form-field">
             <mat-select [(ngModel)]="negocios.tipo" [ngModelOptions]="{standalone: true}" placeholder="Tipo de empresa" name="tipo">
-                <mat-option value="Comerciante Individual">Comerciante Individual</mat-option>
-                <mat-option value="Sociedad Colectiva">Sociedad Colectiva</mat-option>
-                <mat-option value="Sociedad en Comandita Simple">Sociedad en Comandita Simple</mat-option>
-                <mat-option value="Sociedad de Responsabilidad Limitada">Sociedad de Responsabilidad Limitada</mat-option>
-                <mat-option value="Sociedad Anónima">Sociedad Anónima</mat-option>
-                <mat-option value="Sociedad en Comandita por Acciones">Sociedad en Comandita por Acciones</mat-option>   
+              <mat-option *ngFor="let emp of empresasCbox" [value]="emp.empresa">{{emp.empresa}}</mat-option>  
             </mat-select>
           </mat-form-field>
           <mat-form-field class="long-form-field">
@@ -219,9 +214,7 @@
           
           <mat-form-field class="long-form-field">
             <mat-select placeholder="Tipo de Documento" [(ngModel)]="datosLegales.tipoDocumento" [ngModelOptions]="{standalone: true}" type="string">
-              <mat-option value="privado" >Privado</mat-option>
-              <mat-option value="publico" >Público</mat-option>
-              <mat-option value="sinDocumento" >Sin Documento</mat-option>
+              <mat-option *ngFor="let tipo of documentCbox" [value]="tipo.tipoDoc" >{{tipo.tipoDoc}}</mat-option>
             </mat-select>
           </mat-form-field><br/>
           
@@ -231,18 +224,13 @@
           
           <mat-form-field class="long-form-field">
             <mat-select placeholder="Unidad de Área" [(ngModel)]="datosLegales.unidadArea" [ngModelOptions]="{standalone: true}" type="string">
-              <mat-option value="varas" >VRS Cuadradas</mat-option>
-              <mat-option value="metros" >MTS Cuadrados</mat-option>
-              <mat-option value="manzanas" >Manzanas</mat-option>
-              <mat-option value="hectareas" >Hectáreas</mat-option>
+              <mat-option *ngFor="let unidad of unidadAreaCbox" [value]="unidad.area" >{{unidad.area}}</mat-option>
             </mat-select>
           </mat-form-field>
           
           <mat-form-field class="long-form-field">
             <mat-select placeholder="Tipo de Medida" [(ngModel)]="datosLegales.tipoMedida" [ngModelOptions]="{standalone: true}" type="string">
-              <mat-option value="topografía" >Topografía</mat-option>
-              <mat-option value="segunDocumento" >Según Documento</mat-option>
-              <mat-option value="registrada" >Registrada</mat-option>
+              <mat-option *ngFor="let medida of medidaCbox" [value]="medida.medida" >{{medida.medida}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
