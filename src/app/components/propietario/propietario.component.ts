@@ -8,6 +8,12 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { Roles } from '../../models/empleado';
 import { CookieService } from 'ngx-cookie-service';
 
+import { Sexo } from '../../models/sexo';
+import { SexoService } from '../../services/sexo.service';
+
+import { Nacionalidad } from '../../models/nacionalidad';
+import { NacionalidadService } from '../../services/nacionalidad.service';
+
 @Component({
   selector: 'app-propietario',
   templateUrl: './propietario.component.html',
@@ -190,13 +196,51 @@ export class PropietarioComponent implements OnInit {
   templateUrl: './popups/AddPropietario/AddPropietarioDialog.html',
   styleUrls: ['./propietario.component.css']
 })
-export class AddPropietarioDialog {
+
+export class AddPropietarioDialog implements OnInit{
+  sexoCbox: any=[];
+  nacionalidadCbox: any=[];
+
+  datasourceSexo: MatTableDataSource<Sexo>;
+  datasourceNacionalidad: MatTableDataSource<Nacionalidad>;
+  
   constructor(
+    private sexo: SexoService,
+    private nacionalidad: NacionalidadService,
     public dialogRef: MatDialogRef<AddPropietarioDialog>,
     @Inject(MAT_DIALOG_DATA) public data: Propietario
   ) {}
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  ngOnInit(){
+     //lista de sexos
+     this.sexo.getSexos()
+     .subscribe(
+       res => {
+         //console.log(res);
+         this.sexoCbox = res;
+         // Assign the data to the data source for the table to render
+         this.datasourceSexo = new MatTableDataSource(this.sexoCbox);
+       },
+       err => {
+         console.log(err);
+       }
+     );
+
+     this.nacionalidad.getNacionalidad()
+     .subscribe(
+       res => {
+         //console.log(res);
+         this.nacionalidadCbox = res;
+         // Assign the data to the data source for the table to render
+         this.datasourceNacionalidad = new MatTableDataSource(this.nacionalidadCbox);
+       },
+       err => {
+         console.log(err);
+       }
+     );
   }
 }
