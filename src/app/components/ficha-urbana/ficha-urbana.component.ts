@@ -23,6 +23,14 @@ import { UnidadArea } from '../../models/unidad-area';
 import { TipoMedida } from '../../models/tipo-medida';
 import { NaturalezaJuridica } from '../../models/naturaleza-juridica';
 import { ClaseDominio } from '../../models/clase-dominio';
+import { AguaSP } from '../../models/agua-sp';
+import { TelefonoSP } from '../../models/telefono-sp';
+import { DrenajeSP } from '../../models/drenaje-sp';
+import { AlumPubSP } from '../../models/alum-pub-sp';
+import { AceraSP } from '../../models/acera-sp';
+import { ElectricidadSP } from '../../models/electricidad-sp';
+import { TrenAsSP } from '../../models/tren-as-sp';
+import { CalleSP } from '../../models/calle-sp';
 
 //servicios para los comboboxes
 import { TipoEmpresaService } from '../../services/tipo-empresa.service';
@@ -32,6 +40,14 @@ import { UnidadAreaService } from '../../services/unidad-area.service';
 import { TipoMedidaService } from '../../services/tipo-medida.service';
 import { NaturalezaJuridicaService } from '../../services/naturaleza-juridica.service';
 import { ClaseDominioService } from '../../services/clase-dominio.service';
+import { AguaSPService } from '../../services/agua-sp.service';
+import { TelefonoSPService } from '../../services/telefono-sp.service';
+import { DrenajeSPService } from '../../services/drenaje-sp.service';
+import { AlumPubSPService } from '../../services/alum-pub-sp.service';
+import { AceraSPService } from '../../services/acera-sp.service';
+import { ElectricidadSPService } from '../../services/electricidad-sp.service';
+import { TrenAsSPService } from '../../services/tren-as-sp.service';
+import { CalleSPService } from '../../services/calle-sp.service';
 
 export const MY_FORMATS = {
   parse: {
@@ -130,6 +146,14 @@ export class FichaUrbanaComponent implements OnInit {
   datasourceTipoMedida: MatTableDataSource<TipoMedida>;
   datasourceNaturaleza: MatTableDataSource<NaturalezaJuridica>;
   datasourceClaseDominio: MatTableDataSource<ClaseDominio>;
+  datasourceAgua: MatTableDataSource<AguaSP>;
+  datasourceTelefono: MatTableDataSource<TelefonoSP>;
+  datasourceDrenaje: MatTableDataSource<DrenajeSP>;
+  datasourceCalle: MatTableDataSource<CalleSP>;
+  datasourceElectricidad: MatTableDataSource<ElectricidadSP>;
+  datasourceAcera: MatTableDataSource<AceraSP>;
+  datasourceAlumbrado: MatTableDataSource<AlumPubSP>;
+  datasourceTrenAseo: MatTableDataSource<TrenAsSP>;
 
   //arreglos usados para los comboboxes 
   empresasCbox: any=[];
@@ -139,7 +163,14 @@ export class FichaUrbanaComponent implements OnInit {
   medidaCbox: any=[];
   naturalezaCbox: any=[];
   claseCbox: any=[];
-
+  aguaCbox: any=[];
+  telefonoCbox: any=[];
+  drenajeCbox: any=[];
+  calleCbox: any=[];
+  electricidadCbox: any=[];
+  alumbradoCbox: any=[];
+  trenCbox: any=[];
+  aceraCbox: any=[];
   constructor(private _formBuilder: FormBuilder, 
     private empresaService: TipoEmpresaService,
     private registro: RegistroService,
@@ -147,7 +178,15 @@ export class FichaUrbanaComponent implements OnInit {
     private unidadArea: UnidadAreaService,
     private tipoMedida: TipoMedidaService,
     private naturaleza: NaturalezaJuridicaService,
-    private claseDominio: ClaseDominioService) {
+    private claseDominio: ClaseDominioService,
+    private agua: AguaSPService,
+    private telefono: TelefonoSPService,
+    private drenanje: DrenajeSPService,
+    private calle: CalleSPService,
+    private electricidad: ElectricidadSPService,
+    private acera: AceraSPService,
+    private alumbrado: AlumPubSPService,
+    private trenAseo: TrenAsSPService) {
     this.dataSource = new MatTableDataSource(this.detallesAdicionalesDataTable);
     
     //asignaciones plantas (Edificaciones Especiales)
@@ -162,6 +201,7 @@ export class FichaUrbanaComponent implements OnInit {
   }
   
   ngOnInit() {
+    //step 2
     //lista de tipo empresas
     this.empresaService.getTipoEmpresas()
     .subscribe(
@@ -175,7 +215,7 @@ export class FichaUrbanaComponent implements OnInit {
         console.log(err);
       }
     );
-
+    //step 4
     //lista de registro/propiedad
     this.registro.getRegistros()
     .subscribe(
@@ -260,6 +300,122 @@ export class FichaUrbanaComponent implements OnInit {
       }
     );
 
+    //step 6
+    //lista de aguas
+    this.agua.getAguaSPs()
+    .subscribe(
+      res => {
+        //console.log(res);
+        this.aguaCbox = res;
+        // Assign the data to the data source for the table to render
+        this.datasourceAgua = new MatTableDataSource(this.aguaCbox);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+    //lsita de telefono
+    this.telefono.getTelefonoSPs()
+    .subscribe(
+      res => {
+        //console.log(res);
+        this.telefonoCbox = res;
+        // Assign the data to the data source for the table to render
+        this.datasourceTelefono = new MatTableDataSource(this.telefonoCbox);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+    //lsita de drenaje
+    this.drenanje.getDrenajeSPs()
+    .subscribe(
+      res => {
+        //console.log(res);
+        this.drenajeCbox = res;
+        // Assign the data to the data source for the table to render
+        this.datasourceDrenaje = new MatTableDataSource(this.drenajeCbox);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+    //lista de calles
+    this.calle.getCalleSPs()
+    .subscribe(
+      res => {
+        //console.log(res);
+        this.calleCbox = res;
+        // Assign the data to the data source for the table to render
+        this.datasourceCalle = new MatTableDataSource(this.calleCbox);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+    //lista de electricidad
+    this.electricidad.getElectricidadSPs()
+    .subscribe(
+      res => {
+        //console.log(res);
+        this.electricidadCbox = res;
+        // Assign the data to the data source for the table to render
+        this.datasourceElectricidad = new MatTableDataSource(this.electricidadCbox);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    
+    //lista de acera
+    this.acera.getAceraSPs()
+    .subscribe(
+      res => {
+        //console.log(res);
+        this.aceraCbox = res;
+        // Assign the data to the data source for the table to render
+        this.datasourceAcera = new MatTableDataSource(this.aceraCbox);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+    //lista de alumbrado
+    this.alumbrado.getAlumPubSPs()
+    .subscribe(
+      res => {
+        //console.log(res);
+        this.alumbradoCbox = res;
+        // Assign the data to the data source for the table to render
+        this.datasourceAlumbrado = new MatTableDataSource(this.alumbradoCbox);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+
+
+    //lista de tren aseo
+    this.trenAseo.getTrenAsSPs()
+    .subscribe(
+      res => {
+        //console.log(res);
+        this.trenCbox = res;
+        // Assign the data to the data source for the table to render
+        this.datasourceTrenAseo = new MatTableDataSource(this.trenCbox);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+    
     this.propiedadFormGroup = this._formBuilder.group({
       propiedadCtrl: ['', Validators.required]
     });
