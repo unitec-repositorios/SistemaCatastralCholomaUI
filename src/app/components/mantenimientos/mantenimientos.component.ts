@@ -346,7 +346,7 @@ export class MantenimientosComponent implements OnInit {
           console.log(res);
           this.calles = res;
           // Assign the data to the data source for the table to render
-          this.dataSourceCalleSP = new MatTableDataSource(this.empresas);
+          this.dataSourceCalleSP = new MatTableDataSource(this.calles);
         },
         err => {
           console.log(err);
