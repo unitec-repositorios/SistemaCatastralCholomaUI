@@ -127,7 +127,9 @@ export class MantenimientosComponent implements OnInit {
 
 
   // Variable que decide que se muestra en el mantenimiento de negocios
-  negocioCampo: string /* = "0" */;
+  negocioCampo: string = '0';
+
+  serviciosPublicosCampo: string = '0';
 
   aceraSP: AceraSP = new AceraSP();
   aguaSP: AguaSP = new AguaSP();
@@ -346,7 +348,7 @@ export class MantenimientosComponent implements OnInit {
           console.log(res);
           this.calles = res;
           // Assign the data to the data source for the table to render
-          this.dataSourceCalleSP = new MatTableDataSource(this.empresas);
+          this.dataSourceCalleSP = new MatTableDataSource(this.calles);
         },
         err => {
           console.log(err);
