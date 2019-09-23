@@ -147,13 +147,13 @@ export class MantenimientosComponent implements OnInit {
     private documentoService: TipoDocumentoService,
     private areaService: UnidadAreaService,
     private medidaService: TipoMedidaService,
-    private aceraSPService: AceraSPService, 
-    private aguaSPService: AguaSPService, 
+    private aceraSPService: AceraSPService,
+    private aguaSPService: AguaSPService,
     private alumPubSPService: AlumPubSPService,
-    private calleSPService: CalleSPService, 
-    private drenajeSPService: DrenajeSPService, 
+    private calleSPService: CalleSPService,
+    private drenajeSPService: DrenajeSPService,
     private electricidadSPService: ElectricidadSPService,
-    private telefonoSPService: TelefonoSPService, 
+    private telefonoSPService: TelefonoSPService,
     private trenAsSPService: TrenAsSPService) { }
 
   ngOnInit() {
@@ -263,6 +263,138 @@ export class MantenimientosComponent implements OnInit {
           this.medidas = res;
           // Assign the data to the data source for the table to render
           this.dataSourceTipoMedida = new MatTableDataSource(this.medidas);
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    this.medidaService.getMedidas()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.medidas = res;
+          // Assign the data to the data source for the table to render
+          this.dataSourceTipoMedida = new MatTableDataSource(this.medidas);
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    this.medidaService.getMedidas()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.medidas = res;
+          // Assign the data to the data source for the table to render
+          this.dataSourceTipoMedida = new MatTableDataSource(this.medidas);
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    this.medidaService.getMedidas()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.medidas = res;
+          // Assign the data to the data source for the table to render
+          this.dataSourceTipoMedida = new MatTableDataSource(this.medidas);
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    this.aceraSPService.getAceraSPs()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.aceras = res;
+          // Assign the data to the data source for the table to render
+          this.dataSourceAceraSP = new MatTableDataSource(this.aceras);
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    this.aguaSPService.getAguaSPs()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.aguas = res;
+          // Assign the data to the data source for the table to render
+          this.dataSourceAguaSP = new MatTableDataSource(this.aguas);
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    this.alumPubSPService.getAlumPubSPs()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.alumPubs = res;
+          // Assign the data to the data source for the table to render
+          this.dataSourceAlumPubSP = new MatTableDataSource(this.alumPubs);
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    this.calleSPService.getCalleSPs()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.calles = res;
+          // Assign the data to the data source for the table to render
+          this.dataSourceCalleSP = new MatTableDataSource(this.empresas);
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    this.drenajeSPService.getDrenajeSPs()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.drenajes = res;
+          // Assign the data to the data source for the table to render
+          this.dataSourceDrenajeSP = new MatTableDataSource(this.drenajes);
+        },
+        err => {
+          console.log(err);
+        }
+      );
+     this.electricidadSPService.getElectricidadSPs()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.electricidads = res;
+          // Assign the data to the data source for the table to render
+          this.dataSourceElectricidadSP = new MatTableDataSource(this.electricidads);
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    this.telefonoSPService.getTelefonoSPs()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.telefonos = res;
+          // Assign the data to the data source for the table to render
+          this.dataSourceTelefonoSP = new MatTableDataSource(this.telefonos);
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    this.trenAsSPService.getTrenAsSPs()
+      .subscribe(
+        res => {
+          console.log(res);
+          this.trenAss = res;
+          // Assign the data to the data source for the table to render
+          this.dataSourceTrenAsSP = new MatTableDataSource(this.trenAss);
         },
         err => {
           console.log(err);
@@ -1187,6 +1319,7 @@ export class MantenimientosComponent implements OnInit {
           console.log(tipo);
           console.log(res);
           this.ngOnInit();
+          success: string = "<b>Some html.</b>";
           alert('Tipo de tren de aseo editado con exito');
         },
         err => {
