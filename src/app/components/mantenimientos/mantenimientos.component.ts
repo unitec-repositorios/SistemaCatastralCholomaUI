@@ -1002,7 +1002,7 @@ export class MantenimientosComponent implements OnInit {
 
   deleteAguaSP(tipo: string): void {
     if (confirm('Estas seguro de que quieres eliminar este elemento?')) {
-      this.empresaService.deleteTipoEmpresa(tipo)
+      this.aguaSPService.deleteAguaSP(tipo)
         .subscribe(
           res => {
             console.log(res);
