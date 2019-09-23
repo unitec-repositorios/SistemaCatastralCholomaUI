@@ -1319,7 +1319,6 @@ export class MantenimientosComponent implements OnInit {
           console.log(tipo);
           console.log(res);
           this.ngOnInit();
-          success: string = "<b>Some html.</b>";
           alert('Tipo de tren de aseo editado con exito');
         },
         err => {
