@@ -599,76 +599,49 @@
         <h4>Servicios publicos</h4>
         <mat-form-field class="long-form-field">
           <mat-select [(ngModel)]="serviciosPub.Agua" [ngModelOptions]="{standalone: true}" placeholder="Agua potable" name="agua">
-            <mat-option value="1040">Sin Agua</mat-option> 
-            <mat-option value="1041">Acueducto</mat-option> 
-            <mat-option value="1042">Pozo</mat-option> 
-            <mat-option value="1043">Acueducto y Pozo</mat-option> 
+            <mat-option *ngFor="let agua of aguaCbox" [value]="agua.tipo">{{agua.tipo}}</mat-option> 
           </mat-select>
         </mat-form-field>      
 
         <mat-form-field class="long-form-field">
           <mat-select [(ngModel)]="serviciosPub.Telefono" [ngModelOptions]="{standalone: true}" placeholder="Telefono" name="telefono">
-            <mat-option value="1050">Sin Telefono</mat-option> 
-            <mat-option value="1051">Telefono</mat-option> 
+            <mat-option *ngFor="let tel of telefonoCbox" [value]="tel.tipo">{{tel.tipo}}</mat-option> 
           </mat-select>
         </mat-form-field> 
 
         <mat-form-field class="long-form-field">
           <mat-select [(ngModel)]="serviciosPub.Drenaje" [ngModelOptions]="{standalone: true}" placeholder="Drenaje" name="drenaje">
-            <mat-option value="1060">Sin Alcantarillado</mat-option> 
-            <mat-option value="1061">Alcantarillado Sanitario</mat-option> 
-            <mat-option value="1062">Alcantarillado Pluvial</mat-option> 
-            <mat-option value="1063">Alcantarillado Sanit. y Pluvial</mat-option> 
-            <mat-option value="1064">Fosa Septica</mat-option>
-            <mat-option value="1065">Alcant. Sanit. y FosaS.</mat-option>  
+            <mat-option *ngFor="let drenaje of drenajeCbox" [value]="drenaje.tipo">{{drenaje.tipo}}</mat-option> 
           </mat-select>
         </mat-form-field> 
 
         <mat-form-field class="long-form-field">
           <mat-select [(ngModel)]="serviciosPub.Calle" [ngModelOptions]="{standalone: true}" placeholder="Calle" name="calle">
-            <mat-option value="1070">Sin Calle</mat-option> 
-            <mat-option value="1071">Concreto</mat-option> 
-            <mat-option value="1072">Asfalto</mat-option> 
-            <mat-option value="1073">Adoquin</mat-option> 
-            <mat-option value="1074">Tierra</mat-option>
-            <mat-option value="1075">Concreto y Asfalto</mat-option>  
-            <mat-option value="1076">Concreto y Adoquin</mat-option>  
+            <mat-option *ngFor="let calle of calleCbox" [value]="calle.tipo">{{calle.tipo}}</mat-option> 
           </mat-select>
         </mat-form-field> 
 
         <mat-form-field class="long-form-field">
           <mat-select [(ngModel)]="serviciosPub.Electricidad" [ngModelOptions]="{standalone: true}" placeholder="Electricidad" name="electricidad">
-            <mat-option value="1080">Sin Electricidad</mat-option> 
-            <mat-option value="1081">ENEE</mat-option> 
-            <mat-option value="1082">Municipal</mat-option> 
-            <mat-option value="1083">Planta propia</mat-option> 
-            <mat-option value="1084">ENEE y Planta propia</mat-option>
-            <mat-option value="1085">Municipal y Planta propia</mat-option>  
+            <mat-option *ngFor="let elec of electricidadCbox" [value]="elec.tipo">{{elec.tipo}}</mat-option> 
           </mat-select>
         </mat-form-field>
         
         <mat-form-field class="long-form-field">
           <mat-select [(ngModel)]="serviciosPub.Acera" [ngModelOptions]="{standalone: true}" placeholder="Acera" name="acera">
-            <mat-option value="1090">Sin Acera</mat-option> 
-            <mat-option value="1091">Concreto</mat-option> 
-            <mat-option value="1092">Adoquin</mat-option> 
-            <mat-option value="1093">Ladrillo</mat-option> 
-            <mat-option value="1094">Concreto y Adoquin</mat-option>
-            <mat-option value="1095">Concreto y Ladrillo</mat-option>  
+            <mat-option *ngFor="let acera of aceraCbox" [value]="acera.tipo">{{acera.tipo}}</mat-option> 
           </mat-select>
         </mat-form-field>
 
         <mat-form-field class="long-form-field">
           <mat-select [(ngModel)]="serviciosPub.Alumbrado" [ngModelOptions]="{standalone: true}" placeholder="Alumbrado publico" name="alumbrado">
-            <mat-option value="1110">Alumbrado Publico</mat-option> 
-            <mat-option value="1111">Sin Alumbrado Publico</mat-option> 
+            <mat-option *ngFor="let alumbrado of alumbradoCbox" [value]="alumbrado.tipo">{{alumbrado.tipo}}</mat-option> 
           </mat-select>
         </mat-form-field>
 
         <mat-form-field class="long-form-field">
           <mat-select placeholder="Tren de Aseo" name="tren">
-            <mat-option value="1100">Sin Tren de Aseo</mat-option> 
-            <mat-option value="1101">Tren de Aseo</mat-option> 
+            <mat-option *ngFor="let tren of trenCbox" [value]="tren.tipo">{{tren.tipo}}</mat-option> 
           </mat-select>
         </mat-form-field>
 
