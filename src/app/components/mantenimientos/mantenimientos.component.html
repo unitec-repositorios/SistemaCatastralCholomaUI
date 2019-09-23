@@ -1,9 +1,9 @@
 <title>Mantenimientos</title>
 <app-main-navbar></app-main-navbar>
 
-<div class="form">
+<div class="form" id="mainForm">
   <h2 class="special-titles">Configuracion</h2>
-    <!--Sexos-->
+  <!--Sexos-->
   <mat-card class="card-style">
     <h3 class="special-titles2">Sexos</h3>
     <div class="mat-elevation-z8">
@@ -12,145 +12,165 @@
         <input matInput name="sexo" placeholder="Tipo" [(ngModel)]="sexo.tipo">
       </mat-form-field>
 
-      <button class="marg" mat-raised-button name="addSexo" [ngStyle]="{'color': 'green'}" (click)="addSexo()" >
-        <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar 
-      </button><br/><br/>
+      <button class="marg" mat-raised-button name="addSexo" [ngStyle]="{'color': 'green'}" (click)="addSexo()">
+        <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar
+      </button><br /><br />
 
       <table mat-table [dataSource]="dataSourceSexo">
-      
+
         <!-- Sexo Column -->
         <ng-container matColumnDef="tipo">
           <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
-          <td class="paddingBetweenCols"mat-cell *matCellDef="let row">{{row.tipo}}</td>
+          <td class="paddingBetweenCols" mat-cell *matCellDef="let row">{{row.tipo}}</td>
         </ng-container>
 
         <ng-container matColumnDef="actions">
           <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
           <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
-            <button mat-icon-button name="modifySexo" (click)="modifySexo(row.tipo)"><mat-icon>launch</mat-icon></button>
-            <button mat-icon-button name="deleteSexo" (click)="deleteSexo(row.tipo)" color="warn"><mat-icon>delete_outline</mat-icon></button>
+            <button mat-icon-button name="modifySexo" (click)="modifySexo(row.tipo)">
+              <mat-icon>launch</mat-icon>
+            </button>
+            <button mat-icon-button name="deleteSexo" (click)="deleteSexo(row.tipo)" color="warn">
+              <mat-icon>delete_outline</mat-icon>
+            </button>
           </td>
         </ng-container>
-  
+
         <tr mat-header-row *matHeaderRowDef="displayedColumnsSexo"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumnsSexo;">
         </tr>
       </table>
     </div>
   </mat-card>
-    <!--Nacionalidad-->
-    <mat-card class="card-style">
-      <h3 class="special-titles2">Nacionalidad</h3>
-      <div class="mat-elevation-z8">
-  
-        <mat-form-field class="long-form-field">
-          <input matInput name="nacionalidad" placeholder="Pais" [(ngModel)]="nacionalidad.pais">
-        </mat-form-field>
-  
-        <button class="marg" mat-raised-button name="addNacionalidad" [ngStyle]="{'color': 'green'}" (click)="addNacionalidad()" >
-          <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar 
-        </button><br/><br/>
-  
-        <table mat-table [dataSource]="dataSourceNacionalidad">
-        
-          <!-- Nacionalidad Column -->
-          <ng-container matColumnDef="pais">
-            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Pais </th>
-            <td class="paddingBetweenCols"mat-cell *matCellDef="let row">{{row.pais}}</td>
-          </ng-container>
-  
-          <ng-container matColumnDef="actions">
-            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
-            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
-              <button mat-icon-button name="editNacionalidad" ><mat-icon>launch</mat-icon></button>
-              <button mat-icon-button name="deleteNacionalidad" (click)="deleteNacionalidad(row.pais)" color="warn"><mat-icon>delete_outline</mat-icon></button>
-            </td>
-          </ng-container>
-    
-          <tr mat-header-row *matHeaderRowDef="displayedColumnsNacionalidad"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumnsNacionalidad;">
-          </tr>
-        </table>
-      </div>
-    </mat-card>
-    <!--Tipo de Empresa-->
-    <mat-card class="card-style">
-      <h3 class="special-titles2">Tipo de Empresa</h3>
-      <div class="mat-elevation-z8">
-  
-        <mat-form-field class="long-form-field">
-          <input matInput name="empresa" placeholder="Empresa" [(ngModel)]="empresa.empresa">
-        </mat-form-field>
-  
-        <button class="marg" mat-raised-button name="addTipoEmpresa" [ngStyle]="{'color': 'green'}" (click)="addTipoEmpresa()" >
-          <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar 
-        </button><br/><br/>
-  
-        <table mat-table [dataSource]="dataSourceEmpresa">
-        
-          <!-- Empresa Column -->
-          <ng-container matColumnDef="empresa">
-            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Empresa </th>
-            <td class="paddingBetweenCols"mat-cell *matCellDef="let row">{{row.empresa}}</td>
-          </ng-container>
-  
-          <ng-container matColumnDef="actions">
-            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
-            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
-              <button mat-icon-button name="editTipoEmpresa" ><mat-icon>launch</mat-icon></button>
-              <button mat-icon-button name="deleteTipoEmpresa" (click)="deleteTipoEmpresa(row.empresa)" color="warn"><mat-icon>delete_outline</mat-icon></button>
-            </td>
-          </ng-container>
-    
-          <tr mat-header-row *matHeaderRowDef="displayedColumnsEmpresa"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumnsEmpresa;">
-          </tr>
-        </table>
-      </div>
-    </mat-card>
+  <!--Nacionalidad-->
+  <mat-card class="card-style">
+    <h3 class="special-titles2">Nacionalidad</h3>
+    <div class="mat-elevation-z8">
+
+      <mat-form-field class="long-form-field">
+        <input matInput name="nacionalidad" placeholder="Pais" [(ngModel)]="nacionalidad.pais">
+      </mat-form-field>
+
+      <button class="marg" mat-raised-button name="addNacionalidad" [ngStyle]="{'color': 'green'}"
+        (click)="addNacionalidad()">
+        <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar
+      </button><br /><br />
+
+      <table mat-table [dataSource]="dataSourceNacionalidad">
+
+        <!-- Nacionalidad Column -->
+        <ng-container matColumnDef="pais">
+          <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Pais </th>
+          <td class="paddingBetweenCols" mat-cell *matCellDef="let row">{{row.pais}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+          <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
+            <button mat-icon-button name="editNacionalidad">
+              <mat-icon>launch</mat-icon>
+            </button>
+            <button mat-icon-button name="deleteNacionalidad" (click)="deleteNacionalidad(row.pais)" color="warn">
+              <mat-icon>delete_outline</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsNacionalidad"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsNacionalidad;">
+        </tr>
+      </table>
+    </div>
+  </mat-card>
+  <!--Tipo de Empresa-->
+  <mat-card class="card-style">
+    <h3 class="special-titles2">Tipo de Empresa</h3>
+    <div class="mat-elevation-z8">
+
+      <mat-form-field class="long-form-field">
+        <input matInput name="empresa" placeholder="Empresa" [(ngModel)]="empresa.empresa">
+      </mat-form-field>
+
+      <button class="marg" mat-raised-button name="addTipoEmpresa" [ngStyle]="{'color': 'green'}"
+        (click)="addTipoEmpresa()">
+        <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar
+      </button><br /><br />
+
+      <table mat-table [dataSource]="dataSourceEmpresa">
+
+        <!-- Empresa Column -->
+        <ng-container matColumnDef="empresa">
+          <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Empresa </th>
+          <td class="paddingBetweenCols" mat-cell *matCellDef="let row">{{row.empresa}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+          <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
+            <button mat-icon-button name="editTipoEmpresa">
+              <mat-icon>launch</mat-icon>
+            </button>
+            <button mat-icon-button name="deleteTipoEmpresa" (click)="deleteTipoEmpresa(row.empresa)" color="warn">
+              <mat-icon>delete_outline</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsEmpresa"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsEmpresa;">
+        </tr>
+      </table>
+    </div>
+  </mat-card>
 
   <!--Step 4-->
   <mat-card class="card-style">
     <h3 class="special-titles2">Informacion legal del predio</h3>
     <mat-form-field class="long-form-field2">
-      <mat-select [(ngModel)]="negocioCampo" [ngModelOptions]="{standalone: true}" placeholder="Seleccionar" name="tipo">
-          <mat-option value="0">Registro/Propiedad</mat-option>
-          <mat-option value="1">Naturalezas Jurídica</mat-option>
-          <mat-option value="2">Clase de Dominio</mat-option>
-          <mat-option value="3">Tipo de Documento</mat-option>
-          <mat-option value="4">Unidad del Área</mat-option>
-          <mat-option value="5">Tipo de Medida</mat-option>   
+      <mat-select [(ngModel)]="negocioCampo" [ngModelOptions]="{standalone: true}" placeholder="Seleccionar"
+        name="tipo">
+        <mat-option value="0">Registro/Propiedad</mat-option>
+        <mat-option value="1">Naturalezas Jurídica</mat-option>
+        <mat-option value="2">Clase de Dominio</mat-option>
+        <mat-option value="3">Tipo de Documento</mat-option>
+        <mat-option value="4">Unidad del Área</mat-option>
+        <mat-option value="5">Tipo de Medida</mat-option>
       </mat-select>
     </mat-form-field>
 
     <!-- REGISTRO / PROPIEDAD SECTION -->
     <div *ngIf="negocioCampo == '0'">
       <div class="mat-elevation-z8">
-  
+
         <mat-form-field class="long-form-field">
           <input matInput name="Registro" placeholder="Registro / Propiedad" [(ngModel)]="reg.tipo">
         </mat-form-field>
-  
-        <button class="marg" mat-raised-button name="addRegistro" [ngStyle]="{'color': 'green'}" (click)="addRegistro()" >
-          <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar 
-        </button><br/><br/>
-  
+
+        <button class="marg" mat-raised-button name="addRegistro" [ngStyle]="{'color': 'green'}"
+          (click)="addRegistro()">
+          <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar
+        </button><br /><br />
+
         <table mat-table [dataSource]="dataSourceRegistro">
-        
-        <!-- Registro Column -->
-        <ng-container matColumnDef="registro">
-          <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Registro / Propiedad </th>
-          <td class="paddingBetweenCols"mat-cell *matCellDef="let row">{{row.tipo}}</td>
-        </ng-container>
-  
+
+          <!-- Registro Column -->
+          <ng-container matColumnDef="registro">
+            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Registro / Propiedad </th>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">{{row.tipo}}</td>
+          </ng-container>
+
           <ng-container matColumnDef="actions">
             <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
             <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
-              <button mat-icon-button name="editRegistro" ><mat-icon>launch</mat-icon></button>
-              <button mat-icon-button name="deleteRegistro" (click)="deleteRegistro(row.tipo)" color="warn"><mat-icon>delete_outline</mat-icon></button>
+              <button mat-icon-button name="editRegistro">
+                <mat-icon>launch</mat-icon>
+              </button>
+              <button mat-icon-button name="deleteRegistro" (click)="deleteRegistro(row.tipo)" color="warn">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
             </td>
           </ng-container>
-    
+
           <tr mat-header-row *matHeaderRowDef="displayedColumnsRegistro"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumnsRegistro">
           </tr>
@@ -161,34 +181,41 @@
     <!-- NATURALEZAS JURÍDICAS SECTION -->
     <div *ngIf="negocioCampo == '1'">
       <div class="mat-elevation-z8">
-  
+
         <mat-form-field class="long-form-field">
-          <input matInput name="naturalezaJurídica" placeholder="Naturaleza jurídica" [(ngModel)]="naturaleza.tipoNaturaleza">
+          <input matInput name="naturalezaJurídica" placeholder="Naturaleza jurídica"
+            [(ngModel)]="naturaleza.tipoNaturaleza">
         </mat-form-field>
-  
-        <button class="marg" mat-raised-button name="addNaturaleza" [ngStyle]="{'color': 'green'}" (click)="addNaturaleza()" >
+
+        <button class="marg" mat-raised-button name="addNaturaleza" [ngStyle]="{'color': 'green'}"
+          (click)="addNaturaleza()">
           <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar
-        </button><br/><br/>
-  
+        </button><br /><br />
+
         <table mat-table [dataSource]="dataSourceNaturalezaJuridica">
-        
+
           <!-- Naturaleza Column -->
           <ng-container matColumnDef="tipo">
             <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Naturaleza Jurídica </th>
-            <td class="paddingBetweenCols"mat-cell *matCellDef="let row">{{row.tipoNaturaleza}}</td>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">{{row.tipoNaturaleza}}</td>
           </ng-container>
-  
+
           <ng-container matColumnDef="actions">
             <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
             <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
-              <button mat-icon-button name="editNaturaleza" ><mat-icon>launch</mat-icon></button>
-              <button mat-icon-button name="deleteNaturaleza" (click)="deleteNaturaleza(row.tipoNaturaleza)" color="warn"><mat-icon>delete_outline</mat-icon></button>
+              <button mat-icon-button name="editNaturaleza">
+                <mat-icon>launch</mat-icon>
+              </button>
+              <button mat-icon-button name="deleteNaturaleza" (click)="deleteNaturaleza(row.tipoNaturaleza)"
+                color="warn">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
             </td>
           </ng-container>
-    
+
           <tr mat-header-row *matHeaderRowDef="displayedColumnsNaturalezaJuridica"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumnsNaturalezaJuridica">
-            
+
           </tr>
         </table>
       </div>
@@ -197,31 +224,35 @@
     <!-- CLASE DE DOMINIO SECTION -->
     <div *ngIf="negocioCampo == '2'">
       <div class="mat-elevation-z8">
-  
+
         <mat-form-field class="long-form-field">
-          <input matInput name="claseDominio" placeholder="Clase de Dominio"  [(ngModel)]="dominio.tipoDominio">
+          <input matInput name="claseDominio" placeholder="Clase de Dominio" [(ngModel)]="dominio.tipoDominio">
         </mat-form-field>
-  
-        <button class="marg" mat-raised-button name="addClaseDom" [ngStyle]="{'color': 'green'}" (click)="addDominio()" >
-          <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar 
-        </button><br/><br/>
-  
+
+        <button class="marg" mat-raised-button name="addClaseDom" [ngStyle]="{'color': 'green'}" (click)="addDominio()">
+          <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar
+        </button><br /><br />
+
         <table mat-table [dataSource]="dataSourceClaseDominio">
-        
+
           <!-- Clase de Dominio Column -->
           <ng-container matColumnDef="tipo">
             <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Clase de Dominio </th>
-            <td class="paddingBetweenCols"mat-cell *matCellDef="let row">{{row.tipoDominio}}</td>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">{{row.tipoDominio}}</td>
           </ng-container>
-  
+
           <ng-container matColumnDef="actions">
             <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
             <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
-              <button mat-icon-button name="editClaseDom" ><mat-icon>launch</mat-icon></button>
-              <button mat-icon-button name="deleteClaseDom" (click)="deleteDominio(row.tipoDominio)" color="warn"><mat-icon>delete_outline</mat-icon></button>
+              <button mat-icon-button name="editClaseDom">
+                <mat-icon>launch</mat-icon>
+              </button>
+              <button mat-icon-button name="deleteClaseDom" (click)="deleteDominio(row.tipoDominio)" color="warn">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
             </td>
           </ng-container>
-    
+
           <tr mat-header-row *matHeaderRowDef="displayedColumnsClaseDominio"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumnsClaseDominio">
           </tr>
@@ -232,31 +263,36 @@
     <!-- TIPO DE DOCUMENTO SECTION -->
     <div *ngIf="negocioCampo == '3'">
       <div class="mat-elevation-z8">
-  
+
         <mat-form-field class="long-form-field">
           <input matInput name="tipoDoc" placeholder="Tipo de Documento" [(ngModel)]="documento.tipoDoc">
         </mat-form-field>
-  
-        <button class="marg" mat-raised-button name="addTipoDoc" [ngStyle]="{'color': 'green'}" (click)="addDocumento()" >
-          <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar 
-        </button><br/><br/>
-  
+
+        <button class="marg" mat-raised-button name="addTipoDoc" [ngStyle]="{'color': 'green'}"
+          (click)="addDocumento()">
+          <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar
+        </button><br /><br />
+
         <table mat-table [dataSource]="dataSourceTipoDocumento">
-        
+
           <!-- Tipo de Documento Column -->
           <ng-container matColumnDef="tipoDoc">
             <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Tipo de Documento </th>
-            <td class="paddingBetweenCols"mat-cell *matCellDef="let row">{{row.tipoDoc}}</td>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">{{row.tipoDoc}}</td>
           </ng-container>
-  
+
           <ng-container matColumnDef="actions">
             <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
             <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
-              <button mat-icon-button name="editTipoDoc" ><mat-icon>launch</mat-icon></button>
-              <button mat-icon-button name="deleteTipoDoc" (click)="deleteDocumento(row.tipoDoc)" color="warn"><mat-icon>delete_outline</mat-icon></button>
+              <button mat-icon-button name="editTipoDoc">
+                <mat-icon>launch</mat-icon>
+              </button>
+              <button mat-icon-button name="deleteTipoDoc" (click)="deleteDocumento(row.tipoDoc)" color="warn">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
             </td>
           </ng-container>
-    
+
           <tr mat-header-row *matHeaderRowDef="displayedColumnsTipoDocumento"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumnsTipoDocumento">
           </tr>
@@ -267,31 +303,35 @@
     <!-- UNIDAD DE ÁREA SECTION -->
     <div *ngIf="negocioCampo == '4'">
       <div class="mat-elevation-z8">
-  
+
         <mat-form-field class="long-form-field">
           <input matInput name="unidadArea" placeholder="Unidad de Área" [(ngModel)]="area.area">
         </mat-form-field>
-  
-        <button class="marg" mat-raised-button name="addUnidad" [ngStyle]="{'color': 'green'}" (click)="addArea()" >
-          <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar 
-        </button><br/><br/>
-  
+
+        <button class="marg" mat-raised-button name="addUnidad" [ngStyle]="{'color': 'green'}" (click)="addArea()">
+          <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar
+        </button><br /><br />
+
         <table mat-table [dataSource]="dataSourceUnidadArea">
-        
+
           <!-- Unidad de Área Column -->
           <ng-container matColumnDef="area">
             <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Unidad de Área </th>
-            <td class="paddingBetweenCols"mat-cell *matCellDef="let row">{{row.area}}</td>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">{{row.area}}</td>
           </ng-container>
-  
+
           <ng-container matColumnDef="actions">
             <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
             <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
-              <button mat-icon-button name="editUnidad" ><mat-icon>launch</mat-icon></button>
-              <button mat-icon-button name="deleteUnidad" (click)="deleteArea(row.area)" color="warn"><mat-icon>delete_outline</mat-icon></button>
+              <button mat-icon-button name="editUnidad">
+                <mat-icon>launch</mat-icon>
+              </button>
+              <button mat-icon-button name="deleteUnidad" (click)="deleteArea(row.area)" color="warn">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
             </td>
           </ng-container>
-    
+
           <tr mat-header-row *matHeaderRowDef="displayedColumnsUnidadArea"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumnsUnidadArea">
           </tr>
@@ -302,49 +342,389 @@
     <!-- TIPO DE MEDIDA SECTION -->
     <div *ngIf="negocioCampo == '5'">
       <div class="mat-elevation-z8">
-  
+
         <mat-form-field class="long-form-field">
           <input matInput name="TipoMedida" placeholder="Tipo de Medida" [(ngModel)]="medida.medida">
         </mat-form-field>
-  
-        <button class="marg" mat-raised-button name="addTipoMedida" [ngStyle]="{'color': 'green'}" (click)="addMedida()" >
-          <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar 
-        </button><br/><br/>
-  
+
+        <button class="marg" mat-raised-button name="addTipoMedida" [ngStyle]="{'color': 'green'}"
+          (click)="addMedida()">
+          <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar
+        </button><br /><br />
+
         <table mat-table [dataSource]="dataSourceTipoMedida">
-        
+
           <!-- Tipo de Medida Column -->
           <ng-container matColumnDef="medida">
             <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Tipo de Medida </th>
-            <td class="paddingBetweenCols"mat-cell *matCellDef="let row">{{row.medida}}</td>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">{{row.medida}}</td>
           </ng-container>
-  
+
           <ng-container matColumnDef="actions">
             <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
             <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
-              <button mat-icon-button name="editTipoMedida" ><mat-icon>launch</mat-icon></button>
-              <button mat-icon-button name="deleteTipoMedida" (click)="deleteMedida(row.medida)" color="warn"><mat-icon>delete_outline</mat-icon></button>
+              <button mat-icon-button name="editTipoMedida">
+                <mat-icon>launch</mat-icon>
+              </button>
+              <button mat-icon-button name="deleteTipoMedida" (click)="deleteMedida(row.medida)" color="warn">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
             </td>
           </ng-container>
-    
+
           <tr mat-header-row *matHeaderRowDef="displayedColumnsTipoMedida"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumnsTipoMedida">
           </tr>
         </table>
       </div>
     </div>
-       
+
   </mat-card>
 
   <!--Step 4 Informacion legal del predio
   <mat-card class="card-style">
-    <h3 class="special-titles2">Info. legal del predio</h3>
-          
-  </mat-card>
--->
-  <!--Step 6 Datos complementarios
+    <h3 class="special-titles2">Info. legal del predio</h3> 
+
+  </mat-card> -->
+
+  <!--Step 6 Servicios públicos-->
   <mat-card class="card-style">
-    <h3 class="special-titles2">Datos complementarios</h3>
+    <h3 class="special-titles2">Servicios públicos</h3>
+    <mat-form-field class="long-form-field2">
+      <mat-select [(ngModel)]="serviciosPublicosCampo" [ngModelOptions]="{standalone: true}" placeholder="Seleccionar"
+        name="tipo">
+        <mat-option value="0">Acera</mat-option>
+        <mat-option value="1">Agua</mat-option>
+        <mat-option value="2">Alumbrado público</mat-option>
+        <mat-option value="3">Calle</mat-option>
+        <mat-option value="4">Drenaje</mat-option>
+        <mat-option value="5">Electricidad</mat-option>
+        <mat-option value="6">Teléfono</mat-option>
+        <mat-option value="7">Tren de aseo</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!-- ACERCA SECTION -->
+    <div *ngIf="serviciosPublicosCampo == '0'">
+      <div class="mat-elevation-z8">
+        <mat-form-field class="long-form-field">
+          <input matInput name="aceraSP" placeholder="Acera" [(ngModel)]="aceraSP.tipo">
+        </mat-form-field>
+
+        <button class="marg" mat-raised-button name="addAceraSP" [ngStyle]="{'color': 'green'}" (click)="addAceraSP()">
+          <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar
+        </button><br /><br />
+
+        <table mat-table [dataSource]="dataSourceAceraSP">
+
+          <!-- Acera Column -->
+          <ng-container matColumnDef="tipo">
+            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">{{row.tipo}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
+              <button mat-icon-button name="modifyAceraSP">
+                <mat-icon>launch</mat-icon>
+              </button>
+              <button mat-icon-button name="deleteAceraSP" (click)="deleteAceraSP(row.tipo)" color="warn">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsAceraSP"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsAceraSP;">
+          </tr>
+        </table>
+      </div>
+    </div>
+    <br>
+
+    <!-- AGUA SECTION -->
+    <div *ngIf="serviciosPublicosCampo == '1'">
+      <div class="mat-elevation-z8">
+
+        <mat-form-field class="long-form-field">
+          <input matInput name="aguaSP" placeholder="Agua" [(ngModel)]="aguaSP.tipo">
+        </mat-form-field>
+
+        <button class="marg" mat-raised-button name="addAguaSP" [ngStyle]="{'color': 'green'}" (click)="addAguaSP()">
+          <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar Agua
+        </button><br /><br />
+
+        <table mat-table [dataSource]="dataSourceAguaSP">
+
+          <!-- Agua Column -->
+          <ng-container matColumnDef="tipo">
+            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">{{row.tipo}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
+              <button mat-icon-button name="modifyAguaSP">
+                <mat-icon>launch</mat-icon>
+              </button>
+              <button mat-icon-button name="deleteAguaSP" (click)="deleteAguaSP(row.tipo)" color="warn">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsAguaSP"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsAguaSP;">
+          </tr>
+        </table>
+      </div>
+    </div>
+    <br>
+
+    <!--Alumbrado público-->
+    <div *ngIf="serviciosPublicosCampo == '2'">
+      <div class="mat-elevation-z8">
+
+        <mat-form-field class="long-form-field">
+          <input matInput name="alumPubSP" placeholder="Alumbrado público" [(ngModel)]="alumPubSP.tipo">
+        </mat-form-field>
+
+        <button class="marg" mat-raised-button name="addAlumPubSP" [ngStyle]="{'color': 'green'}"
+          (click)="addAlumPubSP()">
+          <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar
+        </button><br /><br />
+
+        <table mat-table [dataSource]="dataSourceAlumPubSP">
+
+          <!-- Alumbrado Column -->
+          <ng-container matColumnDef="tipo">
+            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">{{row.tipo}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
+              <button mat-icon-button name="modifyAlumPubSP">
+                <mat-icon>launch</mat-icon>
+              </button>
+              <button mat-icon-button name="deleteAlumPubSP" (click)="deleteAlumPubSP(row.tipo)" color="warn">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsAlumPuBSP"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsAlumPuBSP;">
+          </tr>
+        </table>
+      </div>
+    </div>
+    <br>
+
+    <!--Calle-->
+    <div *ngIf="serviciosPublicosCampo == '3'">
+      <div class="mat-elevation-z8">
+
+        <mat-form-field class="long-form-field">
+          <input matInput name="calleSP" placeholder="Calle" [(ngModel)]="calleSP.tipo">
+        </mat-form-field>
+
+        <button class="marg" mat-raised-button name="addCalleSP" [ngStyle]="{'color': 'green'}" (click)="addCalleSP()">
+          <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar
+        </button><br /><br />
+
+        <table mat-table [dataSource]="dataSourceCalleSP">
+
+          <!-- Calle Column -->
+          <ng-container matColumnDef="tipo">
+            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">{{row.tipo}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
+              <button mat-icon-button name="modifyCalleSP">
+                <mat-icon>launch</mat-icon>
+              </button>
+              <button mat-icon-button name="deleteCalleSP" (click)="deleteCalleSP(row.tipo)" color="warn">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsCalleSP"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsCalleSP;">
+          </tr>
+        </table>
+      </div>
+    </div>
+    <br>
+
+    <!--Drenaje-->
+    <div *ngIf="serviciosPublicosCampo == '4'">
+      <div class="mat-elevation-z8">
+
+        <mat-form-field class="long-form-field">
+          <input matInput name="drenajeSP" placeholder="Drenaje" [(ngModel)]="drenajeSP.tipo">
+        </mat-form-field>
+
+        <button class="marg" mat-raised-button name="addDrenajeSP" [ngStyle]="{'color': 'green'}"
+          (click)="addDrenajeSP()">
+          <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar
+        </button><br /><br />
+
+        <table mat-table [dataSource]="dataSourceDrenajeSP">
+
+          <!-- Drenaje Column -->
+          <ng-container matColumnDef="tipo">
+            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">{{row.tipo}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
+              <button mat-icon-button name="modifyDrenajeSP">
+                <mat-icon>launch</mat-icon>
+              </button>
+              <button mat-icon-button name="deleteDrenajeSP" (click)="deleteDrenajeSP(row.tipo)" color="warn">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsDrenajeSP"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsDrenajeSP;">
+          </tr>
+        </table>
+      </div>
+    </div>
+    <br>
+
+    <!--Electricidad-->
+    <div *ngIf="serviciosPublicosCampo == '5'">
+      <div class="mat-elevation-z8">
+
+        <mat-form-field class="long-form-field">
+          <input matInput name="electricidadSP" placeholder="Electricidad" [(ngModel)]="electricidadSP.tipo">
+        </mat-form-field>
+
+        <button class="marg" mat-raised-button name="addElectricidadSP" [ngStyle]="{'color': 'green'}"
+          (click)="addElectricidadSP()">
+          <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar
+        </button><br /><br />
+
+        <table mat-table [dataSource]="dataSourceElectricidadSP">
+
+          <!-- Electricidad Column -->
+          <ng-container matColumnDef="tipo">
+            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">{{row.tipo}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
+              <button mat-icon-button name="modifyElectricidadSP">
+                <mat-icon>launch</mat-icon>
+              </button>
+              <button mat-icon-button name="deleteElectricidadSP" (click)="deleteElectricidadSP(row.tipo)" color="warn">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsElectricidadSP"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsElectricidadSP;">
+          </tr>
+        </table>
+      </div>
+    </div>
+    <br>
+
+    <!--Telefono-->
+    <div *ngIf="serviciosPublicosCampo == '6'">
+      <div class="mat-elevation-z8">
+
+        <mat-form-field class="long-form-field">
+          <input matInput name="telefonoSP" placeholder="Teléfono" [(ngModel)]="telefonoSP.tipo">
+        </mat-form-field>
+
+        <button class="marg" mat-raised-button name="addTelefonoSP" [ngStyle]="{'color': 'green'}"
+          (click)="addTelefonoSP()">
+          <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar
+        </button><br /><br />
+
+        <table mat-table [dataSource]="dataSourceTelefonoSP">
+
+          <!-- Telefono Column -->
+          <ng-container matColumnDef="tipo">
+            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">{{row.tipo}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
+              <button mat-icon-button name="modifyTelefonoSP">
+                <mat-icon>launch</mat-icon>
+              </button>
+              <button mat-icon-button name="deleteTelefonoSP" (click)="deleteTelefonoSP(row.tipo)" color="warn">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsTelefonoSP"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsTelefonoSP;">
+          </tr>
+        </table>
+      </div>
+    </div>
+    <br>
+
+    <!--Tren de aseo-->
+    <div *ngIf="serviciosPublicosCampo == '7'">
+      <div class="mat-elevation-z8">
+
+        <mat-form-field class="long-form-field">
+          <input matInput name="trenAsSP" placeholder="Tren de aseo" [(ngModel)]="trenAsSP.tipo">
+        </mat-form-field>
+
+        <button class="marg" mat-raised-button name="addTrenAsSP" [ngStyle]="{'color': 'green'}"
+          (click)="addTrenAsSP()">
+          <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar
+        </button><br /><br />
+
+        <table mat-table [dataSource]="dataSourceTrenAsSP">
+
+          <!-- Tren de aseo Column -->
+          <ng-container matColumnDef="tipo">
+            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">{{row.tipo}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th class="paddingBetweenCols" mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+            <td class="paddingBetweenCols" mat-cell *matCellDef="let row">
+              <button mat-icon-button name="modifyTrenAsSP">
+                <mat-icon>launch</mat-icon>
+              </button>
+              <button mat-icon-button name="deleteTrenAsSP" (click)="deleteTrenAsSP(row.tipo)" color="warn">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsTrenAsSP"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumnsTrenAsSP;">
+          </tr>
+        </table>
+      </div>
+    </div>
   </mat-card>
-       -->
+
 </div>
