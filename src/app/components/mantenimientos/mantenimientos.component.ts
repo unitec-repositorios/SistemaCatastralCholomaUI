@@ -127,7 +127,9 @@ export class MantenimientosComponent implements OnInit {
 
 
   // Variable que decide que se muestra en el mantenimiento de negocios
-  negocioCampo: string /* = "0" */;
+  negocioCampo: string = '0';
+
+  serviciosPublicosCampo: string = '0';
 
   aceraSP: AceraSP = new AceraSP();
   aguaSP: AguaSP = new AguaSP();
