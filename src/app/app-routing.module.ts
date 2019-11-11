@@ -7,8 +7,10 @@ import { LoginComponent } from './components/login/login.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { FichaCatastralComponent } from './components/ficha-catastral/ficha-catastral.component';
 import { FichaUrbanaComponent } from './components/ficha-urbana/ficha-urbana.component';
+import { FichasRuralComponent } from './components/ficha-rural/ficha-rural.component';
 import { PropietarioComponent } from './components/propietario/propietario.component';
 import { EmpleadosComponent } from './components/empleados/empleados.component';
+import { FichasComponent } from './components/fichas/fichas.component';
 import { MantenimientosComponent } from './components/mantenimientos/mantenimientos.component';
 
 const routes: Routes = [
@@ -35,6 +37,14 @@ const routes: Routes = [
   { 
     path: 'fichaUrbana', 
     component: FichaUrbanaComponent
+  },
+  { 
+    path: 'fichaRural', 
+    component: FichasRuralComponent
+  },
+  { 
+    path: 'fichas', 
+    component: FichasComponent
   },
   { 
     path: 'propietario', 

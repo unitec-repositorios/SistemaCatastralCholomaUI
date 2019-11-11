@@ -1,0 +1,54 @@
+.Title {
+    text-align: center;
+    text-shadow: 2px 2px 12px yellow;
+    color: forestgreen;
+}
+
+.half-card-style {
+    margin: 10px 25px 10px ;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    width: 35em;
+    display: inline-grid;
+}
+
+.form-field {
+    text-align: left;
+    margin: 0px 20px 30px 20px;
+    width: 8em;
+}
+
+.long-form-field {
+    text-align: left;
+    margin: 0px 20px 30px 20px;
+    width: 13em;
+}
+
+.users-combobox {
+    text-align: left;
+    margin: 0px 20px 30px 20px;
+    width: 20em;
+}
+
+.special-titles {
+    color: rgb(39, 145, 92);
+    text-transform: uppercase;
+    margin: 25px 25px 10px 25px;
+}
+
+.button {
+    width: auto;
+}
+.textButton {
+    transform: scale(1.5, 1.5);
+    font-weight: bold;
+}
+
+.form {
+    margin-top: 60px;
+}
+
+.positive-button {
+    background-color: rgba(84,179,63,1) ;
+    color: white;
+    margin-top: 15px;
+}
