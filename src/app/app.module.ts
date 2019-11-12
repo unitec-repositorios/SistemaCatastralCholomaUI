@@ -18,7 +18,9 @@ import { FichaCatastralComponent } from './components/ficha-catastral/ficha-cata
 import { PropietarioComponent, AddPropietarioDialog } from './components/propietario/propietario.component';
 import { MainNavbarComponent } from './components/main-navbar/main-navbar.component';
 import { FichaUrbanaComponent } from './components/ficha-urbana/ficha-urbana.component';
+import { FichasRuralComponent } from './components/ficha-rural/ficha-rural.component';
 import { EmpleadosComponent } from './components/empleados/empleados.component';
+import { FichasComponent } from './components/fichas/fichas.component';
 
 //importar el http module para poder usar HTTP Client
 import { HttpClientModule } from '@angular/common/http';
@@ -33,8 +35,10 @@ import { MantenimientosComponent } from './components/mantenimientos/mantenimien
     FichaCatastralComponent,
     MainNavbarComponent,
     FichaUrbanaComponent,
+    FichasRuralComponent,
     PropietarioComponent,
     EmpleadosComponent,
+    FichasComponent,
     AddPropietarioDialog,
     MantenimientosComponent
   ],
