@@ -2,14 +2,24 @@ import { Injectable } from '@angular/core';
 import{TipoDocumento}from'../models/tipo-documento'
 import { HttpClient } from '@angular/common/http';
 
+import { AppConfigService } from '../services/app-config.service'
+
 @Injectable({
   providedIn: 'root'
 })
 export class TipoDocumentoService {
 
-  API_URL = '//catastrocholoma.azurewebsites.net/api';
+   API_URL = "Err";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    let app = new AppConfigService(http);
+    app.load().then((resolve: string) => {
+      this.API_URL = resolve;
+      //console.log(this.API_URL)
+    }).catch(()=>{
+      console.log("error...");
+    })
+  }
 
   getDocumentos() {
     return this.http.get(`${this.API_URL}/tipoDocumento`);

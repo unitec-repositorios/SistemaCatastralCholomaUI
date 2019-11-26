@@ -2,13 +2,23 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CalleSP } from '../models/calle-sp';
 
+import { AppConfigService } from '../services/app-config.service'
+
 @Injectable({
   providedIn: 'root'
 })
 export class CalleSPService {
-  API_URL = '//catastrocholoma.azurewebsites.net/api';
+   API_URL = "Err";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    let app = new AppConfigService(http);
+    app.load().then((resolve: string) => {
+      this.API_URL = resolve;
+      //console.log(this.API_URL)
+    }).catch(()=>{
+      console.log("error...");
+    })
+  }
 
   getCalleSPs() {
     return this.http.get(`${this.API_URL}/calleSP`);

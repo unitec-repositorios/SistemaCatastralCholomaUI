@@ -2,13 +2,23 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ElectricidadSP } from '../models/electricidad-sp';
 
+import { AppConfigService } from '../services/app-config.service'
+
 @Injectable({
   providedIn: 'root'
 })
 export class ElectricidadSPService {
-  API_URL = '//catastrocholoma.azurewebsites.net/api';
+   API_URL = "Err";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    let app = new AppConfigService(http);
+    app.load().then((resolve: string) => {
+      this.API_URL = resolve;
+      //console.log(this.API_URL)
+    }).catch(()=>{
+      console.log("error...");
+    })
+  }
 
   getElectricidadSPs() {
     return this.http.get(`${this.API_URL}/electricidadSP`);
