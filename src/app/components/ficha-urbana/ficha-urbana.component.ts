@@ -91,6 +91,7 @@ export class FichaUrbanaComponent implements OnInit {
   totalEdificaciones:Number = 0;
 
   calculoVT:Number = 0;
+  factorMod: Number = 0;
 
   valorCatastral: Number = 0;
   impuesto: Number = 0;
@@ -544,10 +545,11 @@ export class FichaUrbanaComponent implements OnInit {
     this.cantidadEdificaciones = Number(this.cantidadEdificaciones) + 1;
   }
 
-  calcularVT(valorBasico, area, factorMod, esEsquina){
+  calcularVT(valorBasico, area, parcela, esEsquina){
+    this.factorMod = (Number(parcela)/Number(area))*0.3+0.7;
     console.log(typeof valorBasico, valorBasico);
     console.log(typeof area, area);
-    console.log(typeof factorMod, factorMod);
+    console.log(typeof parcela, parcela);
     console.log(typeof esEsquina, esEsquina);
     switch(Number(esEsquina)){
       /*0 significa que no es de esquina*/

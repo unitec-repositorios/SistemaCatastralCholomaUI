@@ -764,8 +764,8 @@
                 <mat-form-field class="short-form-field">
                     <input matInput type="number" placeholder="Parcela Típica" name="parcelaTipica" [(ngModel)] = "propiedad.parcelaTipicaFraccion1" [ngModelOptions]="{standalone: true}">
                 </mat-form-field>
-                <mat-form-field class="short-form-field">
-                    <input matInput type="number" placeholder="Factor Modificación" name="factorMod" [(ngModel)] = "propiedad.factorModFraccion1" [ngModelOptions]="{standalone: true}">
+                <mat-form-field class="short-form-field" hintLabel = "Factor de Modificación">
+                    <input readonly matInput type="number" placeholder="{{factorMod}}" name="factorMod" [(ngModel)] = "propiedad.factorModFraccion1" [ngModelOptions]="{standalone: true}">
                 </mat-form-field>
                 <mat-form-field class="short-form-field">
                     <input matInput type="number" placeholder="Frente" name="frente" [(ngModel)] = "propiedad.frenteFraccion1" [ngModelOptions]="{standalone: true}">
@@ -776,7 +776,7 @@
                 <mat-form-field class="long-form-field" hintLabel="Cálculo">
                     <input readonly [ngStyle]="{'color': 'red'}" type="number" matInput placeholder = {{calculoVT}} name="">
                 </mat-form-field><br/>
-                <button (click)='calcularVT(propiedad.valorBasicoFraccion1, propiedad.areaFraccion1, propiedad.factorModFraccion1, propiedad.esquinaFraccion1)' >Calcular</button>
+                <button (click)='calcularVT(propiedad.valorBasicoFraccion1, propiedad.areaFraccion1, propiedad.parcelaTipicaFraccion1, propiedad.esquinaFraccion1)' >Calcular</button>
         
                 <p [ngStyle]="{'font-weight': '700'}">Fracción 2</p>
                 <mat-form-field class="form-field">
