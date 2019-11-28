@@ -90,7 +90,7 @@ export class FichaUrbanaComponent implements OnInit {
   cantidadEdificaciones = 0;
   totalEdificaciones:Number = 0;
 
-  calculoVT:Number = 0;
+  calculoVT:Number = 0; 
   factorMod: Number = 0;
 
   valorCatastral: Number = 0;
@@ -214,10 +214,6 @@ export class FichaUrbanaComponent implements OnInit {
     this.ediEsp6.Nivel= 'Planta Adicional';
     this.ediEsp7.Nivel= 'Sotano';
 
-  }
-
-  sayHi(){
-    console.log("hi!");
   }
   
   ngOnInit() {
@@ -542,6 +538,7 @@ export class FichaUrbanaComponent implements OnInit {
         console.log("No se recibió un piso correcto.");
       }
     }
+    this.calcularValorCatastral();
     this.cantidadEdificaciones = Number(this.cantidadEdificaciones) + 1;
   }
 
@@ -554,13 +551,14 @@ export class FichaUrbanaComponent implements OnInit {
     switch(Number(esEsquina)){
       /*0 significa que no es de esquina*/
       case 0:{
-        this.calculoVT = Number(valorBasico)*Number(area)*Number(factorMod);
+        this.calculoVT = Number(valorBasico)*Number(area)*Number(this.factorMod);
         console.log("Calculo VT: ",this.calculoVT);
         break;
       }
       /*1 significa que si es de esquina*/
       case 1:{
-        this.calculoVT = Number(valorBasico)*Number(area)*Number(factorMod)*1.15;
+        this.factorMod = Number(this.factorMod) * 1.15;
+        this.calculoVT = Number(valorBasico)*Number(area)*Number(this.factorMod);
         console.log("Calculo VT esquina: ",this.calculoVT);
         break;
       }
@@ -570,6 +568,8 @@ export class FichaUrbanaComponent implements OnInit {
 
       }
     }
+    this.calcularValorCatastral();
+
   }
 
   calcularValorCatastral(){

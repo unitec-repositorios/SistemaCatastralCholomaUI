@@ -776,7 +776,7 @@
                 <mat-form-field class="long-form-field" hintLabel="Cálculo">
                     <input readonly [ngStyle]="{'color': 'red'}" type="number" matInput placeholder = {{calculoVT}} name="">
                 </mat-form-field><br/>
-                <button (click)='calcularVT(propiedad.valorBasicoFraccion1, propiedad.areaFraccion1, propiedad.parcelaTipicaFraccion1, propiedad.esquinaFraccion1)' >Calcular</button>
+                <button class="positive-button" mat-button (click)='calcularVT(propiedad.valorBasicoFraccion1, propiedad.areaFraccion1, propiedad.parcelaTipicaFraccion1, propiedad.esquinaFraccion1)' >Calcular</button>
         
                 <p [ngStyle]="{'font-weight': '700'}">Fracción 2</p>
                 <mat-form-field class="form-field">
@@ -849,8 +849,8 @@
             <mat-form-field class="long-form-field" hintLabel="Cálculo por piso">
               <input matInput readonly value = {{calculoVE!}} id = "calculoPiso1" placeholder= {{calculoVE1}} name="calculo-por-piso" [(ngModel)] = "propiedad.calculoPorPisop1" [ngModelOptions]="{standalone: true}">
             </mat-form-field>
-            <button (click)='calcularVE(propiedad.area1p1, propiedad.costom2p1, propiedad.porcentajeBuenop1, "1")'>Calcular</button>         
-          
+            <button class="positive-button" (click)='calcularVE(propiedad.area1p1, propiedad.costom2p1, propiedad.porcentajeBuenop1, "1")' mat-button>Calcular</button>
+            
             <br/>
           
             <p>Piso 2</p>
@@ -875,7 +875,7 @@
             <mat-form-field class="long-form-field" hintLabel="Cálculo por piso">
               <input matInput readonly value = {{calculoVE2}} placeholder={{calculoVE2}} name="calculo-por-piso" [(ngModel)] = "propiedad.calculoPorPisop2" [ngModelOptions]="{standalone: true}" (click)='calcularVE(propiedad.area1p2, propiedad.costom2p2, propiedad.porcentajeBuenop2, "2")'>
             </mat-form-field>
-            <button (click)='calcularVE(propiedad.area1p2, propiedad.costom2p2, propiedad.porcentajeBuenop2, "2")'>Calcular</button>
+            <button class="positive-button" mat-button (click)='calcularVE(propiedad.area1p2, propiedad.costom2p2, propiedad.porcentajeBuenop2, "2")'>Calcular</button>
           
             <br/>
           
@@ -901,7 +901,7 @@
             <mat-form-field class="long-form-field" hintLabel="Cálculo por piso">
               <input matInput readonly value = {{calculoVE3}} placeholder={{calculoVE3}} name="calculo-por-piso" [(ngModel)] = "propiedad.calculoPorPisop3" [ngModelOptions]="{standalone: true}" (click)='calcularVE(propiedad.area1p3, propiedad.costom2p3, propiedad.porcentajeBuenop3, "3")'>
             </mat-form-field>
-            <button (click)='calcularVE(propiedad.area1p3, propiedad.costom2p3, propiedad.porcentajeBuenop3, "3")'>Calcular</button>
+            <button class="positive-button" mat-button (click)='calcularVE(propiedad.area1p3, propiedad.costom2p3, propiedad.porcentajeBuenop3, "3")'>Calcular</button>
           
             <br/>
           
@@ -927,7 +927,7 @@
             <mat-form-field class="long-form-field" hintLabel="Cálculo por piso">
               <input matInput readonly value = {{calculoVE4}} placeholder={{calculoVE4}} name="calculo-por-piso" [(ngModel)] = "propiedad.calculoPorPisop4" [ngModelOptions]="{standalone: true}" (click)='calcularVE(propiedad.area1p4, propiedad.costom2p4, propiedad.porcentajeBuenop4, "4")'>
             </mat-form-field>
-            <button (click)='calcularVE(propiedad.area1p4, propiedad.costom2p4, propiedad.porcentajeBuenop4, "4")'>Calcular</button>
+            <button class="positive-button" mat-button (click)='calcularVE(propiedad.area1p4, propiedad.costom2p4, propiedad.porcentajeBuenop4, "4")'>Calcular</button>
           
             <br/>
           
@@ -953,7 +953,7 @@
             <mat-form-field class="long-form-field" hintLabel="Cálculo por piso">
               <input matInput readonly value = {{calculoVE5}} placeholder={{calculoVE5}} name="calculo-por-piso" [(ngModel)] = "propiedad.calculoPorPisop5" [ngModelOptions]="{standalone: true}" (click)='calcularVE(propiedad.area1p5, propiedad.costom2p5, propiedad.porcentajeBuenop5, "5")'>
             </mat-form-field>
-            <button (click)='calcularVE(propiedad.area1p5, propiedad.costom2p5, propiedad.porcentajeBuenop5, "5")'>Calcular</button>
+            <button class="positive-button" mat-button (click)='calcularVE(propiedad.area1p5, propiedad.costom2p5, propiedad.porcentajeBuenop5, "5")'>Calcular</button>
             
             <br/>
             <br/>
@@ -965,16 +965,16 @@
           
           <br/>
           
-          <mat-form-field class="long-form-field" hintLabel="Total Edificación">
-            <input matInput readonly placeholder={{totalEdificaciones}} name="total-edificacion">
+          <mat-form-field class="long-form-field">
+            <input matInput placeholder="Total Edificación" name="total-edificacion">
           </mat-form-field>
           
           <mat-form-field class="short-form-field" hintLabel="Cant. Edificaciones">
               <input matInput readonly placeholder={{cantidadEdificaciones}} name="edificaciones">
           </mat-form-field>
           
-          <mat-form-field class="long-form-field">
-              <input matInput placeholder="Total" name="total">
+          <mat-form-field class="long-form-field" hintLabel = "Total">
+              <input matInput readonly placeholder="{{totalEdificaciones}}" name="total">
           </mat-form-field>
           <br/>
           <div class="buttons">
@@ -1136,8 +1136,8 @@
             <input readonly type="number" matInput placeholder="Valor Grabable" name="valor-grabable">
           </mat-form-field>
 
-        <mat-form-field class="center-long-data">
-            <input readonly type="number" matInput placeholder="Impuesto" name="impuesto">
+        <mat-form-field class="center-long-data" hintLabel = "Impuesto">
+            <input readonly type="number" matInput placeholder={{impuesto}} name="impuesto">
           </mat-form-field>
 
 
