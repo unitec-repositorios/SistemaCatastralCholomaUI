@@ -112,11 +112,9 @@
           <input [(ngModel)]= "infoPredio.sitio" [ngModelOptions]="{standalone:true}" matInput placeholder="Sitio" name="sitio">
         </mat-form-field>
         <mat-form-field class="form-field">
-          <input [(ngModel)]= "infoPredio.uso" [ngModelOptions]="{standalone:true}" type="number" matInput  placeholder="Uso" name="uso">
+          <input [(ngModel)]= "infoPredio.cerco" [ngModelOptions]="{standalone:true}" matInput  placeholder="Tipo de cerco" name="cerco">
         </mat-form-field>
-        <mat-form-field class="form-field">
-          <input [(ngModel)]= "infoPredio.subUso" [ngModelOptions]="{standalone:true}" type="number"  matInput placeholder="Sub Uso" name="sub-uso">
-        </mat-form-field><br/>
+        <!-- Se quitó Uso y sub uso, se agregó tipo de cerco-->
         <mat-form-field [ngStyle]="{'width': '30em', 'margin-left': '20px'}">
           <input [(ngModel)]= "infoPredio.ubicacion" [ngModelOptions]="{standalone:true}"  matInput placeholder="Ubicación del Predio" name="ubicacion-predio">
         </mat-form-field> <br/>
@@ -252,8 +250,10 @@
           <mat-form-field class="long-form-field">
             <input matInput type="number" placeholder="Mercado más Cercano(Kms)" name="mercadoCercano" [(ngModel)] = "cVecindad.mercadoCercano" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
-        
-          <mat-divider class="mat-divider"></mat-divider>
+          
+          <!--
+            <mat-divider class="mat-divider"></mat-divider>
+          -->
         
           <h4>Características de la Propiedad</h4>
           <mat-form-field class="short-form-field">
@@ -275,7 +275,9 @@
             <input matInput placeholder="Vías de Comunicación" name="viasComunicacion" [(ngModel)] = "cPropiedad.viasComunicacion" [ngModelOptions]="{standalone: true}">
           </mat-form-field><br/><br/><br/>
           
-          <mat-divider class="mat-divider"></mat-divider>
+          <!--
+            <mat-divider class="mat-divider"></mat-divider>
+          -->
 
           <h4>Recursos Hidricos</h4>
           <table style="width:100%">
@@ -403,7 +405,9 @@
               </tr>
               </table><br/>
         
-              <mat-divider class="mat-divider"></mat-divider><br/>
+              <!--
+                <mat-divider class="mat-divider"></mat-divider><br/>
+              -->
         
               <h4 class="special-titles">Uso de la Tierra</h4>
               <mat-form-field class="short-form-field">
@@ -748,6 +752,7 @@
     </mat-step>
 
     <!--Seventh part of stepper-->
+    <!--
     <mat-step [stepControl]="avaluoTerrenosFormGroup">
       <form [formGroup]="avaluoTerrenosFormGroup">
         <ng-template matStepLabel></ng-template>
@@ -814,7 +819,8 @@
         </div>
       </form>
     </mat-step>
-
+    -->
+    
     <!--Eight part of stepper-->
     <mat-step [stepControl]="avaluoEdificacionesFormGroup">
       <form [formGroup]="avaluoEdificacionesFormGroup">
