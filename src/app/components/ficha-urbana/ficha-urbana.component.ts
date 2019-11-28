@@ -49,8 +49,6 @@ import { ElectricidadSPService } from '../../services/electricidad-sp.service';
 import { TrenAsSPService } from '../../services/tren-as-sp.service';
 import { CalleSPService } from '../../services/calle-sp.service';
 
-
-
 export const MY_FORMATS = {
   parse: {
     dateInput: 'LL',
@@ -473,6 +471,7 @@ export class FichaUrbanaComponent implements OnInit {
     this.detallesAdicionales = new DetallesAdicionales();
   }
 
+  //FORMULAS
   calcularVE(area, costo, porcentaje, piso){
     console.log(typeof area, area);
     console.log(typeof costo, costo);
