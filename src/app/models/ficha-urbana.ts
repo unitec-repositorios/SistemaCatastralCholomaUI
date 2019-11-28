@@ -7,4 +7,5 @@ export class FichaUrbana {
     sitio: string;
     uso: string;
     subUso: string;
+    tipo: number;
 }
