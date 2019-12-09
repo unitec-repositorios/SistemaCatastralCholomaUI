@@ -1,7 +1,13 @@
 export class EdificacionesEspeciales {
     idedificacionesespeciales: string;
-    Nivel: string;
-    Area: number;
-    Costo: number;
     idDatosComplementarios: string;
+    nivel: string;
+    
+    area: number;
+    uso: number;
+    clase: number;
+    calidad: number;
+    costoPorMetro: number;
+    porcentajeBueno: number;
+    calculoPiso: number;
 }
