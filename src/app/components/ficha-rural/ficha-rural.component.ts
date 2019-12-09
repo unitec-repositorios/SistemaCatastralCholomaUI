@@ -113,7 +113,6 @@ export class FichasRuralComponent implements OnInit {
   //Objeto de Avaluo Urbano
   avaluoUrbano: AvaluoUrbano = new AvaluoUrbano();
   
-  
   //Objeto de datos complementarios
   datosComp: DatosComplementarios = new DatosComplementarios();
   

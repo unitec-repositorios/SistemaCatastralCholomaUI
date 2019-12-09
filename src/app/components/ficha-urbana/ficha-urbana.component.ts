@@ -218,6 +218,10 @@ export class FichaUrbanaComponent implements OnInit {
     this.ediEsp6.calculoPiso = 0;
     this.ediEsp7.calculoPiso = 0;
 
+    //inicializacion de algunos valores de avaluoUrbano
+    this.avaluoUrbano.calculoFraccion1 = 0;
+    this.avaluoUrbano.avaluo = 0;
+
   }
   
   ngOnInit() {
@@ -591,7 +595,11 @@ export class FichaUrbanaComponent implements OnInit {
       //1 significa que si es de esquina
       case 1:{
         this.avaluoUrbano.factorModFraccion1 = this.avaluoUrbano.factorModFraccion1 * 1.15;
+        if(this.avaluoUrbano.calculoFraccion1 != 0){
+          this.avaluoUrbano.avaluo = this.avaluoUrbano.avaluo -  this.avaluoUrbano.calculoFraccion1;
+        }
         this.avaluoUrbano.calculoFraccion1 = this.avaluoUrbano.valorBasicoFraccion1*this.avaluoUrbano.areaFraccion1*this.avaluoUrbano.factorModFraccion1;
+        this.avaluoUrbano.avaluo = this.avaluoUrbano.avaluo +  this.avaluoUrbano.calculoFraccion1;
         //console.log("Calculo VT: ", this.avaluoUrbano.calculoFraccion1);
         break;
       }
