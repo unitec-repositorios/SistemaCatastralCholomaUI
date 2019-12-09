@@ -81,7 +81,9 @@ export class DetallesAdicionales {
   styleUrls: ['./ficha-rural.component.css']
 })
 export class FichasRuralComponent implements OnInit {
-  cantidadEdificaciones = 0;
+  totalDetallesAdicionales:Number = 0;
+
+  cantidadEdificaciones: Number = 0;
   totalEdificaciones:Number = 0;
 
   valorCatastral: Number = 0;
@@ -497,6 +499,7 @@ export class FichasRuralComponent implements OnInit {
         }
 
         this.ediEsp1.calculoPiso = this.ediEsp1.area * this.ediEsp1.costoPorMetro * (this.ediEsp1.porcentajeBueno/100);
+        this.ediEsp1.calculoPiso = Number(this.ediEsp1.calculoPiso.toFixed(2));
         this.totalEdificaciones = Number(this.totalEdificaciones) + Number(this.ediEsp1.calculoPiso);
         console.log("Calculo piso 1: ", this.ediEsp1.calculoPiso);
         console.log("Total Edificaciones: ", this.totalEdificaciones);
@@ -515,6 +518,7 @@ export class FichasRuralComponent implements OnInit {
         }
 
         this.ediEsp2.calculoPiso = this.ediEsp2.area * this.ediEsp2.costoPorMetro * (this.ediEsp2.porcentajeBueno/100);
+        this.ediEsp2.calculoPiso = Number(this.ediEsp2.calculoPiso.toFixed(2));
         this.totalEdificaciones = Number(this.totalEdificaciones) + Number(this.ediEsp2.calculoPiso);
         console.log("Calculo piso 2: ", this.ediEsp2.calculoPiso);
         console.log("Total Edificaciones: ", this.totalEdificaciones);
@@ -531,6 +535,7 @@ export class FichasRuralComponent implements OnInit {
         }
 
         this.ediEsp3.calculoPiso = this.ediEsp3.area * this.ediEsp3.costoPorMetro * (this.ediEsp3.porcentajeBueno/100);
+        this.ediEsp3.calculoPiso = Number(this.ediEsp3.calculoPiso.toFixed(2));
         this.totalEdificaciones = Number(this.totalEdificaciones) + Number(this.ediEsp3.calculoPiso);
         console.log("Calculo piso 3: ", this.ediEsp3.calculoPiso);
         console.log("Total Edificaciones: ", this.totalEdificaciones);
@@ -547,6 +552,7 @@ export class FichasRuralComponent implements OnInit {
         }
 
         this.ediEsp4.calculoPiso = this.ediEsp4.area * this.ediEsp4.costoPorMetro * (this.ediEsp4.porcentajeBueno/100);
+        this.ediEsp4.calculoPiso = Number(this.ediEsp4.calculoPiso.toFixed(2));
         this.totalEdificaciones = Number(this.totalEdificaciones) + Number(this.ediEsp4.calculoPiso);
         console.log("Calculo piso 4: ", this.ediEsp4.calculoPiso);
         console.log("Total Edificaciones: ", this.totalEdificaciones);
@@ -563,6 +569,7 @@ export class FichasRuralComponent implements OnInit {
         }
 
         this.ediEsp5.calculoPiso = this.ediEsp5.area * this.ediEsp5.costoPorMetro * (this.ediEsp5.porcentajeBueno/100);
+        this.ediEsp5.calculoPiso = Number(this.ediEsp5.calculoPiso.toFixed(2));
         this.totalEdificaciones = Number(this.totalEdificaciones) + Number(this.ediEsp5.calculoPiso);
         console.log("Calculo piso 5: ", this.ediEsp5.calculoPiso);
         console.log("Total Edificaciones: ", this.totalEdificaciones);
@@ -572,6 +579,7 @@ export class FichasRuralComponent implements OnInit {
         console.log("No se recibió un piso correcto.");
       }
     }
+    this.totalEdificaciones = Number(this.totalEdificaciones.toFixed(2));
     this.calcularValorCatastral();
     this.cantidadEdificaciones = Number(this.cantidadEdificaciones) + 1;
   }
@@ -609,10 +617,14 @@ export class FichasRuralComponent implements OnInit {
 
   calcularDA(){
     this.detallesAdicionales.total = this.detallesAdicionales.area * this.detallesAdicionales.precioUnitario * (this.detallesAdicionales.porcentaje/100);
+    this.detallesAdicionales.total = Number(this.detallesAdicionales.total.toFixed(2));
+    this.totalDetallesAdicionales = Number(this.totalDetallesAdicionales) + this.detallesAdicionales.total; 
   }
 
   calcularValorCatastral(){
     this.valorCatastral = Number(this.totalEdificaciones) + this.avaluoUrbano.calculoFraccion1;
+    this.valorCatastral = Number(this.valorCatastral.toFixed(2));
     this.impuesto = Number(this.valorCatastral) * 0.0035;
+    this.impuesto = Number(this.impuesto.toFixed(2));
   }
 }

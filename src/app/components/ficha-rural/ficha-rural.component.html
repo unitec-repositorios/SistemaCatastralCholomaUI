@@ -1042,7 +1042,9 @@
             <button mat-raised-button (click)="addDetalleAdicional()">Agregar</button>
             </div>
         </div>
-          
+
+        <br/>
+                  
         <!--Colocar acá la tabla de detalles donde ira la lista de detalles-->
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
           
@@ -1108,15 +1110,15 @@
           <h5 class="special-titles">Ultimos datos</h5>
           <br/>
           <mat-form-field class="center-long-data">
-              <input type="number" matInput placeholder="Terreno" name="terreno">
+              <input readonly type="number" matInput placeholder="Terreno" name="terreno">
             </mat-form-field>
   
-          <mat-form-field class="center-long-data">
-              <input type="number" matInput placeholder="Edificaciones" name="edificaciones">
+          <mat-form-field class="center-long-data" hintLabel = "Edificaciones">
+              <input readonly type="number" matInput placeholder="{{totalEdificaciones}}" name="edificaciones">
             </mat-form-field>
   
-          <mat-form-field class="center-long-data">
-              <input type="number" matInput placeholder="Detalles Adicionales" name="detalles-adicionales">
+          <mat-form-field class="center-long-data" hintLabel = "Detalles Adicionales">
+              <input readonly type="number" matInput placeholder="{{totalDetallesAdicionales}}" name="detalles-adicionales">
             </mat-form-field>
   
           <!--
@@ -1126,12 +1128,12 @@
           -->
   
           <mat-form-field class="center-long-data">
-              <input type="number" matInput placeholder="Valor Declarado" name="valor-declarado">
+              <input readonly type="number" matInput placeholder="Valor Declarado" name="valor-declarado">
             </mat-form-field><br/>
   
-          <mat-form-field class="center-long-data">
+          <!--mat-form-field class="center-long-data">
               <input readonly type="number" matInput placeholder="Avalúo Total" name="avaluo-total">
-            </mat-form-field>
+            </mat-form-field-->
   
           <mat-form-field class="center-long-data">
               <input readonly type="number" matInput placeholder="Exención" name="exencion-tot">
@@ -1147,7 +1149,7 @@
   
   
           <mat-form-field class="center-long-data">
-              <input type="number" matInput placeholder="Estado del Predio" name="estado-predio">
+              <input readonly type="number" matInput placeholder="Estado del Predio" name="estado-predio">
             </mat-form-field><br/> <br/>
             <div class="buttons">
               <button class="negative-button"mat-button matStepperPrevious>Anterior &nbsp;<mat-icon>arrow_back</mat-icon></button>
