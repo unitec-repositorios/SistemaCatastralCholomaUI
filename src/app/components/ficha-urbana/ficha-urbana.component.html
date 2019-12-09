@@ -773,9 +773,14 @@
                 <mat-form-field class="short-form-field">
                     <input matInput type="number" placeholder="Frente" name="frente" [(ngModel)] = "propiedad.frenteFraccion1" [ngModelOptions]="{standalone: true}">
                 </mat-form-field>
-                <mat-form-field class="short-form-field">
-                    <input matInput type="number" placeholder="Esquina" name="esquina" [(ngModel)] = "propiedad.esquinaFraccion1" [ngModelOptions]="{standalone: true}">
+
+                <mat-form-field class="users-combobox">
+                  <mat-select [(ngModel)]="propiedad.esquinaFraccion1" placeholder="Esquina" name="esquinaFraccion1" [ngModelOptions]="{standalone: true}">
+                    <mat-option value="0">No</mat-option>
+                    <mat-option value="1">Sí</mat-option>
+                  </mat-select>
                 </mat-form-field>
+                
                 <mat-form-field class="long-form-field" hintLabel="Cálculo">
                     <input readonly [ngStyle]="{'color': 'red'}" type="number" matInput placeholder = {{calculoVT}} name="">
                 </mat-form-field><br/>
