@@ -652,7 +652,7 @@
         <h4>Edificaciones Especiales</h4>
         <p>Primera planta</p>
         <mat-form-field class="long-form-field">
-          <input matInput [(ngModel)]="ediEsp1.Area" [ngModelOptions]="{standalone:true}" placeholder="Area" name="areap1">
+          <input matInput [(ngModel)]="ediEsp1.Area1" [ngModelOptions]="{standalone:true}" placeholder="Area" name="areap1">
         </mat-form-field>
         <mat-form-field class="long-form-field">
           <input matInput [(ngModel)]="ediEsp1.Costo" [ngModelOptions]="{standalone:true}" placeholder="Costo unitario" name="costop1">
@@ -660,7 +660,7 @@
 
         <p>Segunda planta</p>
         <mat-form-field class="long-form-field">
-          <input matInput [(ngModel)]= "ediEsp2.Area" [ngModelOptions]="{standalone:true}" placeholder="Area" name="areap2">
+          <input matInput [(ngModel)]= "ediEsp2.Area1" [ngModelOptions]="{standalone:true}" placeholder="Area" name="areap2">
         </mat-form-field>
         <mat-form-field class="long-form-field">
           <input matInput [(ngModel)]="ediEsp2.Costo" [ngModelOptions]="{standalone:true}" placeholder="Costo unitario" name="costop2">
@@ -668,7 +668,7 @@
 
         <p>Tercera planta</p>
         <mat-form-field class="long-form-field">
-          <input matInput [(ngModel)]= "ediEsp3.Area" [ngModelOptions]="{standalone:true}" placeholder="Area" name="areap3">
+          <input matInput [(ngModel)]= "ediEsp3.Area1" [ngModelOptions]="{standalone:true}" placeholder="Area" name="areap3">
         </mat-form-field>
         <mat-form-field class="long-form-field">
           <input matInput [(ngModel)]="ediEsp3.Costo" [ngModelOptions]="{standalone:true}" placeholder="Costo unitario" name="costop3">
@@ -676,7 +676,7 @@
 
         <p>Cuarta planta</p>
         <mat-form-field class="long-form-field">
-          <input matInput [(ngModel)]= "ediEsp4.Area" [ngModelOptions]="{standalone:true}" placeholder="Area" name="areap4">
+          <input matInput [(ngModel)]= "ediEsp4.Area1" [ngModelOptions]="{standalone:true}" placeholder="Area" name="areap4">
         </mat-form-field>
         <mat-form-field class="long-form-field">
           <input matInput [(ngModel)]= "ediEsp4.Costo" [ngModelOptions]="{standalone:true}" placeholder="Costo unitario" name="costop4">
@@ -684,7 +684,7 @@
 
         <p>Quinta planta</p>
         <mat-form-field class="long-form-field">
-          <input matInput [(ngModel)]= "ediEsp5.Area" [ngModelOptions]="{standalone:true}" placeholder="Area" name="areap5">
+          <input matInput [(ngModel)]= "ediEsp5.Area1" [ngModelOptions]="{standalone:true}" placeholder="Area" name="areap5">
         </mat-form-field>
         <mat-form-field class="long-form-field">
           <input matInput [(ngModel)]= "ediEsp5.Costo" [ngModelOptions]="{standalone:true}" placeholder="Costo unitario" name="costop5">
@@ -692,7 +692,7 @@
       
         <p>Planta Adicional</p>
         <mat-form-field class="long-form-field">
-          <input matInput [(ngModel)]= "ediEsp6.Area" [ngModelOptions]="{standalone:true}" placeholder="Area" name="areaplantaadi">
+          <input matInput [(ngModel)]= "ediEsp6.Area1" [ngModelOptions]="{standalone:true}" placeholder="Area" name="areaplantaadi">
         </mat-form-field>
         <mat-form-field class="long-form-field">
           <input matInput [(ngModel)]= "ediEsp6.Costo" [ngModelOptions]="{standalone:true}" placeholder="Costo unitario" name="costoplantadi">
@@ -700,7 +700,7 @@
 
         <p>Sotano</p>
         <mat-form-field class="long-form-field">
-          <input matInput [(ngModel)]= "ediEsp7.Area" [ngModelOptions]="{standalone:true}" placeholder="Area" name="areas">
+          <input matInput [(ngModel)]= "ediEsp7.Area1" [ngModelOptions]="{standalone:true}" placeholder="Area" name="areas">
         </mat-form-field>
         <mat-form-field class="long-form-field">
           <input matInput [(ngModel)]= "ediEsp7.Costo" [ngModelOptions]="{standalone:true}" placeholder="Costo unitario" name="costosotano">
@@ -828,137 +828,137 @@
           <h5 class="special-titles">Avaluo de edificaciones</h5>
           <br/>
           <div mat-dialog-content>
-              <mat-form-field class="long-form-field">
-                <input matInput placeholder="Clave Catastral" name="clave-catastral">
+              <mat-form-field class="long-form-field" hintLabel = "Clave Catastral" >
+                <input matInput readonly placeholder="Clave Catastral" name="clave-catastral">
               </mat-form-field>
             
               <p>Piso 1</p>
               <mat-form-field class="long-form-field">
-                <input matInput placeholder="Área (M2)" name="area1" [(ngModel)] = "propiedad.area1p1" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Área (M2)" name="area1" [(ngModel)] = "ediEsp1.area" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput placeholder="Uso" name="uso" [(ngModel)] = "propiedad.usop1" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Uso" name="uso" [(ngModel)] = "ediEsp1.uso" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput placeholder="Clase" name="clase" [(ngModel)] = "propiedad.clasep1" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Clase" name="clase" [(ngModel)] = "ediEsp1.clase" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field" >
-                <input matInput placeholder="Calidad" name="calidad" [(ngModel)] = "propiedad.calidadp1" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Calidad" name="calidad" [(ngModel)] = "ediEsp1.calidad" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="long-form-field">
-                <input matInput placeholder="Costo/M2" name="costom2" [(ngModel)] = "propiedad.costom2p1" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Costo/M2" name="costom2" [(ngModel)] = "ediEsp1.costoPorMetro" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput placeholder="% bueno" name="porcentaje-bueno" [(ngModel)] = "propiedad.porcentajeBuenop1" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="% bueno" name="porcentaje-bueno" [(ngModel)] = "ediEsp1.porcentajeBueno" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="long-form-field" hintLabel="Cálculo por piso">
-                <input matInput readonly value = {{calculoVE!}} id = "calculoPiso1" placeholder= {{calculoVE1}} name="calculo-por-piso" [(ngModel)] = "propiedad.calculoPorPisop1" [ngModelOptions]="{standalone: true}">
+                <input matInput readonly id = "calculoPiso1" placeholder= {{ediEsp1.calculoPiso}} name="calculo-por-piso" [(ngModel)] = "propiedad.calculoPorPisop1" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
-              <button class="positive-button" (click)='calcularVE(propiedad.area1p1, propiedad.costom2p1, propiedad.porcentajeBuenop1, "1")' mat-button>Calcular</button>
+              <button class="positive-button" (click)='calcularVE("1")' mat-button>Calcular</button>
               
               <br/>
             
               <p>Piso 2</p>
               <mat-form-field class="long-form-field">
-                <input matInput placeholder="Área (M2)" name="area1" [(ngModel)] = "propiedad.area1p2" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Área (M2)" name="area1" [(ngModel)] = "ediEsp2.area" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput placeholder="Uso" name="uso" [(ngModel)] = "propiedad.usop2" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Uso" name="uso" [(ngModel)] = "ediEsp2.uso" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput placeholder="Clase" name="clase" [(ngModel)] = "propiedad.clasep2" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Clase" name="clase" [(ngModel)] = "ediEsp2.clase" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput placeholder="Calidad" name="calidad" [(ngModel)] = "propiedad.calidadp2" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Calidad" name="calidad" [(ngModel)] = "ediEsp2.calidad" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="long-form-field">
-                <input matInput placeholder="Costo/M2" name="costom2" [(ngModel)] = "propiedad.costom2p2" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Costo/M2" name="costom2" [(ngModel)] = "ediEsp2.costoPorMetro" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput placeholder="% bueno" name="porcentaje-bueno" [(ngModel)] = "propiedad.porcentajeBuenop2" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="% bueno" name="porcentaje-bueno" [(ngModel)] = "ediEsp2.porcentajeBueno" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="long-form-field" hintLabel="Cálculo por piso">
-                <input matInput readonly value = {{calculoVE2}} placeholder={{calculoVE2}} name="calculo-por-piso" [(ngModel)] = "propiedad.calculoPorPisop2" [ngModelOptions]="{standalone: true}" (click)='calcularVE(propiedad.area1p2, propiedad.costom2p2, propiedad.porcentajeBuenop2, "2")'>
+                <input matInput readonly placeholder={{ediEsp2.calculoPiso}} name="calculo-por-piso" [(ngModel)] = "propiedad.calculoPorPisop2" [ngModelOptions]="{standalone: true}" (click)='calcularVE(propiedad.area1p2, propiedad.costom2p2, propiedad.porcentajeBuenop2, "2")'>
               </mat-form-field>
-              <button class="positive-button" mat-button (click)='calcularVE(propiedad.area1p2, propiedad.costom2p2, propiedad.porcentajeBuenop2, "2")'>Calcular</button>
+              <button class="positive-button" mat-button (click)='calcularVE("2")'>Calcular</button>
             
               <br/>
             
               <p>Piso 3</p>
               <mat-form-field class="long-form-field">
-                <input matInput placeholder="Área (M2)" name="area1" [(ngModel)] = "propiedad.area1p3" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Área (M2)" name="area1" [(ngModel)] = "ediEsp3.area" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput placeholder="Uso" name="uso" [(ngModel)] = "propiedad.usop3" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Uso" name="uso" [(ngModel)] = "ediEsp3.uso" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput placeholder="Clase" name="clase" [(ngModel)] = "propiedad.clasep3" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Clase" name="clase" [(ngModel)] = "ediEsp3.clase" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput placeholder="Calidad" name="calidad" [(ngModel)] = "propiedad.calidadp3" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Calidad" name="calidad" [(ngModel)] = "ediEsp3.calidad" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="long-form-field">
-                <input matInput placeholder="Costo/M2" name="costom2" [(ngModel)] = "propiedad.costom2p3" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Costo/M2" name="costom2" [(ngModel)] = "ediEsp3.costoPorMetro" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput placeholder="% bueno" name="porcentaje-bueno" [(ngModel)] = "propiedad.porcentajeBuenop3" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="% bueno" name="porcentaje-bueno" [(ngModel)] = "ediEsp3.porcentajeBueno" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="long-form-field" hintLabel="Cálculo por piso">
-                <input matInput readonly value = {{calculoVE3}} placeholder={{calculoVE3}} name="calculo-por-piso" [(ngModel)] = "propiedad.calculoPorPisop3" [ngModelOptions]="{standalone: true}" (click)='calcularVE(propiedad.area1p3, propiedad.costom2p3, propiedad.porcentajeBuenop3, "3")'>
+                <input matInput readonly placeholder={{ediEsp3.calculoPiso}} name="calculo-por-piso" [(ngModel)] = "propiedad.calculoPorPisop2" [ngModelOptions]="{standalone: true}" (click)='calcularVE(propiedad.area1p2, propiedad.costom2p2, propiedad.porcentajeBuenop2, "2")'>
               </mat-form-field>
-              <button class="positive-button" mat-button (click)='calcularVE(propiedad.area1p3, propiedad.costom2p3, propiedad.porcentajeBuenop3, "3")'>Calcular</button>
+              <button class="positive-button" mat-button (click)='calcularVE("3")'>Calcular</button>
             
               <br/>
             
               <p>Piso 4</p>
               <mat-form-field class="long-form-field">
-                <input matInput placeholder="Área (M2)" name="area1" [(ngModel)] = "propiedad.area1p4" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Área (M2)" name="area1" [(ngModel)] = "ediEsp4.area" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput placeholder="Uso" name="uso" [(ngModel)] = "propiedad.usop4" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Uso" name="uso" [(ngModel)] = "ediEsp4.uso" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput placeholder="Clase" name="clase" [(ngModel)] = "propiedad.clasep4" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Clase" name="clase" [(ngModel)] = "ediEsp4.clase" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput placeholder="Calidad" name="calidad" [(ngModel)] = "propiedad.calidadp4" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Calidad" name="calidad" [(ngModel)] = "ediEsp4.calidad" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="long-form-field">
-                <input matInput placeholder="Costo/M2" name="costom2" [(ngModel)] = "propiedad.costom2p4" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Costo/M2" name="costom2" [(ngModel)] = "ediEsp4.costoPorMetro" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput placeholder="% bueno" name="porcentaje-bueno" [(ngModel)] = "propiedad.porcentajeBuenop4" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="% bueno" name="porcentaje-bueno" [(ngModel)] = "ediEsp4.porcentajeBueno" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="long-form-field" hintLabel="Cálculo por piso">
-                <input matInput readonly value = {{calculoVE4}} placeholder={{calculoVE4}} name="calculo-por-piso" [(ngModel)] = "propiedad.calculoPorPisop4" [ngModelOptions]="{standalone: true}" (click)='calcularVE(propiedad.area1p4, propiedad.costom2p4, propiedad.porcentajeBuenop4, "4")'>
+                <input matInput readonly placeholder={{ediEsp4.calculoPiso}} name="calculo-por-piso" [(ngModel)] = "propiedad.calculoPorPisop2" [ngModelOptions]="{standalone: true}" (click)='calcularVE(propiedad.area1p2, propiedad.costom2p2, propiedad.porcentajeBuenop2, "2")'>
               </mat-form-field>
-              <button class="positive-button" mat-button (click)='calcularVE(propiedad.area1p4, propiedad.costom2p4, propiedad.porcentajeBuenop4, "4")'>Calcular</button>
+              <button class="positive-button" mat-button (click)='calcularVE("4")'>Calcular</button>
             
               <br/>
             
               <p>Piso 5</p>
               <mat-form-field class="long-form-field">
-                <input matInput placeholder="Área (M2)" name="area1" [(ngModel)] = "propiedad.area1p5" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Área (M2)" name="area1" [(ngModel)] = "ediEsp5.area" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput placeholder="Uso" name="uso" [(ngModel)] = "propiedad.usop5" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Uso" name="uso" [(ngModel)] = "ediEsp5.uso" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput placeholder="Clase" name="clase" [(ngModel)] = "propiedad.clasep5" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Clase" name="clase" [(ngModel)] = "ediEsp5.clase" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput placeholder="Calidad" name="calidad" [(ngModel)] = "propiedad.calidadp5" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Calidad" name="calidad" [(ngModel)] = "ediEsp5.calidad" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="long-form-field">
-                <input matInput placeholder="Costo/M2" name="costom2" [(ngModel)] = "propiedad.costom2p5" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="Costo/M2" name="costom2" [(ngModel)] = "ediEsp5.costoPorMetro" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="short-form-field">
-                <input matInput placeholder="% bueno" name="porcentaje-bueno" [(ngModel)] = "propiedad.porcentajeBuenop5" [ngModelOptions]="{standalone: true}">
+                <input matInput placeholder="% bueno" name="porcentaje-bueno" [(ngModel)] = "ediEsp5.porcentajeBueno" [ngModelOptions]="{standalone: true}">
               </mat-form-field>
               <mat-form-field class="long-form-field" hintLabel="Cálculo por piso">
-                <input matInput readonly value = {{calculoVE5}} placeholder={{calculoVE5}} name="calculo-por-piso" [(ngModel)] = "propiedad.calculoPorPisop5" [ngModelOptions]="{standalone: true}" (click)='calcularVE(propiedad.area1p5, propiedad.costom2p5, propiedad.porcentajeBuenop5, "5")'>
+                <input matInput readonly placeholder={{ediEsp5.calculoPiso}} name="calculo-por-piso" [(ngModel)] = "propiedad.calculoPorPisop2" [ngModelOptions]="{standalone: true}" (click)='calcularVE(propiedad.area1p2, propiedad.costom2p2, propiedad.porcentajeBuenop2, "2")'>
               </mat-form-field>
-              <button class="positive-button" mat-button (click)='calcularVE(propiedad.area1p5, propiedad.costom2p5, propiedad.porcentajeBuenop5, "5")'>Calcular</button>
+              <button class="positive-button" mat-button (click)='calcularVE("5")'>Calcular</button>
               
               <br/>
               <br/>
@@ -994,15 +994,18 @@
       <form [formGroup]="ultimosDatosFormGroup">
         <ng-template matStepLabel></ng-template>
         <h5 class="special-titles">Detalles Adicionales</h5>
+        
         <br/>
+        
         <div>
-          <mat-form-field class="short-form-field">
-            <input matInput placeholder="Clave Catastral" name="clave-catastral">
+          <mat-form-field class="short-form-field" hintLabel = "Clave Catastral">
+            <input matInput readonly placeholder="Clave Catastral" name="clave-catastral">
           </mat-form-field>
-          <mat-form-field class="long-form-field">
-            <input matInput placeholder="Lugar" name="lugar">
+          <mat-form-field class="long-form-field" hintLabel = "Lugar/Nombre">
+            <input matInput readonly placeholder="Lugar" name="lugar">
           </mat-form-field>
           
+          <br/>
           <br/>
           
           <mat-form-field class="short-form-field">
@@ -1031,15 +1034,17 @@
           
           <br/>
           
-          <mat-form-field class="long-form-field">
-            <input matInput [(ngModel)]="detallesAdicionales.total" [ngModelOptions]="{standalone: true}" placeholder="Total" name="total">
-          </mat-form-field>
+          <!--mat-form-field class="long-form-field">
+            <input matInput readonly [(ngModel)]="detallesAdicionales.total" [ngModelOptions]="{standalone: true}" placeholder="Total" name="total">
+          </mat-form-field-->
           
           <div mat-dialog-actions>
             <button mat-raised-button (click)="addDetalleAdicional()">Agregar</button>
             </div>
         </div>
-          
+
+        <br/>
+                  
         <!--Colocar acá la tabla de detalles donde ira la lista de detalles-->
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
           
@@ -1105,15 +1110,15 @@
           <h5 class="special-titles">Ultimos datos</h5>
           <br/>
           <mat-form-field class="center-long-data">
-              <input type="number" matInput placeholder="Terreno" name="terreno">
+              <input readonly type="number" matInput placeholder="Terreno" name="terreno">
             </mat-form-field>
   
-          <mat-form-field class="center-long-data">
-              <input type="number" matInput placeholder="Edificaciones" name="edificaciones">
+          <mat-form-field class="center-long-data" hintLabel = "Edificaciones">
+              <input readonly type="number" matInput placeholder="{{totalEdificaciones}}" name="edificaciones">
             </mat-form-field>
   
-          <mat-form-field class="center-long-data">
-              <input type="number" matInput placeholder="Detalles Adicionales" name="detalles-adicionales">
+          <mat-form-field class="center-long-data" hintLabel = "Detalles Adicionales">
+              <input readonly type="number" matInput placeholder="{{totalDetallesAdicionales}}" name="detalles-adicionales">
             </mat-form-field>
   
           <!--
@@ -1123,12 +1128,12 @@
           -->
   
           <mat-form-field class="center-long-data">
-              <input type="number" matInput placeholder="Valor Declarado" name="valor-declarado">
+              <input readonly type="number" matInput placeholder="Valor Declarado" name="valor-declarado">
             </mat-form-field><br/>
   
-          <mat-form-field class="center-long-data">
+          <!--mat-form-field class="center-long-data">
               <input readonly type="number" matInput placeholder="Avalúo Total" name="avaluo-total">
-            </mat-form-field>
+            </mat-form-field-->
   
           <mat-form-field class="center-long-data">
               <input readonly type="number" matInput placeholder="Exención" name="exencion-tot">
@@ -1144,7 +1149,7 @@
   
   
           <mat-form-field class="center-long-data">
-              <input type="number" matInput placeholder="Estado del Predio" name="estado-predio">
+              <input readonly type="number" matInput placeholder="Estado del Predio" name="estado-predio">
             </mat-form-field><br/> <br/>
             <div class="buttons">
               <button class="negative-button"mat-button matStepperPrevious>Anterior &nbsp;<mat-icon>arrow_back</mat-icon></button>
