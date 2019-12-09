@@ -17,4 +17,5 @@ export class FichaCatastral {
     identidadPropietario: string;
     tomo: string;
     asiento: string;
+    tipo: number;
 }

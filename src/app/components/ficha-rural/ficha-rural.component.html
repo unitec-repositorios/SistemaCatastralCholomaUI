@@ -24,6 +24,15 @@
             <br/>
             <br/>
             <mat-form-field class="special-form-field">
+              <input matInput placeholder="Departamento" name="depto" [(ngModel)] = "propiedad.depto" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field class="special-form-field">
+              <input matInput placeholder="Municipio" name="aldea" [(ngModel)] = "propiedad.municipio" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field class="special-form-field">
+              <input matInput placeholder="Aldea" name="municipio" [(ngModel)] = "propiedad.aldea" [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+            <mat-form-field class="special-form-field">
               <input matInput placeholder="Mapa" name="mapa" [(ngModel)] = "propiedad.mapa" [ngModelOptions]="{standalone: true}">
             </mat-form-field>
             <mat-form-field class="special-form-field">
@@ -1151,7 +1160,7 @@
       Ha terminado de llenar el formulario.
       <div>
         <button class="negative-button" mat-raised-button matStepperPrevious>Anterior&nbsp;<mat-icon>arrow_back</mat-icon></button>
-        <button class="positive-button" mat-raised-button>Guardar Ficha &nbsp;<mat-icon>save</mat-icon></button>
+        <button class="positive-button" mat-raised-button (click)="agregarFicha()">Guardar Ficha &nbsp;<mat-icon>save</mat-icon></button>
         <button [ngStyle]="{'float': 'right'}" class="negative-button" mat-raised-button (click)="stepper.reset()">Reiniciar &nbsp;<mat-icon>delete</mat-icon></button>
       </div>
     </mat-step>

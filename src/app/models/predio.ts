@@ -20,4 +20,5 @@ export class Predio {
     tasaImpositiva: number;
     futurasRevisiones: string;
     porcentajeConcertacion: number;
+    cerco: string;
 }
