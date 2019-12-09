@@ -588,7 +588,11 @@ export class FichaUrbanaComponent implements OnInit {
     switch(this.avaluoUrbano.esquinaFraccion1){
       //0 significa que no es de esquina
       case 0:{
+        if(this.avaluoUrbano.calculoFraccion1 != 0){
+          this.avaluoUrbano.avaluo = this.avaluoUrbano.avaluo -  this.avaluoUrbano.calculoFraccion1;
+        }
         this.avaluoUrbano.calculoFraccion1 = this.avaluoUrbano.valorBasicoFraccion1*this.avaluoUrbano.areaFraccion1*this.avaluoUrbano.factorModFraccion1;
+        this.avaluoUrbano.avaluo = this.avaluoUrbano.avaluo +  this.avaluoUrbano.calculoFraccion1;
         //console.log("Calculo VT: ", this.avaluoUrbano.calculoFraccion1);
         break;
       }
