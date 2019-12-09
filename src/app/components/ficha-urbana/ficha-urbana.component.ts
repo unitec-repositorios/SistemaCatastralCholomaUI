@@ -220,6 +220,9 @@ export class FichaUrbanaComponent implements OnInit {
 
     //inicializacion de algunos valores de avaluoUrbano
     this.avaluoUrbano.calculoFraccion1 = 0;
+    this.avaluoUrbano.calculoFraccion2 = 0;
+    this.avaluoUrbano.factorModFraccion1 = 0;
+    this.avaluoUrbano.factorModFraccion2 = 0;
     this.avaluoUrbano.avaluo = 0;
 
   }
@@ -617,12 +620,24 @@ export class FichaUrbanaComponent implements OnInit {
 
   }
 
+
+  calcularVT2(){
+    this.avaluoUrbano.factorModFraccion2 = (this.avaluoUrbano.parcelaTipicaFraccion2/this.avaluoUrbano.areaFraccion2)*0.3+0.7;
+
+    if(this.avaluoUrbano.calculoFraccion2 != 0){
+      this.avaluoUrbano.avaluo = this.avaluoUrbano.avaluo -  this.avaluoUrbano.calculoFraccion2;
+    }
+    this.avaluoUrbano.calculoFraccion2 = this.avaluoUrbano.valorBasicoFraccion2*this.avaluoUrbano.areaFraccion2*this.avaluoUrbano.factorModFraccion2;
+    this.avaluoUrbano.avaluo = this.avaluoUrbano.avaluo +  this.avaluoUrbano.calculoFraccion2;
+    this.calcularValorCatastral();
+  }
+
   calcularDA(){
     this.detallesAdicionales.total = this.detallesAdicionales.area * this.detallesAdicionales.precioUnitario * (this.detallesAdicionales.porcentaje/100);
   }
 
   calcularValorCatastral(){
-    this.valorCatastral = Number(this.totalEdificaciones) + this.avaluoUrbano.calculoFraccion1;
+    this.valorCatastral = Number(this.totalEdificaciones) + this.avaluoUrbano.avaluo;
     this.impuesto = Number(this.valorCatastral) * 0.0025;
   }
 }

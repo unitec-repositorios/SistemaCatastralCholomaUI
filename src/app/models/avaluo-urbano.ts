@@ -18,7 +18,7 @@ export class AvaluoUrbano {
     factorModFraccion2: number;
     frenteFraccion2: number;
     topografiaFraccion2: number;
-    //calculoFraccion1: number;
+    calculoFraccion2: number;
 
 
 }
