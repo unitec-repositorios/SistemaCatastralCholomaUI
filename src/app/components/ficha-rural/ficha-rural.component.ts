@@ -52,6 +52,7 @@ import { AceraSPService } from '../../services/acera-sp.service';
 import { ElectricidadSPService } from '../../services/electricidad-sp.service';
 import { TrenAsSPService } from '../../services/tren-as-sp.service';
 import { CalleSPService } from '../../services/calle-sp.service';
+import { AvaluoUrbano } from 'src/app/models/avaluo-urbano';
 
 export const MY_FORMATS = {
   parse: {
@@ -84,6 +85,14 @@ export class DetallesAdicionales {
   styleUrls: ['./ficha-rural.component.css']
 })
 export class FichasRuralComponent implements OnInit {
+  totalDetallesAdicionales:Number = 0;
+
+  cantidadEdificaciones: Number = 0;
+  totalEdificaciones:Number = 0;
+
+  valorCatastral: Number = 0;
+  impuesto: Number = 0;
+
   //datos que pertenecen al stepper
   isLinear = false;
   propiedadFormGroup: FormGroup;
@@ -105,7 +114,10 @@ export class FichasRuralComponent implements OnInit {
   //Objeto propiedad
   propiedad: Propiedad = new Propiedad();
 
-  negocios: Negocios = new Negocios(); 
+  negocios: Negocios = new Negocios();
+
+  //Objeto de Avaluo Urbano
+  avaluoUrbano: AvaluoUrbano = new AvaluoUrbano();
   
   //Objeto de datos complementarios
   datosComp: DatosComplementarios = new DatosComplementarios();
@@ -195,13 +207,25 @@ export class FichasRuralComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.detallesAdicionalesDataTable);
     
     //asignaciones plantas (Edificaciones Especiales)
-    this.ediEsp1.Nivel= 'Primera planta';
-    this.ediEsp2.Nivel= 'Segunda planta';
-    this.ediEsp3.Nivel= 'Tercera planta';
-    this.ediEsp4.Nivel= 'Cuarta planta';
-    this.ediEsp5.Nivel= 'Quinta planta';
-    this.ediEsp6.Nivel= 'Planta Adicional';
-    this.ediEsp7.Nivel= 'Sotano';
+    this.ediEsp1.nivel= 'Primera planta';
+    this.ediEsp2.nivel= 'Segunda planta';
+    this.ediEsp3.nivel= 'Tercera planta';
+    this.ediEsp4.nivel= 'Cuarta planta';
+    this.ediEsp5.nivel= 'Quinta planta';
+    this.ediEsp6.nivel= 'Planta Adicional';
+    this.ediEsp7.nivel= 'Sotano';
+
+    //inicialización de los valores de cada planta
+    this.ediEsp1.calculoPiso = 0;
+    this.ediEsp2.calculoPiso = 0;
+    this.ediEsp3.calculoPiso = 0;
+    this.ediEsp4.calculoPiso = 0;
+    this.ediEsp5.calculoPiso = 0;
+    this.ediEsp6.calculoPiso = 0;
+    this.ediEsp7.calculoPiso = 0;
+    
+    //Seteamos calculoFraccion1 de avaluoUrbano porque Rural no lo necesita
+    this.avaluoUrbano.calculoFraccion1 = 0;
 
   }
   
@@ -454,6 +478,9 @@ export class FichasRuralComponent implements OnInit {
   }
 
   addDetalleAdicional() {
+
+    this.calcularDA();
+
     //Agregamos el dato del formulario al array
     this.detallesAdicionalesDataTable.push(this.detallesAdicionales);
     //Reiniciamos la tabla
@@ -495,4 +522,147 @@ export class FichasRuralComponent implements OnInit {
     )
   }
 
+  //FORMULAS
+  calcularVE(piso){
+    console.log(typeof piso, piso);
+    switch(Number(piso)){
+      case 1:{
+        console.log(typeof this.ediEsp1.area, this.ediEsp1.area);
+        console.log(typeof this.ediEsp1.costoPorMetro, this.ediEsp1.costoPorMetro);
+        console.log(typeof this.ediEsp1.porcentajeBueno, this.ediEsp1.porcentajeBueno);
+
+        if(this.ediEsp1.calculoPiso != 0){
+          this.totalEdificaciones = Number(this.totalEdificaciones) - this.ediEsp1.calculoPiso;
+          this.cantidadEdificaciones = Number(this.cantidadEdificaciones) - 1;
+        }
+
+        this.ediEsp1.calculoPiso = this.ediEsp1.area * this.ediEsp1.costoPorMetro * (this.ediEsp1.porcentajeBueno/100);
+        this.ediEsp1.calculoPiso = Number(this.ediEsp1.calculoPiso.toFixed(2));
+        this.totalEdificaciones = Number(this.totalEdificaciones) + Number(this.ediEsp1.calculoPiso);
+        console.log("Calculo piso 1: ", this.ediEsp1.calculoPiso);
+        console.log("Total Edificaciones: ", this.totalEdificaciones);
+        break;
+      }
+      case 2:{
+        console.log(typeof this.ediEsp2.area, this.ediEsp2.area);
+        console.log(typeof this.ediEsp2.costoPorMetro, this.ediEsp2.costoPorMetro);
+        console.log(typeof this.ediEsp2.porcentajeBueno, this.ediEsp2.porcentajeBueno);
+
+        if(this.ediEsp2.calculoPiso != 0){
+          alert("entro al if");
+          this.totalEdificaciones = Number(this.totalEdificaciones) - this.ediEsp2.calculoPiso;
+          this.cantidadEdificaciones = Number(this.cantidadEdificaciones) - 1;
+          alert(this.totalEdificaciones);
+        }
+
+        this.ediEsp2.calculoPiso = this.ediEsp2.area * this.ediEsp2.costoPorMetro * (this.ediEsp2.porcentajeBueno/100);
+        this.ediEsp2.calculoPiso = Number(this.ediEsp2.calculoPiso.toFixed(2));
+        this.totalEdificaciones = Number(this.totalEdificaciones) + Number(this.ediEsp2.calculoPiso);
+        console.log("Calculo piso 2: ", this.ediEsp2.calculoPiso);
+        console.log("Total Edificaciones: ", this.totalEdificaciones);
+        break;
+      }
+      case 3:{
+        console.log(typeof this.ediEsp3.area, this.ediEsp3.area);
+        console.log(typeof this.ediEsp3.costoPorMetro, this.ediEsp3.costoPorMetro);
+        console.log(typeof this.ediEsp3.porcentajeBueno, this.ediEsp3.porcentajeBueno);
+
+        if(this.ediEsp3.calculoPiso != 0){
+          this.totalEdificaciones = Number(this.totalEdificaciones) - this.ediEsp3.calculoPiso;
+          this.cantidadEdificaciones = Number(this.cantidadEdificaciones) - 1;
+        }
+
+        this.ediEsp3.calculoPiso = this.ediEsp3.area * this.ediEsp3.costoPorMetro * (this.ediEsp3.porcentajeBueno/100);
+        this.ediEsp3.calculoPiso = Number(this.ediEsp3.calculoPiso.toFixed(2));
+        this.totalEdificaciones = Number(this.totalEdificaciones) + Number(this.ediEsp3.calculoPiso);
+        console.log("Calculo piso 3: ", this.ediEsp3.calculoPiso);
+        console.log("Total Edificaciones: ", this.totalEdificaciones);
+        break;
+      }
+      case 4:{
+        console.log(typeof this.ediEsp4.area, this.ediEsp4.area);
+        console.log(typeof this.ediEsp4.costoPorMetro, this.ediEsp4.costoPorMetro);
+        console.log(typeof this.ediEsp4.porcentajeBueno, this.ediEsp4.porcentajeBueno);
+
+        if(this.ediEsp4.calculoPiso != 0){
+          this.totalEdificaciones = Number(this.totalEdificaciones) - this.ediEsp4.calculoPiso;
+          this.cantidadEdificaciones = Number(this.cantidadEdificaciones) - 1; 
+        }
+
+        this.ediEsp4.calculoPiso = this.ediEsp4.area * this.ediEsp4.costoPorMetro * (this.ediEsp4.porcentajeBueno/100);
+        this.ediEsp4.calculoPiso = Number(this.ediEsp4.calculoPiso.toFixed(2));
+        this.totalEdificaciones = Number(this.totalEdificaciones) + Number(this.ediEsp4.calculoPiso);
+        console.log("Calculo piso 4: ", this.ediEsp4.calculoPiso);
+        console.log("Total Edificaciones: ", this.totalEdificaciones);
+        break;
+      }
+      case 5:{
+        console.log(typeof this.ediEsp5.area, this.ediEsp5.area);
+        console.log(typeof this.ediEsp5.costoPorMetro, this.ediEsp5.costoPorMetro);
+        console.log(typeof this.ediEsp5.porcentajeBueno, this.ediEsp5.porcentajeBueno);
+
+        if(this.ediEsp5.calculoPiso != 0){
+          this.totalEdificaciones = Number(this.totalEdificaciones) - this.ediEsp5.calculoPiso;
+          this.cantidadEdificaciones = Number(this.cantidadEdificaciones) - 1; 
+        }
+
+        this.ediEsp5.calculoPiso = this.ediEsp5.area * this.ediEsp5.costoPorMetro * (this.ediEsp5.porcentajeBueno/100);
+        this.ediEsp5.calculoPiso = Number(this.ediEsp5.calculoPiso.toFixed(2));
+        this.totalEdificaciones = Number(this.totalEdificaciones) + Number(this.ediEsp5.calculoPiso);
+        console.log("Calculo piso 5: ", this.ediEsp5.calculoPiso);
+        console.log("Total Edificaciones: ", this.totalEdificaciones);
+        break;
+      }
+      default:{
+        console.log("No se recibió un piso correcto.");
+      }
+    }
+    this.totalEdificaciones = Number(this.totalEdificaciones.toFixed(2));
+    this.calcularValorCatastral();
+    this.cantidadEdificaciones = Number(this.cantidadEdificaciones) + 1;
+  }
+
+  calcularVT(){
+    this.avaluoUrbano.factorModFraccion1 = (this.avaluoUrbano.parcelaTipicaFraccion1/this.avaluoUrbano.areaFraccion1)*0.3+0.7;
+    //console.log(typeof this.avaluoUrbano.valorBasicoFraccion1, this.avaluoUrbano.valorBasicoFraccion1);
+    //console.log(typeof this.avaluoUrbano.areaFraccion1, this.avaluoUrbano.areaFraccion1);
+    //console.log(typeof this.avaluoUrbano.parcelaTipicaFraccion1, this.avaluoUrbano.parcelaTipicaFraccion1);
+    this.avaluoUrbano.esquinaFraccion1 = Number(this.avaluoUrbano.esquinaFraccion1);
+    //console.log(typeof this.avaluoUrbano.esquinaFraccion1, this.avaluoUrbano.esquinaFraccion1);
+    switch(this.avaluoUrbano.esquinaFraccion1){
+      //0 significa que no es de esquina
+      case 0:{
+        this.avaluoUrbano.calculoFraccion1 = this.avaluoUrbano.valorBasicoFraccion1*this.avaluoUrbano.areaFraccion1*this.avaluoUrbano.factorModFraccion1;
+        //console.log("Calculo VT: ", this.avaluoUrbano.calculoFraccion1);
+        break;
+      }
+      //1 significa que si es de esquina
+      case 1:{
+        this.avaluoUrbano.factorModFraccion1 = this.avaluoUrbano.factorModFraccion1 * 1.15;
+        this.avaluoUrbano.calculoFraccion1 = this.avaluoUrbano.valorBasicoFraccion1*this.avaluoUrbano.areaFraccion1*this.avaluoUrbano.factorModFraccion1;
+        //console.log("Calculo VT: ", this.avaluoUrbano.calculoFraccion1);
+        break;
+      }
+      default:{
+        alert("Se recibio algo diferente a [0/1] en esquina");
+        console.log("Se recibio algo diferente a [0/1] en esquina");
+
+      }
+    }
+    this.calcularValorCatastral();
+
+  }
+
+  calcularDA(){
+    this.detallesAdicionales.total = this.detallesAdicionales.area * this.detallesAdicionales.precioUnitario * (this.detallesAdicionales.porcentaje/100);
+    this.detallesAdicionales.total = Number(this.detallesAdicionales.total.toFixed(2));
+    this.totalDetallesAdicionales = Number(this.totalDetallesAdicionales) + this.detallesAdicionales.total; 
+  }
+
+  calcularValorCatastral(){
+    this.valorCatastral = Number(this.totalEdificaciones) + this.avaluoUrbano.calculoFraccion1;
+    this.valorCatastral = Number(this.valorCatastral.toFixed(2));
+    this.impuesto = Number(this.valorCatastral) * 0.0035;
+    this.impuesto = Number(this.impuesto.toFixed(2));
+  }
 }

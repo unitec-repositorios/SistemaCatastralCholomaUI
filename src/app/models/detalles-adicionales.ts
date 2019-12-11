@@ -8,4 +8,6 @@ export class DetallesAdicionales {
     comentario: number;
     valorDetallesAdicionales: number;
     idClaveCatastral: string;
+
+    total: number;
 }
