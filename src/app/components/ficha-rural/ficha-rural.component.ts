@@ -32,6 +32,10 @@ import { ElectricidadSP } from '../../models/electricidad-sp';
 import { TrenAsSP } from '../../models/tren-as-sp';
 import { CalleSP } from '../../models/calle-sp';
 
+//Componente y servicio para empujar a la base de datos
+import { FichaCatastral } from '../../models/ficha-catastral';
+import {FichasCatastralesService} from "../../services/fichas-catastrales.service";
+
 //servicios para los comboboxes
 import { TipoEmpresaService } from '../../services/tipo-empresa.service';
 import { RegistroService } from '../../services/registro.service';
@@ -198,7 +202,8 @@ export class FichasRuralComponent implements OnInit {
     private electricidad: ElectricidadSPService,
     private acera: AceraSPService,
     private alumbrado: AlumPubSPService,
-    private trenAseo: TrenAsSPService) {
+    private trenAseo: TrenAsSPService,
+    private fichaCat: FichasCatastralesService) {
     this.dataSource = new MatTableDataSource(this.detallesAdicionalesDataTable);
     
     //asignaciones plantas (Edificaciones Especiales)
@@ -482,6 +487,39 @@ export class FichasRuralComponent implements OnInit {
     this.dataSource = new MatTableDataSource(this.detallesAdicionalesDataTable);
     //reiniciamos el objeto que pertenece al formulario
     this.detallesAdicionales = new DetallesAdicionales();
+  }
+
+  agregarFicha(){
+    let nuevaFicha = new FichaCatastral;
+
+    nuevaFicha.cocata  = this.propiedad.mapa + this.propiedad.bloque + this.propiedad.predio;
+    nuevaFicha.depto = this.propiedad.depto;
+    nuevaFicha.municipio = this.propiedad.municipio;
+    nuevaFicha.aldea = this.propiedad.aldea;
+    nuevaFicha.mapa = this.propiedad.mapa;
+    nuevaFicha.bolque = this.propiedad.bloque;
+    nuevaFicha.predio = this.propiedad.predio;
+    nuevaFicha.num = ""; ////////////////////
+    nuevaFicha.maq = ""; /////////////////////
+    nuevaFicha.st = ""; //////////////////////
+    nuevaFicha.codProp = this.infoPredio.codigoPropietario;
+    nuevaFicha.codHab = this.infoPredio.codigoHabitacional;
+    nuevaFicha.noLinea = this.datosLegales.linea;
+    nuevaFicha.noFoto = this.datosLegales.foto;
+    nuevaFicha.poblacion = ""; //////////////////////
+    nuevaFicha.identidadPropietario = this.propiedad.propietarioPrincipal;
+    nuevaFicha.tomo = this.datosLegales.tomo;
+    nuevaFicha.asiento = this.datosLegales.asiento;
+    nuevaFicha.tipo = 1;
+
+    this.fichaCat.saveFichaCatastral(nuevaFicha).subscribe(
+      res => {
+        console.log("Yes" + res);
+      },
+      err => {
+        console.log(err);
+      }
+    )
   }
 
   //FORMULAS
