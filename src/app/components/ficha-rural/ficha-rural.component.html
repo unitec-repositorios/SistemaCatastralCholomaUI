@@ -7,6 +7,9 @@
     <mat-step [stepControl]="propiedadFormGroup">
       <form [formGroup]="propiedadFormGroup">
         <ng-template matStepLabel></ng-template>
+        <div class="codigo">
+          <h5 class="codigo">CLAVE: {{propiedad.mapa}} - {{propiedad.bloque}} - {{propiedad.predio}}</h5>
+        </div>
         <div>
           <h5 class="special-titles">Datos de propiedad</h5>
           <br/>
@@ -60,6 +63,9 @@
     <mat-step [stepControl]="negociosFormGroup">
       <form [formGroup]="negociosFormGroup">
         <ng-template matStepLabel></ng-template>
+        <div class="codigo">
+          <h5 class="codigo">CLAVE: {{propiedad.mapa}} - {{propiedad.bloque}} - {{propiedad.predio}}</h5>
+        </div>
         <h5 class="special-titles">Negocios</h5>
         <br/>
         <div [ngStyle]="{'padding-left': '30px'}" mat-dialog-content>
@@ -98,6 +104,9 @@
     <mat-step [stepControl]="infoPredioFormGroup">
         <form [formGroup]="infoPredioFormGroup">
         <ng-template matStepLabel></ng-template>
+        <div class="codigo">
+          <h5 class="codigo">CLAVE: {{propiedad.mapa}} - {{propiedad.bloque}} - {{propiedad.predio}}</h5>
+        </div>
         <h5 class="special-titles">Informacion del predio</h5>
         <br/>
         <!--Informacion del predio-->
@@ -161,6 +170,9 @@
     <mat-step [stepControl]="infoLegalPredioFormGroup">
       <form [formGroup]="infoLegalPredioFormGroup">
         <ng-template matStepLabel></ng-template>
+        <div class="codigo">
+          <h5 class="codigo">CLAVE: {{propiedad.mapa}} - {{propiedad.bloque}} - {{propiedad.predio}}</h5>
+        </div>
         <h5 class="special-titles">Informacion legal del predio</h5>
         <br/>
         <div>
@@ -242,6 +254,9 @@
     <mat-step [stepControl]="caracteristicasPredioFormGroup">
       <form [formGroup]="caracteristicasPredioFormGroup">
         <ng-template matStepLabel></ng-template>
+        <div class="codigo">
+          <h5 class="codigo">CLAVE: {{propiedad.mapa}} - {{propiedad.bloque}} - {{propiedad.predio}}</h5>
+        </div>
         <h5 class="special-titles">Caracteristicas del predio</h5>
         <br/>
         <div mat-dialog-content>
@@ -458,6 +473,9 @@
     <mat-step [stepControl]="datosComplementariosFormGroup">
       <form [formGroup]="datosComplementariosFormGroup">
         <ng-template matStepLabel></ng-template>
+        <div class="codigo">
+          <h5 class="codigo">CLAVE: {{propiedad.mapa}} - {{propiedad.bloque}} - {{propiedad.predio}}</h5>
+        </div>
         <h5 class="special-titles">Datos complementarios</h5>
         <br/>
         
@@ -834,6 +852,9 @@
     <mat-step [stepControl]="avaluoEdificacionesFormGroup">
         <form [formGroup]="avaluoEdificacionesFormGroup">
           <ng-template matStepLabel></ng-template>
+          <div class="codigo">
+            <h5 class="codigo">CLAVE: {{propiedad.mapa}} - {{propiedad.bloque}} - {{propiedad.predio}}</h5>
+          </div>
           <h5 class="special-titles">Avaluo de edificaciones</h5>
           <br/>
           <div mat-dialog-content>
@@ -1002,6 +1023,9 @@
     <mat-step [stepControl]="detallesAdicionalesFormGroup">
       <form [formGroup]="ultimosDatosFormGroup">
         <ng-template matStepLabel></ng-template>
+        <div class="codigo">
+          <h5 class="codigo">CLAVE: {{propiedad.mapa}} - {{propiedad.bloque}} - {{propiedad.predio}}</h5>
+        </div>
         <h5 class="special-titles">Detalles Adicionales</h5>
         
         <br/>
@@ -1116,6 +1140,9 @@
     <mat-step [stepControl]="ultimosDatosFormGroup">
         <form [formGroup]="ultimosDatosFormGroup">
           <ng-template matStepLabel></ng-template>
+          <div class="codigo">
+            <h5 class="codigo">CLAVE: {{propiedad.mapa}} - {{propiedad.bloque}} - {{propiedad.predio}}</h5>
+          </div>
           <h5 class="special-titles">Ultimos datos</h5>
           <br/>
           <mat-form-field class="center-long-data">
