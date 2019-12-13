@@ -7,6 +7,9 @@
     <mat-step [stepControl]="propiedadFormGroup">
       <form [formGroup]="propiedadFormGroup">
         <ng-template matStepLabel></ng-template>
+        <div class="codigo">
+          <h5 class="codigo">CLAVE: {{propiedad.mapa}} - {{propiedad.bloque}} - {{propiedad.predio}}</h5>
+        </div>
         <div>
           <h5 class="special-titles">Datos de propiedad</h5>
           <br/>
