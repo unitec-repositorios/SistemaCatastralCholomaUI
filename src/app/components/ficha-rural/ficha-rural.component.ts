@@ -223,6 +223,10 @@ export class FichasRuralComponent implements OnInit {
     this.ediEsp5.calculoPiso = 0;
     this.ediEsp6.calculoPiso = 0;
     this.ediEsp7.calculoPiso = 0;
+
+    //
+    //this.datosComp.fecha = new Date();
+    //this.datosComp.adquisicion = new Date();
     
     //Seteamos calculoFraccion1 de avaluoUrbano porque Rural no lo necesita
     this.avaluoUrbano.calculoFraccion1 = 0;
@@ -490,40 +494,98 @@ export class FichasRuralComponent implements OnInit {
   }
 
   agregarFicha(){
-    let nuevaFicha = new FichaCatastral;
 
-    nuevaFicha.cocata  = this.propiedad.mapa + this.propiedad.bloque + this.propiedad.predio;
-    nuevaFicha.depto = this.propiedad.depto;
-    nuevaFicha.municipio = this.propiedad.municipio;
-    nuevaFicha.aldea = this.propiedad.aldea;
-    nuevaFicha.mapa = this.propiedad.mapa;
-    nuevaFicha.bolque = this.propiedad.bloque;
-    nuevaFicha.predio = this.propiedad.predio;
-    nuevaFicha.num = ""; ////////////////////
-    nuevaFicha.maq = ""; /////////////////////
-    nuevaFicha.st = ""; //////////////////////
-    nuevaFicha.codProp = this.infoPredio.codigoPropietario;
-    nuevaFicha.codHab = this.infoPredio.codigoHabitacional;
-    nuevaFicha.noLinea = this.datosLegales.linea;
-    nuevaFicha.noFoto = this.datosLegales.foto;
-    nuevaFicha.poblacion = ""; //////////////////////
-    nuevaFicha.identidadPropietario = this.propiedad.propietarioPrincipal;
-    nuevaFicha.tomo = this.datosLegales.tomo;
-    nuevaFicha.asiento = this.datosLegales.asiento;
-    nuevaFicha.tipo = 1;
-
-    this.fichaCat.saveFichaCatastral(nuevaFicha).subscribe(
-      res => {
-        console.log("Yes" + res);
-      },
-      err => {
-        console.log(err);
+    try {
+      
+      let nuevaFicha = new FichaCatastral;
+        
+      //Asignación y validaciones según la base de datos
+      nuevaFicha.cocata  = this.propiedad.mapa + this.propiedad.bloque + this.propiedad.predio;
+      if(nuevaFicha.cocata.length > 30){
+        nuevaFicha.cocata = nuevaFicha.cocata.substring(0,30);
       }
-    )
+      nuevaFicha.depto = this.propiedad.depto;
+      if(nuevaFicha.depto.length > 30){
+        nuevaFicha.depto = nuevaFicha.depto.substring(0,30);
+      }
+      nuevaFicha.municipio = this.propiedad.municipio;
+      if(nuevaFicha.municipio.length > 30){
+        nuevaFicha.municipio = nuevaFicha.municipio.substring(0,30);
+      }
+      nuevaFicha.aldea = this.propiedad.aldea;
+      if(nuevaFicha.aldea.length > 30){
+        nuevaFicha.aldea = nuevaFicha.aldea.substring(0,30);
+      }
+      nuevaFicha.mapa = this.propiedad.mapa;
+      if(nuevaFicha.mapa.length > 10){
+        nuevaFicha.mapa = nuevaFicha.mapa.substring(0,10);
+      }
+      nuevaFicha.bolque = this.propiedad.bloque;
+      if(nuevaFicha.bolque.length > 10){
+        nuevaFicha.bolque = nuevaFicha.bolque.substring(0,10);
+      }
+      nuevaFicha.predio = this.propiedad.predio;
+      if(nuevaFicha.predio.length > 10){
+        nuevaFicha.predio = nuevaFicha.predio.substring(0,10);
+      }
+      nuevaFicha.num = ""; ////////////////////
+      nuevaFicha.maq = ""; /////////////////////
+      nuevaFicha.st = ""; //////////////////////
+      nuevaFicha.codProp = this.infoPredio.codigoPropietario;
+      if(nuevaFicha.codProp.length > 10){
+        nuevaFicha.codProp = nuevaFicha.codProp.substring(0,10);
+      }
+      nuevaFicha.codHab = this.infoPredio.codigoHabitacional;
+      if(nuevaFicha.codHab.length > 10){
+        nuevaFicha.codHab = nuevaFicha.codHab.substring(0,10);
+      }
+      nuevaFicha.noLinea = this.datosLegales.linea;
+      if(nuevaFicha.noLinea.length > 10){
+        nuevaFicha.noLinea = nuevaFicha.noLinea.substring(0,10);
+      }
+      nuevaFicha.noFoto = this.datosLegales.foto;
+      if(nuevaFicha.noFoto.length > 10){
+        nuevaFicha.noFoto = nuevaFicha.noFoto.substring(0,10);
+      }
+      nuevaFicha.poblacion = ""; //////////////////////
+      nuevaFicha.identidadPropietario = this.propiedad.propietarioPrincipal;
+      //Evaluación de expresion regular para que el id sea numerico
+      let regex = new RegExp('^[0-9]+$');
+      if(nuevaFicha.identidadPropietario.length != 13 || !regex.test(nuevaFicha.identidadPropietario)){
+        console.log("Error con el numero de identidad: debe ser numerico y de 13 caracteres");
+        alert("No se guardó la ficha. Error en el número de Identidad");
+        return;
+      }
+      nuevaFicha.tomo = this.datosLegales.tomo;
+      if(nuevaFicha.tomo.length > 10){
+        nuevaFicha.tomo = nuevaFicha.tomo.substring(0,10);
+      }
+      nuevaFicha.asiento = this.datosLegales.asiento;
+      if(nuevaFicha.asiento.length > 10){
+        nuevaFicha.asiento = nuevaFicha.asiento.substring(0,10);
+      }
+      nuevaFicha.tipo = 1;
+  
+      console.log(nuevaFicha.toJSON());
+  
+      this.fichaCat.saveFichaCatastral(nuevaFicha).subscribe(
+        res => {
+          console.log("Yes" + res);
+        },
+        err => {
+          console.log(err);
+        }
+      )
+    } catch (error) {
+      alert("Error guardando la ficha");
+      console.log(error);
+    }
   }
 
   //FORMULAS
   calcularVE(piso){
+    console.log("fecha", this.datosComp.fecha);
+    console.log("adqui", this.datosComp.adquisicion);
     console.log(typeof piso, piso);
     switch(Number(piso)){
       case 1:{
