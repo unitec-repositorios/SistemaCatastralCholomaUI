@@ -18,4 +18,28 @@ export class FichaCatastral {
     tomo: string;
     asiento: string;
     tipo: number;
+
+    toJSON() {
+        let myJSON = {
+            "cocata":this.cocata,
+            "depto": this.depto,
+            "municipio": this.municipio,
+            "aldea": this.aldea,
+            "mapa": this.mapa,
+            "bloque": this.bolque,
+            "predio": this.predio,
+            "num": this.num,
+            "maq": this.maq,
+            "st": this.st,
+            "codProp": this.codProp,
+            "noLinea": this.noLinea,
+            "noFoto": this.noFoto,
+            "poblacion": this.poblacion,
+            "identidadPropietario": this.identidadPropietario,
+            "tomo": this.tomo,
+            "asiento": this.asiento,
+            "tipo":this.tipo,
+        }
+        return myJSON;
+    }
 }

@@ -50,7 +50,7 @@
       <div>
         <h5 class="special-titles">Propietario</h5>
         <mat-form-field [ngStyle]="{'padding-left': '35px'}" class="form-field">
-          <input  type="number" matInput placeholder="Identidad" name="identidad" [ngModelOptions]="{standalone: true}" [(ngModel)] = "propiedad.propietarioPrincipal">
+          <input matInput placeholder="Identidad" name="identidad" [ngModelOptions]="{standalone: true}" [(ngModel)] = "propiedad.propietarioPrincipal">
         </mat-form-field>
       </div>
         <div class="buttons">
@@ -480,7 +480,7 @@
         <br/>
         
         <mat-form-field class="long-form-field">
-          <input matInput [(ngModel)]="datosComp.adquisicion" [ngModelOptions]= "{standalone:true}" placeholder="Fecha de Adquisicion" name= "adquisicion" >
+          <input matInput [(ngModel)]="datosComp.adquisicion" [ngModelOptions]= "{standalone:true}" [matDatepicker]="picker3" placeholder="Fecha de Adquisicion" name= "adquisicion" >
           <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
           <mat-datepicker #picker3 disabled="false"></mat-datepicker>
         </mat-form-field>
@@ -504,7 +504,7 @@
         <br/>
 
         <mat-form-field class="long-form-field">
-          <input matInput [(ngModel)]="datosComp.fecha" [ngModelOptions]="{standalone:true}" placeholder="Fecha" name="fecha">
+          <input matInput [(ngModel)]="datosComp.fecha" [ngModelOptions]="{standalone:true}" [matDatepicker]="picker4" placeholder="Fecha" name="fecha">
           <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
           <mat-datepicker #picker4 disabled="false"></mat-datepicker>
         </mat-form-field>
