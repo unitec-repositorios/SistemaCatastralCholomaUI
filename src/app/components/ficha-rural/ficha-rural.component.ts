@@ -492,12 +492,13 @@ export class FichasRuralComponent implements OnInit {
     //reiniciamos el objeto que pertenece al formulario
     this.detallesAdicionales = new DetallesAdicionales();
   }
-
+  
   agregarFicha(){
-
+    
     try {
       
       let nuevaFicha = new FichaCatastral;
+      console.log(nuevaFicha);
         
       //Asignación y validaciones según la base de datos
       nuevaFicha.cocata  = this.propiedad.mapa + this.propiedad.bloque + this.propiedad.predio;
@@ -566,7 +567,7 @@ export class FichasRuralComponent implements OnInit {
       }
       nuevaFicha.tipo = 1;
   
-      console.log(nuevaFicha.toJSON());
+      console.log(nuevaFicha);
   
       this.fichaCat.saveFichaCatastral(nuevaFicha).subscribe(
         res => {

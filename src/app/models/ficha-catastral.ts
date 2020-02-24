@@ -26,7 +26,7 @@ export class FichaCatastral {
             "municipio": this.municipio,
             "aldea": this.aldea,
             "mapa": this.mapa,
-            "bloque": this.bolque,
+            "bolque": this.bolque,
             "predio": this.predio,
             "num": this.num,
             "maq": this.maq,
