@@ -26,6 +26,7 @@ export class FichasCatastralesService {
   }
 
   saveFichaCatastral(FichaCatastral: FichaCatastral){
+    console.log(FichaCatastral);
     return this.http.post(`${this.API_URL}/FichaCatastral`, FichaCatastral);
   }
 
