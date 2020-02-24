@@ -32,6 +32,7 @@ export class FichaCatastral {
             "maq": this.maq,
             "st": this.st,
             "codProp": this.codProp,
+            "codHab": this.codHab,
             "noLinea": this.noLinea,
             "noFoto": this.noFoto,
             "poblacion": this.poblacion,
