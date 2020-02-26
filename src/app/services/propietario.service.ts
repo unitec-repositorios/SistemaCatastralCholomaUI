@@ -30,7 +30,7 @@ export class PropietarioService {
   }
 
   getPropietario(id: number) {
-    return this.http.get(`${this.API_URL}/Propietario/${id}`)
+    return this.http.get(`${this.API_URL}/Propietario/${id}`);
   }
 
   modifyPropietario(propietario: Propietario) {

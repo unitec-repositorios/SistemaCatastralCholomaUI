@@ -22,23 +22,23 @@ export class FichasCatastralesService {
   }
 
   getFichaCatastrales() {
-    return this.http.get(`${this.API_URL}/FichaCatastral`);
+    return this.http.get(`${this.API_URL}/FichasCatastrales`);
   }
 
   saveFichaCatastral(FichaCatastral: FichaCatastral){
     console.log(FichaCatastral);
-    return this.http.post(`${this.API_URL}/FichaCatastral`, FichaCatastral);
+    return this.http.post(`${this.API_URL}/FichasCatastrales`, FichaCatastral);
   }
 
   getFichaCatastral(id: string) {
-    return this.http.get(`${this.API_URL}/FichaCatastral/${id}`)
+    return this.http.get(`${this.API_URL}/FichasCatastrales/${id}`)
   }
 
   modifyFichaCatastral(FichaCatastral: FichaCatastral) {
-    return this.http.put(`${this.API_URL}/FichaCatastral/${FichaCatastral.cocata}`, FichaCatastral);
+    return this.http.put(`${this.API_URL}/FichasCatastrales/${FichaCatastral.cocata}`, FichaCatastral);
   }
 
   deleteFichaCatastral(id: string) {
-    return this.http.delete(`${this.API_URL}/FichaCatastral/${id}`);
+    return this.http.delete(`${this.API_URL}/FichasCatastrales/${id}`);
   }
 }

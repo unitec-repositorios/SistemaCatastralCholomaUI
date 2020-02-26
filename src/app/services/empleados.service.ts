@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Empleado } from '../models/empleado';
 
-import { AppConfigService } from '../services/app-config.service'
+import { AppConfigService } from '../services/app-config.service';
 
  
 
