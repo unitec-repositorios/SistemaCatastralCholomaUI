@@ -2,27 +2,27 @@
 <app-main-navbar></app-main-navbar>
 
 <div class="form" id="mainForm">
-  <h2 class="special-titles">Configuracion</h2>
+  <h2 class="special-titles">Configuración</h2>
 
   <mat-card class="card-style">
     
-    <mat-form-field class="long-form-field2">
+    <mat-form-field class="long-form-field3">
       <mat-select [(ngModel)]="vistaConf" [ngModelOptions]="{standalone: true}" placeholder="Seleccionar"
         name="tipo">
         <mat-option value="0">Sexos</mat-option>
         <mat-option value="1">Nacionalidad</mat-option>
         <mat-option value="2">Tipo de Empresa</mat-option>
-        <mat-option value="3">Informacion Legal del Predio</mat-option>
-        <mat-option value="4">Servicios Públicos</mat-option>
+        <mat-option value="3">Servicios Públicos</mat-option>
+        <mat-option value="4">Información Legal del Predio</mat-option>
       </mat-select>
     </mat-form-field>
     
     <div *ngIf="vistaConf == '0'">
       
       <!--Sexos-->
-      <mat-card class="card-style">
+      <mat-card class="card-style3">
         <h3 class="special-titles2">Sexos</h3>
-        <div class="mat-elevation-z8">
+        <div>
     
           <mat-form-field class="long-form-field">
             <input matInput name="sexo" placeholder="Tipo" [(ngModel)]="sexo.tipo">
@@ -63,9 +63,9 @@
     <div *ngIf="vistaConf == '1'">
       
       <!--Nacionalidad-->
-      <mat-card class="card-style">
+      <mat-card class="card-style3">
         <h3 class="special-titles2">Nacionalidad</h3>
-        <div class="mat-elevation-z8">
+        <div>
     
           <mat-form-field class="long-form-field">
             <input matInput name="nacionalidad" placeholder="Pais" [(ngModel)]="nacionalidad.pais">
@@ -108,9 +108,9 @@
 
     <div *ngIf="vistaConf == '2'">
       <!--Tipo de Empresa-->
-      <mat-card class="card-style">
+      <mat-card class="card-style3">
         <h3 class="special-titles2">Tipo de Empresa</h3>
-        <div class="mat-elevation-z8">
+        <div>
     
           <mat-form-field class="long-form-field">
             <input matInput name="empresa" placeholder="Empresa" [(ngModel)]="empresa.empresa">
@@ -152,9 +152,9 @@
 
     <div *ngIf="vistaConf == '4'">
       
-      <!--Step 4-->
-      <mat-card class="card-style">
-        <h3 class="special-titles2">Informacion legal del predio</h3>
+      <!--Información del Predio-->
+      <mat-card class="card-style3">
+        <h3 class="special-titles2">Información legal del predio</h3>
         <mat-form-field class="long-form-field2">
           <mat-select [(ngModel)]="negocioCampo" [ngModelOptions]="{standalone: true}" placeholder="Seleccionar"
             name="tipo">
@@ -169,8 +169,7 @@
     
         <!-- REGISTRO / PROPIEDAD SECTION -->
         <div *ngIf="negocioCampo == '0'">
-          <div class="mat-elevation-z8">
-    
+          <div>    
             <mat-form-field class="long-form-field">
               <input matInput name="Registro" placeholder="Registro / Propiedad" [(ngModel)]="reg.tipo">
             </mat-form-field>
@@ -209,7 +208,7 @@
     
         <!-- NATURALEZAS JURÍDICAS SECTION -->
         <div *ngIf="negocioCampo == '1'">
-          <div class="mat-elevation-z8">
+          <div>
     
             <mat-form-field class="long-form-field">
               <input matInput name="naturalezaJurídica" placeholder="Naturaleza jurídica"
@@ -252,7 +251,7 @@
     
         <!-- CLASE DE DOMINIO SECTION -->
         <div *ngIf="negocioCampo == '2'">
-          <div class="mat-elevation-z8">
+          <div>
     
             <mat-form-field class="long-form-field">
               <input matInput name="claseDominio" placeholder="Clase de Dominio" [(ngModel)]="dominio.tipoDominio">
@@ -291,7 +290,7 @@
     
         <!-- TIPO DE DOCUMENTO SECTION -->
         <div *ngIf="negocioCampo == '3'">
-          <div class="mat-elevation-z8">
+          <div>
     
             <mat-form-field class="long-form-field">
               <input matInput name="tipoDoc" placeholder="Tipo de Documento" [(ngModel)]="documento.tipoDoc">
@@ -331,7 +330,7 @@
     
         <!-- UNIDAD DE ÁREA SECTION -->
         <div *ngIf="negocioCampo == '4'">
-          <div class="mat-elevation-z8">
+          <div>
     
             <mat-form-field class="long-form-field">
               <input matInput name="unidadArea" placeholder="Unidad de Área" [(ngModel)]="area.area">
@@ -370,7 +369,7 @@
     
         <!-- TIPO DE MEDIDA SECTION -->
         <div *ngIf="negocioCampo == '5'">
-          <div class="mat-elevation-z8">
+          <div>
     
             <mat-form-field class="long-form-field">
               <input matInput name="TipoMedida" placeholder="Tipo de Medida" [(ngModel)]="medida.medida">
@@ -419,8 +418,8 @@
 
     <div *ngIf="vistaConf == '3'">
       
-      <!--Step 6 Servicios públicos-->
-      <mat-card class="card-style">
+      <!--Servicios Públicos-->
+      <mat-card class="card-style3">
         <h3 class="special-titles2">Servicios públicos</h3>
         <mat-form-field class="long-form-field2">
           <mat-select [(ngModel)]="serviciosPublicosCampo" [ngModelOptions]="{standalone: true}" placeholder="Seleccionar"
@@ -437,7 +436,7 @@
         </mat-form-field>
         <!-- ACERCA SECTION -->
         <div *ngIf="serviciosPublicosCampo == '0'">
-          <div class="mat-elevation-z8">
+          <div>
             <mat-form-field class="long-form-field">
               <input matInput name="aceraSP" placeholder="Acera" [(ngModel)]="aceraSP.tipo">
             </mat-form-field>
@@ -472,11 +471,9 @@
             </table>
           </div>
         </div>
-        <br>
-    
         <!-- AGUA SECTION -->
         <div *ngIf="serviciosPublicosCampo == '1'">
-          <div class="mat-elevation-z8">
+          <div>
     
             <mat-form-field class="long-form-field">
               <input matInput name="aguaSP" placeholder="Agua" [(ngModel)]="aguaSP.tipo">
@@ -512,12 +509,10 @@
             </table>
           </div>
         </div>
-        <br>
     
         <!--Alumbrado público-->
         <div *ngIf="serviciosPublicosCampo == '2'">
-          <div class="mat-elevation-z8">
-    
+          <div>
             <mat-form-field class="long-form-field">
               <input matInput name="alumPubSP" placeholder="Alumbrado público" [(ngModel)]="alumPubSP.tipo">
             </mat-form-field>
@@ -553,11 +548,10 @@
             </table>
           </div>
         </div>
-        <br>
     
         <!--Calle-->
         <div *ngIf="serviciosPublicosCampo == '3'">
-          <div class="mat-elevation-z8">
+          <div>
     
             <mat-form-field class="long-form-field">
               <input matInput name="calleSP" placeholder="Calle" [(ngModel)]="calleSP.tipo">
@@ -593,11 +587,10 @@
             </table>
           </div>
         </div>
-        <br>
     
         <!--Drenaje-->
         <div *ngIf="serviciosPublicosCampo == '4'">
-          <div class="mat-elevation-z8">
+          <div>
     
             <mat-form-field class="long-form-field">
               <input matInput name="drenajeSP" placeholder="Drenaje" [(ngModel)]="drenajeSP.tipo">
@@ -634,11 +627,10 @@
             </table>
           </div>
         </div>
-        <br>
     
         <!--Electricidad-->
         <div *ngIf="serviciosPublicosCampo == '5'">
-          <div class="mat-elevation-z8">
+          <div>
     
             <mat-form-field class="long-form-field">
               <input matInput name="electricidadSP" placeholder="Electricidad" [(ngModel)]="electricidadSP.tipo">
@@ -675,11 +667,10 @@
             </table>
           </div>
         </div>
-        <br>
     
         <!--Telefono-->
         <div *ngIf="serviciosPublicosCampo == '6'">
-          <div class="mat-elevation-z8">
+          <div>
     
             <mat-form-field class="long-form-field">
               <input matInput name="telefonoSP" placeholder="Teléfono" [(ngModel)]="telefonoSP.tipo">
@@ -716,11 +707,10 @@
             </table>
           </div>
         </div>
-        <br>
     
         <!--Tren de aseo-->
         <div *ngIf="serviciosPublicosCampo == '7'">
-          <div class="mat-elevation-z8">
+          <div>
     
             <mat-form-field class="long-form-field">
               <input matInput name="trenAsSP" placeholder="Tren de aseo" [(ngModel)]="trenAsSP.tipo">
