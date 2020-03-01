@@ -48,3 +48,15 @@
     color: white;
     margin-top: 15px;
 }
+table {
+    width: 100%;
+}
+  
+  
+td, th {
+    width: 10%;
+}
+
+.crud {
+    margin-top: 60px;
+}

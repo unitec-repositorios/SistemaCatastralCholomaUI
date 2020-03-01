@@ -1,3 +1,3 @@
 {
-    "ruta":"http://192.168.0.11:80/api"
+    "ruta":"http://localhost:6969/api"
 }
