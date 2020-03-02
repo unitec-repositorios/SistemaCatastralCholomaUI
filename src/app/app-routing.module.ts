@@ -12,6 +12,7 @@ import { PropietarioComponent } from './components/propietario/propietario.compo
 import { EmpleadosComponent } from './components/empleados/empleados.component';
 import { FichasComponent } from './components/fichas/fichas.component';
 import { MantenimientosComponent } from './components/mantenimientos/mantenimientos.component';
+import { CanActivate } from '@angular/router/src/utils/preactivation';
 
 const routes: Routes = [
   { 
@@ -23,11 +24,13 @@ const routes: Routes = [
   },
   {
     path: 'modules', 
-    component: PrincipalComponent
+    component: PrincipalComponent,
+    canActivate: [AuthGuard]
   },
   { 
     path: 'fichaCatastral', 
-    component: FichaCatastralComponent 
+    component: FichaCatastralComponent,
+    canActivate: [AuthGuard]
   },
   { 
     path: '', 
@@ -36,27 +39,33 @@ const routes: Routes = [
   },
   { 
     path: 'fichaUrbana', 
-    component: FichaUrbanaComponent
+    component: FichaUrbanaComponent,
+    canActivate: [AuthGuard]
   },
   { 
     path: 'fichaRural', 
-    component: FichasRuralComponent
+    component: FichasRuralComponent,
+    canActivate: [AuthGuard]
   },
   { 
     path: 'fichas', 
-    component: FichasComponent
+    component: FichasComponent,
+    canActivate: [AuthGuard]
   },
   { 
     path: 'propietario', 
-    component: PropietarioComponent
+    component: PropietarioComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'usuarios',
-    component: EmpleadosComponent
+    component: EmpleadosComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'mantenimientos',
-    component: MantenimientosComponent
+    component: MantenimientosComponent,
+    canActivate: [AuthGuard]
   }
 ];
 
