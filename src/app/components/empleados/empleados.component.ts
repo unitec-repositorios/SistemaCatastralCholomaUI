@@ -10,7 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./empleados.component.css']
 })
 export class EmpleadosComponent implements OnInit {
-  displayedColumns: string[] = ['nombre', 'password', 'tipo', 'actions'];
+  displayedColumns: string[] = ['nombre', 'password','UserType', 'actions'];
   dataSource: MatTableDataSource<Empleado>;
   //for permissions
   role: number;
@@ -52,6 +52,33 @@ export class EmpleadosComponent implements OnInit {
   }
 
   sendUser(): void {
+    if (this.newUser.tipo == 0){
+      this.newUser.UserType = 'Jefatura';
+  }
+  else if (this.newUser.tipo == 1) 
+  {
+      this.newUser.UserType = 'Secretaria';
+  }
+  else if (this.newUser.tipo ==2)
+  {
+      this.newUser.UserType = 'Supervisor de Atencion al Contribuyente';
+  }
+  else if (this.newUser.tipo == 3)
+  {
+      this.newUser.UserType = 'Supervisor de Archivo';
+  }
+  else if (this.newUser.tipo == 4)
+  {
+      this.newUser.UserType = 'Supervisor de Mantenimiento';
+  }
+  else if (this.newUser.tipo == 5)
+  {
+      this.newUser.UserType = 'Supervisor de Digitacion';
+  }
+  else if (this.newUser.tipo == 6)
+  {
+      this.newUser.UserType = 'Supervisor de Control de Calidad';
+  }
     this.empleadosService.saveEmpleado(this.newUser)
       .subscribe(
         res => {
@@ -97,7 +124,7 @@ export class EmpleadosComponent implements OnInit {
 
 
   onDelete(nombre: string): void {
-    if (confirm('Estas seguro de que quieres eliminar este elemento?')) {
+    if (confirm('Estas seguro que quieres eliminar este elemento?')) {
       //this.shinobiArray = this.shinobiArray.filter(x => x != this.selectedShinobi);
       //delete in database
       this.empleadosService.deleteEmpleado(nombre)
