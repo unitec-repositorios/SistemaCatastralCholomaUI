@@ -15,3 +15,47 @@
     <br/>
   </mat-card>
 </div>
+
+<div class="crud">
+  <h3 class="special-titles">Fichas Existentes</h3><br />
+  <div class="mat-elevation-z8">
+
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <!-- Nombres Column -->
+      <ng-container matColumnDef="cocata">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Codigo Ficha </th>
+        <td mat-cell *matCellDef="let row">{{row.cocata}}</td>
+      </ng-container>
+
+      <!-- password Column -->
+      <ng-container matColumnDef="identidadPropietario">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Identidad Propietario </th>
+        <td mat-cell *matCellDef="let row">{{row.identidadPropietario}}</td>
+      </ng-container>
+
+      <!-- tipo Column -->
+      <ng-container matColumnDef="mapa">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Mapa </th>
+        <td mat-cell *matCellDef="let row">{{row.mapa}}</td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button name="deleteEmpleado" *ngIf="allPrivileges" color="warn"
+            (click)="onDelete(row.nombre)">
+            <mat-icon>delete_outline</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>

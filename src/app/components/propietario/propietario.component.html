@@ -2,6 +2,12 @@
 <app-main-navbar></app-main-navbar>
 
 <div class="crud">
+
+  <h2 class="special-titles">Propietarios </h2><br/>
+  <button class="marg" mat-raised-button name="addPropietario" [ngStyle]="{'color': 'green'}" (click)="openDialogAddPropietario()" 
+  *ngIf="allPrivileges">
+    <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar Propietario
+  </button><br/><br/>
   <h3 class="special-titles">Propietarios existentes</h3><br/>
 
   
@@ -9,10 +15,7 @@
     <input matInput name="searchPropietario" (keyup)="applyFilter($event.target.value)" placeholder="Buscar">
   </mat-form-field><br/>
 
-  <button class="marg" mat-raised-button name="addPropietario" [ngStyle]="{'color': 'green'}" (click)="openDialogAddPropietario()" 
-  *ngIf="allPrivileges">
-    <mat-icon [ngStyle]="{'color': 'green'}">add</mat-icon>Agregar Propietario
-  </button><br/><br/>
+  
 
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>

@@ -3,6 +3,19 @@
 }
 
 img {
-    width: 300px;
-    height: 320px;
+    width: 450px;
+    height: 500px;
+}
+
+.container{
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+   font-size: 27px;
+   letter-spacing: -1px;
+   word-spacing: 2px;
+   color: #31C82B;
+   font-weight: 700;
+   text-decoration: none;
+   font-style: normal;
+   font-variant: normal;
+   text-transform: none;
 }
